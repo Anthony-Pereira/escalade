@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <!-- ===== Fonctionnement avec les annotations ===== -->
+
+    <!-- Prend en compte la configuration des injections (@Inject...) -->
+    <context:annotation-config/>
+
+    <!-- Scanne les packages pour trouver les beans qui se déclarent (@Named...) -->
+    <context:component-scan base-package="com.sitestudio.escalade"/>
+
+
+
+    <!-- ===== Déclaration des DAO ===== -->
+    <!--
+        <bean id="projetDao" class="org.example.demo.ticket.consumer.impl.dao.ProjetDaoImpl"/>
+        <bean id="ticketDao" class="org.example.demo.ticket.consumer.impl.dao.TicketDaoImpl"/>
+    -->
+
+    <!-- ===== DaoFactory ===== -->
+    <!--
+        <bean id="daoFactory" class="org.example.demo.ticket.business.impl.DaoFactory">
+            <property name="projetDao" ref="projetDao"/>
+            <property name="ticketDao" ref="ticketDao"/>
+        </bean>
+    -->
+
+</beans>
