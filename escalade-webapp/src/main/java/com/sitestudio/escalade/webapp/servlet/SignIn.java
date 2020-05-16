@@ -1,6 +1,7 @@
 package com.sitestudio.escalade.webapp.servlet;
 
 import com.sitestudio.escalade.model.bean.compte.Compte;
+import com.sitestudio.escalade.model.exception.NotFoundException;
 import com.sitestudio.escalade.webapp.resource.CompteResource;
 
 import javax.servlet.ServletException;
@@ -30,7 +31,13 @@ public class SignIn extends HttpServlet {
         compte.setEmail(getEmail);
         compte.setMotDePasse(getMotDePasse);
 
-            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/mySpace.jsp").forward(request,response);
+        try {
+            compteResource.getCompte(compte);
+        } catch (NotFoundException e) {
+            e.printStackTrace();
+        }
+
+        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/mySpace.jsp").forward(request,response);
 
     }
 

@@ -17,7 +17,7 @@
 					<ul class="list-unstyled">
 						<li><a href="site">Sites d'escalade</a></li>
 						<li><a href="association">Association</a></li>
-						<li><a href="evenement">Evènements</a></li>
+						<li><a href="event">Evènements</a></li>
 						<li><a href="vocabulary">Vocabulaire</a></li>
 					</ul>
 				</div>

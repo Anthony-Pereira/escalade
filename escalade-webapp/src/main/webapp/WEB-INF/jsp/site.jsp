@@ -9,8 +9,8 @@
           content="width = device-width, initial-scale = 1, shrink-to-fit = no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../../static/css/bootstrap.css">
-    <link rel="stylesheet" href="../../static/css/style.css">
+    <link rel="stylesheet" href="static/css/bootstrap.css">
+    <link rel="stylesheet" href="static/css/style.css">
 
     <title>Les amis de l'escalade</title>
 </head>
