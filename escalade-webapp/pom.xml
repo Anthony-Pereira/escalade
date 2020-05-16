@@ -11,7 +11,7 @@
   </parent>
 
   <artifactId>escalade-webapp</artifactId>
-
+  <packaging>war</packaging>
 
   <name>${projectName} - Application Web</name>
   <url>http://www.sitestudio.com/escalade</url>
