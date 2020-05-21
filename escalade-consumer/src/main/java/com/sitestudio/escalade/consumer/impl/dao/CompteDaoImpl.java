@@ -21,7 +21,8 @@ public class CompteDaoImpl extends AbstractDao implements CompteDao {
     @Override
     public Compte read(Compte compte) {
 
-        String sql = "SELECT * FROM compte WHERE email='" + compte.getEmail() + "'";
+        String sql = "SELECT * FROM compte WHERE email='" + compte.getEmail() + "' AND  mot_de_passe='" + compte.getMotDePasse() + "'";
+        // String sql = String.format("SELECT * FROM compte WHERE email='%s' AND  mot_de_passe='%s'", compte.getEmail(), compte.getMotDePasse());
 
         JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
 
@@ -77,6 +78,7 @@ public class CompteDaoImpl extends AbstractDao implements CompteDao {
                 "WHERE compte_id=:compte_id";
 
         MapSqlParameterSource mapSqlParameterSource = getMapSqlParameterSource(compte);
+        mapSqlParameterSource.addValue("pseudo", compte.getPseudo(),Types.VARCHAR);
         mapSqlParameterSource.addValue("num_de_telephone", compte.getNumTelephone(), Types.VARCHAR);
 
         NamedParameterJdbcTemplate jdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());

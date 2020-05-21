@@ -29,6 +29,8 @@
 
     <div class="jumbotron myform form bg-light">
 
+            <h1 class="text-center">Profil</h1>
+
         <div>
             <!-- recuperer la photo -->
             <c:out value="${compte.pseudo}"/>
@@ -36,17 +38,21 @@
         <div>
             <h4>À propos de moi</h4>
             <br/>
-            <p>Prénom : </p><c:out value="${compte.prenom}"/>
-            <p>Nom : </p><c:out value="${compte.nom}"/>
-            <p>Adresse : </p><c:out value="${compte.adresse}"/>
-            <p>Téléphone : </p><c:out value="${compte.numTelephone}"/>
-            <br/>
+            <ul>
+                <li>Prénom : <c:out value="${compte.prenom}"/></li>
+                <li>Nom : <c:out value="${compte.nom}"/></li>
+                <li>Pseudo : <c:out value="${compte.pseudo}"/></li>
+                <li>Adresse : <c:out value="${compte.adresse}"/></li>
+                <li>Téléphone : <c:out value="${compte.numTelephone}"/></li>
+            </ul>
         </div>
         <div>
             <h4>Information sur le compte</h4>
             <br/>
-            <p>Date d'inscription : </p>
-            <p>Dernière connexion : </p>
+            <ul>
+                <li>Date d'inscription : </li>
+                <li>Dernière connexion : </li>
+            </ul>
         </div>
 
     </div>

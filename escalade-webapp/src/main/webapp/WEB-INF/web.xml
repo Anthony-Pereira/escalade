@@ -58,6 +58,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>DeleteAccount</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.DeleteAccount</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteAccount</servlet-name>
+        <url-pattern>/deleteAccount</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>EditProfile</servlet-name>
         <servlet-class>com.sitestudio.escalade.webapp.servlet.EditProfile</servlet-class>
     </servlet>

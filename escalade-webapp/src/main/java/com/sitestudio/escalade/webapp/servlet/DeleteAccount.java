@@ -11,13 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "Parameter")
-public class Parameter extends HttpServlet {
-
+@WebServlet(name = "DeleteAccount")
+public class DeleteAccount extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/parameter.jsp").forward(request,response);
+        request.getServletContext().getRequestDispatcher("WEB-INF/jsp/deleteAccount").forward(request,response);
 
     }
 
@@ -26,20 +25,23 @@ public class Parameter extends HttpServlet {
         Compte compte = new Compte();
         CompteResource compteResource = new CompteResource();
 
-        String getEmail = request.getParameter("email");
-        String getMotDePasse = request.getParameter("motDePasse");
+        Integer getId = Integer.parseInt(request.getParameter("id"));
+        compte.setId(getId);
 
-        compte.setEmail(getEmail);
-        compte.setMotDePasse(getMotDePasse);
+        String getDelete = request.getParameter("delete");
 
-        try {
-            compteResource.updateCompte(compte);
-        } catch (NotFoundException e) {
-            e.printStackTrace();
+        if (getDelete.equals("delete") || getDelete.equals("DELETE")){
+            request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/deleteAccount.jsp").forward(request,response);
+            try {
+                compteResource.deleteCompte(compte);
+            } catch (NotFoundException e) {
+                e.printStackTrace();
+            }
+        } else {
+            request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/parameter.jsp").forward(request,response);
         }
 
-        request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/profile.jsp").forward(request,response);
-
     }
+
 
 }

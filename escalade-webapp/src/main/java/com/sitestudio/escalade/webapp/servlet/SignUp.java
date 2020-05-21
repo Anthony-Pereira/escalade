@@ -25,15 +25,15 @@ public class SignUp extends HttpServlet {
         CompteResource compteResource = new CompteResource();
         Compte compte = new Compte();
 
-        String getNom = request.getParameter("nom");
-        String getPrenom = request.getParameter("prenom");
-        String getEmail = request.getParameter("email");
-        String getMotDePasse = request.getParameter("motDePasse");
+        String nom = request.getParameter("nom");
+        String prenom = request.getParameter("prenom");
+        String email = request.getParameter("email");
+        String motDePasse = request.getParameter("motDePasse");
 
-        compte.setNom(getNom);
-        compte.setPrenom(getPrenom);
-        compte.setEmail(getEmail);
-        compte.setMotDePasse(getMotDePasse);
+        compte.setNom(nom);
+        compte.setPrenom(prenom);
+        compte.setEmail(email);
+        compte.setMotDePasse(motDePasse);
 
         try {
             compteResource.createCompte(compte);

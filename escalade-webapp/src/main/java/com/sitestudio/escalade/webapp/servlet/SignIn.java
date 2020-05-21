@@ -6,9 +6,7 @@ import com.sitestudio.escalade.webapp.resource.CompteResource;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
 
 @WebServlet(name = "SignIn")
@@ -24,12 +22,16 @@ public class SignIn extends HttpServlet {
 
         CompteResource compteResource = new CompteResource();
         Compte compte = new Compte();
+        HttpSession httpSession = request.getSession(); // Initie le moteur de session de JEE
 
-        String getEmail = request.getParameter("email");
-        String getMotDePasse = request.getParameter("motDePasse");
+        String email = request.getParameter("email");
+        String motDePasse = request.getParameter("motDePasse");
 
-        compte.setEmail(getEmail);
-        compte.setMotDePasse(getMotDePasse);
+        compte.setEmail(email);
+        compte.setMotDePasse(motDePasse);
+
+        httpSession.setAttribute("email",compte.getEmail());
+        httpSession.setAttribute("motDePasse",compte.getEmail());
 
         try {
             compteResource.getCompte(compte);
@@ -37,7 +39,11 @@ public class SignIn extends HttpServlet {
             e.printStackTrace();
         }
 
-        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/mySpace.jsp").forward(request,response);
+        if (email == compte.getEmail() && motDePasse == compte.getMotDePasse()){
+            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/mySpace.jsp").forward(request,response);
+        } else {
+            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/signIn.jsp").forward(request,response);
+        }
 
     }
 

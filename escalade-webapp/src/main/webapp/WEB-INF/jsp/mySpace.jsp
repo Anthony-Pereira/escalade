@@ -21,7 +21,7 @@
 
 	<%@include file="fragment/mySpaceNav.jsp"%>
 
-	<h1 class="text-center text-dark">Bienvenue dans votre espace</h1>
+	<h1 class="text-center text-dark">Bienvenue dans votre espace <c:out value="${email}"/></h1>
 	<br/>
 	<div class="container">
 		<div class="row d-flex justify-content-center mt-3 mb-5">
@@ -32,7 +32,7 @@
 						<h5 class="card-title">Topo</h5>
 						<p class="card-text">Ajouter et voir vos topos</p>
 						<a href="topoForm" class="btn btn-primary">allez
-							vers</a>  <!-- th:href="@{/topoForm}" --> 
+							vers</a>
 					</div>
 				</div>
 				<div class="card">
