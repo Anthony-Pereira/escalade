@@ -21,27 +21,24 @@
 
 <%@include file="fragment/mySpaceNav.jsp"%>
 
-<div class="container">
+<div class="container mb-5">
 
     <div class="d-flex justify-content-end">
         <a href="editProfile" class="btn btn-dark">Modifier</a>
     </div>
+    <div>
+        <h1 class="text-center">Profil</h1>
 
-    <div class="jumbotron myform form bg-light">
-
-            <h1 class="text-center">Profil</h1>
-
-        <div>
+        <div class="mb-5">
             <!-- recuperer la photo -->
-            <c:out value="${compte.pseudo}"/>
+            <h2><c:out value="${empty compte.pseudo ? '' : compte.pseudo}"/></h2>
         </div>
         <div>
             <h4>À propos de moi</h4>
             <br/>
-            <ul>
+            <ul class="list-unstyled">
                 <li>Prénom : <c:out value="${compte.prenom}"/></li>
                 <li>Nom : <c:out value="${compte.nom}"/></li>
-                <li>Pseudo : <c:out value="${compte.pseudo}"/></li>
                 <li>Adresse : <c:out value="${compte.adresse}"/></li>
                 <li>Téléphone : <c:out value="${compte.numTelephone}"/></li>
             </ul>
@@ -49,12 +46,11 @@
         <div>
             <h4>Information sur le compte</h4>
             <br/>
-            <ul>
+            <ul class="list-unstyled"   >
                 <li>Date d'inscription : </li>
                 <li>Dernière connexion : </li>
             </ul>
         </div>
-
     </div>
 </div>
 

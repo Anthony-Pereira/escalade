@@ -7,18 +7,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "PrivacyPolicy")
-public class PrivacyPolicy extends HttpServlet {
+@WebServlet(name = "ServletMyTrack")
+public class ServletMyTrack extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
 
-        request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/privacyPolicy.jsp").forward(request,response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/myTrack.jsp").forward(request,response);
 
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
 
-        request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/privacyPolicy.jsp").forward(request,response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/myTrack.jsp").forward(request,response);
 
     }
 

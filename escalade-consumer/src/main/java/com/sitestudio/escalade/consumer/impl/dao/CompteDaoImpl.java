@@ -75,11 +75,12 @@ public class CompteDaoImpl extends AbstractDao implements CompteDao {
 
         String sql = "UPDATE compte SET nom=:nom,prenom=:prenom,pseudo=:pseudo," +
                 "email=:email,mot_de_passe=:mot_de_passe,num_telephone=:num_telephone " +
-                "WHERE compte_id=:compte_id";
+                "WHERE compte_id=" + compte.getId();
 
         MapSqlParameterSource mapSqlParameterSource = getMapSqlParameterSource(compte);
+
         mapSqlParameterSource.addValue("pseudo", compte.getPseudo(),Types.VARCHAR);
-        mapSqlParameterSource.addValue("num_de_telephone", compte.getNumTelephone(), Types.VARCHAR);
+        mapSqlParameterSource.addValue("num_telephone", compte.getNumTelephone(), Types.VARCHAR);
 
         NamedParameterJdbcTemplate jdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
 
@@ -91,7 +92,7 @@ public class CompteDaoImpl extends AbstractDao implements CompteDao {
     @Override
     public Boolean delete(Compte compte) {
 
-        String sql = "DELETE FROM compte WHERE compte_id=:compte_id";
+        String sql = "DELETE FROM compte WHERE compte_id=" + compte.getId();
 
         MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
 
@@ -99,19 +100,23 @@ public class CompteDaoImpl extends AbstractDao implements CompteDao {
 
         NamedParameterJdbcTemplate jdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
 
-        jdbcTemplate.update(sql,mapSqlParameterSource);
+        Integer nbDelete = jdbcTemplate.update(sql,mapSqlParameterSource);
 
-        return null;
+        return nbDelete > 0;
     }
 
     private MapSqlParameterSource getMapSqlParameterSource(Compte compte) {
+
         MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
 
+        mapSqlParameterSource.addValue("compte_id",compte.getId(),Types.INTEGER);
         mapSqlParameterSource.addValue("nom", compte.getNom(), Types.VARCHAR);
         mapSqlParameterSource.addValue("prenom", compte.getPrenom(), Types.VARCHAR);
         mapSqlParameterSource.addValue("email", compte.getEmail(), Types.VARCHAR);
         mapSqlParameterSource.addValue("mot_de_passe", compte.getMotDePasse(), Types.VARCHAR);
+
         return mapSqlParameterSource;
+
     }
 
 }

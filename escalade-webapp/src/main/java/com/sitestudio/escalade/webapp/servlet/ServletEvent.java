@@ -7,18 +7,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "TopoForm")
-public class TopoForm extends HttpServlet {
+@WebServlet(name = "ServletEvent")
+public class ServletEvent extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
 
-        request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/topoForm.jsp").forward(request,response);
+        request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/event.jsp").forward(request,response);
 
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
 
-        request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/topoForm.jsp").forward(request,response);
+        request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/event.jsp").forward(request,response);
 
     }
 

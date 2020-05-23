@@ -9,33 +9,44 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(name = "EditProfile")
-public class EditProfile extends HttpServlet {
+@WebServlet(name = "ServletEditProfile")
+public class ServletEditProfile extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
 
         request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/editProfile.jsp").forward(request,response);
 
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
 
-        Compte compte = new Compte();
+        Compte compte;
         CompteResource compteResource = new CompteResource();
+        HttpSession httpSession = request.getSession();
 
-        String getPseudo = request.getParameter("pseudo");
-        String getPrenom = request.getParameter("prenom");
-        String getNom = request.getParameter("nom");
-        String getAdresse = request.getParameter("adresse");
-        String getNumTelephone = request.getParameter("numTelephone");
+        String pseudo = request.getParameter("pseudo");
+        String prenom = request.getParameter("prenom");
+        String nom = request.getParameter("nom");
+        //String adresse = request.getParameter("adresse");
+        String numTelephone = request.getParameter("numTelephone");
 
-        compte.setPseudo(getPseudo);
-        compte.setPrenom(getPrenom);
-        compte.setNom(getNom);
-        compte.setPseudo(getAdresse);
-        compte.setPseudo(getNumTelephone);
+        compte = (Compte) httpSession.getAttribute("compte");
+
+        Integer id = compte.getId();
+
+        compte.setId(id);
+        compte.setPseudo(pseudo);
+        compte.setPrenom(prenom);
+        compte.setNom(nom);
+        //compte.setAdresse(adresse);
+        compte.setNumTelephone(numTelephone);
 
         try {
             compteResource.updateCompte(compte);

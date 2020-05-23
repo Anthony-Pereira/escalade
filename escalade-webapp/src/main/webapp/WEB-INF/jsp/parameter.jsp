@@ -21,15 +21,18 @@
 
 <%@include file="fragment/mySpaceNav.jsp"%>
 
-<div class="container mb-5 bg-light">
+<div class="container mb-5">
 
             <h1 class="text-center">Paramètres</h1>
 
         <div class="mb-3">
             <h4>Votre email</h4>
-            <form action="profile" method="post">
+            <form action="emailParameter" method="post">
 
-                <p>Adresse e-mail actuelle : </p><c:out value="${compte.email}"/>
+                <div>
+                    <p>Adresse e-mail actuelle : <c:out value="${compte.email}"/></p>
+                </div>
+
 
                 <label for="email">Nouvel e-mail</label> <input type="email"
                                                                 name="email" class="form-control" id="email"
@@ -47,7 +50,7 @@
 
             <h4>Changer votre mot de passe</h4>
 
-            <form action="profile" method="post">
+            <form action="passwordParameter" method="post">
 
                 <div class = "mb-2">
 
@@ -59,9 +62,9 @@
 
                 <div class = "mb-2">
 
-                    <label for="motDePasse">Réécrire nouveau mot de passe</label> <input type="password"
-                                                                                         name="motDePasse" class="form-control" id="rewriteMotDePasse"
-                                                                                         aria-describedby="motDePasse" placeholder="Entrez votre nouveau mot de passe"/>
+                    <label for="rewriteMotDePasse">Réécrire nouveau mot de passe</label> <input type="password"
+                                                                                         name="rewriteMotDePasse" class="form-control" id="rewriteMotDePasse"
+                                                                                         aria-describedby="rewriteMotDePasse" placeholder="Entrez votre nouveau mot de passe"/>
                                                                                          <span class="text-danger"></span>
                 </div>
 

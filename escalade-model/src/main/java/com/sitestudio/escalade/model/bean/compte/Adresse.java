@@ -5,6 +5,7 @@ import com.sitestudio.escalade.model.bean.referentiel.Pays;
 import com.sitestudio.escalade.model.bean.referentiel.Region;
 
 public class Adresse {
+
     private Integer id;
     private String numero;
     private String rue;

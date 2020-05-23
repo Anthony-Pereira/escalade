@@ -23,7 +23,7 @@
 
     <div class="container mb-5 bg-light col-lg-12 d-flex justify-content-center">
 
-        <form action="profile" method="post">
+        <form action="editProfile" method="post">
 
             <div class="row">
 

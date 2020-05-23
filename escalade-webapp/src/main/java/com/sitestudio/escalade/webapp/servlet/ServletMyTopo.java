@@ -7,19 +7,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "Profile")
-public class Profile extends HttpServlet {
-
+@WebServlet(name = "ServletMyTopo")
+public class ServletMyTopo extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
 
-        request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/profile.jsp").forward(request,response);
+        request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/myTopo.jsp").forward(request,response);
 
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
 
-        request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/profile.jsp").forward(request,response);
+        request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/myTopo.jsp").forward(request,response);
 
     }
 

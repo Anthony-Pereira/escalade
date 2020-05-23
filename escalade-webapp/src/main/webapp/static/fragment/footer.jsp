@@ -27,7 +27,7 @@
 			<ul class="row list-unstyled">
 				<li><a href="aboutUs">À propos de nous</a></li>
 				<li><a href="contact">Contact</a></li>
-				<li><a href="termOfUse">Contrat d'utilisation</a></li>
+				<li><a href="termOfUs">Contrat d'utilisation</a></li>
 				<li><a href="privacyPolicy">Politique de confidentialité</a></li>
 			</ul>
 		</div>

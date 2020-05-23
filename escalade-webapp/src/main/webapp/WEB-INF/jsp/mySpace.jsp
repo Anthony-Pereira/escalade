@@ -21,8 +21,7 @@
 
 	<%@include file="fragment/mySpaceNav.jsp"%>
 
-	<h1 class="text-center text-dark">Bienvenue dans votre espace <c:out value="${email}"/></h1>
-	<br/>
+	<h1 class="text-center text-dark mb-5">Bienvenue dans votre espace <c:out value="${empty compte.pseudo ? compte.prenom : compte.pseudo}"/></h1>
 	<div class="container">
 		<div class="row d-flex justify-content-center mt-3 mb-5">
 			<div class="card-deck">
@@ -31,7 +30,7 @@
 					<div class="card-body">
 						<h5 class="card-title">Topo</h5>
 						<p class="card-text">Ajouter et voir vos topos</p>
-						<a href="topoForm" class="btn btn-primary">allez
+						<a href="myTopo" class="btn btn-primary">allez
 							vers</a>
 					</div>
 				</div>
@@ -40,7 +39,7 @@
 					<div class="card-body">
 						<h5 class="card-title">Site</h5>
 						<p class="card-text">Ajouter et voir vos sites</p>
-						<a href="siteForm" class="btn btn-primary">allez
+						<a href="mySite" class="btn btn-primary">allez
 							vers</a>
 					</div>
 				</div>

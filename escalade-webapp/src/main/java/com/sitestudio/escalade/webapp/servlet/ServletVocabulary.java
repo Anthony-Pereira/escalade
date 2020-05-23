@@ -7,18 +7,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "Event")
-public class Event extends HttpServlet {
+@WebServlet(name = "ServletVocabulary")
+public class ServletVocabulary extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
 
-        request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/event.jsp").forward(request,response);
+        request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/vocabulary.jsp").forward(request,response);
 
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
 
-        request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/event.jsp").forward(request,response);
+        request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/vocabulary.jsp").forward(request,response);
 
     }
 

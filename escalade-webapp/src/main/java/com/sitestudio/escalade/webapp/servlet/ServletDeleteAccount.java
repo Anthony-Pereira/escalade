@@ -11,16 +11,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "DeleteAccount")
-public class DeleteAccount extends HttpServlet {
+@WebServlet(name = "ServletDeleteAccount")
+public class ServletDeleteAccount extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
 
         request.getServletContext().getRequestDispatcher("WEB-INF/jsp/deleteAccount").forward(request,response);
 
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
 
         Compte compte = new Compte();
         CompteResource compteResource = new CompteResource();

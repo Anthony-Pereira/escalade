@@ -31,175 +31,210 @@
     </resource-ref>
 
     <servlet>
-        <servlet-name>AboutUs</servlet-name>
-        <servlet-class>com.sitestudio.escalade.webapp.servlet.AboutUs</servlet-class>
+        <servlet-name>ServletAboutUs</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletAboutUs</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>AboutUs</servlet-name>
+        <servlet-name>ServletAboutUs</servlet-name>
         <url-pattern>/aboutUs</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>Association</servlet-name>
-        <servlet-class>com.sitestudio.escalade.webapp.servlet.Association</servlet-class>
+        <servlet-name>ServletAssociation</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletAssociation</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Association</servlet-name>
+        <servlet-name>ServletAssociation</servlet-name>
         <url-pattern>/association</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>Contact</servlet-name>
-        <servlet-class>com.sitestudio.escalade.webapp.servlet.Contact</servlet-class>
+        <servlet-name>ServletContact</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletContact</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Contact</servlet-name>
+        <servlet-name>ServletContact</servlet-name>
         <url-pattern>/contact</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>DeleteAccount</servlet-name>
-        <servlet-class>com.sitestudio.escalade.webapp.servlet.DeleteAccount</servlet-class>
+        <servlet-name>ServletDeleteAccount</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletDeleteAccount</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>DeleteAccount</servlet-name>
+        <servlet-name>ServletDeleteAccount</servlet-name>
         <url-pattern>/deleteAccount</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>EditProfile</servlet-name>
-        <servlet-class>com.sitestudio.escalade.webapp.servlet.EditProfile</servlet-class>
+        <servlet-name>ServletEditProfile</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletEditProfile</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>EditProfile</servlet-name>
+        <servlet-name>ServletEditProfile</servlet-name>
         <url-pattern>/editProfile</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>Event</servlet-name>
-        <servlet-class>com.sitestudio.escalade.webapp.servlet.Event</servlet-class>
+        <servlet-name>ServletEmailParameter</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletEmailParameter</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Event</servlet-name>
+        <servlet-name>ServletEmailParameter</servlet-name>
+        <url-pattern>/emailParameter</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ServletEvent</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletEvent</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletEvent</servlet-name>
         <url-pattern>/event</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>Index</servlet-name>
-        <servlet-class>com.sitestudio.escalade.webapp.servlet.Index</servlet-class>
+        <servlet-name>ServletIndex</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletIndex</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Index</servlet-name>
+        <servlet-name>ServletIndex</servlet-name>
         <url-pattern>/index</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>MySpace</servlet-name>
-        <servlet-class>com.sitestudio.escalade.webapp.servlet.MySpace</servlet-class>
+        <servlet-name>ServletMyArea</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletMyArea</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>MySpace</servlet-name>
+        <servlet-name>ServletMyArea</servlet-name>
+        <url-pattern>/myArea</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ServletMySite</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletMySite</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletMySite</servlet-name>
+        <url-pattern>/mySite</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ServletMySpace</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletMySpace</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletMySpace</servlet-name>
         <url-pattern>/mySpace</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>Parameter</servlet-name>
-        <servlet-class>com.sitestudio.escalade.webapp.servlet.Parameter</servlet-class>
+        <servlet-name>ServletMyTopo</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletMyTopo</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Parameter</servlet-name>
-        <url-pattern>/parameter</url-pattern>
+        <servlet-name>ServletMyTopo</servlet-name>
+        <url-pattern>/myTopo</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>PrivayPolicy</servlet-name>
-        <servlet-class>com.sitestudio.escalade.webapp.servlet.PrivacyPolicy</servlet-class>
+        <servlet-name>ServletMyTrack</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletMyTrack</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>PrivayPolicy</servlet-name>
+        <servlet-name>ServletMyTrack</servlet-name>
+        <url-pattern>/myTrack</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ServletPasswordParameter</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletPasswordParameter</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletPasswordParameter</servlet-name>
+        <url-pattern>/passwordParameter</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ServletPrivacyPolicy</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletPrivacyPolicy</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletPrivacyPolicy</servlet-name>
         <url-pattern>/privacyPolicy</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>Profile</servlet-name>
-        <servlet-class>com.sitestudio.escalade.webapp.servlet.Profile</servlet-class>
+        <servlet-name>ServletProfile</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletProfile</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Profile</servlet-name>
+        <servlet-name>ServletProfile</servlet-name>
         <url-pattern>/profile</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>SignIn</servlet-name>
-        <servlet-class>com.sitestudio.escalade.webapp.servlet.SignIn</servlet-class>
+        <servlet-name>ServletSignIn</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletSignIn</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>SignIn</servlet-name>
+        <servlet-name>ServletSignIn</servlet-name>
         <url-pattern>/signIn</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>SignUp</servlet-name>
-        <servlet-class>com.sitestudio.escalade.webapp.servlet.SignUp</servlet-class>
+        <servlet-name>ServletSignUp</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletSignUp</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>SignUp</servlet-name>
+        <servlet-name>ServletSignUp</servlet-name>
         <url-pattern>/signUp</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>Site</servlet-name>
-        <servlet-class>com.sitestudio.escalade.webapp.servlet.Site</servlet-class>
+        <servlet-name>ServletSite</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletSite</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Site</servlet-name>
+        <servlet-name>ServletSite</servlet-name>
         <url-pattern>/site</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>SiteForm</servlet-name>
-        <servlet-class>com.sitestudio.escalade.webapp.servlet.SiteForm</servlet-class>
+        <servlet-name>ServletSiteList</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletSiteList</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>SiteForm</servlet-name>
-        <url-pattern>/siteForm</url-pattern>
+        <servlet-name>ServletSiteList</servlet-name>
+        <url-pattern>/siteList</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>SiteSearch</servlet-name>
-        <servlet-class>com.sitestudio.escalade.webapp.servlet.SiteSearch</servlet-class>
+        <servlet-name>ServletSiteSearch</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletSiteSearch</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>SiteSearch</servlet-name>
+        <servlet-name>ServletSiteSearch</servlet-name>
         <url-pattern>/siteSearch</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>TermOfUse</servlet-name>
-        <servlet-class>com.sitestudio.escalade.webapp.servlet.TermOfUse</servlet-class>
+        <servlet-name>ServletTermOfUse</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletTermOfUse</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>TermOfUse</servlet-name>
+        <servlet-name>ServletTermOfUse</servlet-name>
         <url-pattern>/termOfUse</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>TopoForm</servlet-name>
-        <servlet-class>com.sitestudio.escalade.webapp.servlet.TopoForm</servlet-class>
+        <servlet-name>ServletVocabulary</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletVocabulary</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>TopoForm</servlet-name>
-        <url-pattern>/topoForm</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>Vocabulary</servlet-name>
-        <servlet-class>com.sitestudio.escalade.webapp.servlet.Vocabulary</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>Vocabulary</servlet-name>
+        <servlet-name>ServletVocabulary</servlet-name>
         <url-pattern>/vocabulary</url-pattern>
     </servlet-mapping>
-
 
 </web-app>
