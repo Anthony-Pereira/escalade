@@ -34,23 +34,25 @@ public class ServletPasswordParameter extends HttpServlet {
 
         Compte compte;
         CompteResource compteResource = new CompteResource();
+
         HttpSession httpSession = request.getSession();
+        compte = (Compte) httpSession.getAttribute("compte");
 
         String motDePasse = request.getParameter("motDePasse");
         String rewriteMotDePasse = request.getParameter("rewriteMotDePasse");
 
-        compte = (Compte) httpSession.getAttribute("compte");
+        Integer id = compte.getId();
 
-        if (motDePasse == rewriteMotDePasse){
+        if (motDePasse.equals(rewriteMotDePasse)){
+            compte.setId(id);
             compte.setMotDePasse(motDePasse);
+            try {
+                compteResource.updateCompte(compte);
+            } catch (NotFoundException e) {
+                e.printStackTrace();
+            }
         } else {
-            System.out.println("erreur les mots de passe de correspondent pas");
-        }
-
-        try {
-            compteResource.updateCompte(compte);
-        } catch (NotFoundException e) {
-            e.printStackTrace();
+            System.out.println("Erreur, les mots de passe de correspondent pas");
         }
 
         request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/parameter.jsp").forward(request,response);

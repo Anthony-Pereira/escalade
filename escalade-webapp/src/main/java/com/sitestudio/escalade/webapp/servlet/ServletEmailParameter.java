@@ -15,7 +15,6 @@ import java.io.IOException;
 @WebServlet(name = "ServletEmailParameter")
 public class ServletEmailParameter extends HttpServlet {
 
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
@@ -34,11 +33,11 @@ public class ServletEmailParameter extends HttpServlet {
 
         Compte compte;
         CompteResource compteResource = new CompteResource();
+
         HttpSession httpSession = request.getSession();
+        compte = (Compte) httpSession.getAttribute("compte");
 
         String email = request.getParameter("email");
-
-        compte = (Compte) httpSession.getAttribute("compte");
 
         compte.setEmail(email);
 
