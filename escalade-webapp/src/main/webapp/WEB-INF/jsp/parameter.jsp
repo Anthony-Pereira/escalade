@@ -76,9 +76,9 @@
 
                     <p>Une fois que vous supprimez un compte, il n’y a pas de retour en arrière. S’il vous plaît, soyez certain.</p>
 
-                    <label for="delete">Veuillez taper "DELETE" pour confirmer.</label> <input type="text"
+                    <label for="delete">Veuillez taper votre adresse email pour confirmer.</label> <input type="text"
                                                                                          name="delete" class="form-control col-sm-6" id="delete"
-                                                                                         aria-describedby="motDePasse" placeholder="Entrez votre nouveau mot de passe" required/>
+                                                                                         aria-describedby="delete" required/>
                                                                                          <span class="text-danger"></span>
                 </div>
                 <div class="mt-4">

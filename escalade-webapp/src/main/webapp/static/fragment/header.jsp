@@ -34,8 +34,18 @@
 						</li>
 						<li class="nav-item"><a class="nav-link" href="contact">Contact</a>
 						</li>
-						<li class="nav-item"><a class="nav-link"
-							href="signIn">Identifiez-vous</a></li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="signIn" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Menu
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+								<a class="dropdown-item" href="mySpace">Mon espace</a>
+								<a class="dropdown-item" href="profile">Mon profil</a>
+								<a class="dropdown-item" href="emailParameter">Mes paramètres</a>
+								<a class="dropdown-item" href="signIn">Se connecter</a>
+								<a class="dropdown-item" href="disconnect">Déconnexion</a>
+							</div>
+						</li>
 					</ul>
 				</div>
 			</div>

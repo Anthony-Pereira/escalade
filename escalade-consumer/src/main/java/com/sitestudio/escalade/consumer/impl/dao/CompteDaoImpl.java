@@ -92,7 +92,7 @@ public class CompteDaoImpl extends AbstractDao implements CompteDao {
     @Override
     public Boolean delete(Compte compte) {
 
-        String sql = "DELETE FROM compte WHERE compte_id=" + compte.getId();
+        String sql = "DELETE FROM compte WHERE compte_id=" + compte.getId() + " AND email='" + compte.getEmail() + "'";
 
         MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
 

@@ -65,6 +65,15 @@
         <servlet-name>ServletDeleteAccount</servlet-name>
         <url-pattern>/deleteAccount</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ServletDisconnect</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletDisconnect</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletDisconnect</servlet-name>
+        <url-pattern>/disconnect</url-pattern>
+    </servlet-mapping>
 
     <servlet>
         <servlet-name>ServletEditProfile</servlet-name>
