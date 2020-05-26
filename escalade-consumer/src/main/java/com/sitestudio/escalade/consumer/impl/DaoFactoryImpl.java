@@ -1,6 +1,7 @@
 package com.sitestudio.escalade.consumer.impl;
 
 import com.sitestudio.escalade.consumer.contract.DaoFactory;
+import com.sitestudio.escalade.consumer.contract.dao.AdresseDao;
 import com.sitestudio.escalade.consumer.contract.dao.CompteDao;
 
 import javax.inject.Inject;
@@ -12,6 +13,9 @@ public class DaoFactoryImpl implements DaoFactory {
     @Inject
     CompteDao compteDao;
 
+    @Inject
+    AdresseDao adresseDao;
+
     @Override
     public CompteDao getCompteDao() {
         return compteDao;
@@ -22,4 +26,13 @@ public class DaoFactoryImpl implements DaoFactory {
         this.compteDao = compteDao;
     }
 
+    @Override
+    public AdresseDao getAdresseDao() {
+        return adresseDao;
+    }
+
+    @Override
+    public void setAdresseDao(AdresseDao adresseDao) {
+        this.adresseDao = adresseDao;
+    }
 }

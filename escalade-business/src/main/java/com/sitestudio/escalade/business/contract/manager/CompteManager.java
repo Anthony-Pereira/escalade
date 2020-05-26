@@ -17,7 +17,7 @@ public interface CompteManager {
      * @throws NotFoundException */
     Boolean createCompte(Compte compte) throws NotFoundException;
 
-    /**Modifie un compte utilisateur.
+    /**Modifier un compte utilisateur.
      * @param compte L'identifiant de l'utilisateur ciblé.
      * @return Un objet Utilisateur.
      * @throws NotFoundException */

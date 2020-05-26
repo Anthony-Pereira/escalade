@@ -21,17 +21,16 @@
 
 <%@include file="fragment/mySpaceNav.jsp"%>
 
-<div class="container mb-5">
+<div class="container">
 
-    <div class="d-flex justify-content-end">
-        <a href="editProfile" class="btn btn-dark">Modifier</a>
-    </div>
-    <div>
-        <h1 class="text-center">Profil</h1>
+    <div class="mb-5 px-3 py-2 bg-light">
 
+    <h1 class="text-center p-3">Profil</h1>
+
+    <a href="editProfile" class="btn btn-outline-dark mb-5">Modifier</a>
         <div class="mb-5">
             <!-- recuperer la photo -->
-            <h2><c:out value="${empty compte.pseudo ? '' : compte.pseudo}"/></h2>
+            <h2 class="my-2 mr-2"><c:out value="${empty compte.pseudo ? compte.prenom : compte.pseudo}"/></h2>
         </div>
         <div>
             <h4>À propos de moi</h4>
@@ -39,8 +38,11 @@
             <ul class="list-unstyled">
                 <li>Prénom : <c:out value="${compte.prenom}"/></li>
                 <li>Nom : <c:out value="${compte.nom}"/></li>
-                <li>Adresse : <c:out value="${compte.adresse}"/></li>
                 <li>Téléphone : <c:out value="${compte.numTelephone}"/></li>
+                <li>Adresse : <c:out value="${adresse.numero} " />
+                    <c:out value="${adresse.rue}"/>
+                    <c:out value="${adresse.codePostale}"/>
+                    <c:out value="${adresse.ville}"/></li>
             </ul>
         </div>
         <div>

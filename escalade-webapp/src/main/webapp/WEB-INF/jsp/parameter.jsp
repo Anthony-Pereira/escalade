@@ -21,22 +21,24 @@
 
 <%@include file="fragment/mySpaceNav.jsp"%>
 
-<div class="container mb-5">
+<div class="container">
 
-            <h1 class="text-center">Paramètres</h1>
+    <div class="mb-5 px-3 pt-2 pb-3 bg-light">
+
+            <h1 class="text-center p-3">Paramètres</h1>
 
         <div class="mb-3">
             <h4>Votre email</h4>
             <form action="emailParameter" method="post">
 
-                <div>
-                    <p>Adresse e-mail actuelle : <c:out value="${compte.email}"/></p>
-                </div>
-
+                <label for="oldEmail">Adresse e-mail actuelle</label> <input type="email"
+                                                                name="oldEmail" class="form-control col-sm-6 mb-2" id="oldEmail" value="<c:out value="${compte.email}"/>"
+                                                                aria-describedby="oldEmail" placeholder="<c:out value="${compte.email}"/>" readonly>
+                                                                <span class="text-danger"></span>
 
                 <label for="email">Nouvel e-mail</label> <input type="email"
-                                                                name="email" class="form-control" id="email"
-                                                                aria-describedby="email" placeholder="Entrez votre nouvelle email">
+                                                                name="email" class="form-control col-sm-6" id="email"
+                                                                aria-describedby="email" placeholder="Entrez votre nouvelle email" required>
                                                                 <span class="text-danger"></span>
 
                 <div class="mt-4">
@@ -52,27 +54,18 @@
 
             <form action="passwordParameter" method="post">
 
-                <div class = "mb-2">
-
                     <label for="motDePasse">Nouveau mot de passe</label> <input type="password"
-                                                                                name="motDePasse" class="form-control" id="motDePasse"
+                                                                                name="motDePasse" class="form-control col-sm-6 mb-2" id="motDePasse"
                                                                                 aria-describedby="motDePasse" placeholder="Entrez votre nouveau mot de passe">
                                                                                 <span class="text-danger"></span>
-                </div>
-
-                <div class = "mb-2">
 
                     <label for="rewriteMotDePasse">Réécrire nouveau mot de passe</label> <input type="password"
-                                                                                         name="rewriteMotDePasse" class="form-control" id="rewriteMotDePasse"
+                                                                                         name="rewriteMotDePasse" class="form-control col-sm-6 mb-2" id="rewriteMotDePasse"
                                                                                          aria-describedby="rewriteMotDePasse" placeholder="Entrez votre nouveau mot de passe"/>
                                                                                          <span class="text-danger"></span>
-                </div>
-
-                <div class="mt-4">
 
                     <button type="submit"
-                            class="btn btn-secondary">Modifier le mot de passe</button>
-                </div>
+                            class="btn btn-secondary mt-4">Modifier le mot de passe</button>
             </form>
         </div>
 
@@ -84,7 +77,7 @@
                     <p>Une fois que vous supprimez un compte, il n’y a pas de retour en arrière. S’il vous plaît, soyez certain.</p>
 
                     <label for="delete">Veuillez taper "DELETE" pour confirmer.</label> <input type="text"
-                                                                                         name="delete" class="form-control" id="delete"
+                                                                                         name="delete" class="form-control col-sm-6" id="delete"
                                                                                          aria-describedby="motDePasse" placeholder="Entrez votre nouveau mot de passe" required/>
                                                                                          <span class="text-danger"></span>
                 </div>
@@ -94,6 +87,7 @@
                 </div>
             </form>
         </div>
+    </div>
 </div>
 
 <%@include file="fragment/footer.jsp"%>

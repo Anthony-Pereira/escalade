@@ -15,6 +15,8 @@ public class Adresse {
     private Region region;
     private Pays pays;
 
+    public Adresse(){};
+
     public Adresse(Integer id, String numero, String rue, String codePostal, String ville, Departement departement, Region region, Pays pays) {
         this.id = id;
         this.numero = numero;

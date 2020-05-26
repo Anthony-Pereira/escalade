@@ -1,7 +1,12 @@
 package com.sitestudio.escalade.webapp.servlet;
 
+import com.sitestudio.escalade.model.bean.compte.Adresse;
 import com.sitestudio.escalade.model.bean.compte.Compte;
+import com.sitestudio.escalade.model.bean.referentiel.Departement;
+import com.sitestudio.escalade.model.bean.referentiel.Pays;
+import com.sitestudio.escalade.model.bean.referentiel.Region;
 import com.sitestudio.escalade.model.exception.NotFoundException;
+import com.sitestudio.escalade.webapp.resource.AdresseResource;
 import com.sitestudio.escalade.webapp.resource.CompteResource;
 
 import javax.servlet.ServletException;
@@ -29,23 +34,20 @@ public class ServletEditProfile extends HttpServlet {
 
         Compte compte;
         CompteResource compteResource = new CompteResource();
+
         HttpSession httpSession = request.getSession();
+        compte = (Compte) httpSession.getAttribute("compte");
 
         String pseudo = request.getParameter("pseudo");
         String prenom = request.getParameter("prenom");
         String nom = request.getParameter("nom");
-        //String adresse = request.getParameter("adresse");
         String numTelephone = request.getParameter("numTelephone");
 
-        compte = (Compte) httpSession.getAttribute("compte");
-
         Integer id = compte.getId();
-
         compte.setId(id);
         compte.setPseudo(pseudo);
         compte.setPrenom(prenom);
         compte.setNom(nom);
-        //compte.setAdresse(adresse);
         compte.setNumTelephone(numTelephone);
 
         try {
@@ -60,3 +62,31 @@ public class ServletEditProfile extends HttpServlet {
 
     }
 }
+
+        //Adresse adresse = new Adresse();
+        //AdresseResource adresseResource = new AdresseResource();
+
+
+       /* //Paramètre de l'adresse
+        String numero = request.getParameter("numero");
+        String rue = request.getParameter("rue");
+        String codePostal = request.getParameter("codePostal");
+        String ville = request.getParameter("ville");
+
+        adresse.setNumero(numero);
+        adresse.setRue(rue);
+        adresse.setCodePostal(codePostal);
+        adresse.setVille(ville);
+
+        try {
+            adresseResource.createAdresse(adresse);
+        } catch (NotFoundException e) {
+            e.printStackTrace();
+        }
+
+        httpSession.setAttribute("adresse",adresse);
+
+        //compte.setAdresse(adresse);
+
+        */
+
