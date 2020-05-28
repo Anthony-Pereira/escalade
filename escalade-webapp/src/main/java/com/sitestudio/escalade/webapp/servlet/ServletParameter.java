@@ -5,16 +5,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(name = "ServletAssociation")
-public class ServletAssociation extends HttpServlet {
+@WebServlet(name = "ServletParameter")
+public class ServletParameter extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
-        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/association.jsp").forward(request,response);
+        HttpSession httpSession = request.getSession();
+        httpSession.getAttribute("compte");
+
+        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/parameter.jsp").forward(request,response);
 
     }
 
@@ -22,7 +26,7 @@ public class ServletAssociation extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
-        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/association.jsp").forward(request,response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/parameter.jsp").forward(request,response);
 
     }
 

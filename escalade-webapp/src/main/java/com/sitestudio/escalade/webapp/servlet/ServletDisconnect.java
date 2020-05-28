@@ -14,10 +14,9 @@ public class ServletDisconnect extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         HttpSession httpSession = request.getSession();
-
         httpSession.invalidate();
 
-        request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/disconnect.jsp").forward(request,response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/disconnect.jsp").forward(request,response);
 
     }
 

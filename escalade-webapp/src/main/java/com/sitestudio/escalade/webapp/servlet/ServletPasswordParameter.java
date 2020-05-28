@@ -21,10 +21,9 @@ public class ServletPasswordParameter extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         HttpSession httpSession = request.getSession();
-
         httpSession.getAttribute("compte");
 
-        request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/parameter.jsp").forward(request,response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/parameter.jsp").forward(request,response);
 
     }
 
@@ -42,6 +41,7 @@ public class ServletPasswordParameter extends HttpServlet {
         String rewriteMotDePasse = request.getParameter("rewriteMotDePasse");
 
         Integer id = compte.getId();
+        String message;
 
         if (motDePasse.equals(rewriteMotDePasse)){
             compte.setId(id);
@@ -49,14 +49,20 @@ public class ServletPasswordParameter extends HttpServlet {
             try {
                 compteResource.updateCompte(compte);
             } catch (NotFoundException e) {
-                e.printStackTrace();
+                message = e.getMessage();
+                System.out.println(message);
             }
         } else {
-            System.out.println("Erreur, les mots de passe de correspondent pas");
+            message = "Erreur, les mots de passe de ne correspondent pas";
+            request.setAttribute("message",message);
+            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/parameter.jsp").forward(request,response);
         }
 
-        request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/parameter.jsp").forward(request,response);
+        message = "La modification a bien été effectuée";
+
+        request.setAttribute("message",message);
+
+        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/parameter").forward(request,response);
 
     }
-
 }

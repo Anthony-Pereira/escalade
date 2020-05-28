@@ -14,7 +14,7 @@ public class ServletAboutUs extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
-        request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/aboutUs.jsp").forward(request,response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/aboutUs.jsp").forward(request,response);
 
     }
 
@@ -22,7 +22,7 @@ public class ServletAboutUs extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
-        request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/aboutUs.jsp").forward(request,response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/aboutUs.jsp").forward(request,response);
 
     }
 

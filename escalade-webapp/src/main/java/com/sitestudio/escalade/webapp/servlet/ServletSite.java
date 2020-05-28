@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(name = "ServletSite")
@@ -16,7 +17,10 @@ public class ServletSite extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
-        request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/site.jsp").forward(request,response);
+        HttpSession httpSession = request.getSession();
+        httpSession.getAttribute("compte");
+
+        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/site.jsp").forward(request,response);
 
     }
 
@@ -24,14 +28,10 @@ public class ServletSite extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
-        String name = request.getParameter("nom");
-        String adresse = request.getParameter("adresse");
-        String photo = request.getParameter("photo");
-        String description = request.getParameter("description");
+        HttpSession httpSession = request.getSession();
+        httpSession.getAttribute("compte");
 
-
-
-        request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/site.jsp").forward(request,response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/site.jsp").forward(request,response);
 
     }
 

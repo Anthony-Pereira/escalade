@@ -22,7 +22,7 @@ public class ServletDeleteAccount extends HttpServlet {
         HttpSession httpSession = request.getSession();
         httpSession.getAttribute("compte");
 
-        request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/deleteAccount.jsp").forward(request,response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/deleteAccount.jsp").forward(request,response);
 
     }
 
@@ -46,17 +46,17 @@ public class ServletDeleteAccount extends HttpServlet {
             try {
                 compteResource.deleteCompte(compte);
             } catch (NotFoundException e) {
-                e.printStackTrace();
+                //e.printStackTrace();
+                this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/parameter.jsp").forward(request,response);
             }
         } else {
-            request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/parameter.jsp").forward(request,response);
+            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/parameter.jsp").forward(request,response);
         }
+
+        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/deleteAccount.jsp").forward(request,response);
 
         httpSession.invalidate();
 
-        request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/deleteAccount.jsp").forward(request,response);
-
     }
-
 
 }

@@ -1,6 +1,7 @@
 package com.sitestudio.escalade.consumer.contract.dao;
 
 import com.sitestudio.escalade.model.bean.compte.Compte;
+import com.sitestudio.escalade.model.exception.NotFoundException;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ public interface CompteDao {
      * Méthode de recherche des informations
      * @param compte
      * @return T */
-    Compte read (Compte compte);
+    Compte read (Compte compte) throws NotFoundException;
 
     Compte read(String code);
     List<Compte> readAll();

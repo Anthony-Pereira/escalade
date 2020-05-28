@@ -16,7 +16,9 @@ public class ServletSignIn extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
-        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/signIn.jsp").forward(request,response);
+        request.getAttribute("message");
+
+        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/signIn.jsp").forward(request, response);
 
     }
 
@@ -26,6 +28,7 @@ public class ServletSignIn extends HttpServlet {
 
         CompteResource compteResource = new CompteResource();
         Compte compte = new Compte();
+
         HttpSession httpSession = request.getSession(); // Initie le moteur de session de JEE
 
         String email = request.getParameter("email");
@@ -35,14 +38,17 @@ public class ServletSignIn extends HttpServlet {
         compte.setMotDePasse(motDePasse);
 
         try {
-        compte  =  compteResource.getCompte(compte);
+            compte = compteResource.getCompte(compte);
         } catch (NotFoundException e) {
-            e.printStackTrace();
+            System.out.println("ERREUR : " + e.getMessage());
+            Boolean message = Boolean.parseBoolean(e.getMessage());
+            request.setAttribute("message",message);
+            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/signIn.jsp").forward(request,response);
         }
 
-        httpSession.setAttribute("compte",compte);
+        httpSession.setAttribute("compte", compte);
 
-        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/mySpace.jsp").forward(request,response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/mySpace.jsp").forward(request, response);
 
     }
 

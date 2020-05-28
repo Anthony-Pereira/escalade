@@ -157,6 +157,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>ServletParameter</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletParameter</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletParameter</servlet-name>
+        <url-pattern>/parameter</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>ServletPasswordParameter</servlet-name>
         <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletPasswordParameter</servlet-class>
     </servlet>

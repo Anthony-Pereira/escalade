@@ -20,7 +20,6 @@ public class ServletMySpace extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         HttpSession httpSession = request.getSession(); // Initie le moteur de session de JEE
-
         httpSession.getAttribute("compte");
 
         this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/mySpace.jsp").forward(request,response);

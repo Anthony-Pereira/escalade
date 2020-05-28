@@ -17,11 +17,10 @@ public class ServletProfile extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         HttpSession httpSession = request.getSession();
-
         httpSession.getAttribute("compte");
         httpSession.getAttribute("adresse");
 
-        request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/profile.jsp").forward(request,response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/profile.jsp").forward(request,response);
 
     }
 
@@ -29,7 +28,7 @@ public class ServletProfile extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
-        request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/profile.jsp").forward(request,response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/profile.jsp").forward(request,response);
 
     }
 

@@ -3,6 +3,6 @@
 <div class="container-fluid" id="mySpace_nav">
     <ul class="mt-5">
         <li><a href="profile">Profil</a></li>
-        <li><a href="emailParameter">Paramètres</a></li>
+        <li><a href="parameter">Paramètres</a></li>
     </ul>
 </div>

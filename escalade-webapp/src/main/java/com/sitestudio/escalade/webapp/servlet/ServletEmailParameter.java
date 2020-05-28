@@ -20,10 +20,9 @@ public class ServletEmailParameter extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         HttpSession httpSession = request.getSession();
-
         httpSession.getAttribute("compte");
 
-        request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/parameter.jsp").forward(request,response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/parameter.jsp").forward(request,response);
 
     }
 
@@ -38,7 +37,6 @@ public class ServletEmailParameter extends HttpServlet {
         compte = (Compte) httpSession.getAttribute("compte");
 
         String email = request.getParameter("email");
-
         compte.setEmail(email);
 
         try {
@@ -47,7 +45,7 @@ public class ServletEmailParameter extends HttpServlet {
             e.printStackTrace();
         }
 
-        request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/parameter.jsp").forward(request,response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/parameter.jsp").forward(request,response);
 
     }
 

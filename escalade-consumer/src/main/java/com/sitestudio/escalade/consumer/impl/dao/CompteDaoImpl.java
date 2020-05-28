@@ -3,6 +3,7 @@ package com.sitestudio.escalade.consumer.impl.dao;
 import com.sitestudio.escalade.consumer.contract.dao.CompteDao;
 import com.sitestudio.escalade.consumer.impl.rowmapper.CompteRM;
 import com.sitestudio.escalade.model.bean.compte.Compte;
+import com.sitestudio.escalade.model.exception.NotFoundException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -19,7 +20,7 @@ public class CompteDaoImpl extends AbstractDao implements CompteDao {
     CompteRM compteRM;
 
     @Override
-    public Compte read(Compte compte) {
+    public Compte read(Compte compte) throws NotFoundException {
 
         String sql = "SELECT * FROM compte WHERE email='" + compte.getEmail() + "' AND  mot_de_passe='" + compte.getMotDePasse() + "'";
         // String sql = String.format("SELECT * FROM compte WHERE email='%s' AND  mot_de_passe='%s'", compte.getEmail(), compte.getMotDePasse());
@@ -28,9 +29,12 @@ public class CompteDaoImpl extends AbstractDao implements CompteDao {
 
         List<Compte> listCompte = jdbcTemplate.query(sql, compteRM);
 
-        Compte utilisateur = listCompte.get(0);
+        Compte utilisateur;
 
-        if (utilisateur == null) { utilisateur = new Compte();}
+        if (listCompte.size() == 0) {
+            throw new NotFoundException("Le couple email/mot de passe est incorrect.");
+        }
+        else { utilisateur = listCompte.get(0);}
 
         return utilisateur;
     }

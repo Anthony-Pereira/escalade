@@ -14,7 +14,7 @@ public class ServletIndex extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
-        request.getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
+        this.getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
 
     }
 
@@ -22,7 +22,7 @@ public class ServletIndex extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
-        request.getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
+        this.getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
 
     }
 

@@ -39,15 +39,20 @@
 								placeholder="Entre votre adresse email" required>
 						</div>
 						<div class="form-group">
-							<label for="motDePasse">Mot de passe</label> <input type="motDePasse"
+							<label for="motDePasse">Mot de passe</label> <input type="password"
 								name="motDePasse" id="motDePasse" class="form-control"
 								aria-describedby="emailHelp"
 								placeholder="Entrez votre mot de passe" required>
 						</div>
-						<div class="col-md-12 text-center my-3">
-							<button type="submit"
-								class=" btn btn-block btn btn-secondary tx-tfm">Connexion</button>
-						</div>
+
+						<c:if test="${message != null}">
+							<p class="text-danger font-weight-bold">Un problème est survenu</p>
+							<p>Le couple email/mot de passe est incorrect.</p>
+						</c:if>
+
+
+						<button type="submit" class=" btn btn-block btn btn-secondary tx-tfm">Connexion</button>
+
 					</form>
 					<div class="form-group">
 						<p class="text-center">

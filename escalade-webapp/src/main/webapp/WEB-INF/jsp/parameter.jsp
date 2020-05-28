@@ -54,18 +54,22 @@
 
             <form action="passwordParameter" method="post">
 
-                    <label for="motDePasse">Nouveau mot de passe</label> <input type="password"
-                                                                                name="motDePasse" class="form-control col-sm-6 mb-2" id="motDePasse"
-                                                                                aria-describedby="motDePasse" placeholder="Entrez votre nouveau mot de passe">
-                                                                                <span class="text-danger"></span>
+                <label for="motDePasse">Nouveau mot de passe</label> <input type="password"
+                                                                            name="motDePasse" class="form-control col-sm-6 mb-2" id="motDePasse"
+                                                                            aria-describedby="motDePasse" placeholder="Entrez votre nouveau mot de passe" required/>
+                <span class="text-danger"></span>
 
-                    <label for="rewriteMotDePasse">Réécrire nouveau mot de passe</label> <input type="password"
-                                                                                         name="rewriteMotDePasse" class="form-control col-sm-6 mb-2" id="rewriteMotDePasse"
-                                                                                         aria-describedby="rewriteMotDePasse" placeholder="Entrez votre nouveau mot de passe"/>
-                                                                                         <span class="text-danger"></span>
+                <label for="rewriteMotDePasse">Réécrire nouveau mot de passe</label> <input type="password"
+                                                                                            name="rewriteMotDePasse" class="form-control col-sm-6 mb-2" id="rewriteMotDePasse"
+                                                                                            aria-describedby="rewriteMotDePasse" placeholder="Entrez votre nouveau mot de passe" required/>
+                <span class="text-danger"></span>
 
-                    <button type="submit"
-                            class="btn btn-secondary mt-4">Modifier le mot de passe</button>
+                <c:if test="${message}">
+                    <p>Veuillez réessayer, le couple email/mot de passe est inconnu.</p>
+                </c:if>
+
+                <button type="submit"
+                        class="btn btn-secondary mt-4">Modifier le mot de passe</button>
             </form>
         </div>
 
@@ -74,12 +78,12 @@
                 <div>
                     <h4>Supprimer votre compte</h4>
 
-                    <p>Une fois que vous supprimez un compte, il n’y a pas de retour en arrière. S’il vous plaît, soyez certain.</p>
+                    <p>Une fois que vous supprimez un compte, il n’y a pas de retour en arrière. S’il vous plaît, soyez-en certain.</p>
 
-                    <label for="delete">Veuillez taper votre adresse email pour confirmer.</label> <input type="text"
-                                                                                         name="delete" class="form-control col-sm-6" id="delete"
-                                                                                         aria-describedby="delete" required/>
-                                                                                         <span class="text-danger"></span>
+                    <label for="delete">Veuillez taper <c:out value="${compte.email}"/> pour confirmer.</label> <input type="email"
+                                                                                                                       name="delete" class="form-control col-sm-6" id="delete"
+                                                                                                                       aria-describedby="delete" required/>
+                    <span class="text-danger"></span>
                 </div>
                 <div class="mt-4">
                     <button type="submit" class=" btn btn-outline-danger">Supprimer</button>
