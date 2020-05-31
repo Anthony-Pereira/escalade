@@ -45,12 +45,12 @@ public class ServletDeleteAccount extends HttpServlet {
             compte.setEmail(deleteEmail);
             try {
                 compteResource.deleteCompte(compte);
+                request.setAttribute("deleteMessage", true);
             } catch (NotFoundException e) {
-                //e.printStackTrace();
-                this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/parameter.jsp").forward(request,response);
+                System.out.println(e.getMessage());
             }
         } else {
-            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/parameter.jsp").forward(request,response);
+            request.setAttribute("deleteMessage", false);
         }
 
         this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/deleteAccount.jsp").forward(request,response);

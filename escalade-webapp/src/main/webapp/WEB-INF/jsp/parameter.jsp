@@ -64,9 +64,11 @@
                                                                                             aria-describedby="rewriteMotDePasse" placeholder="Entrez votre nouveau mot de passe" required/>
                 <span class="text-danger"></span>
 
-                <c:if test="${message}">
-                    <p>Veuillez réessayer, le couple email/mot de passe est inconnu.</p>
-                </c:if>
+                <c:choose>
+                    <c:when test="${passwordMessageTrue == true}"><p>La modification à bien été pris en compte</p></c:when>
+                    <c:when test="${!passwordMessageFalse == false}"><p>Les mots ne passe ne correspondent pas</p></c:when>
+                    <c:otherwise><p></p></c:otherwise>
+                </c:choose>
 
                 <button type="submit"
                         class="btn btn-secondary mt-4">Modifier le mot de passe</button>
@@ -85,6 +87,11 @@
                                                                                                                        aria-describedby="delete" required/>
                     <span class="text-danger"></span>
                 </div>
+
+                <c:if test= "${passwordMessage != null}">
+                    <p>Les mot de passe ne correspondent pas</p>
+                </c:if>
+
                 <div class="mt-4">
                     <button type="submit" class=" btn btn-outline-danger">Supprimer</button>
                     <a onclick="return confirm('Êtes-vous sûre de vouloir supprimer le topo enregistré ?')"></a>

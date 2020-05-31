@@ -41,8 +41,7 @@ public class ServletSignIn extends HttpServlet {
             compte = compteResource.getCompte(compte);
         } catch (NotFoundException e) {
             System.out.println("ERREUR : " + e.getMessage());
-            Boolean message = Boolean.parseBoolean(e.getMessage());
-            request.setAttribute("message",message);
+            request.setAttribute("connectionMessage",false);
             this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/signIn.jsp").forward(request,response);
         }
 

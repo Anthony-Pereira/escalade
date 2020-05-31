@@ -41,28 +41,21 @@ public class ServletPasswordParameter extends HttpServlet {
         String rewriteMotDePasse = request.getParameter("rewriteMotDePasse");
 
         Integer id = compte.getId();
-        String message;
 
         if (motDePasse.equals(rewriteMotDePasse)){
             compte.setId(id);
             compte.setMotDePasse(motDePasse);
             try {
                 compteResource.updateCompte(compte);
+                request.setAttribute("passwordMessageTrue",true);
             } catch (NotFoundException e) {
-                message = e.getMessage();
-                System.out.println(message);
+                System.out.println(e.getMessage());
             }
         } else {
-            message = "Erreur, les mots de passe de ne correspondent pas";
-            request.setAttribute("message",message);
-            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/parameter.jsp").forward(request,response);
+            request.setAttribute("passwordMessageFalse",false);
         }
 
-        message = "La modification a bien été effectuée";
-
-        request.setAttribute("message",message);
-
-        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/parameter").forward(request,response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/parameter.jsp").forward(request,response);
 
     }
 }
