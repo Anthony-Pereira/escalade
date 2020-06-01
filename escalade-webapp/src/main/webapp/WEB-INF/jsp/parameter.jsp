@@ -65,8 +65,8 @@
                 <span class="text-danger"></span>
 
                 <c:choose>
-                    <c:when test="${passwordMessageTrue == true}"><p>La modification à bien été pris en compte</p></c:when>
-                    <c:when test="${!passwordMessageFalse == false}"><p>Les mots ne passe ne correspondent pas</p></c:when>
+                    <c:when test="${passwordMessageTrue == true}"><p class="text-success">La modification à bien été pris en compte</p></c:when>
+                    <c:when test="${passwordMessageFalse == false}"><p class="text-danger">Les mots ne passe ne correspondent pas</p></c:when>
                     <c:otherwise><p></p></c:otherwise>
                 </c:choose>
 
