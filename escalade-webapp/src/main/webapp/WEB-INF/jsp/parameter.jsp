@@ -88,9 +88,10 @@
                     <span class="text-danger"></span>
                 </div>
 
-                <c:if test= "${passwordMessage != null}">
-                    <p>Les mot de passe ne correspondent pas</p>
-                </c:if>
+                <c:choose>
+                    <c:when test="${deleteEmailTrue == true}"></c:when>
+                    <c:when test="${deleteEmailFalse == false}"><p class="text-danger">Les mot de passe ne correspondent pas</p></c:when>
+                </c:choose>
 
                 <div class="mt-4">
                     <button type="submit" class=" btn btn-outline-danger">Supprimer</button>
