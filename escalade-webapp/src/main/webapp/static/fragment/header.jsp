@@ -42,6 +42,7 @@
 									Menu
 								</a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+									<a class="dropdown-item" href="mySpace">Mon espace</a>
 									<a class="dropdown-item" href="profile">Mon profil</a>
 									<a class="dropdown-item" href="parameter">Mes paramètres</a>
 								</div>

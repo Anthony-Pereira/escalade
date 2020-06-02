@@ -65,8 +65,8 @@
                 <span class="text-danger"></span>
 
                 <c:choose>
-                    <c:when test="${passwordMessageTrue == true}"><p class="text-success">La modification à bien été pris en compte</p></c:when>
-                    <c:when test="${passwordMessageFalse == false}"><p class="text-danger">Les mots ne passe ne correspondent pas</p></c:when>
+                    <c:when test="${!empty passwordMessageTrue}"><p class="text-success">La modification à bien été pris en compte</p></c:when>
+                    <c:when test="${!empty passwordMessageFalse}"><p class="text-danger">Les mots ne passe ne correspondent pas</p></c:when>
                     <c:otherwise><p></p></c:otherwise>
                 </c:choose>
 
@@ -89,8 +89,8 @@
                 </div>
 
                 <c:choose>
-                    <c:when test="${deleteEmailTrue == true}"></c:when>
-                    <c:when test="${deleteEmailFalse == false}"><p class="text-danger">Les mot de passe ne correspondent pas</p></c:when>
+                    <c:when test="${!empty deleteEmailTrue}"></c:when>
+                    <c:when test="${!empty deleteEmailFalse}"><p class="text-danger">Les mot de passe ne correspondent pas</p></c:when>
                 </c:choose>
 
                 <div class="mt-4">

@@ -45,7 +45,7 @@
 								placeholder="Entrez votre mot de passe" required>
 						</div>
 
-						<c:if test="${connectionMessage != null}">
+						<c:if test="${!empty connectionMessage}">
 							<p class="text-danger font-weight-bold">Un problème est survenu</p>
 							<p>Le couple email/mot de passe est incorrect.</p>
 						</c:if>
