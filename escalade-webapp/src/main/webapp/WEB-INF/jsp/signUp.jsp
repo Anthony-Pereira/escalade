@@ -71,5 +71,8 @@
 			</div>
 		</div>
 	</div>
+
+	<%@ include file="../../static/fragment/javascript.jsp"%>
+
 </body>
 </html>

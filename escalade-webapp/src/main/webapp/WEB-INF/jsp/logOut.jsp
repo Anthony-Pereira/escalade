@@ -31,4 +31,7 @@
 </div>
 
 </body>
-</html>h
+
+<%@ include file="../../static/fragment/javascript.jsp"%>
+
+</html>

@@ -76,5 +76,7 @@
 
 	<%@ include file="static/fragment/footer.jsp"%>
 
+	<%@ include file="static/fragment/javascript.jsp"%>
+
 </body>
 </html>
