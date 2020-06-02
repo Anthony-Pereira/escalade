@@ -15,20 +15,20 @@
 				<h4>Menu</h4>
 				<div class="list-group">
 					<ul class="list-unstyled">
-						<li><a href="site">Sites d'escalade</a></li>
-						<li><a href="association">Association</a></li>
-						<li><a href="event">Evènements</a></li>
-						<li><a href="vocabulary">Vocabulaire</a></li>
+						<li><a href="site.jsp">Sites d'escalade</a></li>
+						<li><a href="association.jsp">Association</a></li>
+						<li><a href="event.jsp">Evènements</a></li>
+						<li><a href="vocabulary.jsp">Vocabulaire</a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
 		<div class="row d-flex justify-content-center">
 			<ul class="row list-unstyled">
-				<li><a href="aboutUs">À propos de nous</a></li>
-				<li><a href="contact">Contact</a></li>
-				<li><a href="termOfUs">Contrat d'utilisation</a></li>
-				<li><a href="privacyPolicy">Politique de confidentialité</a></li>
+				<li><a href="aboutUs.jsp">À propos de nous</a></li>
+				<li><a href="contact.jsp">Contact</a></li>
+				<li><a href="termOfUse.jsp">Contrat d'utilisation</a></li>
+				<li><a href="privacyPolicy.jsp">Politique de confidentialité</a></li>
 			</ul>
 		</div>
 	</div>

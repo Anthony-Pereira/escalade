@@ -14,7 +14,7 @@
 			<div class="collapse navbar-collapse" id="navbarHeader">
 				<div class="form-inline">
 					<div class="mr-2">
-						<form action="siteSearch" method="get">
+						<form action="siteSearch.jsp" method="get">
 							<label for="keyWord"></label> <input type="search"
 								name="keyWord" id="keyword" class="form-control"
 								placeholder="Rechercher" size=50 required>
@@ -27,12 +27,12 @@
 				</div>
 				<div>
 					<ul class="navbar-nav mr-auto">
-						<li class="nav-item"><a class="nav-link" href="site">Sites</a></li>
-						<li class="nav-item"><a class="nav-link" href="association">Association</a>
+						<li class="nav-item"><a class="nav-link" href="site.jsp">Sites</a></li>
+						<li class="nav-item"><a class="nav-link" href="association.jsp">Association</a>
 						</li>
-						<li class="nav-item"><a class="nav-link" href="event">Evènements</a>
+						<li class="nav-item"><a class="nav-link" href="event.jsp">Evènements</a>
 						</li>
-						<li class="nav-item"><a class="nav-link" href="contact">Contact</a>
+						<li class="nav-item"><a class="nav-link" href="contact.jsp">Contact</a>
 						</li>
 						<c:choose>
 							<c:when test="${empty sessionScope.menu}"><li class="nav-item"><a class="nav-link" href="signUp">S'inscrire</a></li></c:when>
@@ -43,7 +43,7 @@
 								</a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 									<a class="dropdown-item" href="profile">Mon profil</a>
-									<a class="dropdown-item" href="emailParameter">Mes paramètres</a>
+									<a class="dropdown-item" href="parameter">Mes paramètres</a>
 								</div>
 							</li>
 							</c:when>

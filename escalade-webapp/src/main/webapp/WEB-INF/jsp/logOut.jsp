@@ -14,23 +14,21 @@
 
     <title>Les amis de l'escalade</title>
 </head>
+
 <body>
 
-<%@include file="fragment/header.jsp"%>
+<%@ include file="../../static/fragment/header.jsp"%>
 
-<div class="container-fluid mb-3">
-
-    <h2 class="text-center">A bientôt</h2>
-
-    <div class="d-flex justify-content-end mt-5">
-        <button class="btn btn-dark">
-            <a class="text-decoration-none text-white" href="index">retour à la page d'accueil</a>
-        </button>
+<div class="container-fluid">
+    <div class="jumbotron">
+        <h1 class="text-center">A bientôt</h1>
+        <div class="d-flex justify-content-end mt-5">
+            <button class="btn btn-dark">
+                <a class="text-decoration-none text-white" href="index.jsp">retour à la page d'accueil</a>
+            </button>
+        </div>
     </div>
-
 </div>
-
-<%@include file="fragment/footer.jsp"%>
 
 </body>
 </html>h

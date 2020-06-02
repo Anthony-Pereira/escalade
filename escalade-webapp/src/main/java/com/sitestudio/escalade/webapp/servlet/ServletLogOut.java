@@ -27,7 +27,7 @@ public class ServletLogOut extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF8");
 
-        this.getServletContext().getRequestDispatcher("WEB-INF/jsp/logOut.jsp").forward(request,response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/logOut.jsp").forward(request,response);
 
     }
 

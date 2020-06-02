@@ -17,7 +17,7 @@
 
 <body>
 
-<%@ include file="fragment/header.jsp"%>
+<%@ include file="../../static/fragment/header.jsp"%>
 
 <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
     <table class="table">
@@ -64,7 +64,7 @@
     </ul>
 </div>
 
-<%@ include file="fragment/footer.jsp"%>
+<%@ include file="../../static/fragment/footer.jsp"%>
 
 </body>
 </html>

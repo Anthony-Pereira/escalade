@@ -71,7 +71,7 @@
 						<li class="list-inline-item"><h4>Pour les non-initiés,
 								voici quelques éléments du vocabulaire du grimpeur</h4></li>
 						<li class="list-inline-item"><a
-							class="btn btn-secondary btn-rounded" href="vocabulary">En
+							class="btn btn-secondary btn-rounded" href="vocabulary.jsp">En
 								savoir plus</a></li>
 					</ul>
 				</div>

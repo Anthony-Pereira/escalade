@@ -31,48 +31,12 @@
     </resource-ref>
 
     <servlet>
-        <servlet-name>ServletAboutUs</servlet-name>
-        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletAboutUs</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ServletAboutUs</servlet-name>
-        <url-pattern>/aboutUs</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>ServletAssociation</servlet-name>
-        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletAssociation</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ServletAssociation</servlet-name>
-        <url-pattern>/association</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>ServletContact</servlet-name>
-        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletContact</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ServletContact</servlet-name>
-        <url-pattern>/contact</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>ServletDeleteAccount</servlet-name>
         <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletDeleteAccount</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ServletDeleteAccount</servlet-name>
         <url-pattern>/deleteAccount</url-pattern>
-    </servlet-mapping>
-    
-    <servlet>
-        <servlet-name>ServletDisconnect</servlet-name>
-        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletDisconnect</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ServletDisconnect</servlet-name>
-        <url-pattern>/disconnect</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -91,24 +55,6 @@
     <servlet-mapping>
         <servlet-name>ServletEmailParameter</servlet-name>
         <url-pattern>/emailParameter</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>ServletEvent</servlet-name>
-        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletEvent</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ServletEvent</servlet-name>
-        <url-pattern>/event</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>ServletIndex</servlet-name>
-        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletIndex</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ServletIndex</servlet-name>
-        <url-pattern>/index</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -184,15 +130,6 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>ServletPrivacyPolicy</servlet-name>
-        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletPrivacyPolicy</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ServletPrivacyPolicy</servlet-name>
-        <url-pattern>/privacyPolicy</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>ServletProfile</servlet-name>
         <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletProfile</servlet-class>
     </servlet>
@@ -220,48 +157,12 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>ServletSite</servlet-name>
-        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletSite</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ServletSite</servlet-name>
-        <url-pattern>/site</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>ServletSiteList</servlet-name>
         <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletSiteList</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ServletSiteList</servlet-name>
         <url-pattern>/siteList</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>ServletSiteSearch</servlet-name>
-        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletSiteSearch</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ServletSiteSearch</servlet-name>
-        <url-pattern>/siteSearch</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>ServletTermOfUse</servlet-name>
-        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletTermOfUse</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ServletTermOfUse</servlet-name>
-        <url-pattern>/termOfUse</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>ServletVocabulary</servlet-name>
-        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletVocabulary</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ServletVocabulary</servlet-name>
-        <url-pattern>/vocabulary</url-pattern>
     </servlet-mapping>
 
 </web-app>

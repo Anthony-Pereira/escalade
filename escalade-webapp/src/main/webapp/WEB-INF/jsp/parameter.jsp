@@ -17,9 +17,9 @@
 
 <body>
 
-<%@ include file="fragment/header.jsp"%>
+<%@ include file="../../static/fragment/header.jsp"%>
 
-<%@include file="fragment/mySpaceNav.jsp"%>
+<%@include file="fragment/topBar.jsp"%>
 
 <div class="container">
 
@@ -102,7 +102,7 @@
     </div>
 </div>
 
-<%@include file="fragment/footer.jsp"%>
+<%@include file="../../static/fragment/footer.jsp"%>
 
 </body>
 </html>

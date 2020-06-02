@@ -17,11 +17,11 @@
 
 <body>
 
-<%@ include file="fragment/header.jsp"%>
+<%@ include file="../../static/fragment/header.jsp"%>
 
 
 
-<%@ include file="fragment/footer.jsp"%>
+<%@ include file="../../static/fragment/footer.jsp"%>
 
 </body>
 </html>

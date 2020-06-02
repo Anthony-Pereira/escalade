@@ -17,11 +17,9 @@
 
 <body>
 
-    <%@ include file="fragment/header.jsp"%>
+    <%@ include file="../../static/fragment/header.jsp"%>
 
-    <%@include file="fragment/mySpaceNav.jsp"%>
-
-
+    <%@include file="fragment/topBar.jsp"%>
 
         <form action="editProfile" method="post">
 
@@ -99,7 +97,7 @@
         </form>
     </div>
 
-    <%@include file="fragment/footer.jsp"%>
+    <%@include file="../../static/fragment/footer.jsp"%>
 
 </body>
 </html>

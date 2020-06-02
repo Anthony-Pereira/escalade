@@ -17,9 +17,9 @@
 
 <body>
 
-	<%@ include file="fragment/header.jsp"%>
+	<%@ include file="../../static/fragment/header.jsp"%>
 
-	<%@include file="fragment/mySpaceNav.jsp"%>
+	<%@include file="fragment/topBar.jsp"%>
 
 	<h1 class="text-center text-dark mb-5">Bienvenue dans votre espace <c:out value="${empty compte.pseudo ? compte.prenom : compte.pseudo}"/></h1>
 	<div class="container">
@@ -47,7 +47,7 @@
 		</div>
 	</div>
 
-	<%@ include file="fragment/footer.jsp"%>
+	<%@ include file="../../static/fragment/footer.jsp"%>
 
 </body>
 </html>

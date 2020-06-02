@@ -17,7 +17,7 @@
 
 <body>
 
-	<%@ include file="fragment/header.jsp"%>
+	<%@ include file="static/fragment/header.jsp"%>
 
 	<div class="container">
 		<div class="jumbotron bg-transparent">

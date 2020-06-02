@@ -17,11 +17,11 @@
 
 <body>
 
-<%@ include file="fragment/header.jsp" %>
+<%@ include file="static/fragment/header.jsp"%>
 
-<div class="container">
-    <h1 class="text-center m-5">À bientôt</h1>
-</div>
+
+
+<%@ include file="static/fragment/footer.jsp"%>
 
 </body>
 </html>
