@@ -42,7 +42,7 @@ public class ServletEmailParameter extends HttpServlet {
         try {
             compteResource.updateCompte(compte);
         } catch (NotFoundException e) {
-            e.printStackTrace();
+            System.out.println("ERREUR : " + e.getMessage());
         }
 
         this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/parameter.jsp").forward(request,response);

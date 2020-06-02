@@ -49,7 +49,7 @@ public class ServletDeleteAccount extends HttpServlet {
                 this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/deleteAccount.jsp").forward(request,response);
                 httpSession.invalidate();
             } catch (NotFoundException e) {
-                System.out.println(e.getMessage());
+                System.out.println("ERREUR : " + e.getMessage());
             }
         } else {
             request.setAttribute("deleteEmailFalse", false);

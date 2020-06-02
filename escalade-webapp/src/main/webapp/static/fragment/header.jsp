@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <header>
 	<div class="container-fluid bg-dark">
 		<nav class="navbar navbar-expand-lg navbar-dark" id="header">
-			<a class="navbar-brand" href="index"
+			<a class="navbar-brand" href="index.jsp"
 				title="accéder à la page d'accueil" alt="logo accueil"><img
 				alt="logo du site" src="static/img/logo_escalade.png"></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -34,18 +34,24 @@
 						</li>
 						<li class="nav-item"><a class="nav-link" href="contact">Contact</a>
 						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="signIn" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Menu
-							</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-								<a class="dropdown-item" href="mySpace">Mon espace</a>
-								<a class="dropdown-item" href="profile">Mon profil</a>
-								<a class="dropdown-item" href="emailParameter">Mes paramètres</a>
-								<a class="dropdown-item" href="signIn">Se connecter</a>
-								<a class="dropdown-item" href="disconnect">Déconnexion</a>
-							</div>
-						</li>
+						<c:choose>
+							<c:when test="${empty sessionScope.menu}"><li class="nav-item"><a class="nav-link" href="signUp">S'inscrire</a></li></c:when>
+							<c:when test="${!empty sessionScope.menu}"><li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="mySpace" id="navbarDropdownMenuLink"
+								   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Menu
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+									<a class="dropdown-item" href="profile">Mon profil</a>
+									<a class="dropdown-item" href="emailParameter">Mes paramètres</a>
+								</div>
+							</li>
+							</c:when>
+						</c:choose>
+						<c:choose>
+							<c:when test="${empty sessionScope.authentification}"><li class="nav-item"><a class="nav-link" href="signIn">Se connecter</a></li></c:when>
+							<c:when test="${!empty sessionScope.authentification}"><li class="nav-item"><a class="nav-link" href="logOut">Déconnexion</a></li></c:when>
+						</c:choose>
 					</ul>
 				</div>
 			</div>

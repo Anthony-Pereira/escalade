@@ -112,6 +112,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>ServletLogOut</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletLogOut</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletLogOut</servlet-name>
+        <url-pattern>/logOut</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>ServletMyArea</servlet-name>
         <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletMyArea</servlet-class>
     </servlet>

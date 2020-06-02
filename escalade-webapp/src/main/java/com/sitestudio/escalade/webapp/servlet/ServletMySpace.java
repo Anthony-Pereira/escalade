@@ -21,6 +21,8 @@ public class ServletMySpace extends HttpServlet {
 
         HttpSession httpSession = request.getSession(); // Initie le moteur de session de JEE
         httpSession.getAttribute("compte");
+        httpSession.getAttribute("authentification");
+        httpSession.getAttribute("menu");
 
         this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/mySpace.jsp").forward(request,response);
 
