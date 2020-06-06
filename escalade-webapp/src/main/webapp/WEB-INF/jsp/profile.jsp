@@ -42,7 +42,8 @@
                 <li>Adresse : <c:out value="${adresse.numero} " />
                     <c:out value="${adresse.rue}"/>
                     <c:out value="${adresse.codePostale}"/>
-                    <c:out value="${adresse.ville}"/></li>
+                    <c:out value="${adresse.ville}"/>
+                </li>
             </ul>
         </div>
         <div>

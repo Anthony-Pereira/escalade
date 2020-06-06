@@ -1,6 +1,7 @@
 package com.sitestudio.escalade.consumer.contract.dao;
 
 import com.sitestudio.escalade.model.bean.compte.Compte;
+import com.sitestudio.escalade.model.exception.FunctionalException;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 
 import java.util.List;
@@ -41,5 +42,11 @@ public interface CompteDao {
      * @param compte
      * @return boolean */
     Boolean delete (Compte compte);
+
+    /**
+     * Méthode de suppression
+     * @param compte
+     * @return compte */
+    Boolean checkEmail(Compte compte) throws FunctionalException;
 
 }

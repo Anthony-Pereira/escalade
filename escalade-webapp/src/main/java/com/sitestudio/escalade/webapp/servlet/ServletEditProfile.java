@@ -35,6 +35,9 @@ public class ServletEditProfile extends HttpServlet {
         Compte compte;
         CompteResource compteResource = new CompteResource();
 
+        Adresse adresse = new Adresse();
+        AdresseResource adresseResource = new AdresseResource();
+
         HttpSession httpSession = request.getSession();
         compte = (Compte) httpSession.getAttribute("compte");
 
@@ -43,12 +46,38 @@ public class ServletEditProfile extends HttpServlet {
         String nom = request.getParameter("nom");
         String numTelephone = request.getParameter("numTelephone");
 
+        String numero = request.getParameter("numero");
+        String rue = request.getParameter("rue");
+        String codePostal = request.getParameter("codePostal");
+        String ville = request.getParameter("ville");
+
         Integer id = compte.getId();
         compte.setId(id);
         compte.setPseudo(pseudo);
         compte.setPrenom(prenom);
         compte.setNom(nom);
         compte.setNumTelephone(numTelephone);
+
+        Integer adresse_id = adresse.getId();
+        adresse.setId(adresse_id);
+        adresse.setNumero(numero);
+        adresse.setRue(rue);
+        adresse.setCodePostal(codePostal);
+        adresse.setVille(ville);
+
+        if (adresse_id == null) {
+            try {
+                adresseResource.createAdresse(adresse);
+            } catch (NotFoundException e) {
+                e.printStackTrace();
+            }
+        } else {
+            try {
+                adresseResource.updateAdresse(adresse);
+            } catch (NotFoundException e) {
+                e.printStackTrace();
+            }
+        }
 
         try {
             compteResource.updateCompte(compte);
@@ -57,6 +86,8 @@ public class ServletEditProfile extends HttpServlet {
         }
 
         request.setAttribute("compte", compte);
+        request.setAttribute("adresse",adresse);
+        httpSession.setAttribute("adresse",adresse);
 
         this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/profile.jsp").forward(request,response);
 

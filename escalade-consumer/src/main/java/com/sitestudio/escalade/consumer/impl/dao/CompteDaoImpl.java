@@ -3,6 +3,7 @@ package com.sitestudio.escalade.consumer.impl.dao;
 import com.sitestudio.escalade.consumer.contract.dao.CompteDao;
 import com.sitestudio.escalade.consumer.impl.rowmapper.CompteRM;
 import com.sitestudio.escalade.model.bean.compte.Compte;
+import com.sitestudio.escalade.model.exception.FunctionalException;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -33,8 +34,7 @@ public class CompteDaoImpl extends AbstractDao implements CompteDao {
 
         if (listCompte.size() == 0) {
             throw new NotFoundException("Le couple email/mot de passe est incorrect.");
-        }
-        else { utilisateur = listCompte.get(0);}
+        } else { utilisateur = listCompte.get(0);}
 
         return utilisateur;
     }
@@ -107,6 +107,27 @@ public class CompteDaoImpl extends AbstractDao implements CompteDao {
         Integer nbDelete = jdbcTemplate.update(sql,mapSqlParameterSource);
 
         return nbDelete > 0;
+    }
+
+    @Override
+    public Boolean checkEmail(Compte compte) throws FunctionalException {
+
+        String sql = "SELECT * FROM compte WHERE email ='" + compte.getEmail() + "'";
+
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
+
+        List<Compte> listCompte = jdbcTemplate.query(sql,compteRM);
+
+        Boolean emailDoesNotExist;
+
+        if (listCompte.size() != 0) {
+            emailDoesNotExist = false;
+            throw new FunctionalException("L'adresse e-mail est déjà utilisée");
+        } else {
+            emailDoesNotExist = true;
+        }
+
+        return emailDoesNotExist;
     }
 
     private MapSqlParameterSource getMapSqlParameterSource(Compte compte) {

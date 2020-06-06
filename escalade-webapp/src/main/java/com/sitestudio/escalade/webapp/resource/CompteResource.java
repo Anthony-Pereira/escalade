@@ -1,6 +1,7 @@
 package com.sitestudio.escalade.webapp.resource;
 
 import com.sitestudio.escalade.model.bean.compte.Compte;
+import com.sitestudio.escalade.model.exception.FunctionalException;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 
 /**
@@ -22,6 +23,10 @@ public class CompteResource extends AbstractResource {
 
     public Boolean deleteCompte (Compte compte) throws NotFoundException {
         return getManagerFactory().getCompteManager().deleteCompte(compte);
+    }
+
+    public  Boolean getEmailChecked (Compte compte) throws FunctionalException {
+        return getManagerFactory().getCompteManager().getEmailChecked(compte);
     }
 
 }
