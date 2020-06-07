@@ -19,12 +19,20 @@
 	<%@ include file="static/fragment/header.jsp"%>
 
 	<div class="container-fluid" id="main_title">
-		<h1 class="d-flex justify-content-center">Bienvenue sur le site
-			des amis de l'escalade !</h1>
-		<br />
-		<h5 class="d-flex justify-content-center">Ce site est dedié aux
-			amoureux de cette discipline qui souhaitent trouver leur prochain
-			spot.</h5>
+		<c:choose>
+			<c:when test="${empty sessionScope.compte}">
+				<h1 class="d-flex justify-content-center">Bienvenue sur le site
+					des amis de l'escalade !</h1>
+				<br />
+				<h5 class="d-flex justify-content-center">Ce site est dedié aux
+					amoureux de cette discipline qui souhaitent trouver leur prochain
+					spot.</h5>
+			</c:when>
+			<c:when test="${!empty sessionScope.compte}">
+				<h1 class="d-flex justify-content-center">Bienvenue <c:out value="${empty compte.pseudo ? compte.prenom : compte.pseudo}"/></h1>
+			</c:when>
+		</c:choose>
+
 	</div>
 
 	<!-- carousel -->

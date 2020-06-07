@@ -21,7 +21,7 @@
 
 	<%@include file="fragment/topBar.jsp"%>
 
-	<h1 class="text-center text-dark mb-5">Bienvenue dans votre espace <c:out value="${empty compte.pseudo ? compte.prenom : compte.pseudo}"/></h1>
+	<h1 class="text-center text-dark mb-5">Espace de <c:out value="${empty compte.pseudo ? compte.prenom : compte.pseudo}"/></h1>
 	<div class="container">
 		<div class="row d-flex justify-content-center mt-3 mb-5">
 			<div class="card-deck">
