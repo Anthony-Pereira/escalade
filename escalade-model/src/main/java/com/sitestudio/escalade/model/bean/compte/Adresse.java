@@ -19,12 +19,14 @@ public class Adresse {
 
     public Adresse(Integer id){ this.id = id; }
 
-    public Adresse(String numero, String rue, String codePostal, String ville, Departement departement) {
+    public Adresse(String numero, String rue, String codePostal, String ville, Departement departement,Region region, Pays pays) {
         this.numero = numero;
         this.rue = rue;
         this.codePostal = codePostal;
         this.ville = ville;
         this.departement = departement;
+        this.region = region;
+        this.pays = pays;
     }
 
     public Adresse(Integer id, String numero, String rue, String codePostal, String ville, Departement departement, Region region, Pays pays) {

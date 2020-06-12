@@ -5,6 +5,7 @@ import com.sitestudio.escalade.model.bean.compte.Compte;
 import com.sitestudio.escalade.model.bean.referentiel.Departement;
 import com.sitestudio.escalade.model.bean.referentiel.Pays;
 import com.sitestudio.escalade.model.bean.referentiel.Region;
+import com.sitestudio.escalade.model.exception.FunctionalException;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 import com.sitestudio.escalade.webapp.resource.*;
 
@@ -78,21 +79,19 @@ public class ServletEditProfile extends HttpServlet {
 
             Pays pays = paysResource.getPays(codePays);
 
-            if (compte.getAdresse() == null) {
 
-                adresse = new Adresse(numero,rue,codePostal,ville,departement);
-                adresseResource.createAdresse(adresse); // BREAK HERE !!!!!!!
 
-            } else {
+                adresse = new Adresse(numero,rue,codePostal,ville,departement,region,pays);
+                adresseResource.createAdresse(adresse);
 
-                adresse = new Adresse(id,numero,rue,codePostal,ville,departement,region,pays);
-                adresseResource.updateAdresse(adresse);
+                compte.setAdresse(adresse);
+                compteResource.updateCompte(compte);
 
-            }
+                
 
             httpSession.setAttribute("adresse",adresse);
 
-        } catch (NotFoundException e) {
+        } catch (NotFoundException | FunctionalException e) {
             e.printStackTrace();
         }
 

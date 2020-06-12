@@ -13,7 +13,7 @@ public class AdresseResource extends AbstractResource {
         return getManagerFactory().getAdresseManager().getAdresse(adresse);
     }
 
-    public Boolean createAdresse (Adresse adresse) throws NotFoundException {
+    public Boolean createAdresse (Adresse adresse) throws NotFoundException, FunctionalException {
         return getManagerFactory().getAdresseManager().createAdresse(adresse) ;
     }
 

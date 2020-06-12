@@ -3,6 +3,7 @@ package com.sitestudio.escalade.business.impl.manager;
 import com.sitestudio.escalade.business.contract.manager.AdresseManager;
 import com.sitestudio.escalade.model.bean.compte.Adresse;
 import com.sitestudio.escalade.model.exception.FunctionalException;
+import com.sitestudio.escalade.model.exception.NotFoundException;
 
 import javax.inject.Named;
 
@@ -15,12 +16,12 @@ import javax.inject.Named;
 public class AdresseManagerImpl extends AbstractManager implements AdresseManager {
 
     @Override
-    public Adresse getAdresse(Adresse adresse) throws FunctionalException {
+    public Adresse getAdresse(Adresse adresse) throws FunctionalException, NotFoundException {
         return getDaoFactory().getAdresseDao().read(adresse);
     }
 
     @Override
-    public Boolean createAdresse(Adresse adresse) {
+    public Boolean createAdresse(Adresse adresse) throws FunctionalException {
         return getDaoFactory().getAdresseDao().create(adresse);
     }
 
