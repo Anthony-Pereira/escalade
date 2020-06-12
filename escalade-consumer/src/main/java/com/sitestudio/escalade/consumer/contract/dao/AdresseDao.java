@@ -1,7 +1,7 @@
 package com.sitestudio.escalade.consumer.contract.dao;
 
 import com.sitestudio.escalade.model.bean.compte.Adresse;
-import com.sitestudio.escalade.model.bean.compte.Compte;
+import com.sitestudio.escalade.model.exception.FunctionalException;
 
 import java.util.List;
 
@@ -18,7 +18,7 @@ public interface AdresseDao {
      * Méthode de recherche des informations
      * @param adresse
      * @return T */
-    Adresse read (Adresse adresse);
+    Adresse read (Adresse adresse) throws FunctionalException;
 
     Adresse read(String code);
     List<Adresse> readAll();

@@ -17,6 +17,16 @@ public class Adresse {
 
     public Adresse(){};
 
+    public Adresse(Integer id){ this.id = id; }
+
+    public Adresse(String numero, String rue, String codePostal, String ville, Departement departement) {
+        this.numero = numero;
+        this.rue = rue;
+        this.codePostal = codePostal;
+        this.ville = ville;
+        this.departement = departement;
+    }
+
     public Adresse(Integer id, String numero, String rue, String codePostal, String ville, Departement departement, Region region, Pays pays) {
         this.id = id;
         this.numero = numero;

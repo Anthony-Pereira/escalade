@@ -7,6 +7,10 @@ public class Departement {
     private String nom;
     private Region region;
 
+    public Departement(){}
+
+    public Departement(Integer id){ this.id = id; }
+
     public Departement(Integer id, String numero, String nom, Region region) {
         this.id = id;
         this.numero = numero;

@@ -14,6 +14,8 @@ public class Commentaire {
     private Integer idTypeObjet;
     private Compte utilisateur;
 
+    public Commentaire(){}
+
     public Commentaire(Integer id, String commentaire, LocalDateTime date, EnumTypeObjet typeObjet, Integer idTypeObjet, Compte utilisateur) {
         this.id = id;
         this.commentaire = commentaire;

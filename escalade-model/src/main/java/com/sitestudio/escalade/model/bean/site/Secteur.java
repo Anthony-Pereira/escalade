@@ -10,6 +10,8 @@ public class Secteur {
     private Site site;
     private List<UrlPhoto> url;
 
+    public Secteur(){}
+
     public Secteur(Integer id, String nom, String description, List<UrlPhoto> url) {
         this.id = id;
         this.nom = nom;

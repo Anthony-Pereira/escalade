@@ -6,6 +6,10 @@ public class Region {
     private String nom;
     private Pays pays;
 
+    public Region(){}
+
+    public Region(Integer id){ this.id = id; }
+
     public Region(Integer id, String nom, Pays pays) {
         this.id = id;
         this.nom = nom;

@@ -6,6 +6,8 @@ public class UrlPhoto {
     private String url;
     private String description;
 
+    public UrlPhoto(){}
+
     public UrlPhoto(Integer id, String url, String description) {
         this.id = id;
         this.url = url;

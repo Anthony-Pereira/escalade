@@ -9,7 +9,7 @@ public class Pays {
     /**
      * Code pays ISO 3166-1 alpha 2
      */
-    private String  codeAlpha2 = "FR";
+    private String codeAlpha2 = "FR";
     /**
      * Code pays ISO 3166-1 alpha 3
      */
@@ -22,9 +22,16 @@ public class Pays {
     // Exemple pour la France :
     // France	FR	FRA	250
 
+    public Pays() {
+    }
+
+    public Pays(Integer code) {
+        this.code = code;
+    }
 
     /**
      * Constructeur complet.
+     *
      * @param nom
      * @param codeAlpha2
      * @param codeAlpha3

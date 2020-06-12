@@ -13,6 +13,8 @@ public class Reservation {
     private EnumPeriodeJour periodeJour;
     private Compte reservePar;
 
+    public Reservation(){}
+
     public Reservation(Integer id, Topo topo, LocalDateTime dateReservation, EnumPeriodeJour periodeJour, Compte reservePar) {
         this.id = id;
         this.topo = topo;

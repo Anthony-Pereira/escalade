@@ -2,14 +2,20 @@ package com.sitestudio.escalade.business.impl.manager;
 
 import com.sitestudio.escalade.business.contract.manager.AdresseManager;
 import com.sitestudio.escalade.model.bean.compte.Adresse;
+import com.sitestudio.escalade.model.exception.FunctionalException;
 
 import javax.inject.Named;
 
+/**
+ * Implémentation de l'interface manager "AdresseManager".
+ *
+ * @author Anthony Pereira
+ */
 @Named
 public class AdresseManagerImpl extends AbstractManager implements AdresseManager {
 
     @Override
-    public Adresse getAdresse(Adresse adresse) {
+    public Adresse getAdresse(Adresse adresse) throws FunctionalException {
         return getDaoFactory().getAdresseDao().read(adresse);
     }
 

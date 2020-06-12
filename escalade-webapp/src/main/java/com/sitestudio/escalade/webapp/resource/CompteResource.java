@@ -5,7 +5,7 @@ import com.sitestudio.escalade.model.exception.FunctionalException;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 
 /**
- * Demande la liste d'artciles à la couche business.
+ * Demande la liste des comptes à la couche business.
  */
 public class CompteResource extends AbstractResource {
 

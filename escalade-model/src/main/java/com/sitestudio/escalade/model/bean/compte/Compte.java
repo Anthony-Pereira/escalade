@@ -16,8 +16,7 @@ public class Compte {
 
     private EnumRole role;
 
-    public Compte() {
-    }
+    public Compte() {}
 
     public Compte(Integer id) {
         this.id = id;

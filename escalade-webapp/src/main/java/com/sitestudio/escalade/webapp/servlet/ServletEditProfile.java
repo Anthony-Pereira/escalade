@@ -6,8 +6,7 @@ import com.sitestudio.escalade.model.bean.referentiel.Departement;
 import com.sitestudio.escalade.model.bean.referentiel.Pays;
 import com.sitestudio.escalade.model.bean.referentiel.Region;
 import com.sitestudio.escalade.model.exception.NotFoundException;
-import com.sitestudio.escalade.webapp.resource.AdresseResource;
-import com.sitestudio.escalade.webapp.resource.CompteResource;
+import com.sitestudio.escalade.webapp.resource.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,6 +23,10 @@ public class ServletEditProfile extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
+        HttpSession httpSession = request.getSession();
+
+        httpSession.getAttribute("adresse");
+
         this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/editProfile.jsp").forward(request,response);
 
     }
@@ -33,11 +36,14 @@ public class ServletEditProfile extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         Compte compte;
+        Adresse adresse;
+
         CompteResource compteResource = new CompteResource();
-
-        Adresse adresse = new Adresse();
         AdresseResource adresseResource = new AdresseResource();
-
+        DepartementResource departementResource = new DepartementResource();
+        RegionResource regionResource = new RegionResource();
+        PaysResource paysResource = new PaysResource();
+        
         HttpSession httpSession = request.getSession();
         compte = (Compte) httpSession.getAttribute("compte");
 
@@ -58,66 +64,42 @@ public class ServletEditProfile extends HttpServlet {
         compte.setNom(nom);
         compte.setNumTelephone(numTelephone);
 
-        Integer adresse_id = adresse.getId();
-        adresse.setId(adresse_id);
-        adresse.setNumero(numero);
-        adresse.setRue(rue);
-        adresse.setCodePostal(codePostal);
-        adresse.setVille(ville);
+        String numeroDepartement = codePostal.substring(0,2);
 
-        if (adresse_id == null) {
-            try {
-                adresseResource.createAdresse(adresse);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
-        } else {
-            try {
-                adresseResource.updateAdresse(adresse);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
-        }
+        System.out.println("le numero de département est " + numeroDepartement.substring(0,2));
 
         try {
-            compteResource.updateCompte(compte);
+
+            Departement departement = departementResource.getDepartement(numeroDepartement.substring(0,2));
+            Integer regionId = departement.getRegion().getId();
+
+            Region region = regionResource.getRegion(regionId);
+            Integer codePays = region.getPays().getCode();
+
+            Pays pays = paysResource.getPays(codePays);
+
+            if (compte.getAdresse() == null) {
+
+                adresse = new Adresse(numero,rue,codePostal,ville,departement);
+                adresseResource.createAdresse(adresse); // BREAK HERE !!!!!!!
+
+            } else {
+
+                adresse = new Adresse(id,numero,rue,codePostal,ville,departement,region,pays);
+                adresseResource.updateAdresse(adresse);
+
+            }
+
+            httpSession.setAttribute("adresse",adresse);
+
         } catch (NotFoundException e) {
             e.printStackTrace();
         }
 
-        request.setAttribute("compte", compte);
-        request.setAttribute("adresse",adresse);
-        httpSession.setAttribute("adresse",adresse);
+        httpSession.setAttribute("compte",compte);
 
         this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/profile.jsp").forward(request,response);
 
     }
+
 }
-
-        //Adresse adresse = new Adresse();
-        //AdresseResource adresseResource = new AdresseResource();
-
-
-       /* //Paramètre de l'adresse
-        String numero = request.getParameter("numero");
-        String rue = request.getParameter("rue");
-        String codePostal = request.getParameter("codePostal");
-        String ville = request.getParameter("ville");
-
-        adresse.setNumero(numero);
-        adresse.setRue(rue);
-        adresse.setCodePostal(codePostal);
-        adresse.setVille(ville);
-
-        try {
-            adresseResource.createAdresse(adresse);
-        } catch (NotFoundException e) {
-            e.printStackTrace();
-        }
-
-        httpSession.setAttribute("adresse",adresse);
-
-        //compte.setAdresse(adresse);
-
-        */
-

@@ -5,13 +5,13 @@ import com.sitestudio.escalade.model.bean.compte.Compte;
 import com.sitestudio.escalade.model.exception.FunctionalException;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 
+import javax.inject.Named;
+
 /**
  * Implémentation de l'interface manager "CompteManager".
  *
  * @author Anthony Pereira
  */
-import javax.inject.Named;
-
 @Named
 public class CompteManagerImpl extends AbstractManager implements CompteManager {
 

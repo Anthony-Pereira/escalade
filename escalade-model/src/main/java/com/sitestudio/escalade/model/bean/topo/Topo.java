@@ -11,6 +11,8 @@ public class Topo {
     private Site site;
     private Compte propriétaire;
 
+    public Topo(){}
+
     public Topo(Integer id, String nom, String description, Compte propriétaire) {
         this.id = id;
         this.nom = nom;

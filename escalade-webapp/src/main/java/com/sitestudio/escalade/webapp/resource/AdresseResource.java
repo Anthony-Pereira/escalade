@@ -1,11 +1,15 @@
 package com.sitestudio.escalade.webapp.resource;
 
 import com.sitestudio.escalade.model.bean.compte.Adresse;
+import com.sitestudio.escalade.model.exception.FunctionalException;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 
+/**
+ * Demande la liste d'adresses à la couche business.
+ */
 public class AdresseResource extends AbstractResource {
 
-    public Adresse getAdresse (Adresse adresse) throws NotFoundException {
+    public Adresse getAdresse (Adresse adresse) throws NotFoundException, FunctionalException {
         return getManagerFactory().getAdresseManager().getAdresse(adresse);
     }
 

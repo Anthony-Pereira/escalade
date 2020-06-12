@@ -3,6 +3,7 @@ package com.sitestudio.escalade.consumer.impl.dao;
 import com.sitestudio.escalade.consumer.contract.dao.AdresseDao;
 import com.sitestudio.escalade.consumer.impl.rowmapper.AdresseRM;
 import com.sitestudio.escalade.model.bean.compte.Adresse;
+import com.sitestudio.escalade.model.exception.FunctionalException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -19,7 +20,7 @@ public class AdresseDaoImpl extends AbstractDao implements AdresseDao {
     AdresseRM adresseRM;
 
     @Override
-    public Adresse read(Adresse adresse) {
+    public Adresse read(Adresse adresse) throws FunctionalException {
 
         String sql = "SELECT * FROM adresse WHERE adresse_id ='" + adresse.getId() + "'";
 
@@ -27,7 +28,13 @@ public class AdresseDaoImpl extends AbstractDao implements AdresseDao {
 
         List<Adresse> listAdresse = jdbcTemplate.query(sql,adresseRM);
 
-        Adresse utilisateur = listAdresse.get(0);
+        Adresse utilisateur;
+
+        if (listAdresse.size() == 0) {
+            throw new FunctionalException("L'adresse n'existe pas");
+        } else {
+             utilisateur = listAdresse.get(0);
+        }
 
         return utilisateur;
     }
@@ -104,6 +111,7 @@ public class AdresseDaoImpl extends AbstractDao implements AdresseDao {
         mapSqlParameterSource.addValue("code_postal", adresse.getCodePostal(), Types.VARCHAR);
         mapSqlParameterSource.addValue("ville", adresse.getVille(), Types.VARCHAR);
         mapSqlParameterSource.addValue("departement_id",adresse.getDepartement(),Types.INTEGER);
+
         return mapSqlParameterSource;
     }
 

@@ -1,8 +1,6 @@
 package com.sitestudio.escalade.business.contract;
 
-import com.sitestudio.escalade.business.contract.manager.AdresseManager;
-import com.sitestudio.escalade.business.contract.manager.CompteManager;
-import com.sitestudio.escalade.model.bean.compte.Compte;
+import com.sitestudio.escalade.business.contract.manager.*;
 
 public interface ManagerFactory {
 
@@ -13,4 +11,17 @@ public interface ManagerFactory {
     AdresseManager getAdresseManager();
 
     void setAdresseManager(AdresseManager adresseManager);
+
+    DepartementManager getDepartementManager();
+
+    void setDepartementManager(DepartementManager departementManager);
+
+    RegionManager getRegionManager();
+
+    void setRegionManager(RegionManager regionManager);
+
+    PaysManager getPaysManager();
+
+    void setPaysManager(PaysManager paysManager);
+
 }

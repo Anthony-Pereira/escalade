@@ -12,6 +12,8 @@ public class Site {
     private List<UrlPhoto> url;
     private Adresse adresse;
 
+    public Site(){}
+
     public Site(Integer id, String nom, String description, List<UrlPhoto> url, Adresse adresse) {
         this.id = id;
         this.nom = nom;
