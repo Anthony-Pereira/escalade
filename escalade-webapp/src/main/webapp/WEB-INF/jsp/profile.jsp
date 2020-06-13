@@ -39,12 +39,14 @@
                 <li>Prénom : <c:out value="${compte.prenom}"/></li>
                 <li>Nom : <c:out value="${compte.nom}"/></li>
                 <li>Téléphone : <c:out value="${compte.numTelephone}"/></li>
-                <li>Adresse : <c:out value="${adresse.numero} " />
-                    <c:out value="${adresse.rue}"/>
-                    <c:out value="${adresse.codePostale}"/>
-                    <c:out value="${adresse.ville}"/>
-                </li>
+                <li>Adresse : <c:out value="${adresse.numero}"/> rue <c:out value="${adresse.rue}"/></li>
+                <li>Code postal : <c:out value="${adresse.codePostal}"/></li>
+                <li>Ville : <c:out value="${adresse.ville}"/></li>
             </ul>
+            <p><br/>
+                <br/>
+
+            </p>
         </div>
         <div>
             <h4>Information sur le compte</h4>

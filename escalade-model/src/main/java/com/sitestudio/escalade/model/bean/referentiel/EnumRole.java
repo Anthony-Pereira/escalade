@@ -10,6 +10,9 @@ public enum EnumRole {
     private String description;
 
     EnumRole(Integer code, String designation, String description) {
+        this.code = code;
+        this.designation = designation;
+        this.description = description;
     }
 
     public Integer getCode() {

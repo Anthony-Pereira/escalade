@@ -1,12 +1,7 @@
 package com.sitestudio.escalade.consumer.impl.rowmapper;
 
-import com.sitestudio.escalade.consumer.contract.dao.AdresseDao;
-import com.sitestudio.escalade.consumer.contract.dao.DepartementDao;
 import com.sitestudio.escalade.consumer.impl.dao.DepartementDaoImpl;
-import com.sitestudio.escalade.consumer.impl.dao.PaysDaoImpl;
-import com.sitestudio.escalade.consumer.impl.dao.RegionDaoImpl;
 import com.sitestudio.escalade.model.bean.compte.Adresse;
-import com.sitestudio.escalade.model.bean.referentiel.Departement;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 import org.springframework.jdbc.core.RowMapper;
 

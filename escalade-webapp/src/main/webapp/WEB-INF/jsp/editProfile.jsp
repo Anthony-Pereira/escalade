@@ -63,25 +63,25 @@
                     <h4 class="my-2 mr-2">Adresse</h4>
 
                     <div>
-                        <label for="rue">Numéro</label> <input type="number" size="50"
+                        <label for="rue">Numéro</label> <input type="number" size="50" value="<c:out value="${adresse.numero}"/>"
                                                                name="numero" class="form-control" id="numero"
                                                                aria-describedby="numero">
                         <span class="text-info"></span>
                     </div>
                     <div>
-                        <label for="rue">Rue</label> <input type="text" size="50"
+                        <label for="rue">Rue</label> <input type="text" size="50" value="<c:out value="${adresse.rue}"/>"
                                                             name="rue" class="form-control" id="rue"
                                                             aria-describedby="rue">
                         <span class="text-info"></span>
                     </div>
                     <div>
-                        <label for="codePostal">Code postal</label> <input type="number" size="50"
+                        <label for="codePostal">Code postal</label> <input type="number" size="50" value="<c:out value="${adresse.codePostal}"/>"
                                                                            name="codePostal" class="form-control" id="codePostal"
                                                                            aria-describedby="codePostal">
                         <span class="text-info"></span>
                     </div>
                     <div>
-                        <label for="ville">Ville</label> <input type="text" size="50"
+                        <label for="ville">Ville</label> <input type="text" size="50" value="<c:out value="${adresse.ville}"/>"
                                                                 name="ville" class="form-control" id="ville"
                                                                 aria-describedby="ville">
                         <span class="text-info"></span>
