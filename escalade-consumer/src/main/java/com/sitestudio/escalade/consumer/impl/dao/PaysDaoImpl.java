@@ -3,6 +3,7 @@ package com.sitestudio.escalade.consumer.impl.dao;
 import com.sitestudio.escalade.consumer.contract.dao.PaysDao;
 import com.sitestudio.escalade.consumer.impl.rowmapper.PaysRM;
 import com.sitestudio.escalade.model.bean.referentiel.Pays;
+import com.sitestudio.escalade.model.bean.referentiel.Region;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -17,9 +18,9 @@ public class PaysDaoImpl extends AbstractDao implements PaysDao {
     PaysRM paysRM;
 
     @Override
-    public Pays read(Integer code) throws NotFoundException {
+    public Pays read(Region region) throws NotFoundException {
 
-        String sql = "SELECT * FROM pays WHERE pays_code ='" + code + "'";
+        String sql = "SELECT * FROM pays WHERE pays_code ='" + region.getPays().getCode() + "'";
 
         JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
 

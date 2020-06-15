@@ -1,5 +1,6 @@
 package com.sitestudio.escalade.consumer.contract.dao;
 
+import com.sitestudio.escalade.model.bean.referentiel.Departement;
 import com.sitestudio.escalade.model.bean.referentiel.Region;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 
@@ -10,12 +11,14 @@ import com.sitestudio.escalade.model.exception.NotFoundException;
  */
 public interface RegionDao {
 
+    //-- CRUD : Les méthodes nécessaires
+
     /**
      * Méthode de recherche des informations
-     * @param id
+     * @param departement
      * @return
      */
-    Region read(Integer id) throws NotFoundException;
+    Region read(Departement departement) throws NotFoundException;
 
     /**
      * Méthode de création

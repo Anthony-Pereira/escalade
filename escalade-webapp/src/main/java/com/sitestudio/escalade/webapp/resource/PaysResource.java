@@ -9,8 +9,8 @@ import com.sitestudio.escalade.model.exception.NotFoundException;
  */
 public class PaysResource extends AbstractResource {
 
-    public Pays getPays(Integer code) throws NotFoundException {
-        return getManagerFactory().getPaysManager().getPays(code);
+    public Pays getPays(Region region) throws NotFoundException {
+        return getManagerFactory().getPaysManager().getPays(region);
     }
 
     public Boolean createPays(Pays pays) throws NotFoundException {

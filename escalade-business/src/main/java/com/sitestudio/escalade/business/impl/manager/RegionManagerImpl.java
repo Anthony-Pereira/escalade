@@ -16,8 +16,8 @@ import javax.inject.Named;
 public class RegionManagerImpl extends AbstractManager implements RegionManager {
 
     @Override
-    public Region getRegion(Integer id) throws NotFoundException {
-        return getDaoFactory().getRegionDao().read(id);
+    public Region getRegion(Departement departement) throws NotFoundException {
+        return getDaoFactory().getRegionDao().read(departement);
     }
 
     @Override

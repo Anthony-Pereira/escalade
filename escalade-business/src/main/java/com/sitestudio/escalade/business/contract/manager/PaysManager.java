@@ -8,32 +8,32 @@ public interface PaysManager {
 
     /**
      * Retourne le pays.
-     * @param code
-     * @return
+     * @param region L'identifiant d'un pays ciblé.
+     * @return Un objet pays.
      * @throws NotFoundException
      */
-    Pays getPays(Integer code) throws NotFoundException;
+    Pays getPays(Region region) throws NotFoundException;
 
     /**
-     * Creer un pays.
-     * @param pays
-     * @return
+     * Créer un pays.
+     * @param pays L'identifiant d'un pays ciblé.
+     * @return boolean
      * @throws NotFoundException
      */
     Boolean createPays(Pays pays) throws NotFoundException;
 
     /**
      * Modifie un pays.
-     * @param pays
-     * @return
+     * @param pays L'identifiant d'un pays ciblé.
+     * @return boolean
      * @throws NotFoundException
      */
     Boolean updatePays(Pays pays) throws NotFoundException;
 
     /**
      * Supprime un pays
-     * @param pays
-     * @return
+     * @param pays L'identifiant d'un pays ciblé.
+     * @return boolean
      * @throws NotFoundException
      */
     Boolean deletePays(Pays pays) throws NotFoundException;

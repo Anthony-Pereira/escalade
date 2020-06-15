@@ -14,7 +14,7 @@ public interface DaoFactory {
 
     DepartementDao getDepartementDao();
 
-    void setDepartementDao(AdresseDao adresseDao);
+    void setDepartementDao(DepartementDao departementDao);
 
     RegionDao getRegionDao();
 
@@ -24,4 +24,23 @@ public interface DaoFactory {
 
     void setPaysDao(PaysDao paysDao);
 
+    SiteDao getSiteDao();
+
+    void setSiteDao(SiteDao siteDao);
+
+    SecteurDao getSecteurDao();
+
+    void setSecteurDao(SecteurDao secteurDao);
+
+    VoieDao getVoieDao();
+
+    void setVoieDao(VoieDao voieDao);
+
+    CommentaireDao getCommentaireDao();
+
+    void setCommentaireDao(CommentaireDao commentaireDao);
+
+    UrlPhotoDao getUrlPhotoDao();
+
+    void setUrlPhotoDao(UrlPhotoDao urlPhotoDao);
 }

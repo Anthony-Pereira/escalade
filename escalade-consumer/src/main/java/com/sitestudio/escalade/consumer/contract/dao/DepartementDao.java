@@ -11,26 +11,14 @@ import com.sitestudio.escalade.model.exception.NotFoundException;
  */
 public interface DepartementDao {
 
-    /**
-     * Méthode de recherche des informations
-     * @param numeroDepartement
-     * @return
-     */
-    Departement read(String numeroDepartement) throws NotFoundException;
+    //-- CRUD : Les méthodes nécessaires
 
     /**
      * Méthode de recherche des informations
-     * @param departement
+     * @param adresse
      * @return
      */
-    Departement read(Departement departement) throws NotFoundException;
-
-    /**
-     * Méthode de recherche des informations
-     * @param id
-     * @return
-     */
-    Departement read(Integer id) throws NotFoundException;
+    Departement read(Adresse adresse) throws NotFoundException;
 
     /**
      * Méthode de création

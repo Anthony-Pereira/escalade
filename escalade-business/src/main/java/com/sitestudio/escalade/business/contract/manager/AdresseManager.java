@@ -6,27 +6,27 @@ import com.sitestudio.escalade.model.exception.NotFoundException;
 
 public interface AdresseManager {
 
-    /**Retourne l'objet Utilisateur ciblé.
-     * @param adresse L'identifiant de l'utilisateur ciblé.
-     * @return Un objet Utilisateur.
+    /**Retourne l'objet Adresse ciblé.
+     * @param adresse L'identifiant de l'adresse ciblé.
+     * @return Un objet Adresse.
      * @throws NotFoundException */
     Adresse getAdresse (Adresse adresse) throws NotFoundException, FunctionalException;
 
     /**Créer une adresse.
-     * @param adresse L'identifiant de l'utilisateur ciblé.
-     * @return Un objet Utilisateur.
+     * @param adresse L'identifiant de l'adresse ciblé.
+     * @return Un objet Adresse.
      * @throws NotFoundException */
     Boolean createAdresse (Adresse adresse) throws NotFoundException, FunctionalException;
 
     /**Modifier une adresse.
-     * @param adresse L'identifiant de l'utilisateur ciblé.
-     * @return Un objet Utilisateur.
+     * @param adresse L'identifiant de l'adresse ciblé.
+     * @return Un objet Adresse.
      * @throws NotFoundException */
     Boolean updateAdresse (Adresse adresse) throws  NotFoundException;
 
     /**Supprimer une adresse.
-     * @param adresse L'identifiant de l'utilisateur ciblé.
-     * @return Un objet Utilisateur.
+     * @param adresse L'identifiant de l'adresse ciblé.
+     * @return Un objet Adresse.
      * @throws NotFoundException */
     Boolean deleteAdresse (Adresse adresse) throws NotFoundException;
 

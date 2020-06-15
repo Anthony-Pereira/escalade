@@ -25,11 +25,11 @@ public class DepartementRM implements RowMapper<Departement> {
         departement.setNumero(rs.getString("numero"));
         departement.setNom(rs.getString("nom"));
 
-        try {
+        /*try {
             departement.setRegion(regionDao.read(rs.getInt("region_id")));
         } catch (NotFoundException e) {
             e.printStackTrace();
-        }
+        }*/
 
         return departement;
     }

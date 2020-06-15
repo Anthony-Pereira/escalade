@@ -21,7 +21,6 @@ public interface AdresseDao {
      * @return T */
     Adresse read (Adresse adresse) throws FunctionalException, NotFoundException;
 
-    Adresse read(String code);
     List<Adresse> readAll();
     List<Adresse> readAll(int id);
 

@@ -2,6 +2,7 @@ package com.sitestudio.escalade.business.impl;
 
 import com.sitestudio.escalade.business.contract.ManagerFactory;
 import com.sitestudio.escalade.business.contract.manager.*;
+import com.sitestudio.escalade.model.bean.site.Site;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -29,6 +30,21 @@ public class ManagerFactoryImpl implements ManagerFactory {
 
     @Inject
     private PaysManager paysManager;
+
+    @Inject
+    private SiteManager siteManager;
+
+    @Inject
+    private SecteurManager secteurManager;
+
+    @Inject
+    private VoieManager voieManager;
+
+    @Inject
+    private CommentaireManager commentaireManager;
+
+    @Inject
+    private UrlPhotoManager urlPhotoManager;
 
     @Override
     public CompteManager getCompteManager() {
@@ -78,5 +94,55 @@ public class ManagerFactoryImpl implements ManagerFactory {
     @Override
     public void setPaysManager(PaysManager paysManager) {
 
+    }
+
+    @Override
+    public SiteManager getSiteManager() {
+        return siteManager;
+    }
+
+    @Override
+    public void setSiteManager(SiteManager siteManager) {
+        this.siteManager = siteManager;
+    }
+
+    @Override
+    public SecteurManager getSecteurManager() {
+        return secteurManager;
+    }
+
+    @Override
+    public void setSecteurManager(SecteurManager secteurManager) {
+        this.secteurManager = secteurManager;
+    }
+
+    @Override
+    public VoieManager getVoieManager() {
+        return voieManager;
+    }
+
+    @Override
+    public void setVoieManager(VoieManager voieManager) {
+        this.voieManager = voieManager;
+    }
+
+    @Override
+    public CommentaireManager getCommentaireManager() {
+        return commentaireManager;
+    }
+
+    @Override
+    public void setCommentaireManager(CommentaireManager commentaireManager) {
+        this.commentaireManager = commentaireManager;
+    }
+
+    @Override
+    public UrlPhotoManager getUrlPhotoManager() {
+        return urlPhotoManager;
+    }
+
+    @Override
+    public void setUrlPhotoManager(UrlPhotoManager urlPhotoManager) {
+        this.urlPhotoManager = urlPhotoManager;
     }
 }

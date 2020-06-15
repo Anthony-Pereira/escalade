@@ -47,6 +47,7 @@ public class ServletEditProfile extends HttpServlet {
         
         HttpSession httpSession = request.getSession();
         compte = (Compte) httpSession.getAttribute("compte");
+        adresse = (Adresse) httpSession.getAttribute("adresse");
 
         String pseudo = request.getParameter("pseudo");
         String prenom = request.getParameter("prenom");
@@ -65,21 +66,20 @@ public class ServletEditProfile extends HttpServlet {
         compte.setNom(nom);
         compte.setNumTelephone(numTelephone);
 
-        String numeroDepartement = codePostal.substring(0,2);
+        adresse.setNumero(numero);
+        adresse.setRue(rue);
+        adresse.setCodePostal(codePostal);
+        adresse.setVille(ville);
 
-        System.out.println("le numero de département est " + numeroDepartement.substring(0,2));
+        System.out.println("le numero de département est " + adresse.getCodePostal().substring(0,2));
 
         try {
 
-            Departement departement = departementResource.getDepartement(numeroDepartement.substring(0,2));
-            Integer regionId = departement.getRegion().getId();
+            Departement departement = departementResource.getDepartement(adresse);
 
-            Region region = regionResource.getRegion(regionId);
-            Integer codePays = region.getPays().getCode();
+            Region region = regionResource.getRegion(departement);
 
-            Pays pays = paysResource.getPays(codePays);
-
-
+            Pays pays = paysResource.getPays(region);
 
                 adresse = new Adresse(numero,rue,codePostal,ville,departement,region,pays);
                 adresseResource.createAdresse(adresse);

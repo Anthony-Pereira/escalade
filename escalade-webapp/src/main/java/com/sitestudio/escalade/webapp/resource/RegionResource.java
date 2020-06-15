@@ -9,8 +9,8 @@ import com.sitestudio.escalade.model.exception.NotFoundException;
  */
 public class RegionResource extends AbstractResource  {
 
-    public Region getRegion(Integer id) throws NotFoundException {
-        return getManagerFactory().getRegionManager().getRegion(id);
+    public Region getRegion(Departement departement) throws NotFoundException {
+        return getManagerFactory().getRegionManager().getRegion(departement);
     }
 
     public Boolean createRegion(Region region) throws NotFoundException {

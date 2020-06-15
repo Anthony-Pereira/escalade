@@ -24,4 +24,23 @@ public interface ManagerFactory {
 
     void setPaysManager(PaysManager paysManager);
 
+    SiteManager getSiteManager();
+
+    void setSiteManager(SiteManager siteManager);
+
+    SecteurManager getSecteurManager();
+
+    void setSecteurManager(SecteurManager secteurManager);
+
+    VoieManager getVoieManager();
+
+    void setVoieManager(VoieManager voieManager);
+
+    CommentaireManager getCommentaireManager();
+
+    void setCommentaireManager(CommentaireManager commentaireManager);
+
+    UrlPhotoManager getUrlPhotoManager();
+
+    void setUrlPhotoManager(UrlPhotoManager urlPhotoManager);
 }

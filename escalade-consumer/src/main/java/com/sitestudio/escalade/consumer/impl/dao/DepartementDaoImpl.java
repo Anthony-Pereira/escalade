@@ -18,40 +18,9 @@ public class DepartementDaoImpl extends AbstractDao implements DepartementDao {
     DepartementRM departementRM;
 
     @Override
-    public Departement read(String numeroDepartement) throws NotFoundException {
+    public Departement read(Adresse adresse) throws NotFoundException {
 
-        String sql = "SELECT * FROM departement WHERE numero ='" + numeroDepartement + "'";
-
-        return getDepartement(sql);
-    }
-
-    @Override
-    public Departement read(Integer id) throws NotFoundException {
-
-        String sql = "SELECT * FROM departement WHERE departement_id ='" + id + "'";
-
-        return getDepartement(sql);
-
-    }
-
-    @Override
-    public Departement read(Departement departement) throws NotFoundException {
-
-        String sql = "SELECT * FROM departement WHERE numero ='" + departement.getId() + "'";
-
-        JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
-
-        List<Departement> listDepartement = jdbcTemplate.query(sql,departementRM);
-
-        if (listDepartement.size() == 0) {
-            throw new NotFoundException("Le département n'existe pas");
-        } else { departement = listDepartement.get(0);}
-
-        return departement;
-
-    }
-
-    private Departement getDepartement(String sql) throws NotFoundException {
+        String sql = "SELECT * FROM departement WHERE numero ='" + adresse.getCodePostal().substring(0,2) + "'";
 
         JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
 

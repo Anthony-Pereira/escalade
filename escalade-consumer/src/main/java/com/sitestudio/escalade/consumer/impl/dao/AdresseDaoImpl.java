@@ -41,11 +41,6 @@ public class AdresseDaoImpl extends AbstractDao implements AdresseDao {
     }
 
     @Override
-    public Adresse read(String code) {
-        return null;
-    }
-
-    @Override
     public List<Adresse> readAll() {
         return null;
     }

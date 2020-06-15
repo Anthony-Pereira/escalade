@@ -16,8 +16,8 @@ import javax.inject.Named;
 public class DepartementManagerImpl extends AbstractManager implements DepartementManager {
 
     @Override
-    public Departement getDepartement(String numeroDepartement) throws NotFoundException {
-        return getDaoFactory().getDepartementDao().read(numeroDepartement) ;
+    public Departement getDepartement(Adresse adresse) throws NotFoundException {
+        return getDaoFactory().getDepartementDao().read(adresse) ;
     }
 
     @Override

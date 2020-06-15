@@ -26,11 +26,11 @@ public class AdresseRM implements RowMapper<Adresse> {
         adresse.setCodePostal(rs.getString("code_postal"));
         adresse.setVille(rs.getString("ville"));
 
-        try {
+        /*try {
             adresse.setDepartement(departementDao.read(rs.getInt("departement_id")));
         } catch (NotFoundException e) {
             e.printStackTrace();
-        }
+        }*/
 
         return adresse;
     }

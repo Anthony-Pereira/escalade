@@ -2,6 +2,8 @@ package com.sitestudio.escalade.consumer.impl;
 
 import com.sitestudio.escalade.consumer.contract.DaoFactory;
 import com.sitestudio.escalade.consumer.contract.dao.*;
+import com.sitestudio.escalade.model.bean.site.Site;
+import com.sitestudio.escalade.model.bean.site.Voie;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -23,6 +25,21 @@ public class DaoFactoryImpl implements DaoFactory {
 
     @Inject
     PaysDao paysDao;
+
+    @Inject
+    SiteDao siteDao;
+
+    @Inject
+    SecteurDao secteurDao;
+
+    @Inject
+    VoieDao voieDao;
+
+    @Inject
+    CommentaireDao commentaireDao;
+
+    @Inject
+    UrlPhotoDao urlPhotoDao;
 
     @Override
     public CompteDao getCompteDao() {
@@ -50,8 +67,8 @@ public class DaoFactoryImpl implements DaoFactory {
     }
 
     @Override
-    public void setDepartementDao(AdresseDao adresseDao) {
-        this.adresseDao = adresseDao;
+    public void setDepartementDao(DepartementDao departementDao) {
+        this.departementDao = departementDao;
     }
 
     @Override
@@ -72,5 +89,55 @@ public class DaoFactoryImpl implements DaoFactory {
     @Override
     public void setPaysDao(PaysDao paysDao) {
         this.paysDao = paysDao;
+    }
+
+    @Override
+    public SiteDao getSiteDao() {
+        return siteDao;
+    }
+
+    @Override
+    public void setSiteDao(SiteDao siteDao) {
+        this.siteDao = siteDao;
+    }
+
+    @Override
+    public SecteurDao getSecteurDao() {
+        return secteurDao;
+    }
+
+    @Override
+    public void setSecteurDao(SecteurDao secteurDao) {
+        this.secteurDao = secteurDao;
+    }
+
+    @Override
+    public VoieDao getVoieDao() {
+        return voieDao;
+    }
+
+    @Override
+    public void setVoieDao(VoieDao voieDao) {
+        this.voieDao = voieDao;
+    }
+
+    @Override
+    public CommentaireDao getCommentaireDao() {
+        return commentaireDao;
+    }
+
+    @Override
+    public void setCommentaireDao(CommentaireDao commentaireDao) {
+        this.commentaireDao = commentaireDao;
+    }
+
+    @Override
+    public UrlPhotoDao getUrlPhotoDao() {
+        return urlPhotoDao;
+    }
+
+    @Override
+    public void setUrlPhotoDao(UrlPhotoDao urlPhotoDao) {
+        this.urlPhotoDao = urlPhotoDao;
     }
 }

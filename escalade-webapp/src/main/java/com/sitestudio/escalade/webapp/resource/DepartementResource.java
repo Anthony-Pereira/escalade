@@ -9,8 +9,8 @@ import com.sitestudio.escalade.model.exception.NotFoundException;
  */
 public class DepartementResource extends AbstractResource {
 
-    public Departement getDepartement(String numeroDepartement) throws NotFoundException {
-        return getManagerFactory().getDepartementManager().getDepartement(numeroDepartement);
+    public Departement getDepartement(Adresse adresse) throws NotFoundException {
+        return getManagerFactory().getDepartementManager().getDepartement(adresse);
     }
 
     public Boolean createDepartement(Departement departement) throws NotFoundException {
