@@ -2,7 +2,6 @@ package com.sitestudio.escalade.consumer.impl.rowmapper;
 
 import com.sitestudio.escalade.consumer.impl.dao.RegionDaoImpl;
 import com.sitestudio.escalade.model.bean.referentiel.Departement;
-import com.sitestudio.escalade.model.bean.referentiel.Region;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -22,14 +21,16 @@ public class DepartementRM implements RowMapper<Departement> {
 
         Departement departement = new Departement(rs.getInt("departement_id"));
 
+        departement.setId(rs.getInt("departement_id"));
         departement.setNumero(rs.getString("numero"));
         departement.setNom(rs.getString("nom"));
 
-        /*try {
-            departement.setRegion(regionDao.read(rs.getInt("region_id")));
+        try {
+            departement.setRegion(regionDao.read(departement));
         } catch (NotFoundException e) {
             e.printStackTrace();
-        }*/
+        }
+
 
         return departement;
     }

@@ -14,19 +14,19 @@ public interface AdresseManager {
 
     /**Créer une adresse.
      * @param adresse L'identifiant de l'adresse ciblé.
-     * @return Un objet Adresse.
+     * @return boolean.
      * @throws NotFoundException */
     Boolean createAdresse (Adresse adresse) throws NotFoundException, FunctionalException;
 
     /**Modifier une adresse.
      * @param adresse L'identifiant de l'adresse ciblé.
-     * @return Un objet Adresse.
+     * @return boolean.
      * @throws NotFoundException */
     Boolean updateAdresse (Adresse adresse) throws  NotFoundException;
 
     /**Supprimer une adresse.
      * @param adresse L'identifiant de l'adresse ciblé.
-     * @return Un objet Adresse.
+     * @return boolean.
      * @throws NotFoundException */
     Boolean deleteAdresse (Adresse adresse) throws NotFoundException;
 

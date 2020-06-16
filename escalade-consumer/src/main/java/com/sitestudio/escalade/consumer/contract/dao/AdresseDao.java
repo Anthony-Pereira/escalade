@@ -27,19 +27,19 @@ public interface AdresseDao {
     /**
      * Méthode de création
      * @param adresse
-     * @return T */
+     * @return boolean */
     Boolean create (Adresse adresse) throws FunctionalException;
 
     /**
      * Méthode de modification
      * @param adresse
-     * @return T */
+     * @return boolean */
     Boolean update (Adresse adresse);
 
     /**
      * Méthode de suppression
      * @param adresse
-     * @return T */
+     * @return boolean */
     Boolean delete (Adresse adresse);
 
 }

@@ -27,8 +27,6 @@ public class CompteRM implements RowMapper<Compte> {
         compte.setMotDePasse(rs.getString("mot_de_passe"));
         compte.setNumTelephone(rs.getString("num_telephone"));
 
-        //compte.setAdresse(adresseDao.read(rs.getInt("adresse_id")));
-
         return compte;
     }
 }

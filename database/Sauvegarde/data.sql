@@ -5,7 +5,7 @@
 -- Dumped from database version 11.5
 -- Dumped by pg_dump version 11.5
 
--- Started on 2020-04-27 13:19:34
+-- Started on 2020-06-16 14:38:22
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -19,7 +19,7 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- TOC entry 2997 (class 0 OID 26603)
+-- TOC entry 2997 (class 0 OID 36952)
 -- Dependencies: 207
 -- Data for Name: pays; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -276,7 +276,7 @@ INSERT INTO public.pays (pays_code, nom, code_alpha_2, code_alpha_3) VALUES (894
 
 
 --
--- TOC entry 2999 (class 0 OID 26615)
+-- TOC entry 2999 (class 0 OID 36964)
 -- Dependencies: 209
 -- Data for Name: region; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -302,7 +302,7 @@ INSERT INTO public.region (id, nom, pays_pays_code) VALUES (18, 'Provence-Alpes-
 
 
 --
--- TOC entry 2995 (class 0 OID 26595)
+-- TOC entry 2995 (class 0 OID 36944)
 -- Dependencies: 205
 -- Data for Name: departement; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -411,7 +411,7 @@ INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (
 
 
 --
--- TOC entry 2986 (class 0 OID 26553)
+-- TOC entry 2986 (class 0 OID 36902)
 -- Dependencies: 196
 -- Data for Name: adresse; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -419,7 +419,7 @@ INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (
 
 
 --
--- TOC entry 2988 (class 0 OID 26561)
+-- TOC entry 2988 (class 0 OID 36910)
 -- Dependencies: 198
 -- Data for Name: commentaire; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -427,7 +427,7 @@ INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (
 
 
 --
--- TOC entry 3006 (class 0 OID 26645)
+-- TOC entry 3006 (class 0 OID 36994)
 -- Dependencies: 216
 -- Data for Name: site; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -435,7 +435,7 @@ INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (
 
 
 --
--- TOC entry 3004 (class 0 OID 26637)
+-- TOC entry 3004 (class 0 OID 36986)
 -- Dependencies: 214
 -- Data for Name: secteur; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -443,7 +443,7 @@ INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (
 
 
 --
--- TOC entry 2990 (class 0 OID 26569)
+-- TOC entry 2990 (class 0 OID 36918)
 -- Dependencies: 200
 -- Data for Name: commentaire_secteur; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -451,7 +451,7 @@ INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (
 
 
 --
--- TOC entry 2991 (class 0 OID 26575)
+-- TOC entry 2991 (class 0 OID 36924)
 -- Dependencies: 201
 -- Data for Name: commentaire_site; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -459,7 +459,7 @@ INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (
 
 
 --
--- TOC entry 3015 (class 0 OID 26687)
+-- TOC entry 3015 (class 0 OID 37036)
 -- Dependencies: 225
 -- Data for Name: voie; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -467,7 +467,7 @@ INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (
 
 
 --
--- TOC entry 2992 (class 0 OID 26581)
+-- TOC entry 2992 (class 0 OID 36930)
 -- Dependencies: 202
 -- Data for Name: commentaire_voie; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -475,7 +475,7 @@ INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (
 
 
 --
--- TOC entry 3003 (class 0 OID 26631)
+-- TOC entry 3003 (class 0 OID 36980)
 -- Dependencies: 213
 -- Data for Name: role; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -486,15 +486,16 @@ INSERT INTO public.role (role_code, designation, description) VALUES (3, 'Utilis
 
 
 --
--- TOC entry 2993 (class 0 OID 26587)
+-- TOC entry 2993 (class 0 OID 36936)
 -- Dependencies: 203
 -- Data for Name: compte; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO public.compte (compte_id, email, pseudo, mot_de_passe, nom, prenom, num_telephone, adresse_id, role_role_code) VALUES (37, 'john@gmail.com', '', 'az', 'doe', 'john', '0627418838', NULL, NULL);
 
 
 --
--- TOC entry 2998 (class 0 OID 26609)
+-- TOC entry 2998 (class 0 OID 36958)
 -- Dependencies: 208
 -- Data for Name: periode_jour; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -502,7 +503,7 @@ INSERT INTO public.role (role_code, designation, description) VALUES (3, 'Utilis
 
 
 --
--- TOC entry 3008 (class 0 OID 26653)
+-- TOC entry 3008 (class 0 OID 37002)
 -- Dependencies: 218
 -- Data for Name: topo; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -510,7 +511,7 @@ INSERT INTO public.role (role_code, designation, description) VALUES (3, 'Utilis
 
 
 --
--- TOC entry 3001 (class 0 OID 26623)
+-- TOC entry 3001 (class 0 OID 36972)
 -- Dependencies: 211
 -- Data for Name: reservation; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -518,7 +519,7 @@ INSERT INTO public.role (role_code, designation, description) VALUES (3, 'Utilis
 
 
 --
--- TOC entry 3010 (class 0 OID 26661)
+-- TOC entry 3010 (class 0 OID 37010)
 -- Dependencies: 220
 -- Data for Name: url_photo; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -526,7 +527,7 @@ INSERT INTO public.role (role_code, designation, description) VALUES (3, 'Utilis
 
 
 --
--- TOC entry 3012 (class 0 OID 26669)
+-- TOC entry 3012 (class 0 OID 37018)
 -- Dependencies: 222
 -- Data for Name: url_photo_secteur; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -534,7 +535,7 @@ INSERT INTO public.role (role_code, designation, description) VALUES (3, 'Utilis
 
 
 --
--- TOC entry 3013 (class 0 OID 26675)
+-- TOC entry 3013 (class 0 OID 37024)
 -- Dependencies: 223
 -- Data for Name: url_photo_site; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -542,7 +543,7 @@ INSERT INTO public.role (role_code, designation, description) VALUES (3, 'Utilis
 
 
 --
--- TOC entry 3014 (class 0 OID 26681)
+-- TOC entry 3014 (class 0 OID 37030)
 -- Dependencies: 224
 -- Data for Name: url_photo_voie; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -555,7 +556,7 @@ INSERT INTO public.role (role_code, designation, description) VALUES (3, 'Utilis
 -- Name: adresse_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.adresse_id_seq', 1, false);
+SELECT pg_catalog.setval('public.adresse_id_seq', 43, true);
 
 
 --
@@ -573,7 +574,7 @@ SELECT pg_catalog.setval('public.commentaire_id_seq', 1, false);
 -- Name: compte_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.compte_id_seq', 1, false);
+SELECT pg_catalog.setval('public.compte_id_seq', 39, true);
 
 
 --
@@ -648,7 +649,7 @@ SELECT pg_catalog.setval('public.url_photo_id_seq', 1, false);
 SELECT pg_catalog.setval('public.voie_id_seq', 1, false);
 
 
--- Completed on 2020-04-27 13:19:34
+-- Completed on 2020-06-16 14:38:23
 
 --
 -- PostgreSQL database dump complete

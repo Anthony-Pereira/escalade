@@ -37,7 +37,7 @@ public class ServletEditProfile extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         Compte compte;
-        Adresse adresse;
+        Adresse adresse = new Adresse();
 
         CompteResource compteResource = new CompteResource();
         AdresseResource adresseResource = new AdresseResource();
@@ -47,7 +47,6 @@ public class ServletEditProfile extends HttpServlet {
         
         HttpSession httpSession = request.getSession();
         compte = (Compte) httpSession.getAttribute("compte");
-        adresse = (Adresse) httpSession.getAttribute("adresse");
 
         String pseudo = request.getParameter("pseudo");
         String prenom = request.getParameter("prenom");
@@ -76,18 +75,14 @@ public class ServletEditProfile extends HttpServlet {
         try {
 
             Departement departement = departementResource.getDepartement(adresse);
-
             Region region = regionResource.getRegion(departement);
-
             Pays pays = paysResource.getPays(region);
+            adresse = new Adresse(numero,rue,codePostal,ville,departement,region,pays);
 
-                adresse = new Adresse(numero,rue,codePostal,ville,departement,region,pays);
                 adresseResource.createAdresse(adresse);
 
                 compte.setAdresse(adresse);
                 compteResource.updateCompte(compte);
-
-                
 
             httpSession.setAttribute("adresse",adresse);
 
