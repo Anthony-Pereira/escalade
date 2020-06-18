@@ -85,7 +85,9 @@ public class CompteDaoImpl extends AbstractDao implements CompteDao {
 
         mapSqlParameterSource.addValue("pseudo", compte.getPseudo(),Types.VARCHAR);
         mapSqlParameterSource.addValue("num_telephone", compte.getNumTelephone(), Types.VARCHAR);
-        mapSqlParameterSource.addValue("adresse_id",compte.getAdresse().getId(),Types.INTEGER);
+
+        mapSqlParameterSource.addValue("adresse_id",compte.getAdresse().getId(),Types.INTEGER); // Décortique l'objet adresse pour ne récupérer uniquement L'Integer adresse_id
+        //et l'utiliser comme clé étrangère
 
         NamedParameterJdbcTemplate jdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
 

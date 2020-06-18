@@ -5,7 +5,7 @@
 -- Dumped from database version 11.5
 -- Dumped by pg_dump version 11.5
 
--- Started on 2020-06-16 14:38:22
+-- Started on 2020-06-18 16:20:30
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -326,88 +326,88 @@ INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (
 INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (17, '17', 'Charente-Maritime', 15);
 INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (18, '18', 'Cher', 4);
 INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (19, '19', 'Corrèze', 15);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (20, '21', 'Côte-d''Or', 2);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (21, '22', 'Côtes-d''Armor', 3);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (22, '23', 'Creuse', 15);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (23, '24', 'Dordogne', 15);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (24, '25', 'Doubs', 2);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (25, '26', 'Drôme', 1);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (26, '27', 'Eure', 14);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (27, '28', 'Eure-et-Loir', 4);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (28, '29', 'Finistère', 3);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (29, '30', 'Gard', 16);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (30, '31', 'Haute-Garonne', 16);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (31, '32', 'Gers', 16);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (32, '33', 'Gironde', 15);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (33, '34', 'Hérault', 16);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (34, '35', 'Ille-et-Vilaine', 3);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (35, '36', 'Indre', 4);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (36, '37', 'Indre-et-Loire', 4);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (37, '38', 'Isère', 1);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (38, '39', 'Jura', 2);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (39, '40', 'Landes', 15);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (40, '41', 'Loir-et-Cher', 4);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (41, '42', 'Loire', 1);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (42, '43', 'Haute-Loire', 1);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (43, '44', 'Loire-Atlantique', 17);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (44, '45', 'Loiret', 4);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (45, '46', 'Lot', 16);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (46, '47', 'Lot-et-Garonne', 15);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (47, '48', 'Lozère', 16);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (48, '49', 'Maine-et-Loire', 17);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (49, '50', 'Manche', 14);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (50, '51', 'Marne', 6);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (51, '52', 'Haute-Marne', 6);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (52, '53', 'Mayenne', 17);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (53, '54', 'Meurthe-et-Moselle', 6);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (54, '55', 'Meuse', 6);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (55, '56', 'Morbihan', 3);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (56, '57', 'Moselle', 6);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (57, '58', 'Nièvre', 2);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (58, '59', 'Nord', 9);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (59, '60', 'Oise', 9);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (60, '61', 'Orne', 14);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (61, '62', 'Pas-de-Calais', 9);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (62, '63', 'Puy-de-Dôme', 1);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (63, '64', 'Pyrénées-Atlantiques', 15);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (64, '65', 'Hautes-Pyrénées', 16);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (65, '66', 'Pyrénées-Orientales', 16);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (66, '67', 'Bas-Rhin', 6);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (67, '68', 'Haut-Rhin', 6);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (68, '69', 'RhôneNote 7', 1);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (69, '70', 'Haute-Saône', 2);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (70, '71', 'Saône-et-Loire', 2);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (71, '72', 'Sarthe', 17);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (72, '73', 'Savoie', 1);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (73, '74', 'Haute-Savoie', 1);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (74, '75', 'Paris', 10);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (75, '76', 'Seine-Maritime', 14);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (76, '77', 'Seine-et-Marne', 10);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (77, '78', 'Yvelines', 10);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (78, '79', 'Deux-Sèvres', 15);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (79, '80', 'Somme', 9);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (80, '81', 'Tarn', 16);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (81, '82', 'Tarn-et-Garonne', 16);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (82, '83', 'Var', 18);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (83, '84', 'Vaucluse', 18);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (84, '85', 'Vendée', 17);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (85, '86', 'Vienne', 15);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (86, '87', 'Haute-Vienne', 15);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (87, '88', 'Vosges', 6);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (88, '89', 'Yonne', 2);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (89, '90', 'Territoire de Belfort', 2);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (90, '91', 'Essonne', 10);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (91, '92', 'Hauts-de-Seine', 10);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (92, '93', 'Seine-Saint-Denis', 10);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (93, '94', 'Val-de-Marne', 10);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (94, '95', 'Val-d''Oise', 10);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (95, '971', 'Guadeloupe', 7);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (96, '972', 'Martinique', 12);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (97, '973', 'Guyane', 8);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (98, '974', 'La Réunion', 11);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (99, '976', 'Mayotte ', 13);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (100, '2A', 'Corse-du-Sud', 5);
-INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (101, '2B', 'Haute-Corse', 5);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (33, '33', 'Gironde', 15);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (32, '32', 'Gers', 16);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (30, '30', 'Gard', 16);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (27, '27', 'Eure', 14);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (36, '36', 'Indre', 4);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (38, '38', 'Isère', 1);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (39, '39', 'Jura', 2);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (31, '31', 'Haute-Garonne', 16);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (37, '37', 'Indre-et-Loire', 4);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (35, '35', 'Ille-et-Vilaine', 3);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (57, '57', 'Moselle', 6);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (56, '56', 'Morbihan', 3);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (55, '55', 'Meuse', 6);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (28, '28', 'Eure-et-Loir', 4);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (29, '29', 'Finistère', 3);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (26, '26', 'Drôme', 1);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (34, '34', 'Hérault', 16);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (24, '24', 'Dordogne', 15);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (74, '74', 'Haute-Savoie', 1);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (23, '23', 'Creuse', 15);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (89, '89', 'Yonne', 2);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (72, '72', 'Sarthe', 17);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (91, '91', 'Essonne', 10);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (25, '25', 'Doubs', 2);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (87, '87', 'Haute-Vienne', 15);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (80, '80', 'Somme', 9);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (67, '67', 'Bas-Rhin', 6);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (90, '90', 'Territoire de Belfort', 2);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (78, '78', 'Yvelines', 10);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (70, '70', 'Haute-Saône', 2);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (66, '66', 'Pyrénées-Orientales', 16);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (85, '85', 'Vendée', 17);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (88, '88', 'Vosges', 6);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (76, '76', 'Seine-Maritime', 14);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (75, '75', 'Paris', 10);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (82, '82', 'Tarn-et-Garonne', 16);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (63, '63', 'Puy-de-Dôme', 1);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (64, '64', 'Pyrénées-Atlantiques', 15);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (81, '81', 'Tarn', 16);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (77, '77', 'Seine-et-Marne', 10);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (73, '73', 'Savoie', 1);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (83, '83', 'Var', 18);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (62, '62', 'Pas-de-Calais', 9);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (61, '61', 'Orne', 14);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (92, '92', 'Hauts-de-Seine', 10);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (71, '71', 'Saône-et-Loire', 2);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (65, '65', 'Hautes-Pyrénées', 16);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (84, '84', 'Vaucluse', 18);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (68, '68', 'Haut-Rhin', 6);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (86, '86', 'Vienne', 15);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (22, '22', 'Côtes-d''Armor', 3);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (94, '94', 'Val-de-Marne', 10);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (971, '971', 'Guadeloupe', 7);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (79, '79', 'Deux-Sèvres', 15);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (972, '972', 'Martinique', 12);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (202, '2B', 'Haute-Corse', 5);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (21, '21', 'Côte-d''Or', 2);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (201, '2A', 'Corse-du-Sud', 5);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (69, '69', 'Rhône', 1);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (974, '974', 'La Réunion', 11);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (95, '95', 'Val-d''Oise', 10);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (973, '973', 'Guyane', 8);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (59, '59', 'Nord', 9);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (51, '51', 'Marne', 6);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (976, '976', 'Mayotte ', 13);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (53, '53', 'Mayenne', 17);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (93, '93', 'Seine-Saint-Denis', 10);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (60, '60', 'Oise', 9);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (52, '52', 'Haute-Marne', 6);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (58, '58', 'Nièvre', 2);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (50, '50', 'Manche', 14);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (42, '42', 'Loire', 1);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (45, '45', 'Loiret', 4);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (49, '49', 'Maine-et-Loire', 17);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (46, '46', 'Lot', 16);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (41, '41', 'Loir-et-Cher', 4);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (43, '43', 'Haute-Loire', 1);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (48, '48', 'Lozère', 16);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (40, '40', 'Landes', 15);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (44, '44', 'Loire-Atlantique', 17);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (47, '47', 'Lot-et-Garonne', 15);
+INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (54, '54', 'Meurthe-et-Moselle', 6);
 
 
 --
@@ -491,7 +491,7 @@ INSERT INTO public.role (role_code, designation, description) VALUES (3, 'Utilis
 -- Data for Name: compte; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.compte (compte_id, email, pseudo, mot_de_passe, nom, prenom, num_telephone, adresse_id, role_role_code) VALUES (37, 'john@gmail.com', '', 'az', 'doe', 'john', '0627418838', NULL, NULL);
+INSERT INTO public.compte (compte_id, email, pseudo, mot_de_passe, nom, prenom, num_telephone, adresse_id, role_role_code) VALUES (37, 'john@gmail.com', 'Jod', 'az', 'pleur', 'la fleur', '0654585652', NULL, NULL);
 
 
 --
@@ -556,7 +556,7 @@ INSERT INTO public.compte (compte_id, email, pseudo, mot_de_passe, nom, prenom, 
 -- Name: adresse_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.adresse_id_seq', 43, true);
+SELECT pg_catalog.setval('public.adresse_id_seq', 53, true);
 
 
 --
@@ -574,7 +574,7 @@ SELECT pg_catalog.setval('public.commentaire_id_seq', 1, false);
 -- Name: compte_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.compte_id_seq', 39, true);
+SELECT pg_catalog.setval('public.compte_id_seq', 42, true);
 
 
 --
@@ -583,7 +583,7 @@ SELECT pg_catalog.setval('public.compte_id_seq', 39, true);
 -- Name: departement_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.departement_id_seq', 101, true);
+SELECT pg_catalog.setval('public.departement_id_seq', 334, true);
 
 
 --
@@ -649,7 +649,7 @@ SELECT pg_catalog.setval('public.url_photo_id_seq', 1, false);
 SELECT pg_catalog.setval('public.voie_id_seq', 1, false);
 
 
--- Completed on 2020-06-16 14:38:23
+-- Completed on 2020-06-18 16:20:30
 
 --
 -- PostgreSQL database dump complete

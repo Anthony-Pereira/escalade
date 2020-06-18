@@ -3,8 +3,6 @@ package com.sitestudio.escalade.webapp.servlet;
 import com.sitestudio.escalade.model.bean.compte.Adresse;
 import com.sitestudio.escalade.model.bean.compte.Compte;
 import com.sitestudio.escalade.model.bean.referentiel.Departement;
-import com.sitestudio.escalade.model.bean.referentiel.Pays;
-import com.sitestudio.escalade.model.bean.referentiel.Region;
 import com.sitestudio.escalade.model.exception.FunctionalException;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 import com.sitestudio.escalade.webapp.resource.*;
@@ -37,19 +35,13 @@ public class ServletEditProfile extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
-        Compte compte;
-        CompteResource compteResource = new CompteResource();
-
-        Adresse adresse;
-        AdresseResource adresseResource = new AdresseResource();
-
-        Departement departement;
-        DepartementResource departementResource = new DepartementResource();
-
-
         HttpSession httpSession = request.getSession();
-        compte = (Compte) httpSession.getAttribute("compte");
-        adresse = (Adresse) httpSession.getAttribute("adresse");
+        Compte compte = (Compte) httpSession.getAttribute("compte");
+        Adresse adresse = (Adresse) httpSession.getAttribute("adresse");
+
+        CompteResource compteResource = new CompteResource();
+        AdresseResource adresseResource = new AdresseResource();
+        DepartementResource departementResource = new DepartementResource();
 
         String pseudo = request.getParameter("pseudo");
         String prenom = request.getParameter("prenom");
@@ -73,36 +65,33 @@ public class ServletEditProfile extends HttpServlet {
         adresse.setCodePostal(codePostal);
         adresse.setVille(ville);
 
-        try {
-            if (compte.getAdresse() == null){
+        if (compte.getAdresse() == null) { // J'ai créer une condition pour visualiser si l'utilissateur a déjà créer une adresse depuis son compte. true ? creation adresse + update clé étrangère
 
-                departement = departementResource.getDepartement(Integer.parseInt(codePostal.substring(0,2)));
-
-                adresse.setDepartement(departement);
-
-
-                adresseResource.createAdresse(adresse);
-
-                compte.setAdresse(adresse);
-                compteResource.updateCompte(compte);
-
-            } else {
-
-                departement = departementResource.getDepartement(Integer.parseInt(codePostal.substring(0,2)));
-
-                adresse.setDepartement(departement);
-
-
-                adresseResource.updateAdresse(adresse);
+            try {
+                System.out.println("Compte =" + compte);
+                adresse.setDepartement(departementResource.getDepartement(Integer.parseInt(codePostal.substring(0,2))));
+                adresseResource.createAdresse(adresse); // ETAPE 1: adresseResource.createAdresse créer un objet adresse et incrémente automatiquement adresse_id dans la db
+                adresse = adresseResource.getAdresse(adresse.getId()); // ETAPE 2: Ici je retrouve adresse_id == null. Je n'arrive pas a récupérer l'adresse_id qui a été auto-incrémenté dans la db.
+                compte.setAdresse(adresse); // ETAPE 3: Comme dans mon objet adresse il n'ya pas adresse_id, mon setAdresse devient inutile pour la suite. /** Voir compte DaoImpl **/
+                compteResource.updateCompte(compte); // ETAPE 4: Ici le processus de mise a jour se fait mais abouti a rien car le "curseur" n'a pas était identifié
+            } catch (NotFoundException | FunctionalException e) {
+                System.out.println("Erreur de création d'adresse:" + e);
             }
-        } catch (NotFoundException | FunctionalException e) {
-            e.printStackTrace();
+
+        } else { // false ? mise a jour de l'adresse
+
+            try {
+                adresseResource.updateAdresse(adresse);
+            } catch (NotFoundException e) {
+                e.printStackTrace();
+            }
+
         }
 
         System.out.println("le numero de département est " + adresse.getCodePostal().substring(0,2));
 
-        httpSession.setAttribute("compte",compte);
-        httpSession.setAttribute("adresse",adresse);
+        httpSession.setAttribute("compte",compte); // Récupère les valeurs de compte dans httpSession
+        httpSession.setAttribute("adresse",adresse); // Récupère les valeurs d'adresse dans httpSession
 
         this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/profile.jsp").forward(request,response);
 
