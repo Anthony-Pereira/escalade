@@ -24,7 +24,7 @@ public class RegionRM implements RowMapper<Region> {
         region.setNom(rs.getString("nom"));
 
         try {
-            region.setPays(paysDao.read(region));
+            region.setPays(paysDao.read(rs.getInt("pays_pays_code")));
         } catch (NotFoundException e) {
             e.printStackTrace();
         }

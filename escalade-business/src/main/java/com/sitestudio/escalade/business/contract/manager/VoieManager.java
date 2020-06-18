@@ -9,11 +9,11 @@ public interface VoieManager {
 
     /**
      * Retourne la voie.
-     * @param voie L'identifiant d'une voie ciblé.
+     * @param id L'identifiant d'une voie ciblé.
      * @return Un objet voie.
      * @throws NotFoundException
      */
-    Voie getVoie(Voie voie) throws NotFoundException;
+    Voie getVoie(Integer id) throws NotFoundException;
 
     /**
      * Créer une voie.

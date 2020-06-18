@@ -8,11 +8,11 @@ public interface SiteManager {
 
     /**
      * Retourne le site.
-     * @param site L'identifiant d'un site ciblé.
+     * @param id L'identifiant d'un site ciblé.
      * @return Un objet site.
      * @throws NotFoundException
      */
-    Site getSite(Site site) throws NotFoundException;
+    Site getSite(Integer id) throws NotFoundException;
 
     /**
      * Créer un site.

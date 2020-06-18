@@ -18,9 +18,9 @@ public class PaysDaoImpl extends AbstractDao implements PaysDao {
     PaysRM paysRM;
 
     @Override
-    public Pays read(Region region) throws NotFoundException {
+    public Pays read(Integer id) throws NotFoundException {
 
-        String sql = "SELECT * FROM pays WHERE pays_code ='" + region.getPays().getCode() + "'";
+        String sql = "SELECT * FROM pays WHERE pays_code =" + id;
 
         JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
 

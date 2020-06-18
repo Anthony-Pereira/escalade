@@ -18,9 +18,9 @@ public class DepartementDaoImpl extends AbstractDao implements DepartementDao {
     DepartementRM departementRM;
 
     @Override
-    public Departement read(Adresse adresse) throws NotFoundException {
+    public Departement read(Integer id) throws NotFoundException {
 
-        String sql = "SELECT * FROM departement WHERE numero ='" + adresse.getCodePostal().substring(0,2) + "'";
+        String sql = "SELECT * FROM departement WHERE departement_id =" + id;
 
         JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
 

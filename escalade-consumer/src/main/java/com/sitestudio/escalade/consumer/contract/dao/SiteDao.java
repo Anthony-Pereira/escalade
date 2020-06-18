@@ -16,9 +16,9 @@ public interface SiteDao {
 
     /**
      * Méthode de recherche des informations
-     * @param site
+     * @param id
      * @return T */
-    Site read (Site site) throws NotFoundException;
+    Site read (Integer id) throws NotFoundException;
 
     List<Site> readAll();
     List<Site> readAll(int id);

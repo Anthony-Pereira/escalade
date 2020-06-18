@@ -16,7 +16,7 @@ public class UrlPhotoDaoImpl extends AbstractDao implements UrlPhotoDao {
     UrlPhotoRM urlPhotoRM;
 
     @Override
-    public UrlPhoto read(UrlPhoto urlPhoto) throws NotFoundException {
+    public UrlPhoto read(Integer id) throws NotFoundException {
         return null;
     }
 

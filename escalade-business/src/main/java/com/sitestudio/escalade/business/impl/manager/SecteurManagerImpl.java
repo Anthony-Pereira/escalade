@@ -16,7 +16,7 @@ import javax.inject.Named;
 public class SecteurManagerImpl extends AbstractDao implements SecteurManager {
 
     @Override
-    public Secteur getSecteur(Secteur secteur) throws NotFoundException {
+    public Secteur getSecteur(Integer id) throws NotFoundException {
         return null;
     }
 

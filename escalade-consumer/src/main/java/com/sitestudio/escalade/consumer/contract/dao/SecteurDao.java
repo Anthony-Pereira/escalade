@@ -15,9 +15,9 @@ public interface SecteurDao {
 
     /**
      * Méthode de recherche des informations
-     * @param secteur
+     * @param id
      * @return T */
-    Secteur read (Secteur secteur) throws NotFoundException;
+    Secteur read (Integer id) throws NotFoundException;
 
     List<Secteur> readAll();
     List<Secteur> readAll(int id);

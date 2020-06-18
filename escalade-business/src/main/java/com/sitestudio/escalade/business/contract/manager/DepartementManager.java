@@ -6,12 +6,13 @@ import com.sitestudio.escalade.model.exception.NotFoundException;
 
 public interface DepartementManager {
 
-    /**Retourne le numéro de département ciblé.
-     * @param adresse L'identifiant du numéro de département ciblé.
+    /**
+     * Retourne le numéro de département ciblé.
+     * @param id L'identifiant du numéro de département ciblé.
      * @return Un objet Département.
      * @throws NotFoundException
      */
-    Departement getDepartement(Adresse adresse) throws NotFoundException;
+    Departement getDepartement(Integer id) throws NotFoundException;
 
     /**Créer un département.
      * @param departement L'identifiant d'un département ciblé.

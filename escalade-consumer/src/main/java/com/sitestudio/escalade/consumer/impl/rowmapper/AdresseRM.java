@@ -21,14 +21,13 @@ public class AdresseRM implements RowMapper<Adresse> {
 
         Adresse adresse = new Adresse(rs.getInt("adresse_id"));
 
-        adresse.setId(rs.getInt("adresse_id"));
         adresse.setNumero(rs.getString("numero"));
         adresse.setRue(rs.getString("rue"));
         adresse.setCodePostal(rs.getString("code_postal"));
         adresse.setVille(rs.getString("ville"));
 
         try {
-            adresse.setDepartement(departementDao.read(adresse));
+            adresse.setDepartement(departementDao.read(rs.getInt("departement_id")));
         } catch (NotFoundException e) {
             e.printStackTrace();
         }

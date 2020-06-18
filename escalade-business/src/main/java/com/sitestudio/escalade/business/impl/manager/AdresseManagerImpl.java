@@ -16,8 +16,8 @@ import javax.inject.Named;
 public class AdresseManagerImpl extends AbstractManager implements AdresseManager {
 
     @Override
-    public Adresse getAdresse(Adresse adresse) throws FunctionalException, NotFoundException {
-        return getDaoFactory().getAdresseDao().read(adresse);
+    public Adresse getAdresse(Integer id) throws FunctionalException, NotFoundException {
+        return getDaoFactory().getAdresseDao().read(id);
     }
 
     @Override

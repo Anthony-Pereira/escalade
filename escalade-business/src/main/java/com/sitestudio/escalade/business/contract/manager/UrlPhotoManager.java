@@ -8,11 +8,11 @@ public interface UrlPhotoManager {
 
     /**
      * Retourne la photo.
-     * @param urlPhoto L'identifiant d'une photo ciblé.
+     * @param id L'identifiant d'une photo ciblé.
      * @return Un objet photo.
      * @throws NotFoundException
      */
-    UrlPhoto getUrlPhoto(UrlPhoto urlPhoto) throws NotFoundException;
+    UrlPhoto getUrlPhoto(Integer id) throws NotFoundException;
 
     /**
      * Ajoute l'url d'une photo.

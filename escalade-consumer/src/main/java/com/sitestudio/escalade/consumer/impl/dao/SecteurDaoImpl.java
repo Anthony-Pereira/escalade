@@ -16,7 +16,7 @@ public class SecteurDaoImpl extends AbstractDao implements SecteurDao {
     SecteurRM secteurRM;
 
     @Override
-    public Secteur read(Secteur secteur) throws NotFoundException {
+    public Secteur read(Integer id) throws NotFoundException {
         return null;
     }
 

@@ -16,7 +16,7 @@ import javax.inject.Named;
 public class VoieManagerImpl extends AbstractDao implements VoieManager {
 
     @Override
-    public Voie getVoie(Voie voie) throws NotFoundException {
+    public Voie getVoie(Integer id) throws NotFoundException {
         return null;
     }
 

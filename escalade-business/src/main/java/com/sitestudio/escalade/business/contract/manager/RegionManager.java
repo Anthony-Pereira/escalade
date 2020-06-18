@@ -8,11 +8,11 @@ public interface RegionManager {
 
     /**
      * Retourne la région.
-     * @param departement L'identifiant de la région ciblé.
+     * @param id L'identifiant de la région ciblé.
      * @return Un objet région
      * @throws NotFoundException
      */
-    Region getRegion(Departement departement) throws NotFoundException;
+    Region getRegion(Integer id) throws NotFoundException;
 
     /**
      * Créer une région.

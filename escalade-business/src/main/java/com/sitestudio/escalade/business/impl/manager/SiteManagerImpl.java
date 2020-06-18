@@ -15,7 +15,7 @@ import javax.inject.Named;
 public class SiteManagerImpl extends AbstractManager implements SiteManager {
 
     @Override
-    public Site getSite(Site site) throws NotFoundException {
+    public Site getSite(Integer id) throws NotFoundException {
         return null;
     }
 

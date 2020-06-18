@@ -8,11 +8,11 @@ public interface SecteurManager {
 
     /**
      * Retourne le secteur.
-     * @param secteur L'identifiant d'un secteur ciblé.
+     * @param id L'identifiant d'un secteur ciblé.
      * @return Un objet secteur.
      * @throws NotFoundException
      */
-    Secteur getSecteur(Secteur secteur) throws NotFoundException;
+    Secteur getSecteur(Integer id) throws NotFoundException;
 
     /**
      * Créer un secteur.

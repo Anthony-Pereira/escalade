@@ -15,10 +15,10 @@ public interface DepartementDao {
 
     /**
      * Méthode de recherche des informations
-     * @param adresse
+     * @param id
      * @return
      */
-    Departement read(Adresse adresse) throws NotFoundException;
+    Departement read(Integer id) throws NotFoundException;
 
     /**
      * Méthode de création

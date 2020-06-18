@@ -5,8 +5,8 @@ import com.sitestudio.escalade.model.exception.NotFoundException;
 
 public class VoieResource extends AbstractResource {
 
-    public Voie getVoie(Voie voie) throws NotFoundException {
-        return getManagerFactory().getVoieManager().getVoie(voie);
+    public Voie getVoie(Integer id) throws NotFoundException {
+        return getManagerFactory().getVoieManager().getVoie(id);
     }
 
     public Boolean createVoie(Voie voie) throws NotFoundException {

@@ -8,11 +8,11 @@ public interface PaysManager {
 
     /**
      * Retourne le pays.
-     * @param region L'identifiant d'un pays ciblé.
+     * @param id L'identifiant d'un pays ciblé.
      * @return Un objet pays.
      * @throws NotFoundException
      */
-    Pays getPays(Region region) throws NotFoundException;
+    Pays getPays(Integer id) throws NotFoundException;
 
     /**
      * Créer un pays.

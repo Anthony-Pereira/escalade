@@ -6,11 +6,12 @@ import com.sitestudio.escalade.model.exception.NotFoundException;
 
 public interface AdresseManager {
 
-    /**Retourne l'objet Adresse ciblé.
-     * @param adresse L'identifiant de l'adresse ciblé.
+    /**
+     * Retourne l'objet Adresse ciblé.
+     * @param id L'identifiant de l'adresse ciblé.
      * @return Un objet Adresse.
      * @throws NotFoundException */
-    Adresse getAdresse (Adresse adresse) throws NotFoundException, FunctionalException;
+    Adresse getAdresse (Integer id) throws NotFoundException, FunctionalException;
 
     /**Créer une adresse.
      * @param adresse L'identifiant de l'adresse ciblé.

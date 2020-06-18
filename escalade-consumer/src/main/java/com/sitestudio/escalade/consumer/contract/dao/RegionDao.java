@@ -15,10 +15,10 @@ public interface RegionDao {
 
     /**
      * Méthode de recherche des informations
-     * @param departement
+     * @param id
      * @return
      */
-    Region read(Departement departement) throws NotFoundException;
+    Region read(Integer id) throws NotFoundException;
 
     /**
      * Méthode de création

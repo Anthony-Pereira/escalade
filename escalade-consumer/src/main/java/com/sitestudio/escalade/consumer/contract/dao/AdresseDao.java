@@ -17,9 +17,9 @@ public interface AdresseDao {
 
     /**
      * Méthode de recherche des informations
-     * @param adresse
+     * @param id
      * @return T */
-    Adresse read (Adresse adresse) throws FunctionalException, NotFoundException;
+    Adresse read (Integer id) throws FunctionalException, NotFoundException;
 
     List<Adresse> readAll();
     List<Adresse> readAll(int id);

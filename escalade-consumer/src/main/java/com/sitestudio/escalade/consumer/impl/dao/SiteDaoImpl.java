@@ -16,7 +16,7 @@ public class SiteDaoImpl extends AbstractDao implements SiteDao {
     SiteRM siteRM;
 
     @Override
-    public Site read(Site site) throws NotFoundException {
+    public Site read(Integer id) throws NotFoundException {
         return null;
     }
 

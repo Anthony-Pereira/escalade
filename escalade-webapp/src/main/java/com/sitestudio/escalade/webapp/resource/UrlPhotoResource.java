@@ -8,8 +8,8 @@ import com.sitestudio.escalade.model.exception.NotFoundException;
  */
 public class UrlPhotoResource extends AbstractResource {
 
-    public UrlPhoto getUrlPhoto(UrlPhoto urlPhoto) throws NotFoundException {
-        return getManagerFactory().getUrlPhotoManager().getUrlPhoto(urlPhoto);
+    public UrlPhoto getUrlPhoto(Integer id) throws NotFoundException {
+        return getManagerFactory().getUrlPhotoManager().getUrlPhoto(id);
     }
 
     public Boolean createUrlPhoto(UrlPhoto urlPhoto) throws NotFoundException {

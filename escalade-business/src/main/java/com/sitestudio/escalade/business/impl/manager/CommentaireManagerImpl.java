@@ -16,7 +16,7 @@ import javax.inject.Named;
 public class CommentaireManagerImpl extends AbstractManager implements CommentaireManager {
 
     @Override
-    public Commentaire getCommentaire(Commentaire commentaire) throws NotFoundException, FunctionalException {
+    public Commentaire getCommentaire(Integer id) throws NotFoundException, FunctionalException {
         return null;
     }
 

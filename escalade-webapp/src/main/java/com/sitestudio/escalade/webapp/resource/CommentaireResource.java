@@ -9,8 +9,8 @@ import com.sitestudio.escalade.model.exception.NotFoundException;
  */
 public class CommentaireResource extends AbstractResource {
 
-    public Commentaire getCommentaire (Commentaire commentaire) throws NotFoundException, FunctionalException {
-        return getManagerFactory().getCommentaireManager().getCommentaire(commentaire);
+    public Commentaire getCommentaire (Integer id) throws NotFoundException, FunctionalException {
+        return getManagerFactory().getCommentaireManager().getCommentaire(id);
     }
 
     public Boolean createCommentaire (Commentaire commentaire) throws NotFoundException, FunctionalException {

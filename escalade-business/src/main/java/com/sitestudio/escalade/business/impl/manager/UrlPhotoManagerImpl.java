@@ -16,7 +16,7 @@ import javax.inject.Named;
 public class UrlPhotoManagerImpl extends AbstractDao implements UrlPhotoManager {
 
     @Override
-    public UrlPhoto getUrlPhoto(UrlPhoto urlPhoto) throws NotFoundException {
+    public UrlPhoto getUrlPhoto(Integer id) throws NotFoundException {
         return null;
     }
 

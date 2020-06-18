@@ -15,10 +15,10 @@ public interface PaysDao {
 
     /**
      * Méthode de recherche des informations
-     * @param region
+     * @param id
      * @return
      */
-    Pays read(Region region) throws NotFoundException;
+    Pays read(Integer id) throws NotFoundException;
 
     /**
      * Méthode de création

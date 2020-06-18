@@ -16,7 +16,7 @@ public class VoieDaoImpl implements VoieDao {
     VoieRM voieRM;
 
     @Override
-    public Voie read(Voie voie) throws NotFoundException {
+    public Voie read(Integer id) throws NotFoundException {
         return null;
     }
 

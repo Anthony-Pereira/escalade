@@ -8,8 +8,8 @@ import com.sitestudio.escalade.model.exception.NotFoundException;
  */
 public class SiteResource extends AbstractResource {
 
-    public Site getSite(Site site) throws NotFoundException {
-        return getManagerFactory().getSiteManager().getSite(site);
+    public Site getSite(Integer id) throws NotFoundException {
+        return getManagerFactory().getSiteManager().getSite(id);
     }
 
     public Boolean createSite(Site site) throws NotFoundException {

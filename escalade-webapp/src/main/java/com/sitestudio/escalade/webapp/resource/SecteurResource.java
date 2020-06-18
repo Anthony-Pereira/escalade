@@ -8,8 +8,8 @@ import com.sitestudio.escalade.model.exception.NotFoundException;
  */
 public class SecteurResource extends AbstractResource {
 
-    public Secteur getSecteur(Secteur secteur) throws NotFoundException {
-        return getManagerFactory().getSecteurManager().getSecteur(secteur);
+    public Secteur getSecteur(Integer id) throws NotFoundException {
+        return getManagerFactory().getSecteurManager().getSecteur(id);
     }
 
     public Boolean createSecteur(Secteur secteur) throws NotFoundException {

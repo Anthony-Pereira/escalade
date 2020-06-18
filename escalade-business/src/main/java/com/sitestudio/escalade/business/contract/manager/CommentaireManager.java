@@ -6,11 +6,12 @@ import com.sitestudio.escalade.model.exception.NotFoundException;
 
 public interface CommentaireManager {
 
-    /**Retourne l'objet Commentaire ciblé.
-     * @param commentaire L'identifiant d'un commentaire ciblé.
+    /**
+     * Retourne l'objet Commentaire ciblé.
+     * @param id L'identifiant d'un commentaire ciblé.
      * @return Un objet Commentaire.
      * @throws NotFoundException */
-    Commentaire getCommentaire (Commentaire commentaire) throws NotFoundException, FunctionalException;
+    Commentaire getCommentaire (Integer id) throws NotFoundException, FunctionalException;
 
     /**Créer un commentaire.
      * @param commentaire L'identifiant d'un commentaire ciblé.

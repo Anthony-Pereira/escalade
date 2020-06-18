@@ -17,8 +17,8 @@ public class PaysManagerImpl extends AbstractManager implements PaysManager {
 
 
     @Override
-    public Pays getPays(Region region) throws NotFoundException {
-        return getDaoFactory().getPaysDao().read(region);
+    public Pays getPays(Integer id) throws NotFoundException {
+        return getDaoFactory().getPaysDao().read(id);
     }
 
     @Override

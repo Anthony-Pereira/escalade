@@ -9,8 +9,8 @@ import com.sitestudio.escalade.model.exception.NotFoundException;
  */
 public class AdresseResource extends AbstractResource {
 
-    public Adresse getAdresse (Adresse adresse) throws NotFoundException, FunctionalException {
-        return getManagerFactory().getAdresseManager().getAdresse(adresse);
+    public Adresse getAdresse (Integer id) throws NotFoundException, FunctionalException {
+        return getManagerFactory().getAdresseManager().getAdresse(id);
     }
 
     public Boolean createAdresse (Adresse adresse) throws NotFoundException, FunctionalException {

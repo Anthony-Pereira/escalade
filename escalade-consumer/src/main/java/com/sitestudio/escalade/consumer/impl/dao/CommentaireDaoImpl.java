@@ -16,7 +16,7 @@ public class CommentaireDaoImpl extends AbstractDao implements CommentaireDao {
     CommentaireRM commentaireRM;
 
     @Override
-    public Commentaire read(Commentaire commentaire) throws NotFoundException {
+    public Commentaire read(Integer id) throws NotFoundException {
         return null;
     }
 

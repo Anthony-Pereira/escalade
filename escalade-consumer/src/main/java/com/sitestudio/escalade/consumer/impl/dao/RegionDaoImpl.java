@@ -18,9 +18,9 @@ public class RegionDaoImpl extends AbstractDao implements RegionDao {
     RegionRM regionRM;
 
     @Override
-    public Region read(Departement departement) throws NotFoundException {
+    public Region read(Integer id) throws NotFoundException {
 
-        String sql = "SELECT * FROM region WHERE id = '" + departement.getRegion().getId() + "'";
+        String sql = "SELECT * FROM region WHERE id = " + id;
 
         JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
 

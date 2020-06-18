@@ -17,9 +17,9 @@ public interface UrlPhotoDao {
 
     /**
      * Méthode de recherche des informations
-     * @param urlPhoto
+     * @param id
      * @return T */
-    UrlPhoto read (UrlPhoto urlPhoto) throws NotFoundException;
+    UrlPhoto read (Integer id) throws NotFoundException;
 
     List<UrlPhoto> readAll();
     List<UrlPhoto> readAll(int id);

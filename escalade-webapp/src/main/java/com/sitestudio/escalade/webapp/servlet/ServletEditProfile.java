@@ -26,6 +26,7 @@ public class ServletEditProfile extends HttpServlet {
 
         HttpSession httpSession = request.getSession();
 
+        httpSession.getAttribute("compte");
         httpSession.getAttribute("adresse");
 
         this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/editProfile.jsp").forward(request,response);
@@ -37,16 +38,18 @@ public class ServletEditProfile extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         Compte compte;
-        Adresse adresse = new Adresse();
-
         CompteResource compteResource = new CompteResource();
+
+        Adresse adresse;
         AdresseResource adresseResource = new AdresseResource();
+
+        Departement departement;
         DepartementResource departementResource = new DepartementResource();
-        RegionResource regionResource = new RegionResource();
-        PaysResource paysResource = new PaysResource();
-        
+
+
         HttpSession httpSession = request.getSession();
         compte = (Compte) httpSession.getAttribute("compte");
+        adresse = (Adresse) httpSession.getAttribute("adresse");
 
         String pseudo = request.getParameter("pseudo");
         String prenom = request.getParameter("prenom");
@@ -70,27 +73,36 @@ public class ServletEditProfile extends HttpServlet {
         adresse.setCodePostal(codePostal);
         adresse.setVille(ville);
 
-        System.out.println("le numero de département est " + adresse.getCodePostal().substring(0,2));
-
         try {
+            if (compte.getAdresse() == null){
 
-            Departement departement = departementResource.getDepartement(adresse);
-            Region region = regionResource.getRegion(departement);
-            Pays pays = paysResource.getPays(region);
-            adresse = new Adresse(numero,rue,codePostal,ville,departement,region,pays);
+                departement = departementResource.getDepartement(Integer.parseInt(codePostal.substring(0,2)));
+
+                adresse.setDepartement(departement);
+
 
                 adresseResource.createAdresse(adresse);
 
                 compte.setAdresse(adresse);
                 compteResource.updateCompte(compte);
 
-            httpSession.setAttribute("adresse",adresse);
+            } else {
 
+                departement = departementResource.getDepartement(Integer.parseInt(codePostal.substring(0,2)));
+
+                adresse.setDepartement(departement);
+
+
+                adresseResource.updateAdresse(adresse);
+            }
         } catch (NotFoundException | FunctionalException e) {
             e.printStackTrace();
         }
 
+        System.out.println("le numero de département est " + adresse.getCodePostal().substring(0,2));
+
         httpSession.setAttribute("compte",compte);
+        httpSession.setAttribute("adresse",adresse);
 
         this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/profile.jsp").forward(request,response);
 

@@ -2,6 +2,7 @@ package com.sitestudio.escalade.consumer.impl.rowmapper;
 
 import com.sitestudio.escalade.consumer.impl.dao.AdresseDaoImpl;
 import com.sitestudio.escalade.model.bean.compte.Compte;
+import com.sitestudio.escalade.model.exception.NotFoundException;
 import org.springframework.jdbc.core.RowMapper;
 
 import javax.inject.Inject;
@@ -26,6 +27,12 @@ public class CompteRM implements RowMapper<Compte> {
         compte.setEmail(rs.getString("email"));
         compte.setMotDePasse(rs.getString("mot_de_passe"));
         compte.setNumTelephone(rs.getString("num_telephone"));
+
+        try {
+            compte.setAdresse(adresseDao.read(rs.getInt("adresse_id")));
+        } catch (NotFoundException e) {
+            e.printStackTrace();
+        }
 
         return compte;
     }

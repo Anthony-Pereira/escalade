@@ -26,7 +26,7 @@ public class DepartementRM implements RowMapper<Departement> {
         departement.setNom(rs.getString("nom"));
 
         try {
-            departement.setRegion(regionDao.read(departement));
+            departement.setRegion(regionDao.read(rs.getInt("region_id")));
         } catch (NotFoundException e) {
             e.printStackTrace();
         }
