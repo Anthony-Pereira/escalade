@@ -3,7 +3,7 @@ package com.sitestudio.escalade.model.bean.referentiel;
 public enum EnumTypeObjet {
     SITE(1, "Site/spot", "Site ou spot."),
     SECTEUR(2, "Secteur", "Secteur appartenant à un site."),
-    VOIE(3, "voir", "Voie appartenant à un secteur.");
+    VOIE(3, "voie", "Voie appartenant à un secteur.");
 
     private int code;
     private String designation;

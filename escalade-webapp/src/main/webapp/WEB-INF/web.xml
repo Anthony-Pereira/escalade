@@ -139,6 +139,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>ServletSendSite</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletSendSite</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletSendSite</servlet-name>
+        <url-pattern>/sendSite</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>ServletSignIn</servlet-name>
         <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletSignIn</servlet-class>
     </servlet>

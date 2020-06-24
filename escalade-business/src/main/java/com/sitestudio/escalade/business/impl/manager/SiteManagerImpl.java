@@ -16,21 +16,21 @@ public class SiteManagerImpl extends AbstractManager implements SiteManager {
 
     @Override
     public Site getSite(Integer id) throws NotFoundException {
-        return null;
+        return getDaoFactory().getSiteDao().read(id);
     }
 
     @Override
     public Boolean createSite(Site site) throws NotFoundException {
-        return null;
+        return getDaoFactory().getSiteDao().create(site);
     }
 
     @Override
     public Boolean updateSite(Site site) throws NotFoundException {
-        return null;
+        return getDaoFactory().getSiteDao().update(site);
     }
 
     @Override
     public Boolean deleteSite(Site site) throws NotFoundException {
-        return null;
+        return getDaoFactory().getSiteDao().delete(site);
     }
 }
