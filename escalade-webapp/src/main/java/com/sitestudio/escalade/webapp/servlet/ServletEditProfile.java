@@ -37,7 +37,7 @@ public class ServletEditProfile extends HttpServlet {
 
         HttpSession httpSession = request.getSession();
         Compte compte = (Compte) httpSession.getAttribute("compte");
-        Adresse adresse = (Adresse) httpSession.getAttribute("adresse");
+        Adresse adresse = new Adresse();
 
         CompteResource compteResource = new CompteResource();
         AdresseResource adresseResource = new AdresseResource();

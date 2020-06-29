@@ -97,7 +97,7 @@
 		</div>
 	</div>
 
-	<%@ include file="../../static/fragment/javascript.jsp"%>
+	<%@ include file="../../static/fragment/bootstrap.jsp"%>
 
 </body>
 </html>

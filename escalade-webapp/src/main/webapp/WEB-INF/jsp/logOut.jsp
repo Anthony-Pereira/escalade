@@ -32,6 +32,6 @@
 
 </body>
 
-<%@ include file="../../static/fragment/javascript.jsp"%>
+<%@ include file="../../static/fragment/bootstrap.jsp"%>
 
 </html>

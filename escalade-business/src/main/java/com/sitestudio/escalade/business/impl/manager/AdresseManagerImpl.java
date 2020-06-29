@@ -21,7 +21,7 @@ public class AdresseManagerImpl extends AbstractManager implements AdresseManage
     }
 
     @Override
-    public Boolean createAdresse(Adresse adresse) throws FunctionalException {
+    public Integer createAdresse(Adresse adresse) throws FunctionalException {
         return getDaoFactory().getAdresseDao().create(adresse);
     }
 

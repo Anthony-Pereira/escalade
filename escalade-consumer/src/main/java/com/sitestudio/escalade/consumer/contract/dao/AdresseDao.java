@@ -27,8 +27,8 @@ public interface AdresseDao {
     /**
      * Méthode de création
      * @param adresse
-     * @return boolean */
-    Boolean create (Adresse adresse) throws FunctionalException;
+     * @return Integer */
+    Integer create (Adresse adresse) throws FunctionalException;
 
     /**
      * Méthode de modification

@@ -51,12 +51,13 @@ public class AdresseDaoImpl extends AbstractDao implements AdresseDao {
     }
 
     @Override
-    public Boolean create(Adresse adresse) throws FunctionalException {
+    public Integer create(Adresse adresse) throws FunctionalException {
 
         String sql = "INSERT INTO adresse " +
                 "(numero,rue,code_postal,ville,departement_id)" +
                 " VALUES " +
-                "(:numero,:rue,:code_postal,:ville,:departement_id)";
+                "(:numero,:rue,:code_postal,:ville,:departement_id)" +
+                "RETURNING adresse_id";
 
         MapSqlParameterSource mapSqlParameterSource = getMapSqlParameterSource(adresse);
 
@@ -64,7 +65,7 @@ public class AdresseDaoImpl extends AbstractDao implements AdresseDao {
 
         Integer nbCreate = jdbcTemplate.update(sql,mapSqlParameterSource);
 
-        return nbCreate > 0;
+        return nbCreate;
     }
 
     @Override

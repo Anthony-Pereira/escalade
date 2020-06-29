@@ -17,7 +17,7 @@ public interface AdresseManager {
      * @param adresse L'identifiant de l'adresse ciblé.
      * @return boolean.
      * @throws NotFoundException */
-    Boolean createAdresse (Adresse adresse) throws NotFoundException, FunctionalException;
+    Integer createAdresse (Adresse adresse) throws NotFoundException, FunctionalException;
 
     /**Modifier une adresse.
      * @param adresse L'identifiant de l'adresse ciblé.
