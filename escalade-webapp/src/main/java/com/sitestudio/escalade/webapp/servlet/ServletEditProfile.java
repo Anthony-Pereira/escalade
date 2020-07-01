@@ -68,27 +68,19 @@ public class ServletEditProfile extends HttpServlet {
         adresse.setCodePostal(codePostal);
         adresse.setVille(ville);
 
-        if (compte.getAdresse() == null) { // J'ai créer une condition pour visualiser si l'utilissateur a déjà créer une adresse depuis son compte. true ? creation adresse + update clé étrangère
+        try {
+            compteResource.updateCompte(compte);
 
-            try {
-                System.out.println("Compte =" + compte);
-                adresse.setDepartement(departementResource.getDepartement(Integer.parseInt(codePostal.substring(0,2))));
-                adresseResource.createAdresse(adresse); // ETAPE 1: adresseResource.createAdresse créer un objet adresse et incrémente automatiquement adresse_id dans la db
-                adresse = adresseResource.getAdresse(adresse.getId()); // ETAPE 2: Ici je retrouve adresse_id == null. Je n'arrive pas a récupérer l'adresse_id qui a été auto-incrémenté dans la db.
-                compte.setAdresse(adresse); // ETAPE 3: Comme dans mon objet adresse il n'ya pas adresse_id, mon setAdresse devient inutile pour la suite. /** Voir compte DaoImpl **/
-                compteResource.updateCompte(compte); // ETAPE 4: Ici le processus de mise a jour se fait mais abouti a rien car le "curseur" n'a pas était identifié
-            } catch (NotFoundException | FunctionalException e) {
-                System.out.println("Erreur de création d'adresse:" + e);
-            }
+            adresse.setDepartement(departementResource.getDepartement(Integer.parseInt(codePostal.substring(0,2))));
 
-        } else { // false ? mise a jour de l'adresse
-
-            try {
+            if (compte.getAdresse() != null) {
                 adresseResource.updateAdresse(adresse);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
+            } else {
+                adresseResource.createAdresse(adresse); // stop work here
+                compte.setAdresse(adresse);
             }
-
+        } catch (NotFoundException | FunctionalException e) {
+            e.printStackTrace();
         }
 
         System.out.println("le numero de département est " + adresse.getCodePostal().substring(0,2));
