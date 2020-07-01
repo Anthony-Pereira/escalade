@@ -24,7 +24,11 @@ public class ServletMySpace extends HttpServlet {
         httpSession.getAttribute("authentification");
         httpSession.getAttribute("menu");
 
-        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/mySpace.jsp").forward(request,response);
+        if (httpSession.getAttribute("compte") != null) {
+            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/mySpace.jsp").forward(request,response);
+        } else {
+            this.getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
+        }
 
     }
 

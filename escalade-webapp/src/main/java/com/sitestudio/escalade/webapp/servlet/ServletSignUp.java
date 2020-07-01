@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(name = "ServletSignUp")
@@ -23,7 +24,15 @@ public class ServletSignUp extends HttpServlet {
         request.getAttribute("confirmationError");
         request.getAttribute("compte");
 
-        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/signUp.jsp").forward(request,response);
+        HttpSession httpSession = request.getSession();
+        httpSession.getAttribute("compte");
+
+        if (httpSession.getAttribute("compte") != null) {
+            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/mySpace.jsp").forward(request,response);
+        } else {
+            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/signUp.jsp").forward(request,response);
+        }
+
 
     }
 

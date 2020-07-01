@@ -18,7 +18,14 @@ public class ServletSignIn extends HttpServlet {
 
         request.getAttribute("message");
 
-        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/signIn.jsp").forward(request, response);
+        HttpSession httpSession = request.getSession();
+        httpSession.getAttribute("compte");
+
+        if (httpSession.getAttribute("compte") != null) {
+            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/mySpace.jsp").forward(request, response);
+        } else {
+            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/signIn.jsp").forward(request, response);
+        }
 
     }
 

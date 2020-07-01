@@ -20,7 +20,11 @@ public class ServletProfile extends HttpServlet {
         httpSession.getAttribute("compte");
         httpSession.getAttribute("adresse");
 
-        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/profile.jsp").forward(request,response);
+        if (httpSession.getAttribute("compte") != null) {
+            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/profile.jsp").forward(request,response);
+        } else {
+            this.getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
+        }
 
     }
 

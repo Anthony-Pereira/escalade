@@ -23,7 +23,11 @@ public class ServletPasswordParameter extends HttpServlet {
         HttpSession httpSession = request.getSession();
         httpSession.getAttribute("compte");
 
-        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/parameter.jsp").forward(request,response);
+        if (httpSession.getAttribute("compte") != null) {
+            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/parameter.jsp").forward(request,response);
+        } else {
+            this.getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
+        }
 
     }
 

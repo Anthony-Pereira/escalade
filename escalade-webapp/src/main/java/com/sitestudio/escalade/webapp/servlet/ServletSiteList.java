@@ -18,7 +18,11 @@ public class ServletSiteList extends HttpServlet {
         HttpSession httpSession = request.getSession();
         httpSession.getAttribute("compte");
 
-        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/siteList.jsp").forward(request,response);
+        if (httpSession.getAttribute("compte") != null) {
+            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/siteList.jsp").forward(request,response);
+        } else {
+            this.getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
+        }
 
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -16,10 +16,15 @@ public class ServletLogOut extends HttpServlet {
         response.setCharacterEncoding("UTF8");
 
         HttpSession httpSession = request.getSession();
+        httpSession.getAttribute("compte");
+
+        if (httpSession.getAttribute("compte") != null) {
+            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/logOut.jsp").forward(request,response);
+        } else {
+            this.getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
+        }
 
         httpSession.invalidate();
-
-        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/logOut.jsp").forward(request,response);
 
     }
 
