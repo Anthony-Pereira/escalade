@@ -16,8 +16,6 @@ public class ServletSignIn extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
-        request.getAttribute("message");
-
         HttpSession httpSession = request.getSession();
         httpSession.getAttribute("compte");
 
@@ -46,17 +44,18 @@ public class ServletSignIn extends HttpServlet {
 
         try {
             compte = compteResource.getCompte(compte);
+
+            httpSession.setAttribute("authentification", true);
+            httpSession.setAttribute("menu",true);
+            httpSession.setAttribute("compte", compte);
+
+            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/mySpace.jsp").forward(request, response);
+
         } catch (NotFoundException e) {
             System.out.println("ERREUR : " + e.getMessage());
             request.setAttribute("connectionMessage",false);
             this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/signIn.jsp").forward(request,response);
         }
-
-        httpSession.setAttribute("authentification", true);
-        httpSession.setAttribute("menu",true);
-        httpSession.setAttribute("compte", compte);
-
-        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/mySpace.jsp").forward(request, response);
 
     }
 
