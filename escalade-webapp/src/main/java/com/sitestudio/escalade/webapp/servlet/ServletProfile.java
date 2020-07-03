@@ -23,7 +23,7 @@ public class ServletProfile extends HttpServlet {
         if (httpSession.getAttribute("compte") != null) {
             this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/profile.jsp").forward(request,response);
         } else {
-            this.getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
+            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/signIn.jsp").forward(request,response);
         }
 
     }
