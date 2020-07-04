@@ -21,6 +21,8 @@
 
     <%@include file="fragment/topBar.jsp"%>
 
+    <div class="bg-light">
+
         <form action="editProfile" method="post">
 
             <div class ="row m-3">
@@ -39,33 +41,42 @@
                     </div>
                 </div>
 
-                <div class="col-md-4 mb-5 bg-light">
+                <div class="col-md-4 bg-light">
                     <h4 class="my-2 mr-2 pt-2">À propos de moi</h4>
-                    <div>
-                        <label for="prenom">Prénom</label> <input type="text" size="50" value="<c:out value="${compte.prenom}"/>"
-                                                                  name="prenom" class="form-control" id="prenom"
-                                                                  aria-describedby="prenom">
-                        <span class="text-info"></span>
-                    </div>
-                    <div>
-                        <label for="nom">Nom</label> <input type="text" size="50" value="<c:out value="${compte.nom}"/>"
-                                                            name="nom" class="form-control" id="nom"
-                                                            aria-describedby="nom">
-                        <span class="text-info"></span>
-                    </div>
-                    <div>
-                        <label for="numTelephone">Numéro de téléphone</label> <input type="tel" size="50" value="<c:out value="${compte.numTelephone}"/>"
-                                                                                     name="numTelephone" class="form-control" id="numTelephone"
-                                                                                     aria-describedby="numTelephone">
-                        <span class="text-info"></span>
-                    </div>
-                    <br/>
-                    <h4 class="my-2 mr-2">Adresse</h4>
+                        <div>
+                            <label for="prenom">Prénom</label> <input type="text" size="50" value="<c:out value="${compte.prenom}"/>"
+                                                                      name="prenom" class="form-control" id="prenom"
+                                                                      aria-describedby="prenom">
+                            <span class="text-info"></span>
+                        </div>
+                        <div>
+                            <label for="nom">Nom</label> <input type="text" size="50" value="<c:out value="${compte.nom}"/>"
+                                                                name="nom" class="form-control" id="nom"
+                                                                aria-describedby="nom">
+                            <span class="text-info"></span>
+                        </div>
+                        <div>
+                            <label for="numTelephone">Numéro de téléphone</label> <input type="tel" size="50" value="<c:out value="${compte.numTelephone}"/>"
+                                                                                         name="numTelephone" class="form-control" id="numTelephone"
+                                                                                         aria-describedby="numTelephone">
+                            <span class="text-info"></span>
+                        </div>
+                        <div class="d-flex justify-content-center m-3">
+                            <button type="submit" class="btn btn-dark" href="editProfile">Envoyer</button>
+                        </div>
+                </div>
+            </div>
+        </form>
+
+        <div class="col-md-4 bg-light">
+            <form  action="editProfile" method="post">
+                <div class="col-md-12 bg-light">
+                    <h4 class="my-2 mr-2 pt-2">Adresse</h4>
 
                     <div>
                         <label for="numero">Numéro</label> <input type="number" size="50" value="<c:out value="${adresse.numero}"/>"
-                                                               name="numero" class="form-control" id="numero"
-                                                               aria-describedby="numero">
+                                                                  name="numero" class="form-control" id="numero"
+                                                                  aria-describedby="numero">
                         <span class="text-info"></span>
                     </div>
                     <div>
@@ -90,11 +101,9 @@
                         <button type="submit" class="btn btn-dark" href="editProfile">Envoyer</button>
                     </div>
                 </div>
-                <div class="col-md-6 mb-5">
-
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
+        <br/>
     </div>
 
     <%@include file="../../static/fragment/footer.jsp"%>
