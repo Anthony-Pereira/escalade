@@ -56,8 +56,9 @@ public class AdresseDaoImpl extends AbstractDao implements AdresseDao {
         String sql = "INSERT INTO adresse " +
                 "(numero,rue,code_postal,ville,departement_id)" +
                 " VALUES " +
-                "(:numero,:rue,:code_postal,:ville,:departement_id)" +
-                "RETURNING adresse_id";
+                "(:numero,:rue,:code_postal,:ville,:departement_id)";
+
+                //"RETURNING adresse_id"; COMMENT UTILISER RETURNING POUR RECUPERER LE SEQUENNCE ID ?
 
         MapSqlParameterSource mapSqlParameterSource = getMapSqlParameterSource(adresse);
 

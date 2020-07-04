@@ -38,7 +38,8 @@ public class ServletEditProfileAddress extends HttpServlet {
 
         HttpSession httpSession = request.getSession();
         Compte compte = (Compte) httpSession.getAttribute("compte");
-        Adresse adresse = new Adresse();
+        Adresse adresse = (Adresse) httpSession.getAttribute("adresse");
+        Adresse newAdresse = new Adresse();
 
         AdresseResource adresseResource = new AdresseResource();
         DepartementResource departementResource = new DepartementResource();
@@ -48,27 +49,38 @@ public class ServletEditProfileAddress extends HttpServlet {
         String codePostal = request.getParameter("codePostal");
         String ville = request.getParameter("ville");
 
-        Integer addressId = adresse.getId();
-        adresse.setId(addressId);
-        adresse.setNumero(numero);
-        adresse.setRue(rue);
-        adresse.setCodePostal(codePostal);
-        adresse.setVille(ville);
-
         try {
-            adresse.setDepartement(departementResource.getDepartement(Integer.parseInt(codePostal.substring(0,2))));
+            newAdresse.setDepartement(departementResource.getDepartement(Integer.parseInt(codePostal.substring(0,2))));
 
             if (compte.getAdresse() != null) {
+
+                Integer addressId = adresse.getId();
+                adresse.setId(addressId);
+                adresse.setNumero(numero);
+                adresse.setRue(rue);
+                adresse.setCodePostal(codePostal);
+                adresse.setVille(ville);
+
                 adresseResource.updateAdresse(adresse);
+
             } else {
-                adresseResource.createAdresse(adresse);
-                compte.setAdresse(adresse);
+
+                newAdresse.setNumero(numero);
+                newAdresse.setRue(rue);
+                newAdresse.setCodePostal(codePostal);
+                newAdresse.setVille(ville);
+
+                adresseResource.createAdresse(newAdresse);
+
+                adresse = newAdresse;
+
+                compte.setAdresse(newAdresse);
             }
         } catch (NotFoundException | FunctionalException e) {
-            e.printStackTrace();
+            System.out.println("ERROR: " + e);
         }
 
-        System.out.println("le numero de département est " + adresse.getCodePostal().substring(0,2));
+        System.out.println("le numero de département est " + newAdresse.getCodePostal().substring(0,2));
 
         httpSession.setAttribute("compte",compte);
         httpSession.setAttribute("adresse",adresse);
