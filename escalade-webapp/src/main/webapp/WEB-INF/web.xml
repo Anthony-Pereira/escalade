@@ -49,6 +49,24 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>ServletEditProfileAccount</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletEditProfileAccount</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletEditProfileAccount</servlet-name>
+        <url-pattern>/editProfileAccount</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ServletEditProfileAddress</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletEditProfileAddress</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletEditProfileAddress</servlet-name>
+        <url-pattern>/editProfileAddress</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>ServletEmailParameter</servlet-name>
         <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletEmailParameter</servlet-class>
     </servlet>

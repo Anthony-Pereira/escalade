@@ -31,7 +31,6 @@ public class ServletEditProfile extends HttpServlet {
         } else {
             this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/signIn.jsp").forward(request,response);
         }
-
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -39,57 +38,12 @@ public class ServletEditProfile extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         HttpSession httpSession = request.getSession();
-        Compte compte = (Compte) httpSession.getAttribute("compte");
-        Adresse adresse = new Adresse();
 
-        CompteResource compteResource = new CompteResource();
-        AdresseResource adresseResource = new AdresseResource();
-        DepartementResource departementResource = new DepartementResource();
-
-        String pseudo = request.getParameter("pseudo");
-        String prenom = request.getParameter("prenom");
-        String nom = request.getParameter("nom");
-        String numTelephone = request.getParameter("numTelephone");
-
-        String numero = request.getParameter("numero");
-        String rue = request.getParameter("rue");
-        String codePostal = request.getParameter("codePostal");
-        String ville = request.getParameter("ville");
-
-        Integer id = compte.getId();
-        compte.setId(id);
-        compte.setPseudo(pseudo);
-        compte.setPrenom(prenom);
-        compte.setNom(nom);
-        compte.setNumTelephone(numTelephone);
-
-        adresse.setNumero(numero);
-        adresse.setRue(rue);
-        adresse.setCodePostal(codePostal);
-        adresse.setVille(ville);
-
-        try {
-            compteResource.updateCompte(compte);
-
-            adresse.setDepartement(departementResource.getDepartement(Integer.parseInt(codePostal.substring(0,2))));
-
-            if (compte.getAdresse() != null) {
-                adresseResource.updateAdresse(adresse);
-            } else {
-                adresseResource.createAdresse(adresse); // stop work here
-                compte.setAdresse(adresse);
-            }
-        } catch (NotFoundException | FunctionalException e) {
-            e.printStackTrace();
+        if (httpSession.getAttribute("compte") != null) {
+            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/editProfile.jsp").forward(request,response);
+        } else {
+            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/signIn.jsp").forward(request,response);
         }
-
-        System.out.println("le numero de département est " + adresse.getCodePostal().substring(0,2));
-
-        httpSession.setAttribute("compte",compte); // Récupère les valeurs de compte dans httpSession
-        httpSession.setAttribute("adresse",adresse); // Récupère les valeurs d'adresse dans httpSession
-
-        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/profile.jsp").forward(request,response);
-
     }
 
 }

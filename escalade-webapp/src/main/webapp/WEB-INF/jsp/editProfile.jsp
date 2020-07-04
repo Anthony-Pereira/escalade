@@ -23,7 +23,7 @@
 
     <div class="bg-light">
 
-        <form action="editProfile" method="post">
+        <form action="editProfileAccount" method="post">
 
             <div class ="row m-3">
                 <div class="col-md-4 mb-5">
@@ -62,14 +62,14 @@
                             <span class="text-info"></span>
                         </div>
                         <div class="d-flex justify-content-center m-3">
-                            <button type="submit" class="btn btn-dark" href="editProfile">Envoyer</button>
+                            <button type="submit" class="btn btn-dark">Envoyer</button>
                         </div>
                 </div>
             </div>
         </form>
 
         <div class="col-md-4 bg-light">
-            <form  action="editProfile" method="post">
+            <form  action="editProfileAddress" method="post">
                 <div class="col-md-12 bg-light">
                     <h4 class="my-2 mr-2 pt-2">Adresse</h4>
 
@@ -98,7 +98,7 @@
                         <span class="text-info"></span>
                     </div>
                     <div class="d-flex justify-content-center m-3">
-                        <button type="submit" class="btn btn-dark" href="editProfile">Envoyer</button>
+                        <button type="submit" class="btn btn-dark">Envoyer</button>
                     </div>
                 </div>
             </form>
