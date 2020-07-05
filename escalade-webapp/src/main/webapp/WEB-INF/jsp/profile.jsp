@@ -39,7 +39,7 @@
                 <li>Prénom : <c:out value="${compte.prenom}"/></li>
                 <li>Nom : <c:out value="${compte.nom}"/></li>
                 <li>Téléphone : <c:out value="${compte.numTelephone}"/></li>
-                <li>Adresse : <c:out value="${adresse.numero}"/> rue <c:out value="${adresse.rue}"/></li>
+                <li>Adresse : <c:out value="${adresse.numero}"/> <c:out value="${empty compte.adresse ? '' : 'rue'}"/> <c:out value="${adresse.rue}"/></li>
                 <li>Code postal : <c:out value="${adresse.codePostal}"/></li>
                 <li>Ville : <c:out value="${adresse.ville}"/></li>
             </ul>

@@ -74,7 +74,7 @@ public class ServletEditProfileAddress extends HttpServlet {
 
                 adresse = newAdresse;
 
-                compte.setAdresse(newAdresse);
+                compte.setAdresse(adresse);
             }
         } catch (NotFoundException | FunctionalException e) {
             System.out.println("ERROR: " + e);
