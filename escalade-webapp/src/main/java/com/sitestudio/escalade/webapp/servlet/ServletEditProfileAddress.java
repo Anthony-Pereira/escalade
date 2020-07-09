@@ -79,9 +79,7 @@ public class ServletEditProfileAddress extends HttpServlet {
         } catch (NotFoundException | FunctionalException e) {
             System.out.println("ERROR: " + e);
         }
-
-        System.out.println("le numero de département est " + newAdresse.getCodePostal().substring(0,2));
-
+        
         httpSession.setAttribute("compte",compte);
         httpSession.setAttribute("adresse",adresse);
 

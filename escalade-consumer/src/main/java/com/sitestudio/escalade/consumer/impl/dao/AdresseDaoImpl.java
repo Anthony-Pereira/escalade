@@ -8,6 +8,8 @@ import com.sitestudio.escalade.model.exception.NotFoundException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -58,15 +60,19 @@ public class AdresseDaoImpl extends AbstractDao implements AdresseDao {
                 " VALUES " +
                 "(:numero,:rue,:code_postal,:ville,:departement_id)";
 
-                //"RETURNING adresse_id"; COMMENT UTILISER RETURNING POUR RECUPERER LE SEQUENNCE ID ?
-
         MapSqlParameterSource mapSqlParameterSource = getMapSqlParameterSource(adresse);
+
+        KeyHolder keyHolder = new GeneratedKeyHolder();
 
         NamedParameterJdbcTemplate jdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
 
-        Integer nbCreate = jdbcTemplate.update(sql,mapSqlParameterSource);
+        jdbcTemplate.update(sql,mapSqlParameterSource,keyHolder,new String[] {"adresse_id"});
 
-        return nbCreate;
+        Integer nbCreate = keyHolder.getKey().intValue();
+
+        adresse.setId(nbCreate);
+
+        return adresse.getId();
     }
 
     @Override
