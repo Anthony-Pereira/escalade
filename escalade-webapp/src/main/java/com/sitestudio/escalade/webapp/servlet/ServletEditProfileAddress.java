@@ -41,6 +41,7 @@ public class ServletEditProfileAddress extends HttpServlet {
         Adresse adresse = (Adresse) httpSession.getAttribute("adresse");
         Adresse newAdresse = new Adresse();
 
+        CompteResource compteResource = new CompteResource();
         AdresseResource adresseResource = new AdresseResource();
         DepartementResource departementResource = new DepartementResource();
 
@@ -75,6 +76,9 @@ public class ServletEditProfileAddress extends HttpServlet {
                 adresse = newAdresse;
 
                 compte.setAdresse(adresse);
+
+                compteResource.updateCompte(compte);
+
             }
         } catch (NotFoundException | FunctionalException e) {
             System.out.println("ERROR: " + e);
