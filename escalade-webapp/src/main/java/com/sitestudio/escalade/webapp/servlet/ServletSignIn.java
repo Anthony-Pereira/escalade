@@ -1,7 +1,10 @@
 package com.sitestudio.escalade.webapp.servlet;
 
+import com.sitestudio.escalade.model.bean.compte.Adresse;
 import com.sitestudio.escalade.model.bean.compte.Compte;
+import com.sitestudio.escalade.model.exception.FunctionalException;
 import com.sitestudio.escalade.model.exception.NotFoundException;
+import com.sitestudio.escalade.webapp.resource.AdresseResource;
 import com.sitestudio.escalade.webapp.resource.CompteResource;
 
 import javax.servlet.ServletException;
@@ -32,7 +35,9 @@ public class ServletSignIn extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         CompteResource compteResource = new CompteResource();
+        AdresseResource adresseResource = new AdresseResource();
         Compte compte = new Compte();
+        Adresse adresse = new Adresse();
 
         HttpSession httpSession = request.getSession(); // Initie le moteur de session de JEE
 
@@ -44,14 +49,18 @@ public class ServletSignIn extends HttpServlet {
 
         try {
             compte = compteResource.getCompte(compte);
+            if (compte != null) {
+                adresse = adresseResource.getAdresse(compte.getAdresse().getId());
+            }
 
             httpSession.setAttribute("authentification", true);
             httpSession.setAttribute("menu",true);
             httpSession.setAttribute("compte", compte);
+            httpSession.setAttribute("adresse",adresse);
 
             this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/mySpace.jsp").forward(request, response);
 
-        } catch (NotFoundException e) {
+        } catch (NotFoundException | FunctionalException e) {
             System.out.println("ERREUR : " + e.getMessage());
             request.setAttribute("connectionMessage",false);
             this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/signIn.jsp").forward(request,response);

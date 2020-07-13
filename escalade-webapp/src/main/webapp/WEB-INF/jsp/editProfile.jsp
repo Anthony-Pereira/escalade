@@ -76,25 +76,25 @@
                     <div>
                         <label for="numero">Numéro</label> <input type="number" size="50" value="<c:out value="${adresse.numero}"/>"
                                                                   name="numero" class="form-control" id="numero"
-                                                                  aria-describedby="numero">
+                                                                  aria-describedby="numero" required>
                         <span class="text-info"></span>
                     </div>
                     <div>
                         <label for="rue">Rue</label> <input type="text" size="50" value="<c:out value="${adresse.rue}"/>"
                                                             name="rue" class="form-control" id="rue"
-                                                            aria-describedby="rue">
+                                                            aria-describedby="rue" required>
                         <span class="text-info"></span>
                     </div>
                     <div>
                         <label for="codePostal">Code postal</label> <input type="number" size="50" value="<c:out value="${adresse.codePostal}"/>"
                                                                            name="codePostal" class="form-control" id="codePostal"
-                                                                           aria-describedby="codePostal">
+                                                                           aria-describedby="codePostal" required>
                         <span class="text-info"></span>
                     </div>
                     <div>
                         <label for="ville">Ville</label> <input type="text" size="50" value="<c:out value="${adresse.ville}"/>"
                                                                 name="ville" class="form-control" id="ville"
-                                                                aria-describedby="ville">
+                                                                aria-describedby="ville" required>
                         <span class="text-info"></span>
                     </div>
                     <div class="d-flex justify-content-center m-3">
