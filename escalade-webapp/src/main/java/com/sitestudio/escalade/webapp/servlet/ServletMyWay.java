@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(name = "ServletMySite")
-public class ServletMySite extends HttpServlet {
+@WebServlet(name = "ServletMyWay")
+public class ServletMyWay extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
@@ -18,10 +18,11 @@ public class ServletMySite extends HttpServlet {
         HttpSession httpSession = request.getSession();
 
         if (httpSession.getAttribute("compte") != null) {
-            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/mySite.jsp").forward(request,response);
+            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/myWay.jsp").forward(request,response);
         } else {
             this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/signIn.jsp").forward(request,response);
         }
+
 
     }
 
@@ -32,7 +33,7 @@ public class ServletMySite extends HttpServlet {
         HttpSession httpSession = request.getSession();
 
         if (httpSession.getAttribute("compte") != null) {
-            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/mySite.jsp").forward(request,response);
+            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/myWay").forward(request, response);
         } else {
             this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/signIn.jsp").forward(request,response);
         }

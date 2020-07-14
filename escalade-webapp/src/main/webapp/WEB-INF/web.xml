@@ -85,12 +85,12 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>ServletMyArea</servlet-name>
-        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletMyArea</servlet-class>
+        <servlet-name>ServletMySector</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletMySector</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ServletMyArea</servlet-name>
-        <url-pattern>/myArea</url-pattern>
+        <servlet-name>ServletMySector</servlet-name>
+        <url-pattern>/mySector</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -121,12 +121,12 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>ServletMyTrack</servlet-name>
-        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletMyTrack</servlet-class>
+        <servlet-name>ServletMyWay</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletMyWay</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ServletMyTrack</servlet-name>
-        <url-pattern>/myTrack</url-pattern>
+        <servlet-name>ServletMyWay</servlet-name>
+        <url-pattern>/myWay</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -157,15 +157,6 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>ServletSendSite</servlet-name>
-        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletSendSite</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ServletSendSite</servlet-name>
-        <url-pattern>/sendSite</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>ServletSignIn</servlet-name>
         <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletSignIn</servlet-class>
     </servlet>
@@ -184,12 +175,12 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>ServletSiteList</servlet-name>
-        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletSiteList</servlet-class>
+        <servlet-name>ServletSite</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletSite</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ServletSiteList</servlet-name>
-        <url-pattern>/siteList</url-pattern>
+        <servlet-name>ServletSite</servlet-name>
+        <url-pattern>/site</url-pattern>
     </servlet-mapping>
 
 </web-app>
