@@ -62,7 +62,7 @@ public class SiteDaoImpl extends AbstractDao implements SiteDao {
         mapSqlParameterSource.addValue("nom",site.getNom(), Types.VARCHAR);
         mapSqlParameterSource.addValue("description",site.getDescription(), Types.VARCHAR);
 
-        mapSqlParameterSource.addValue("adresse_id",site.getAdresse().getId(), Types.VARCHAR);
+        mapSqlParameterSource.addValue("adresse_id",site.getAdresse().getId(), Types.INTEGER);
 
         NamedParameterJdbcTemplate jdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
 

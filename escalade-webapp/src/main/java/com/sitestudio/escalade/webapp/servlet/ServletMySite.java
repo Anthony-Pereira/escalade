@@ -68,6 +68,9 @@ public class ServletMySite extends HttpServlet {
             adresse.setDepartement(departementResource.getDepartement(Integer.parseInt(codePostal.substring(0,2))));
 
             adresseResource.createAdresse(adresse);
+
+            site.setAdresse(adresse);
+
             siteResource.createSite(site);
 
         } catch (NotFoundException | FunctionalException e) {

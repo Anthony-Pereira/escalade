@@ -30,25 +30,25 @@
                         <h4 class="my-2 mr-2 pt-2">Adresse</h4>
 
                         <div>
-                            <label for="numero">Numéro</label> <input type="number" size="50" value="<c:out value="${adresse.numero}"/>"
+                            <label for="numero">Numéro</label> <input type="number" size="50"
                                                                       name="numero" class="form-control" id="numero"
                                                                       aria-describedby="numero" required>
                             <span class="text-info"></span>
                         </div>
                         <div>
-                            <label for="rue">Rue</label> <input type="text" size="50" value="<c:out value="${adresse.rue}"/>"
+                            <label for="rue">Rue</label> <input type="text" size="50"
                                                                 name="rue" class="form-control" id="rue"
                                                                 aria-describedby="rue" required>
                             <span class="text-info"></span>
                         </div>
                         <div>
-                            <label for="codePostal">Code postal</label> <input type="number" size="50" value="<c:out value="${adresse.codePostal}"/>"
+                            <label for="codePostal">Code postal</label> <input type="number" size="50"
                                                                                name="codePostal" class="form-control" id="codePostal"
                                                                                aria-describedby="codePostal" required>
                             <span class="text-info"></span>
                         </div>
                         <div>
-                            <label for="ville">Ville</label> <input type="text" size="50" value="<c:out value="${adresse.ville}"/>"
+                            <label for="ville">Ville</label> <input type="text" size="50"
                                                                     name="ville" class="form-control" id="ville"
                                                                     aria-describedby="ville" required>
                             <span class="text-info"></span>
@@ -61,7 +61,7 @@
             <br/>
             <div class="mb-5">
                 <div>
-                    <label for="nom">Nom</label> <input type="text" size="50" value="<c:out value="${site.nom}"/>"
+                    <label for="nom">Nom</label> <input type="text" size="50"
                                                             name="nom" class="form-control" id="nom"
                                                             aria-describedby="nom" required>
                     <span class="text-info"></span>
