@@ -15,7 +15,7 @@
 				<h4>Menu</h4>
 				<div class="list-group">
 					<ul class="list-unstyled">
-						<li><a href="site.jsp">Sites d'escalade</a></li>
+						<li><a href="../../WEB-INF/jsp/site.jsp">Sites d'escalade</a></li>
 						<li><a href="association.jsp">Association</a></li>
 						<li><a href="event.jsp">Evènements</a></li>
 						<li><a href="vocabulary.jsp">Vocabulaire</a></li>

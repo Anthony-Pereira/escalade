@@ -29,7 +29,7 @@
 					</div>
 					<div>
 						<ul class="navbar-nav mr-auto">
-							<li class="nav-item"><a class="nav-link" href="site.jsp">Sites</a></li>
+							<li class="nav-item"><a class="nav-link" href="site">Sites</a></li>
 							<li class="nav-item"><a class="nav-link" href="association.jsp">Association</a>
 							</li>
 							<li class="nav-item"><a class="nav-link" href="event.jsp">Evènements</a>

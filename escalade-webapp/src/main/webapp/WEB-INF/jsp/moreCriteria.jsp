@@ -17,7 +17,7 @@
 
 <body>
 
-<%@ include file="static/fragment/header.jsp"%>
+<%@ include file="../../static/fragment/header.jsp"%>
 
 <div>
     <div class="jumbotron">
@@ -69,9 +69,9 @@
 </div>
 
 
-<%@ include file="static/fragment/footer.jsp"%>
+<%@ include file="../../static/fragment/footer.jsp"%>
 
-<%@ include file="static/fragment/bootstrap.jsp"%>
+<%@ include file="../../static/fragment/bootstrap.jsp"%>
 
 </body>
 </html>

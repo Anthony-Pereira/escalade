@@ -17,13 +17,13 @@
 
 <body>
 
-<%@ include file="static/fragment/header.jsp"%>
+<%@ include file="../../static/fragment/header.jsp"%>
 
 <div>
     <div class="jumbotron">
         <h1 class="col-sm-12 d-flex justify-content-center">Sites</h1>
         <br/>
-        <form class="form-inline" action="site" method="post">
+        <form class="form-inline" action="siteSearch.jsp" method="post">
             <div class="col-sm-12 d-flex justify-content-center">
                 <select class="custom-select custom-select-lg">
                     <option selected>Sélectionner</option>
@@ -33,7 +33,7 @@
                 </select>
             </div>
             <div class="col-sm-12 d-flex justify-content-center">
-                <a href="moreCriteria.jsp">plus de critères</a>
+                <a href="moreCriteria">plus de critères</a>
             </div>
             <div class="col-sm-12 d-flex justify-content-center">
                 <button type="submit" class="btn btn-primary my-1">Envoyer</button>
@@ -44,9 +44,9 @@
 </div>
 
 
-<%@ include file="static/fragment/footer.jsp"%>
+<%@ include file="../../static/fragment/footer.jsp"%>
 
-<%@ include file="static/fragment/bootstrap.jsp"%>
+<%@ include file="../../static/fragment/bootstrap.jsp"%>
 
 </body>
 </html>

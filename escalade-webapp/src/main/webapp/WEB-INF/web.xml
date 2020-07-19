@@ -83,6 +83,15 @@
         <servlet-name>ServletLogOut</servlet-name>
         <url-pattern>/logOut</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ServletMoreCriteria</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletMoreCriteria</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletMoreCriteria</servlet-name>
+        <url-pattern>/moreCriteria</url-pattern>
+    </servlet-mapping>
 
     <servlet>
         <servlet-name>ServletMySector</servlet-name>
