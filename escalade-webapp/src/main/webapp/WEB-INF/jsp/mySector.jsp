@@ -22,27 +22,35 @@
 <div class ="container">
 
     <div class=" jumbotron">
-        <h1 class="text-center mb-5">Site</h1>
-        <form action="sendSite" method="post">
+        <h1 class="text-center mb-5">Secteur</h1>
+        <form action="mySector" method="post">
 
             <div class="mb-5">
-                <h3>Secteur</h3>
+
+                <div class="col-sm-12">
+                    <select class="custom-select custom-select-lg">
+                        <option selected>Sélectionner</option>
+                        <option value="courchon">Courchon (Verdon)</option>
+                        <option value="falkenfels">Le Falkenfels</option>
+                        <option value="restonica">La Restonica</option>
+                    </select>
+                </div>
+                <br/>
                 <div>
-                    <label for="nomSecteur">nom</label> <input type="text" size="50" value="<c:out value="${secteur.nom}"/>"
-                                                               name="nomSecteur" class="form-control" id="nomSecteur"
-                                                               aria-describedby="nomSecteur" required>
+                    <label for="nom">nom</label> <input type="text" size="50" value="<c:out value="${secteur.nom}"/>"
+                                                               name="nom" class="form-control" id="nom"
+                                                               aria-describedby="nom" required>
                     <span class="text-info"></span>
                 </div>
+                <br/>
                 <div class="form-group">
-                    <label for="descriptionSecteur">Description</label>
-                    <textarea class="form-control" name="descriptionSecteur" id="descriptionSecteur" required></textarea>
+                    <label for="description">Description</label>
+                    <textarea class="form-control" name="description" id="description" required></textarea>
                 </div>
             </div>
-
             <div class="d-flex justify-content-center">
                 <button type="submit" class="btn btn-dark" required>Envoyer</button>
             </div>
-
         </form>
     </div>
 </div>

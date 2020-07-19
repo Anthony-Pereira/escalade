@@ -22,92 +22,65 @@
 <div class ="container">
 
     <div class=" jumbotron">
-        <h1 class="text-center mb-5">Site</h1>
-        <form action="sendSite" method="post">
+        <h1 class="text-center mb-5">Voie</h1>
+        <form action="myWay" method="post">
 
             <div class="mb-5">
-                <h3>Voie</h3>
-                <div>
-                    <label for="numeroVoie">Numéro</label> <input type="number" size="50" value="<c:out value="${voie.numero}"/>"
-                                                                  name="numeroVoie" class="form-control" id="numeroVoie"
-                                                                  aria-describedby="numeroVoie" required>
-                    <span class="text-info"></span>
-                </div>
-                <div>
-                    <label for="nomVoie">Nom</label> <input type="text" size="50" value="<c:out value="${voie.nom}"/>"
-                                                            name="nomVoie" class="form-control" id="nomVoie"
-                                                            aria-describedby="nomVoie" required>
-                    <span class="text-info"></span>
-                </div>
-                <div class="form-group">
-                    <label for="descriptionVoie">Description</label>
-                    <textarea class="form-control" name="descriptionVoie" id="descriptionVoie" required></textarea>
-                </div>
-                <div>
-                    <label for="longueurVoie">Longueur</label> <input type="number" size="50" value="<c:out value="${voie.longueur}"/>"
-                                                                      name="longueurVoie" class="form-control" id="longueurVoie"
-                                                                      aria-describedby="longueurVoie" required>
-                    <span class="text-info"></span>
-                </div>
 
-                <div>
-                    <select>
-                        <option value="1">test</option>
-                        <option value="1">test</option>
-                        <option value="1">test</option>
-                        <option value="1">test</option>
-                        <option value="1">test</option>
-                        <option value="1">test</option>
-                        <option value="1">test</option>
-                        <option value="1">test</option>
-                        <option value="1">test</option>
-                        <option value="1">test</option>
-                        <option value="1">test</option>
-                        <option value="1">test</option>
-                        <option value="1">test</option>
-                        <option value="1">test</option>
-                        <option value="1">test</option>
-                        <option value="1">test</option>
-                        <option value="1">test</option>
-                        <option value="1">test</option>
-                        <option value="1">test</option>
-                        <option value="1">test</option>
-                        <option value="1">test</option>
-                        <option value="1">test</option>
+                <div class="col-sm-12 d-flex justify-content-center">
+                    <select class="custom-select custom-select-lg">
+                        <option selected>Sélectionner</option>
+                        <option value="courchon">Courchon (Verdon)</option>
+                        <option value="falkenfels">Le Falkenfels</option>
+                        <option value="restonica">La Restonica</option>
                     </select>
                 </div>
-
-                <!--<div>
-                    <label for="difficulteVoie">Difficulté</label> <input type="number" size="50" value="<c:out value="${voie.difficulte}"/>"
-                                                                          name="difficulteVoie" class="form-control" id="difficulteVoie"
-                                                                          aria-describedby="difficulteVoie">
-                    <span class="text-info"></span>
-                </div>-->
-
+                <br/>
                 <div>
-
-                </div>
-
-            </div>
-
-            <div class="mb-5">
-                <h3>Photo</h3>
-                <div>
-                    <label for="url">Photo</label> <input type="file" size="50" value="<c:out value="${voie.difficulte}"/>"
-                                                          name="url" class="form-control" id="url"
-                                                          aria-describedby="url" required>
+                    <label for="numero">Numéro</label> <input type="number" size="50" value="<c:out value="${voie.numero}"/>"
+                                                                  name="numero" class="form-control" id="numero"
+                                                                  aria-describedby="numero" required>
                     <span class="text-info"></span>
-                    <div class="form-group">
-                        <label for="descriptionUrl">Description</label>
-                        <textarea class="form-control" name="descriptionUrl" id="descriptionUrl" required></textarea>
-                    </div>
                 </div>
-            </div>
+                <br/>
+                <div>
+                    <label for="nom">Nom</label> <input type="text" size="50" value="<c:out value="${voie.nom}"/>"
+                                                            name="nom" class="form-control" id="nom"
+                                                            aria-describedby="nom" required>
+                    <span class="text-info"></span>
+                </div>
+                <br/>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea class="form-control" name="description" id="description" required></textarea>
+                </div>
+                <br/>
+                <div>
+                    <label for="longueur">Longueur</label> <input type="number" size="50" value="<c:out value="${voie.longueur}"/>"
+                                                                      name="longueur" class="form-control" id="longueur"
+                                                                      aria-describedby="longueur" required>
+                    <span class="text-info"></span>
+                </div>
+                <br/>
+                <div>
+                    <label for="difficulte">Choisir une difficulté:</label>
 
-            <div class="d-flex justify-content-center">
+                    <select id="difficulte">
+                        <option label="1">1</option>
+                        <option label="2">2</option>
+                        <option label="3">3</option>
+                        <option label="4">4</option>
+                    </select>
+                </div>
+                <br/>
+                <label for="url">Photo</label> <input type="file" size="50" value="<c:out value="${voie.difficulte}"/>"
+                                                      name="url" class="form-control" id="url"
+                                                      aria-describedby="url" required>
+                <span class="text-info"></span>
+            </div>
+            <div class="d-flex justify-content-center mt-5">
                 <button type="submit" class="btn btn-dark" required>Envoyer</button>
             </div>
-
         </form>
     </div>
 </div>

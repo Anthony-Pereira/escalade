@@ -192,4 +192,13 @@
         <url-pattern>/site</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ServletSiteIndex</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletSiteIndex</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletSiteIndex</servlet-name>
+        <url-pattern>/siteIndex</url-pattern>
+    </servlet-mapping>
+
 </web-app>

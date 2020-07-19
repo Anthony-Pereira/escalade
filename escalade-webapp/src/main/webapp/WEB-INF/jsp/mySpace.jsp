@@ -39,7 +39,7 @@
 					<div class="card-body">
 						<h5 class="card-title">Site</h5>
 						<p class="card-text">Ajouter et voir vos sites</p>
-						<a href="mySite" class="btn btn-primary">allez
+						<a href="siteIndex" class="btn btn-primary">allez
 							vers</a>
 					</div>
 				</div>
