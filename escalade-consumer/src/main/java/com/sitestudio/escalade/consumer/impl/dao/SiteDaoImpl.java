@@ -40,8 +40,20 @@ public class SiteDaoImpl extends AbstractDao implements SiteDao {
     }
 
     @Override
-    public List<Site> readAll() {
-        return null;
+    public List<Site> readAll() throws NotFoundException {
+
+        String sql = "SELECT * FROM site";
+
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
+
+        List<Site> listSite = jdbcTemplate.query(sql,siteRM);
+
+        if (listSite.size() == 0){
+            throw new NotFoundException("Aucun site de trouvé");
+        } else {
+            return listSite;
+        }
+
     }
 
     @Override

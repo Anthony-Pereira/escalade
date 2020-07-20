@@ -4,6 +4,8 @@ import com.sitestudio.escalade.model.bean.site.Secteur;
 import com.sitestudio.escalade.model.bean.site.Site;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 
+import java.util.List;
+
 public interface SiteManager {
 
     /**
@@ -13,6 +15,13 @@ public interface SiteManager {
      * @throws NotFoundException
      */
     Site getSite(Integer id) throws NotFoundException;
+
+    /**
+     * Retourne le site.
+     * @return Un objet site.
+     * @throws NotFoundException
+     */
+    List<Site> getSite() throws NotFoundException;
 
     /**
      * Créer un site.

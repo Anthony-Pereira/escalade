@@ -5,6 +5,7 @@ import com.sitestudio.escalade.model.bean.site.Site;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 
 import javax.inject.Named;
+import java.util.List;
 
 /**
  * Implémentation de l'interface manager "SiteManager".
@@ -17,6 +18,11 @@ public class SiteManagerImpl extends AbstractManager implements SiteManager {
     @Override
     public Site getSite(Integer id) throws NotFoundException {
         return getDaoFactory().getSiteDao().read(id);
+    }
+
+    @Override
+    public List<Site> getSite() throws NotFoundException {
+        return getDaoFactory().getSiteDao().readAll();
     }
 
     @Override

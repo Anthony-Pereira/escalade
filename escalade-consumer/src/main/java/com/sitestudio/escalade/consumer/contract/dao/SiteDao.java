@@ -20,7 +20,7 @@ public interface SiteDao {
      * @return T */
     Site read (Integer id) throws NotFoundException;
 
-    List<Site> readAll();
+    List<Site> readAll() throws NotFoundException;
     List<Site> readAll(int id);
 
     /**
