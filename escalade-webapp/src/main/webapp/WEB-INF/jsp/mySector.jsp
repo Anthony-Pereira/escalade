@@ -27,12 +27,14 @@
 
             <div class="mb-5">
 
+
+
                 <div class="col-sm-12">
                     <select class="custom-select custom-select-lg">
                         <option selected>Sélectionner</option>
-                        <option value="courchon">Courchon (Verdon)</option>
-                        <option value="falkenfels">Le Falkenfels</option>
-                        <option value="restonica">La Restonica</option>
+                        <c:forEach items="${listSite}" var="listSite">
+                            <option><c:out value="${listSite.nom}"/></option>>
+                        </c:forEach>
                     </select>
                 </div>
                 <br/>
