@@ -12,6 +12,8 @@ public class Secteur {
 
     public Secteur(){}
 
+    public Secteur(Integer id){this.id = id;}
+
     public Secteur(Integer id, String nom, String description, List<UrlPhoto> url) {
         this.id = id;
         this.nom = nom;

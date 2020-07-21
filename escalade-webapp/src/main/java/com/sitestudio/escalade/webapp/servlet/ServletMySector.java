@@ -1,10 +1,12 @@
 package com.sitestudio.escalade.webapp.servlet;
 
 import com.sitestudio.escalade.model.bean.compte.Adresse;
+import com.sitestudio.escalade.model.bean.site.Secteur;
 import com.sitestudio.escalade.model.bean.site.Site;
 import com.sitestudio.escalade.model.exception.FunctionalException;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 import com.sitestudio.escalade.webapp.resource.AdresseResource;
+import com.sitestudio.escalade.webapp.resource.SecteurResource;
 import com.sitestudio.escalade.webapp.resource.SiteResource;
 
 import javax.servlet.ServletException;
@@ -49,6 +51,32 @@ public class ServletMySector extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         HttpSession httpSession = request.getSession();
+
+         Site site = new Site();
+         SiteResource siteResource = new SiteResource();
+
+        Secteur secteur = new Secteur();
+        SecteurResource secteurResource = new SecteurResource();
+
+        String nom = request.getParameter("nom");
+        String description = request.getParameter("description");
+        String siteId = request.getParameter("site");
+
+        try {
+            site = siteResource.getSite(Integer.parseInt(siteId));
+        } catch (NotFoundException e) {
+            e.printStackTrace();
+        }
+
+        secteur.setNom(nom);
+        secteur.setDescription(description);
+        secteur.setSite(site);
+
+        try {
+            secteurResource.createSecteur(secteur);
+        } catch (NotFoundException e) {
+            e.printStackTrace();
+        }
 
         if (httpSession.getAttribute("compte") != null){
             this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/mySector.jsp").forward(request,response);

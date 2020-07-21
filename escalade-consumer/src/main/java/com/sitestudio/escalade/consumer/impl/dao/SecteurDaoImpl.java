@@ -62,7 +62,7 @@ public class SecteurDaoImpl extends AbstractDao implements SecteurDao {
         mapSqlParameterSource.addValue("secteur_id",secteur.getId(), Types.INTEGER);
         mapSqlParameterSource.addValue("nom",secteur.getNom(), Types.VARCHAR);
         mapSqlParameterSource.addValue("description",secteur.getDescription(), Types.VARCHAR);
-        mapSqlParameterSource.addValue("site_site_id",secteur.getSite(), Types.VARCHAR);
+        mapSqlParameterSource.addValue("site_site_id",secteur.getSite().getId(), Types.INTEGER);
 
         NamedParameterJdbcTemplate jdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
 

@@ -13,25 +13,25 @@ import javax.inject.Named;
  * @author Anthony Pereira
  */
 @Named
-public class SecteurManagerImpl extends AbstractDao implements SecteurManager {
+public class SecteurManagerImpl extends AbstractManager implements SecteurManager {
 
     @Override
     public Secteur getSecteur(Integer id) throws NotFoundException {
-        return null;
+        return getDaoFactory().getSecteurDao().read(id);
     }
 
     @Override
     public Boolean createSecteur(Secteur secteur) throws NotFoundException {
-        return null;
+        return getDaoFactory().getSecteurDao().create(secteur);
     }
 
     @Override
     public Boolean updateSecteur(Secteur secteur) throws NotFoundException {
-        return null;
+        return getDaoFactory().getSecteurDao().update(secteur);
     }
 
     @Override
     public Boolean deleteSecteur(Secteur secteur) throws NotFoundException {
-        return null;
+        return getDaoFactory().getSecteurDao().delete(secteur);
     }
 }

@@ -26,14 +26,14 @@
         <form action="mySector" method="post">
 
             <div class="mb-5">
-
-
-
                 <div class="col-sm-12">
-                    <select class="custom-select custom-select-lg">
+                    <label for="site">Choisissez un site : </label>
+                    <select class="custom-select custom-select-lg" name="site" id="site">
                         <option selected>Sélectionner</option>
                         <c:forEach items="${listSite}" var="listSite">
-                            <option><c:out value="${listSite.nom}"/></option>>
+                            <option value="${listSite.id}">
+                                <c:out value="${listSite.nom}"></c:out>
+                            </option>>
                         </c:forEach>
                     </select>
                 </div>
