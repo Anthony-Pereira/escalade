@@ -4,20 +4,39 @@ import com.sitestudio.escalade.consumer.contract.dao.VoieDao;
 import com.sitestudio.escalade.consumer.impl.rowmapper.VoieRM;
 import com.sitestudio.escalade.model.bean.site.Voie;
 import com.sitestudio.escalade.model.exception.NotFoundException;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.sql.Types;
 import java.util.List;
 
 @Named
-public class VoieDaoImpl implements VoieDao {
+public class VoieDaoImpl extends AbstractDao implements VoieDao {
 
     @Inject
     VoieRM voieRM;
 
     @Override
     public Voie read(Integer id) throws NotFoundException {
-        return null;
+
+        String sql = "SELECT * FROM voie WHERE voie_id = " + id;
+
+        JdbcTemplate jdbcTemplate = new JdbcTemplate();
+
+        Voie voie;
+
+        List<Voie> listVoie = jdbcTemplate.query(sql,voieRM);
+
+        if (listVoie.size() == 0){
+            throw new NotFoundException("La voie n'existe pas");
+        } else {
+            voie = listVoie.get(0);
+        }
+
+        return voie;
     }
 
     @Override
@@ -32,16 +51,71 @@ public class VoieDaoImpl implements VoieDao {
 
     @Override
     public Boolean create(Voie voie) {
-        return null;
+
+        String sql = "INSERT INTO voie " +
+                "(numero,nom,description,secteur_id,url_photo_id,longueur,difficulte) " +
+                "VALUES (:numero,:nom,:description,:secteur_id,:url_photo_id,longueur,:difficulte)";
+
+        MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
+
+        mapSqlParameterSource.addValue("voie_id",voie.getId(), Types.INTEGER);
+        mapSqlParameterSource.addValue("numero",voie.getNumero(), Types.INTEGER);
+        mapSqlParameterSource.addValue("nom",voie.getNom(), Types.VARCHAR);
+        mapSqlParameterSource.addValue("description",voie.getDescription(), Types.VARCHAR);
+        mapSqlParameterSource.addValue("secteur_id",voie.getSecteur().getId(), Types.INTEGER);
+        mapSqlParameterSource.addValue("url_photo_id",voie.getUrl(), Types.VARCHAR);
+        mapSqlParameterSource.addValue("longueur",voie.getLongueur(), Types.VARCHAR);
+        mapSqlParameterSource.addValue("difficulte",voie.difficulte, Types.VARCHAR);
+
+        NamedParameterJdbcTemplate jdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
+
+        Integer nbCreate = jdbcTemplate.update(sql,mapSqlParameterSource);
+
+        return nbCreate > 0;
     }
 
     @Override
     public Boolean update(Voie voie) {
-        return null;
+
+        String sql = "UPDATE voie SET numero=:numero,nom=:nom,description=:description,url_photo_id=:url_photo_id,longueur=:longueur,difficulte=:difficulte WHERE voie_id =" + voie.getId();
+
+        MapSqlParameterSource mapSqlParameterSource = getMapSqlParameterSource(voie);
+
+        NamedParameterJdbcTemplate jdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
+
+        Integer nbUpdate = jdbcTemplate.update(sql,mapSqlParameterSource);
+
+        return nbUpdate > 0;
     }
 
     @Override
     public Boolean delete(Voie voie) {
-        return null;
+
+        String sql = "DELETE FROM voie WHERE voie_id =" + voie.getId();
+
+        MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
+
+        mapSqlParameterSource.addValue("voie_id",voie.getId(),Types.INTEGER);
+
+        NamedParameterJdbcTemplate jdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
+
+        Integer nbDelete = jdbcTemplate.update(sql,mapSqlParameterSource);
+
+        return nbDelete > 0;
     }
+
+    private MapSqlParameterSource getMapSqlParameterSource(Voie voie) {
+
+        MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
+
+        mapSqlParameterSource.addValue("numero",voie.getNumero(), Types.INTEGER);
+        mapSqlParameterSource.addValue("nom",voie.getNom(), Types.VARCHAR);
+        mapSqlParameterSource.addValue("description",voie.getDescription(), Types.VARCHAR);
+        mapSqlParameterSource.addValue("url_photo_id",voie.getUrl(), Types.VARCHAR);
+        mapSqlParameterSource.addValue("longueur",voie.getLongueur(), Types.VARCHAR);
+        mapSqlParameterSource.addValue("difficulte",voie.difficulte, Types.VARCHAR);
+
+        return mapSqlParameterSource;
+    }
+
 }

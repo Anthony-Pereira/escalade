@@ -19,6 +19,8 @@ public class Voie {
 
     public Voie(){}
 
+    public Voie(Integer id){this.id = id;}
+
     public Voie(Integer id, Integer numero, String nom, String description, Secteur secteur, List<UrlPhoto> url, Integer longueur, String difficulte) {
         this.id = id;
         this.numero = numero;

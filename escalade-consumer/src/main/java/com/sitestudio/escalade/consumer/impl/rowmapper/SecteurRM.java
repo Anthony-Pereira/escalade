@@ -5,6 +5,7 @@ import com.sitestudio.escalade.model.bean.site.Secteur;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 import org.springframework.jdbc.core.RowMapper;
 
+import javax.inject.Inject;
 import javax.inject.Named;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,6 +13,7 @@ import java.sql.SQLException;
 @Named
 public class SecteurRM implements RowMapper<Secteur> {
 
+    @Inject
     SiteDaoImpl siteDao;
 
     @Override
