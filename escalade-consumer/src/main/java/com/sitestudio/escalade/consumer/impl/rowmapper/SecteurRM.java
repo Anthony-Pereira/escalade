@@ -25,7 +25,7 @@ public class SecteurRM implements RowMapper<Secteur> {
         secteur.setDescription(rs.getString("description"));
 
         try {
-            secteur.setSite(siteDao.read(rs.getInt("site_id")));
+            secteur.setSite(siteDao.read(rs.getInt("site_site_id")));
         } catch (NotFoundException e) {
             e.printStackTrace();
         }

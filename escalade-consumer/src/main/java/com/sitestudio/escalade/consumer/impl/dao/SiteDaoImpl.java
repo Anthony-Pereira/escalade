@@ -53,7 +53,6 @@ public class SiteDaoImpl extends AbstractDao implements SiteDao {
         } else {
             return listSite;
         }
-
     }
 
     @Override

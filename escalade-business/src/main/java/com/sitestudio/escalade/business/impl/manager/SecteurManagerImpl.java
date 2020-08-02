@@ -6,6 +6,7 @@ import com.sitestudio.escalade.model.bean.site.Secteur;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 
 import javax.inject.Named;
+import java.util.List;
 
 /**
  * Implémentation de l'interface manager "SecteurManager".
@@ -18,6 +19,11 @@ public class SecteurManagerImpl extends AbstractManager implements SecteurManage
     @Override
     public Secteur getSecteur(Integer id) throws NotFoundException {
         return getDaoFactory().getSecteurDao().read(id);
+    }
+
+    @Override
+    public List<Secteur> getSecteur() throws NotFoundException {
+        return getDaoFactory().getSecteurDao().readAll();
     }
 
     @Override

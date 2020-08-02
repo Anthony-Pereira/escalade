@@ -4,6 +4,8 @@ import com.sitestudio.escalade.model.bean.referentiel.Region;
 import com.sitestudio.escalade.model.bean.site.Secteur;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 
+import java.util.List;
+
 public interface SecteurManager {
 
     /**
@@ -13,6 +15,13 @@ public interface SecteurManager {
      * @throws NotFoundException
      */
     Secteur getSecteur(Integer id) throws NotFoundException;
+
+    /**
+     * Retourne le secteur.
+     * @return Un objet site.
+     * @throws NotFoundException
+     */
+    List<Secteur> getSecteur() throws NotFoundException;
 
     /**
      * Créer un secteur.

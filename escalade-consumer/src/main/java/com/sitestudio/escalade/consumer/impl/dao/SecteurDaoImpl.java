@@ -41,8 +41,19 @@ public class SecteurDaoImpl extends AbstractDao implements SecteurDao {
     }
 
     @Override
-    public List<Secteur> readAll() {
-        return null;
+    public List<Secteur> readAll() throws NotFoundException {
+
+        String sql = "SELECT * FROM secteur";
+
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
+
+        List<Secteur> listSecteur = jdbcTemplate.query(sql,secteurRM);
+
+        if (listSecteur.size() == 0){
+            throw new NotFoundException("Aucun secteur de trouvé");
+        } else {
+            return listSecteur;
+        }
     }
 
     @Override

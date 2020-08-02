@@ -1,6 +1,7 @@
 package com.sitestudio.escalade.business.contract;
 
 import com.sitestudio.escalade.business.contract.manager.*;
+import com.sitestudio.escalade.model.bean.referentiel.Cotation;
 
 public interface ManagerFactory {
 
@@ -43,4 +44,8 @@ public interface ManagerFactory {
     UrlPhotoManager getUrlPhotoManager();
 
     void setUrlPhotoManager(UrlPhotoManager urlPhotoManager);
+
+    CotationManager getCotationManager();
+
+    void setCotationManager(CotationManager cotationManager);
 }

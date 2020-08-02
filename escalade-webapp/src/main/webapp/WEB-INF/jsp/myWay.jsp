@@ -26,13 +26,15 @@
         <form action="myWay" method="post">
 
             <div class="mb-5">
-
                 <div class="col-sm-12 d-flex justify-content-center">
-                    <select class="custom-select custom-select-lg">
+                    <label for="secteur">Choisissez un secteur : </label>
+                    <select class="custom-select custom-select-lg" name="secteur" id="secteur">
                         <option selected>Sélectionner</option>
-                        <option value="courchon">Courchon (Verdon)</option>
-                        <option value="falkenfels">Le Falkenfels</option>
-                        <option value="restonica">La Restonica</option>
+                        <c:forEach items="${listSecteur}" var="listSecteur">
+                            <option value="${listSecteur.id}">
+                                    <c:out value="${listSecteur.nom}"/>
+                            </option>
+                        </c:forEach>
                     </select>
                 </div>
                 <br/>
@@ -64,12 +66,12 @@
                 <br/>
                 <div>
                     <label for="difficulte">Choisir une difficulté:</label>
-
-                    <select id="difficulte">
-                        <option label="1">1</option>
-                        <option label="2">2</option>
-                        <option label="3">3</option>
-                        <option label="4">4</option>
+                    <select name="difficulte" id="difficulte">
+                        <c:forEach items="${cotation}" var="cotation">
+                            <option value="\d${cotation}">
+                                <c:out value="${cotation}"/>
+                            </option>
+                        </c:forEach>
                     </select>
                 </div>
                 <br/>

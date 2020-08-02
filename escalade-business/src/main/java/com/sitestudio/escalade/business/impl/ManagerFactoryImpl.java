@@ -2,7 +2,6 @@ package com.sitestudio.escalade.business.impl;
 
 import com.sitestudio.escalade.business.contract.ManagerFactory;
 import com.sitestudio.escalade.business.contract.manager.*;
-import com.sitestudio.escalade.model.bean.site.Site;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -45,6 +44,9 @@ public class ManagerFactoryImpl implements ManagerFactory {
 
     @Inject
     private UrlPhotoManager urlPhotoManager;
+
+    @Inject
+    private CotationManager cotationManager;
 
     @Override
     public CompteManager getCompteManager() {
@@ -144,5 +146,15 @@ public class ManagerFactoryImpl implements ManagerFactory {
     @Override
     public void setUrlPhotoManager(UrlPhotoManager urlPhotoManager) {
         this.urlPhotoManager = urlPhotoManager;
+    }
+
+    @Override
+    public CotationManager getCotationManager() {
+        return cotationManager;
+    }
+
+    @Override
+    public void setCotationManager(CotationManager cotationManager) {
+        this.cotationManager = cotationManager;
     }
 }

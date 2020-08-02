@@ -13,13 +13,23 @@ import java.util.List;
  */
 public interface SecteurDao {
 
+    //-- CRUD : Les méthodes nécessaires
+
     /**
      * Méthode de recherche des informations
      * @param id
      * @return T */
     Secteur read (Integer id) throws NotFoundException;
 
-    List<Secteur> readAll();
+    /**
+     * Méthode de recherche des informations
+     * @return T */
+    List<Secteur> readAll() throws NotFoundException;
+
+    /**
+     * Méthode de recherche des informations
+     * @param id
+     * @return T */
     List<Secteur> readAll(int id);
 
     /**

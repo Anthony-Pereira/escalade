@@ -20,7 +20,15 @@ public interface SiteDao {
      * @return T */
     Site read (Integer id) throws NotFoundException;
 
+    /**
+     * Méthode de recherche des informations
+     * @return T */
     List<Site> readAll() throws NotFoundException;
+
+    /**
+     * Méthode de recherche des informations
+     * @param id
+     * @return T */
     List<Site> readAll(int id);
 
     /**

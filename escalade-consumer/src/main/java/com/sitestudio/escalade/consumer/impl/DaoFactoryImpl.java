@@ -2,6 +2,7 @@ package com.sitestudio.escalade.consumer.impl;
 
 import com.sitestudio.escalade.consumer.contract.DaoFactory;
 import com.sitestudio.escalade.consumer.contract.dao.*;
+import com.sitestudio.escalade.model.bean.referentiel.Cotation;
 import com.sitestudio.escalade.model.bean.site.Site;
 import com.sitestudio.escalade.model.bean.site.Voie;
 
@@ -40,6 +41,9 @@ public class DaoFactoryImpl implements DaoFactory {
 
     @Inject
     UrlPhotoDao urlPhotoDao;
+
+    @Inject
+    CotationDao cotationDao;
 
     @Override
     public CompteDao getCompteDao() {
@@ -139,5 +143,15 @@ public class DaoFactoryImpl implements DaoFactory {
     @Override
     public void setUrlPhotoDao(UrlPhotoDao urlPhotoDao) {
         this.urlPhotoDao = urlPhotoDao;
+    }
+
+    @Override
+    public CotationDao getCotationDao() {
+        return cotationDao;
+    }
+
+    @Override
+    public void setCotationDao(CotationDao cotationDao) {
+        this.cotationDao = cotationDao;
     }
 }
