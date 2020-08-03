@@ -67,8 +67,9 @@
                 <div>
                     <label for="difficulte">Choisir une difficulté:</label>
                     <select name="difficulte" id="difficulte">
+                        <option selected>Sélectionner</option>
                         <c:forEach items="${listCotation}" var="listCotation">
-                            <option value="\d${listCotation.id}">
+                            <option value="${listCotation.id}">
                                 <c:out value="${listCotation.difficulte}"/>
                             </option>
                         </c:forEach>
@@ -77,7 +78,7 @@
                 <br/>
                 <label for="url">Photo</label> <input type="file" size="50" value="<c:out value="${voie.difficulte}"/>"
                                                       name="url" class="form-control" id="url"
-                                                      aria-describedby="url" required>
+                                                      aria-describedby="url">
                 <span class="text-info"></span>
             </div>
             <div class="d-flex justify-content-center mt-5">

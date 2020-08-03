@@ -63,14 +63,12 @@ public class ServletMyWay extends HttpServlet {
         Cotation cotation = new Cotation();
         CotationResource cotationResource = new CotationResource();
 
-        cotation.getDifficulte();
-
         String secteurId = request.getParameter("secteur");
         String numero = request.getParameter("numero");
-        String nom = request.getParameter("numero");
-        String description = request.getParameter("numero");
-        String longueur = request.getParameter("numero");
-        String difficulte = request.getParameter("numero");
+        String nom = request.getParameter("nom");
+        String description = request.getParameter("description");
+        String longueur = request.getParameter("longueur");
+        String difficulte = request.getParameter("difficulte");
 
         //String photo = request.getParameter("numero");
 
@@ -92,11 +90,11 @@ public class ServletMyWay extends HttpServlet {
         try {
             voieResource.createVoie(voie);
         } catch (NotFoundException e) {
-            e.printStackTrace();
+            System.out.println("Erreur : " + e);
         }
 
         if (httpSession.getAttribute("compte") != null) {
-            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/myWay").forward(request, response);
+            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/myWay.jsp").forward(request, response);
         } else {
             this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/signIn.jsp").forward(request,response);
         }
