@@ -1,11 +1,11 @@
 package com.sitestudio.escalade.business.impl.manager;
 
 import com.sitestudio.escalade.business.contract.manager.CotationManager;
-import com.sitestudio.escalade.consumer.impl.dao.AbstractDao;
 import com.sitestudio.escalade.model.bean.referentiel.Cotation;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 
 import javax.inject.Named;
+import java.util.List;
 
 /**
  * Implémentation de l'interface manager "CotationManager".
@@ -19,6 +19,11 @@ public class CotationManagerImpl extends AbstractManager implements CotationMana
     @Override
     public Cotation getCotation(Integer id) throws NotFoundException {
         return getDaoFactory().getCotationDao().read(id);
+    }
+
+    @Override
+    public List<Cotation> getCotation() throws NotFoundException {
+        return getDaoFactory().getCotationDao().readAll();
     }
 
     @Override

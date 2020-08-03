@@ -3,6 +3,8 @@ package com.sitestudio.escalade.business.contract.manager;
 import com.sitestudio.escalade.model.bean.referentiel.Cotation;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 
+import java.util.List;
+
 public interface CotationManager {
 
     /**
@@ -12,6 +14,13 @@ public interface CotationManager {
      * @throws NotFoundException
      */
     Cotation getCotation(Integer id) throws NotFoundException;
+
+    /**
+     * Retourne le niveau de cotation ciblé.
+     * @return Un objet Cotation.
+     * @throws NotFoundException
+     */
+    List<Cotation> getCotation() throws NotFoundException;
 
     /** Créer un niveau de difficulté.
      * @param cotation L'identifiant d'une cotation ciblé.

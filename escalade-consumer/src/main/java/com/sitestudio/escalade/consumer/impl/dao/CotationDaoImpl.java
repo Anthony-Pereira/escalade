@@ -4,6 +4,7 @@ import com.sitestudio.escalade.consumer.contract.dao.CotationDao;
 import com.sitestudio.escalade.consumer.impl.rowmapper.CotationRM;
 import com.sitestudio.escalade.model.bean.referentiel.Cotation;
 import com.sitestudio.escalade.model.bean.referentiel.Departement;
+import com.sitestudio.escalade.model.bean.site.Secteur;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -33,6 +34,22 @@ public class CotationDaoImpl extends AbstractDao implements CotationDao {
         } else { cotation = listCotation.get(0);}
 
         return cotation;
+    }
+
+    @Override
+    public List<Cotation> readAll() throws NotFoundException {
+
+        String sql = "SELECT * FROM cotation";
+
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
+
+        List<Cotation> listCotation = jdbcTemplate.query(sql,cotationRM);
+
+        if (listCotation.size() == 0){
+            throw new NotFoundException("Aucune cotation de trouvé");
+        } else {
+            return listCotation;
+        }
     }
 
     @Override

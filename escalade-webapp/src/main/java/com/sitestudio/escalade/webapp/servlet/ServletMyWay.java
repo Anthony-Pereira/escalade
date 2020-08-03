@@ -4,6 +4,7 @@ import com.sitestudio.escalade.model.bean.referentiel.Cotation;
 import com.sitestudio.escalade.model.bean.site.Secteur;
 import com.sitestudio.escalade.model.bean.site.Voie;
 import com.sitestudio.escalade.model.exception.NotFoundException;
+import com.sitestudio.escalade.webapp.resource.CotationResource;
 import com.sitestudio.escalade.webapp.resource.SecteurResource;
 import com.sitestudio.escalade.webapp.resource.VoieResource;
 
@@ -14,7 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 
 @WebServlet(name = "ServletMyWay")
@@ -27,15 +27,16 @@ public class ServletMyWay extends HttpServlet {
         HttpSession httpSession = request.getSession();
 
         SecteurResource secteurResource = new SecteurResource();
-
-        Cotation cotation = new Cotation();
-
-        //httpSession.setAttribute("cotation", );
+        CotationResource cotationResource = new CotationResource();
 
         try {
             List<Secteur> listSecteur = secteurResource.getSecteur();
+            List<Cotation> listCotation = cotationResource.getCotation();
             System.out.println("Le résultat est : " + listSecteur);
+            System.out.println("Le résultat est : " + listCotation);
             httpSession.setAttribute("listSecteur",listSecteur);
+            httpSession.setAttribute("listCotation",listCotation);
+
         } catch (NotFoundException e) {
             System.out.println("ERREUR: " + e);
         }
@@ -60,6 +61,7 @@ public class ServletMyWay extends HttpServlet {
         VoieResource voieResource = new VoieResource();
 
         Cotation cotation = new Cotation();
+        CotationResource cotationResource = new CotationResource();
 
         cotation.getDifficulte();
 

@@ -6,6 +6,7 @@ import com.sitestudio.escalade.model.bean.site.Voie;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 
 import javax.inject.Named;
+import java.util.List;
 
 /**
  * Implémentation de l'interface manager "VoieManager".
@@ -13,25 +14,30 @@ import javax.inject.Named;
  * @author Anthony Pereira
  */
 @Named
-public class VoieManagerImpl extends AbstractDao implements VoieManager {
+public class VoieManagerImpl extends AbstractManager implements VoieManager {
 
     @Override
     public Voie getVoie(Integer id) throws NotFoundException {
-        return null;
+        return getDaoFactory().getVoieDao().read(id);
+    }
+
+    @Override
+    public List<Voie> getVoie() throws NotFoundException {
+        return getDaoFactory().getVoieDao().readAll();
     }
 
     @Override
     public Boolean createVoie(Voie voie) throws NotFoundException {
-        return null;
+        return getDaoFactory().getVoieDao().create(voie);
     }
 
     @Override
     public Boolean updateVoie(Voie voie) throws NotFoundException {
-        return null;
+        return getDaoFactory().getVoieDao().update(voie);
     }
 
     @Override
     public Boolean deleteVoie(Voie voie) throws NotFoundException {
-        return null;
+        return getDaoFactory().getVoieDao().delete(voie);
     }
 }

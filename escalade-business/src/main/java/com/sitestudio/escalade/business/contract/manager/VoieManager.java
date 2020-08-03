@@ -1,9 +1,9 @@
 package com.sitestudio.escalade.business.contract.manager;
 
-import com.sitestudio.escalade.model.bean.site.Site;
-import com.sitestudio.escalade.model.bean.site.UrlPhoto;
 import com.sitestudio.escalade.model.bean.site.Voie;
 import com.sitestudio.escalade.model.exception.NotFoundException;
+
+import java.util.List;
 
 public interface VoieManager {
 
@@ -14,6 +14,13 @@ public interface VoieManager {
      * @throws NotFoundException
      */
     Voie getVoie(Integer id) throws NotFoundException;
+
+    /**
+     * Retourne la voie.
+     * @return Un objet voie.
+     * @throws NotFoundException
+     */
+    List<Voie> getVoie() throws NotFoundException;
 
     /**
      * Créer une voie.

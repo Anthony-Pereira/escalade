@@ -67,9 +67,9 @@
                 <div>
                     <label for="difficulte">Choisir une difficulté:</label>
                     <select name="difficulte" id="difficulte">
-                        <c:forEach items="${cotation}" var="cotation">
-                            <option value="\d${cotation}">
-                                <c:out value="${cotation}"/>
+                        <c:forEach items="${listCotation}" var="listCotation">
+                            <option value="\d${listCotation.id}">
+                                <c:out value="${listCotation.difficulte}"/>
                             </option>
                         </c:forEach>
                     </select>

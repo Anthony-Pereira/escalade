@@ -2,6 +2,7 @@ package com.sitestudio.escalade.consumer.impl.dao;
 
 import com.sitestudio.escalade.consumer.contract.dao.VoieDao;
 import com.sitestudio.escalade.consumer.impl.rowmapper.VoieRM;
+import com.sitestudio.escalade.model.bean.site.Secteur;
 import com.sitestudio.escalade.model.bean.site.Voie;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -40,8 +41,19 @@ public class VoieDaoImpl extends AbstractDao implements VoieDao {
     }
 
     @Override
-    public List<Voie> readAll() {
-        return null;
+    public List<Voie> readAll() throws NotFoundException {
+
+        String sql = "SELECT * FROM voie";
+
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
+
+        List<Voie> listVoie = jdbcTemplate.query(sql,voieRM);
+
+        if (listVoie.size() == 0){
+            throw new NotFoundException("Aucune voie trouvé");
+        } else {
+            return listVoie;
+        }
     }
 
     @Override

@@ -15,7 +15,7 @@ public class CotationRM implements RowMapper {
 
         Cotation cotation = new Cotation(resultSet.getInt("id"));
 
-        cotation.setDifficulte(resultSet.getString("cotation"));
+        cotation.setDifficulte(resultSet.getString("difficulte"));
 
         return cotation;
     }

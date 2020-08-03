@@ -21,7 +21,11 @@ public interface VoieDao {
      * @return T */
     Voie read (Integer id) throws NotFoundException;
 
-    List<Voie> readAll();
+    /**
+     * Méthode de recherche des informations
+     * @return T */
+    List<Voie> readAll() throws NotFoundException;
+
     List<Voie> readAll(int id);
 
     /**
