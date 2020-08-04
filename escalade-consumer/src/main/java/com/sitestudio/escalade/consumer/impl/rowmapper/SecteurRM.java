@@ -30,7 +30,6 @@ public class SecteurRM implements RowMapper<Secteur> {
             e.printStackTrace();
         }
 
-
         return secteur;
     }
 }

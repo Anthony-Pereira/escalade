@@ -39,14 +39,14 @@
                 </div>
                 <br/>
                 <div>
-                    <label for="numero">Numéro</label> <input type="number" size="50" value="<c:out value="${voie.numero}"/>"
+                    <label for="numero">Numéro</label> <input type="number" size="50"
                                                                   name="numero" class="form-control" id="numero"
                                                                   aria-describedby="numero" required>
                     <span class="text-info"></span>
                 </div>
                 <br/>
                 <div>
-                    <label for="nom">Nom</label> <input type="text" size="50" value="<c:out value="${voie.nom}"/>"
+                    <label for="nom">Nom</label> <input type="text" size="50"
                                                             name="nom" class="form-control" id="nom"
                                                             aria-describedby="nom" required>
                     <span class="text-info"></span>
@@ -58,7 +58,7 @@
                 </div>
                 <br/>
                 <div>
-                    <label for="longueur">Longueur</label> <input type="number" size="50" value="<c:out value="${voie.longueur}"/>"
+                    <label for="longueur">Longueur</label> <input type="number" size="50"
                                                                       name="longueur" class="form-control" id="longueur"
                                                                       aria-describedby="longueur" required>
                     <span class="text-info"></span>
@@ -75,11 +75,6 @@
                         </c:forEach>
                     </select>
                 </div>
-                <br/>
-                <label for="url">Photo</label> <input type="file" size="50" value="<c:out value="${voie.difficulte}"/>"
-                                                      name="url" class="form-control" id="url"
-                                                      aria-describedby="url">
-                <span class="text-info"></span>
             </div>
             <div class="d-flex justify-content-center mt-5">
                 <button type="submit" class="btn btn-dark" required>Envoyer</button>

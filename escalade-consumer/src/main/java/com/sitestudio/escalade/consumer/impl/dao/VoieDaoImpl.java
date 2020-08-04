@@ -65,8 +65,8 @@ public class VoieDaoImpl extends AbstractDao implements VoieDao {
     public Boolean create(Voie voie) {
 
         String sql = "INSERT INTO voie " +
-                "(numero,nom,description,secteur_id,url_photo_id,longueur,difficulte) " +
-                "VALUES (:numero,:nom,:description,:secteur_id,:url_photo_id,longueur,:difficulte)";
+                "(numero,nom,description,secteur_id,longueur,difficulte) " +
+                "VALUES (:numero,:nom,:description,:secteur_id,:longueur,:difficulte)";
 
         MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
 
@@ -75,7 +75,6 @@ public class VoieDaoImpl extends AbstractDao implements VoieDao {
         mapSqlParameterSource.addValue("nom",voie.getNom(), Types.VARCHAR);
         mapSqlParameterSource.addValue("description",voie.getDescription(), Types.VARCHAR);
         mapSqlParameterSource.addValue("secteur_id",voie.getSecteur().getId(), Types.INTEGER);
-        mapSqlParameterSource.addValue("url_photo_id",voie.getUrl(), Types.VARCHAR);
         mapSqlParameterSource.addValue("longueur",voie.getLongueur(), Types.VARCHAR);
         mapSqlParameterSource.addValue("difficulte",voie.difficulte, Types.VARCHAR);
 
@@ -89,7 +88,7 @@ public class VoieDaoImpl extends AbstractDao implements VoieDao {
     @Override
     public Boolean update(Voie voie) {
 
-        String sql = "UPDATE voie SET numero=:numero,nom=:nom,description=:description,url_photo_id=:url_photo_id,longueur=:longueur,difficulte=:difficulte WHERE voie_id =" + voie.getId();
+        String sql = "UPDATE voie SET numero=:numero,nom=:nom,description=:description,longueur=:longueur,difficulte=:difficulte WHERE voie_id =" + voie.getId();
 
         MapSqlParameterSource mapSqlParameterSource = getMapSqlParameterSource(voie);
 
@@ -123,7 +122,6 @@ public class VoieDaoImpl extends AbstractDao implements VoieDao {
         mapSqlParameterSource.addValue("numero",voie.getNumero(), Types.INTEGER);
         mapSqlParameterSource.addValue("nom",voie.getNom(), Types.VARCHAR);
         mapSqlParameterSource.addValue("description",voie.getDescription(), Types.VARCHAR);
-        mapSqlParameterSource.addValue("url_photo_id",voie.getUrl(), Types.VARCHAR);
         mapSqlParameterSource.addValue("longueur",voie.getLongueur(), Types.VARCHAR);
         mapSqlParameterSource.addValue("difficulte",voie.difficulte, Types.VARCHAR);
 

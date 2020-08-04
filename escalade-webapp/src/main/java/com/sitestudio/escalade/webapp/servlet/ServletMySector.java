@@ -1,11 +1,8 @@
 package com.sitestudio.escalade.webapp.servlet;
 
-import com.sitestudio.escalade.model.bean.compte.Adresse;
 import com.sitestudio.escalade.model.bean.site.Secteur;
 import com.sitestudio.escalade.model.bean.site.Site;
-import com.sitestudio.escalade.model.exception.FunctionalException;
 import com.sitestudio.escalade.model.exception.NotFoundException;
-import com.sitestudio.escalade.webapp.resource.AdresseResource;
 import com.sitestudio.escalade.webapp.resource.SecteurResource;
 import com.sitestudio.escalade.webapp.resource.SiteResource;
 

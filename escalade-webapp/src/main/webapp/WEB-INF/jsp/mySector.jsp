@@ -39,7 +39,7 @@
                 </div>
                 <br/>
                 <div>
-                    <label for="nom">nom</label> <input type="text" size="50" value="<c:out value="${secteur.nom}"/>"
+                    <label for="nom">nom</label> <input type="text" size="50"
                                                                name="nom" class="form-control" id="nom"
                                                                aria-describedby="nom" required>
                     <span class="text-info"></span>

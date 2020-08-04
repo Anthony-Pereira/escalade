@@ -25,16 +25,16 @@ public class SecteurDaoImpl extends AbstractDao implements SecteurDao {
 
         String sql = "SELECT * FROM secteur WHERE secteur_id =" + id;
 
-        JdbcTemplate jdbcTemplate = new JdbcTemplate();
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
 
         Secteur secteur;
 
-        List<Secteur> listSite = jdbcTemplate.query(sql,secteurRM);
+        List<Secteur> listSecteur = jdbcTemplate.query(sql,secteurRM);
 
-        if (listSite.size() == 0) {
+        if (listSecteur.size() == 0) {
             throw new NotFoundException("Le site n'existe pas");
         } else {
-            secteur = listSite.get(0);
+            secteur = listSecteur.get(0);
         }
 
         return secteur;

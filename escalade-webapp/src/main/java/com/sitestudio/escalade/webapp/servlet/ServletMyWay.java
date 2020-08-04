@@ -70,8 +70,6 @@ public class ServletMyWay extends HttpServlet {
         String longueur = request.getParameter("longueur");
         String difficulte = request.getParameter("difficulte");
 
-        //String photo = request.getParameter("numero");
-
         try {
             secteur = secteurResource.getSecteur(Integer.parseInt(secteurId));
         } catch (NotFoundException e) {
@@ -84,8 +82,6 @@ public class ServletMyWay extends HttpServlet {
         voie.setLongueur(Integer.parseInt(longueur));
         voie.setDifficulte(difficulte);
         voie.setSecteur(secteur);
-
-        //voie.setUrl(photo);
 
         try {
             voieResource.createVoie(voie);
