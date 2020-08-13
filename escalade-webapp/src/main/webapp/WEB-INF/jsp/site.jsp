@@ -23,22 +23,56 @@
     <div class="jumbotron">
         <h1 class="col-sm-12 d-flex justify-content-center">Sites</h1>
         <br/>
-        <form class="form-inline" action="siteSearch.jsp" method="post">
+        <form class="form-inline" action="site" method="post">
             <div class="col-sm-12 d-flex justify-content-center">
-                <select class="custom-select custom-select-lg">
-                    <option selected>Sélectionner</option>
-                    <option value="courchon">Courchon (Verdon)</option>
-                    <option value="falkenfels">Le Falkenfels</option>
-                    <option value="restonica">La Restonica</option>
+                <select name="site" id="site" class="custom-select custom-select-lg">
+                    <option selected >Sélectionner</option>
+                    <c:forEach items="${listSite}" var="listSite">
+                        <option value="${listSite.id}">
+                            <c:out value="${listSite.nom}"/>
+                        </option>
+                    </c:forEach>
                 </select>
             </div>
             <div class="col-sm-12 d-flex justify-content-center">
                 <a href="moreCriteria">plus de critères</a>
             </div>
             <div class="col-sm-12 d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary my-1">Envoyer</button>
+                <button type="submit" class="btn btn-primary my-1">Rechercher</button>
             </div>
         </form>
+    </div>
+    <div>
+        <table class="table">
+                <caption class="text-center text-dark mb-3" id="caption">Retrouvez ici notre sélection des sites d'escalade en France.
+                </caption>
+                <thead class="thead-light">
+                <tr>
+                    <th>Nom</th>
+                    <th>Region</th>
+                    <th>Département</th>
+                    <th>Voie</th>
+                    <th>Cotation</th>
+                    <th>Hauteur</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <c:forEach items="${listSite}" var="listSite">
+                        <tr>
+                            <td><c:out value="${listSite.nom}"/></td>
+                            <td><c:out value="${listSite.description}"/></td>
+
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
+            <ul class="nav nav-pills">
+                <!-- <li class="nav-item"
+					th:class="${currentPage==status.index}?'active':''"
+					th:each="page,status:${pageNumber}"><a class="nav-link"
+					th:href="@{/siteForm(page=${status.index})}"
+					th:text="${status.index}"></a></li> -->
+            </ul>
     </div>
 
 </div>

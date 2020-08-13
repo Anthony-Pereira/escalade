@@ -1,5 +1,9 @@
 package com.sitestudio.escalade.webapp.servlet;
 
+import com.sitestudio.escalade.model.bean.site.Site;
+import com.sitestudio.escalade.model.exception.NotFoundException;
+import com.sitestudio.escalade.webapp.resource.SiteResource;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -7,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(name = "ServletSiteList")
 public class ServletSite extends HttpServlet {
@@ -17,11 +22,17 @@ public class ServletSite extends HttpServlet {
 
         HttpSession httpSession = request.getSession();
 
-        if (httpSession.getAttribute("compte") != null) {
-            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/site.jsp").forward(request,response);
-        } else {
-            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/signIn.jsp").forward(request,response);
+        SiteResource siteResource = new SiteResource();
+
+        try {
+            List<Site> listSite = siteResource.getSite();
+            System.out.println("Le résultat est : " + listSite);
+            httpSession.setAttribute("listSite",listSite);
+        } catch (NotFoundException e) {
+            System.out.println("ERREUR : " + e);
         }
+
+            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/site.jsp").forward(request,response);
 
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -30,11 +41,23 @@ public class ServletSite extends HttpServlet {
 
         HttpSession httpSession = request.getSession();
 
-        if (httpSession.getAttribute("compte") != null) {
-            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/site.jsp").forward(request,response);
-        } else {
-            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/signIn.jsp").forward(request,response);
+        Site site = new Site();
+        SiteResource siteResource = new SiteResource();
+
+        String siteId = request.getParameter("site");
+
+        try {
+            site = siteResource.getSite(Integer.parseInt(siteId));
+        } catch (NotFoundException e) {
+            e.printStackTrace();
         }
+
+        httpSession.setAttribute("siteTitle",site.getNom());
+        System.out.println("test 1 " + site.getNom());
+        httpSession.setAttribute("siteDescription",site.getDescription());
+        System.out.println("test 2 " + site.getDescription());
+
+            this.getServletContext().getRequestDispatcher("/siteSearch.jsp").forward(request,response);
 
     }
 
