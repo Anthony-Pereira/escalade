@@ -28,34 +28,42 @@
                 <div class="col-md-12 d-flex justify-content-center mb-3">
                     <div class="col-sm-3">
                         <select class="custom-select custom-select-lg">
-                            <option selected>Lieux</option>
-                            <option value="courchon">Courchon (Verdon)</option>
-                            <option value="falkenfels">Le Falkenfels</option>
-                            <option value="restonica">La Restonica</option>
+                            <option selected>Sites</option>
+                            <c:forEach items="${listSite}" var="listSite">
+                                <option value="${listSite.id}">
+                                    <c:out value="${listSite.nom}"/>
+                                </option>
+                            </c:forEach>
                         </select>
                     </div>
                     <div class="col-sm-3">
                         <select class="custom-select custom-select-lg">
                             <option selected>Cotations</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
+                            <c:forEach items="${listCotation}" var="listCotation">
+                                <option value="${listCotation.id}">
+                                    <c:out value="${listCotation.difficulte}"/>
+                                </option>
+                            </c:forEach>
                         </select>
                     </div>
                     <div class="col-sm-3">
                         <select class="custom-select custom-select-lg">
                             <option selected>Secteurs</option>
-                            <option value="secteur 1">secteur 1</option>
-                            <option value="secteur 2 ">secteur 2</option>
-                            <option value="secteur 3">secteur 3</option>
+                            <c:forEach items="${listSecteur}" var="listSecteur">
+                                <option value="${listSecteur.secteur_id}">
+                                    <c:out value="${listSecteur.nom}"/>
+                                </option>
+                            </c:forEach>
                         </select>
                     </div>
                     <div class="col-sm-3">
                         <select class="custom-select custom-select-lg">
                             <option selected>Voies</option>
-                            <option value="voie 1">voie 1</option>
-                            <option value="voie 2">voie 2</option>
-                            <option value="voie 3">voie 3</option>
+                            <c:forEach items="${listVoie}" var="listVoie">
+                                <option value="${listVoie.voie_id}">
+                                    <c:out value="${listVoie.nom}"/>
+                                </option>
+                            </c:forEach>
                         </select>
                     </div>
                 </div>

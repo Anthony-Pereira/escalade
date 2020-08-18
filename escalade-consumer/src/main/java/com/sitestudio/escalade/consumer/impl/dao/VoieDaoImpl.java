@@ -25,7 +25,7 @@ public class VoieDaoImpl extends AbstractDao implements VoieDao {
 
         String sql = "SELECT * FROM voie WHERE voie_id = " + id;
 
-        JdbcTemplate jdbcTemplate = new JdbcTemplate();
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
 
         Voie voie;
 

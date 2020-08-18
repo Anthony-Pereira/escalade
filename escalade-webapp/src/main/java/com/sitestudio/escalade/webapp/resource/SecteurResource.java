@@ -1,7 +1,6 @@
 package com.sitestudio.escalade.webapp.resource;
 
 import com.sitestudio.escalade.model.bean.site.Secteur;
-import com.sitestudio.escalade.model.bean.site.Site;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 
 import java.util.List;

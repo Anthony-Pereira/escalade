@@ -11,7 +11,7 @@ public class VoieResource extends AbstractResource {
         return getManagerFactory().getVoieManager().getVoie(id);
     }
 
-    public List<Voie> listVoie() throws NotFoundException {
+    public List<Voie> getVoie() throws NotFoundException {
         return  getManagerFactory().getVoieManager().getVoie();
     }
 
