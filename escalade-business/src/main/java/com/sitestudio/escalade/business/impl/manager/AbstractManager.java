@@ -1,6 +1,11 @@
 package com.sitestudio.escalade.business.impl.manager;
 
 import com.sitestudio.escalade.consumer.contract.DaoFactory;
+import com.sitestudio.escalade.model.bean.site.Commentaire;
+import com.sitestudio.escalade.model.exception.FunctionalException;
+import com.sitestudio.escalade.model.exception.NotFoundException;
+
+import java.util.List;
 
 /**
  * Classe abstraite en charge de récupérer L'objet DaoFactoryImpl.
@@ -18,5 +23,9 @@ public abstract class AbstractManager {
 
     public static void setDaoFactory(DaoFactory daoFactory) {
         AbstractManager.daoFactory = daoFactory;
+    }
+
+    public List<Commentaire> getCommentaire() throws NotFoundException, FunctionalException {
+        return getDaoFactory().getCommentaireDao().readAll();
     }
 }

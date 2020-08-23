@@ -29,8 +29,8 @@
 			<div class="form-group">
 				<h3>Commentaire</h3>
 				<br/>
-				<form method="post" action="siteSearch.jsp">
-					<textarea class="form-control" rows="10" cols="100">Écrire quelque chose ici...</textarea>
+				<form method="post" action="site">
+					<textarea class="form-control" name="commentaire" id="commentaire" rows="10" cols="100">Écrire quelque chose ici...</textarea>
 					<br/>
 					<div class="d-flex justify-content-center">
 						<button type="submit" class="btn btn-primary tx-tfm">Envoyer</button>

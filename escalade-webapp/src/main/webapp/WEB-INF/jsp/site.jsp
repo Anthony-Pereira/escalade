@@ -49,18 +49,15 @@
                 <thead class="thead-light">
                 <tr>
                     <th>Nom</th>
-                    <th>Region</th>
                     <th>Département</th>
-                    <th>Voie</th>
-                    <th>Cotation</th>
-                    <th>Hauteur</th>
+                    <th>Region</th>
                 </tr>
                 </thead>
                 <tbody>
                     <c:forEach items="${listSite}" var="listSite">
                         <tr>
                             <td><c:out value="${listSite.nom}"/></td>
-                            <td><c:out value="${listSite.description}"/></td>
+                            <td><c:out value="${listDepartement.numero}"/></td>
 
                         </tr>
                     </c:forEach>

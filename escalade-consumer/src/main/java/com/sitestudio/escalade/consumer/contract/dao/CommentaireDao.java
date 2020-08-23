@@ -21,7 +21,7 @@ public interface CommentaireDao {
      * @return T */
     Commentaire read (Integer id) throws NotFoundException;
 
-    List<Commentaire> readAll();
+    List<Commentaire> readAll() throws NotFoundException;
     List<Commentaire> readAll(int id);
 
     /**

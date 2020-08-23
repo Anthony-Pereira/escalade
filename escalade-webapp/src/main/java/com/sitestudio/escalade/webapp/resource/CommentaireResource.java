@@ -1,8 +1,11 @@
 package com.sitestudio.escalade.webapp.resource;
 
 import com.sitestudio.escalade.model.bean.site.Commentaire;
+import com.sitestudio.escalade.model.bean.site.Secteur;
 import com.sitestudio.escalade.model.exception.FunctionalException;
 import com.sitestudio.escalade.model.exception.NotFoundException;
+
+import java.util.List;
 
 /**
  * Demande la liste de commentaires à la couche business.
@@ -11,6 +14,10 @@ public class CommentaireResource extends AbstractResource {
 
     public Commentaire getCommentaire (Integer id) throws NotFoundException, FunctionalException {
         return getManagerFactory().getCommentaireManager().getCommentaire(id);
+    }
+
+    public List<Commentaire> getCommentaire() throws NotFoundException, FunctionalException {
+        return getManagerFactory().getCommentaireManager().getCommentaire();
     }
 
     public Boolean createCommentaire (Commentaire commentaire) throws NotFoundException, FunctionalException {

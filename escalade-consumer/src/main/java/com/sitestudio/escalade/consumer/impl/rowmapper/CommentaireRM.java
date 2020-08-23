@@ -12,6 +12,12 @@ public class CommentaireRM implements RowMapper<Commentaire> {
 
     @Override
     public Commentaire mapRow(ResultSet rs, int rowNum) throws SQLException {
-        return null;
+
+        Commentaire commentaire = new Commentaire(rs.getInt("commentaire_id"));
+
+        commentaire.setCommentaire(rs.getString("commentaire"));
+        commentaire.setDate(rs.getTimestamp("date").toLocalDateTime());
+
+        return commentaire;
     }
 }

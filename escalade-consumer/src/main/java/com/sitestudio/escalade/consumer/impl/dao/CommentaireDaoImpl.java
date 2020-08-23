@@ -4,9 +4,13 @@ import com.sitestudio.escalade.consumer.contract.dao.CommentaireDao;
 import com.sitestudio.escalade.consumer.impl.rowmapper.CommentaireRM;
 import com.sitestudio.escalade.model.bean.site.Commentaire;
 import com.sitestudio.escalade.model.exception.NotFoundException;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.sql.Types;
 import java.util.List;
 
 @Named
@@ -17,12 +21,39 @@ public class CommentaireDaoImpl extends AbstractDao implements CommentaireDao {
 
     @Override
     public Commentaire read(Integer id) throws NotFoundException {
-        return null;
+
+        String sql = "SELECT * FROM commentaire WHERE commentaire_id ='" + id + "'";
+
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
+
+        List<Commentaire> listCommentaire = jdbcTemplate.query(sql,commentaireRM);
+
+        Commentaire commentaire;
+
+        if (listCommentaire.size() == 0){
+            throw new NotFoundException("Le commentaire n'existe pas");
+        } else {
+            commentaire = listCommentaire.get(0);
+        }
+
+        return commentaire;
     }
 
     @Override
-    public List<Commentaire> readAll() {
-        return null;
+    public List<Commentaire> readAll() throws NotFoundException {
+
+        String sql = "SELECT * FROM commentaire";
+
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
+
+        List<Commentaire> listCommentaire = jdbcTemplate.query(sql,commentaireRM);
+
+        if (listCommentaire.size() == 0) {
+            throw new NotFoundException ("Aucun commentaire trouvé");
+        } else {
+            return listCommentaire;
+        }
+
     }
 
     @Override
@@ -32,16 +63,56 @@ public class CommentaireDaoImpl extends AbstractDao implements CommentaireDao {
 
     @Override
     public Boolean create(Commentaire commentaire) {
-        return null;
+
+        String sql = "INSERT INTO commentaire" +
+                "(commentaire,date)" +
+                "VALUES" +
+                "(:commentaire,:date)";
+
+        NamedParameterJdbcTemplate jdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
+
+        MapSqlParameterSource mapSqlParameterSource = getMapSqlParameterSource(commentaire);
+
+        Integer nbCreate = jdbcTemplate.update(sql,mapSqlParameterSource);
+
+        return nbCreate > 0;
     }
 
     @Override
     public Boolean update(Commentaire commentaire) {
-        return null;
+
+        String sql = "UPDATE commentaire SET commentaire=:commentaire,date=:date WHERE commentaire_id ='" + commentaire.getId() + "'";
+
+        NamedParameterJdbcTemplate jdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
+
+        MapSqlParameterSource mapSqlParameterSource = getMapSqlParameterSource(commentaire);
+
+        Integer nbUpdate = jdbcTemplate.update(sql,mapSqlParameterSource);
+
+        return nbUpdate > 0;
     }
 
     @Override
     public Boolean delete(Commentaire commentaire) {
-        return null;
+
+        String sql = "DELETE FROM commentaire WHERE commentaire_id ='" + commentaire.getId() + "'";
+
+        NamedParameterJdbcTemplate jdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
+
+        MapSqlParameterSource mapSqlParameterSource = getMapSqlParameterSource(commentaire);
+
+        Integer nbDelete = jdbcTemplate.update(sql,mapSqlParameterSource);
+
+        return nbDelete > 0;
     }
+
+    private MapSqlParameterSource getMapSqlParameterSource(Commentaire commentaire) {
+        MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
+
+        mapSqlParameterSource.addValue("commentaire", commentaire.getCommentaire(), Types.VARCHAR);
+        mapSqlParameterSource.addValue("date", commentaire.getDate(), Types.TIMESTAMP);
+
+        return mapSqlParameterSource;
+    }
+
 }

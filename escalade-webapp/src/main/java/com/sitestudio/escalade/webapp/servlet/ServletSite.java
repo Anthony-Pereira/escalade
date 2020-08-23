@@ -1,7 +1,14 @@
 package com.sitestudio.escalade.webapp.servlet;
 
+import com.sitestudio.escalade.model.bean.referentiel.Departement;
+import com.sitestudio.escalade.model.bean.referentiel.Region;
+import com.sitestudio.escalade.model.bean.site.Commentaire;
 import com.sitestudio.escalade.model.bean.site.Site;
+import com.sitestudio.escalade.model.exception.FunctionalException;
 import com.sitestudio.escalade.model.exception.NotFoundException;
+import com.sitestudio.escalade.webapp.resource.CommentaireResource;
+import com.sitestudio.escalade.webapp.resource.DepartementResource;
+import com.sitestudio.escalade.webapp.resource.RegionResource;
 import com.sitestudio.escalade.webapp.resource.SiteResource;
 
 import javax.servlet.ServletException;
@@ -11,6 +18,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @WebServlet(name = "ServletSiteList")
@@ -23,12 +32,16 @@ public class ServletSite extends HttpServlet {
         HttpSession httpSession = request.getSession();
 
         SiteResource siteResource = new SiteResource();
+        CommentaireResource commentaireResource = new CommentaireResource();
 
         try {
             List<Site> listSite = siteResource.getSite();
-            System.out.println("Le résultat est : " + listSite);
+            List<Commentaire> listCommentaire = commentaireResource.getCommentaire();
+            System.out.println("Les sites sont : " + listSite);
+            System.out.println("Les commentaires sont : " + listCommentaire);
             httpSession.setAttribute("listSite",listSite);
-        } catch (NotFoundException e) {
+            httpSession.setAttribute("listCommentaire",listCommentaire);
+        } catch (NotFoundException | FunctionalException e) {
             System.out.println("ERREUR : " + e);
         }
 
@@ -44,12 +57,23 @@ public class ServletSite extends HttpServlet {
         Site site = new Site();
         SiteResource siteResource = new SiteResource();
 
+        Commentaire commentaire = new Commentaire();
+        CommentaireResource commentaireResource = new CommentaireResource();
+
+        String commentaireUser = request.getParameter("commentaire");
+
+        LocalDateTime dateTime = LocalDateTime.now();
+
+        commentaire.setCommentaire(commentaireUser);
+        commentaire.setDate(dateTime);
+
         String siteId = request.getParameter("site");
 
         try {
             site = siteResource.getSite(Integer.parseInt(siteId));
-        } catch (NotFoundException e) {
-            e.printStackTrace();
+            commentaireResource.createCommentaire(commentaire);
+        } catch (NotFoundException | FunctionalException e) {
+            System.out.println("ERREUR " + e);
         }
 
         httpSession.setAttribute("siteTitle",site.getNom());
