@@ -34,18 +34,18 @@ public class ServletMoreCriteria extends HttpServlet {
         VoieResource voieResource = new VoieResource();
 
         try {
-            List<Site> listSite = siteResource.getSite();
-            List<Cotation> listCotation = cotationResource.getCotation();
-            List<Secteur> listSecteur = secteurResource.getSecteur();
-            List<Voie> listVoie = voieResource.getVoie();
-            System.out.println("Les sites sont : " + listSite);
-            System.out.println("Les cotations sont : " + listCotation);
-            System.out.println("Les secteurs sont : " + listSecteur);
-            System.out.println("Les voies sont : " + listVoie);
-            httpSession.setAttribute("listSite",listSite);
-            httpSession.setAttribute("listCotation",listCotation);
-            httpSession.setAttribute("listSecteur",listSecteur);
-            httpSession.setAttribute("listVoie",listVoie);
+            List<Site> listSites = siteResource.getSite();
+            List<Cotation> listCotations = cotationResource.getCotation();
+            List<Secteur> listSecteurs = secteurResource.getSecteur();
+            List<Voie> listVoies = voieResource.getVoie();
+            System.out.println("Les sites sont : " + listSites);
+            System.out.println("Les cotations sont : " + listCotations);
+            System.out.println("Les secteurs sont : " + listSecteurs);
+            System.out.println("Les voies sont : " + listVoies);
+            httpSession.setAttribute("listSites",listSites);
+            httpSession.setAttribute("listCotations",listCotations);
+            httpSession.setAttribute("listSecteurs",listSecteurs);
+            httpSession.setAttribute("listVoies",listVoies);
         } catch (NotFoundException e) {
             e.printStackTrace();
         }

@@ -27,9 +27,9 @@ public class ServletMySector extends HttpServlet {
         SiteResource siteResource = new SiteResource();
 
         try {
-            List<Site> listSite = siteResource.getSite();
-            System.out.println("Le résultat est : " + listSite);
-            httpSession.setAttribute("listSite",listSite);
+            List<Site> listSites = siteResource.getSite();
+            System.out.println("Le résultat est : " + listSites);
+            httpSession.setAttribute("listSites",listSites);
         } catch (NotFoundException e) {
             System.out.println("ERREUR : " + e);
         }

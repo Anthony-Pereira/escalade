@@ -29,9 +29,9 @@
                     <div class="col-sm-3">
                         <select class="custom-select custom-select-lg">
                             <option selected>Sites</option>
-                            <c:forEach items="${listSite}" var="listSite">
-                                <option value="${listSite.id}">
-                                    <c:out value="${listSite.nom}"/>
+                            <c:forEach items="${listSites}" var="site">
+                                <option value="${site.id}">
+                                    <c:out value="${site.nom}"/>
                                 </option>
                             </c:forEach>
                         </select>
@@ -39,9 +39,9 @@
                     <div class="col-sm-3">
                         <select class="custom-select custom-select-lg">
                             <option selected>Cotations</option>
-                            <c:forEach items="${listCotation}" var="listCotation">
-                                <option value="${listCotation.id}">
-                                    <c:out value="${listCotation.difficulte}"/>
+                            <c:forEach items="${listCotations}" var="cotation">
+                                <option value="${cotation.id}">
+                                    <c:out value="${cotation.difficulte}"/>
                                 </option>
                             </c:forEach>
                         </select>
@@ -49,9 +49,9 @@
                     <div class="col-sm-3">
                         <select class="custom-select custom-select-lg">
                             <option selected>Secteurs</option>
-                            <c:forEach items="${listSecteur}" var="listSecteur">
-                                <option value="${listSecteur.secteur_id}">
-                                    <c:out value="${listSecteur.nom}"/>
+                            <c:forEach items="${listSecteurs}" var="secteur">
+                                <option value="${secteur.id}">
+                                    <c:out value="${secteur.nom}"/>
                                 </option>
                             </c:forEach>
                         </select>
@@ -59,9 +59,9 @@
                     <div class="col-sm-3">
                         <select class="custom-select custom-select-lg">
                             <option selected>Voies</option>
-                            <c:forEach items="${listVoie}" var="listVoie">
-                                <option value="${listVoie.voie_id}">
-                                    <c:out value="${listVoie.nom}"/>
+                            <c:forEach items="${listVoies}" var="voie">
+                                <option value="${voie.voie_id}">
+                                    <c:out value="${voie.nom}"/>
                                 </option>
                             </c:forEach>
                         </select>

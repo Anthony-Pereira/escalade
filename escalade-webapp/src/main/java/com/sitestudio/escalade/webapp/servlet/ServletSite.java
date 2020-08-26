@@ -1,14 +1,10 @@
 package com.sitestudio.escalade.webapp.servlet;
 
-import com.sitestudio.escalade.model.bean.referentiel.Departement;
-import com.sitestudio.escalade.model.bean.referentiel.Region;
 import com.sitestudio.escalade.model.bean.site.Commentaire;
 import com.sitestudio.escalade.model.bean.site.Site;
 import com.sitestudio.escalade.model.exception.FunctionalException;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 import com.sitestudio.escalade.webapp.resource.CommentaireResource;
-import com.sitestudio.escalade.webapp.resource.DepartementResource;
-import com.sitestudio.escalade.webapp.resource.RegionResource;
 import com.sitestudio.escalade.webapp.resource.SiteResource;
 
 import javax.servlet.ServletException;
@@ -18,11 +14,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@WebServlet(name = "ServletSiteList")
+@WebServlet(name = "ServletSite")
 public class ServletSite extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -35,12 +30,12 @@ public class ServletSite extends HttpServlet {
         CommentaireResource commentaireResource = new CommentaireResource();
 
         try {
-            List<Site> listSite = siteResource.getSite();
-            List<Commentaire> listCommentaire = commentaireResource.getCommentaire();
-            System.out.println("Les sites sont : " + listSite);
-            System.out.println("Les commentaires sont : " + listCommentaire);
-            httpSession.setAttribute("listSite",listSite);
-            httpSession.setAttribute("listCommentaire",listCommentaire);
+            List<Site> listSites = siteResource.getSite();
+            List<Commentaire> listCommentaires = commentaireResource.getCommentaire();
+            System.out.println("Les sites sont : " + listSites);
+            System.out.println("Les commentaires sont : " + listCommentaires);
+            httpSession.setAttribute("listSites",listSites);
+            httpSession.setAttribute("listCommentaires",listCommentaires);
         } catch (NotFoundException | FunctionalException e) {
             System.out.println("ERREUR : " + e);
         }

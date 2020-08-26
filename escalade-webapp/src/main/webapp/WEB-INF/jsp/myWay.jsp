@@ -30,9 +30,9 @@
                     <label for="secteur">Choisissez un secteur : </label>
                     <select class="custom-select custom-select-lg" name="secteur" id="secteur">
                         <option selected>Sélectionner</option>
-                        <c:forEach items="${listSecteur}" var="listSecteur">
-                            <option value="${listSecteur.id}">
-                                    <c:out value="${listSecteur.nom}"/>
+                        <c:forEach items="${listSecteurs}" var="secteur">
+                            <option value="${secteur.id}">
+                                    <c:out value="${secteur.nom}"/>
                             </option>
                         </c:forEach>
                     </select>
@@ -68,9 +68,9 @@
                     <label for="difficulte">Choisir une difficulté:</label>
                     <select name="difficulte" id="difficulte">
                         <option selected>Sélectionner</option>
-                        <c:forEach items="${listCotation}" var="listCotation">
-                            <option value="${listCotation.id}">
-                                <c:out value="${listCotation.difficulte}"/>
+                        <c:forEach items="${listCotations}" var="cotation">
+                            <option value="${listCotations.id}">
+                                <c:out value="${listCotations.difficulte}"/>
                             </option>
                         </c:forEach>
                     </select>

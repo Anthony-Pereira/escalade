@@ -27,9 +27,9 @@
             <div class="col-sm-12 d-flex justify-content-center">
                 <select name="site" id="site" class="custom-select custom-select-lg">
                     <option selected >Sélectionner</option>
-                    <c:forEach items="${listSite}" var="listSite">
-                        <option value="${listSite.id}">
-                            <c:out value="${listSite.nom}"/>
+                    <c:forEach items="${listSites}" var="site">
+                        <option value="${site.id}">
+                            <c:out value="${site.nom}"/>
                         </option>
                     </c:forEach>
                 </select>
@@ -54,11 +54,11 @@
                 </tr>
                 </thead>
                 <tbody>
-                    <c:forEach items="${listSite}" var="listSite">
+                    <c:forEach items="${listSites}" var="site">
                         <tr>
-                            <td><c:out value="${listSite.nom}"/></td>
-                            <td><c:out value="${listDepartement.numero}"/></td>
-
+                            <td><c:out value="${site.nom}"/></td>
+                            <td><c:out value="${site.adresse.departement.id}"/></td>
+                            <td><c:out value="${site.adresse}"/></td>
                         </tr>
                     </c:forEach>
                 </tbody>

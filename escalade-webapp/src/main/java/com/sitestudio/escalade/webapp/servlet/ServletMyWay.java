@@ -30,12 +30,12 @@ public class ServletMyWay extends HttpServlet {
         CotationResource cotationResource = new CotationResource();
 
         try {
-            List<Secteur> listSecteur = secteurResource.getSecteur();
-            List<Cotation> listCotation = cotationResource.getCotation();
-            System.out.println("Le résultat est : " + listSecteur);
-            System.out.println("Le résultat est : " + listCotation);
-            httpSession.setAttribute("listSecteur",listSecteur);
-            httpSession.setAttribute("listCotation",listCotation);
+            List<Secteur> listSecteurs = secteurResource.getSecteur();
+            List<Cotation> listCotations = cotationResource.getCotation();
+            System.out.println("Le résultat est : " + listSecteurs);
+            System.out.println("Le résultat est : " + listCotations);
+            httpSession.setAttribute("listSecteurs",listSecteurs);
+            httpSession.setAttribute("listCotations",listCotations);
 
         } catch (NotFoundException e) {
             System.out.println("ERREUR: " + e);
