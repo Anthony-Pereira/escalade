@@ -69,8 +69,8 @@
                     <select name="difficulte" id="difficulte">
                         <option selected>Sélectionner</option>
                         <c:forEach items="${listCotations}" var="cotation">
-                            <option value="${listCotations.id}">
-                                <c:out value="${listCotations.difficulte}"/>
+                            <option value="${cotation.id}">
+                                <c:out value="${cotation.difficulte}"/>
                             </option>
                         </c:forEach>
                     </select>
