@@ -51,6 +51,7 @@
                     <th>Nom</th>
                     <th>Département</th>
                     <th>Region</th>
+                    <th>Pays</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -58,7 +59,8 @@
                         <tr>
                             <td><c:out value="${site.nom}"/></td>
                             <td><c:out value="${site.adresse.departement.id}"/></td>
-                            <td><c:out value="${site.adresse}"/></td>
+                            <td><c:out value="${site.adresse.departement.region.nom}"/></td>
+                            <td><c:out value="${site.adresse.departement.region.pays.nom}"/></td>
                         </tr>
                     </c:forEach>
                 </tbody>
