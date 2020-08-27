@@ -17,7 +17,7 @@
 
 <body>
 
-	<%@ include file="static/fragment/header.jsp"%>
+	<%@ include file="../../static/fragment/header.jsp"%>
 
 	<div class="container">
 		<div class="jumbotron bg-transparent">
@@ -41,9 +41,9 @@
 		</c:if>
 	</div>
 
-	<%@ include file="static/fragment/footer.jsp"%>
+	<%@ include file="../../static/fragment/footer.jsp"%>
 
-	<%@ include file="static/fragment/bootstrap.jsp"%>
+	<%@ include file="../../static/fragment/bootstrap.jsp"%>
 
 </body>
 </html>
