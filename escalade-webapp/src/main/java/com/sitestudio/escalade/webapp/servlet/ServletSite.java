@@ -49,7 +49,7 @@ public class ServletSite extends HttpServlet {
         try {
             site = siteResource.getSite(Integer.parseInt(siteId));
         } catch (NotFoundException e) {
-            System.out.println("ERREUR " + e);
+            System.out.println("ERREUR : " + e);
         }
 
         httpSession.setAttribute("siteTitle",site.getNom());

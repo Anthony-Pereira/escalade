@@ -37,6 +37,36 @@
 					</div>
 				</form>
 				<br/>
+				<div>
+					<table class="table">
+						<caption class="text-center text-dark mb-3" id="caption">Retrouvez ici les commentaires des utilisateurs.
+						</caption>
+						<thead class="thead-light">
+						<tr>
+							<th>Utilisateur</th>
+							<th>Commentaire</th>
+							<th>Date</th>
+						</tr>
+						</thead>
+						<tbody>
+						<c:forEach items="${listCommentaires}" var="commentaire">
+							<tr>
+								<td><c:out value="${commentaire.utilisateur}"/></td>
+								<td><c:out value="${commentaire.commentaire}"/></td>
+								<td><c:out value="${commentaire.date}"/></td>
+							</tr>
+						</c:forEach>
+						</tbody>
+					</table>
+					<ul class="nav nav-pills">
+						<!-- <li class="nav-item"
+					th:class="${currentPage==status.index}?'active':''"
+					th:each="page,status:${pageNumber}"><a class="nav-link"
+					th:href="@{/siteForm(page=${status.index})}"
+					th:text="${status.index}"></a></li> -->
+					</ul>
+				</div>
+				<br/>
 			</div>
 		</c:if>
 	</div>
