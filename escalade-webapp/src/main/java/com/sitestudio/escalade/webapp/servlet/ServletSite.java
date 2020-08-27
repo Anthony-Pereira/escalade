@@ -31,12 +31,9 @@ public class ServletSite extends HttpServlet {
 
         try {
             List<Site> listSites = siteResource.getSite();
-            List<Commentaire> listCommentaires = commentaireResource.getCommentaire();
             System.out.println("Les sites sont : " + listSites);
-            System.out.println("Les commentaires sont : " + listCommentaires);
             httpSession.setAttribute("listSites",listSites);
-            httpSession.setAttribute("listCommentaires",listCommentaires);
-        } catch (NotFoundException | FunctionalException e) {
+        } catch (NotFoundException e) {
             System.out.println("ERREUR : " + e);
         }
 
