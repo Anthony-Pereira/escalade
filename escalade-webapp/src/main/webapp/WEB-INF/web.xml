@@ -201,4 +201,13 @@
         <url-pattern>/siteIndex</url-pattern>
     </servlet-mapping>
 
+<servlet>
+        <servlet-name>ServletSiteSearch</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletSiteSearch</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletSiteSearch</servlet-name>
+        <url-pattern>/siteSearch</url-pattern>
+    </servlet-mapping>
+
 </web-app>
