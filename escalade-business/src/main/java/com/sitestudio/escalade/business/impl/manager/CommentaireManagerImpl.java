@@ -2,6 +2,7 @@ package com.sitestudio.escalade.business.impl.manager;
 
 import com.sitestudio.escalade.business.contract.manager.CommentaireManager;
 import com.sitestudio.escalade.model.bean.site.Commentaire;
+import com.sitestudio.escalade.model.bean.site.Site;
 import com.sitestudio.escalade.model.exception.FunctionalException;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 
@@ -22,8 +23,8 @@ public class CommentaireManagerImpl extends AbstractManager implements Commentai
     }
 
 @Override
-    public List<Commentaire> getCommentaire() throws NotFoundException, FunctionalException {
-        return getDaoFactory().getCommentaireDao().readAll();
+    public List<Commentaire> getCommentaire(Site site) throws NotFoundException, FunctionalException {
+        return getDaoFactory().getCommentaireDao().readAll(site);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.sitestudio.escalade.business.contract.manager;
 
 import com.sitestudio.escalade.model.bean.site.Commentaire;
+import com.sitestudio.escalade.model.bean.site.Site;
 import com.sitestudio.escalade.model.exception.FunctionalException;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 
@@ -19,7 +20,7 @@ public interface CommentaireManager {
      * Retourne l'objet Commentaire ciblé.
      * @return Un objet Commentaire.
      * @throws NotFoundException,FunctionalException */
-    List<Commentaire> getCommentaire() throws NotFoundException, FunctionalException;
+    List<Commentaire> getCommentaire(Site site) throws NotFoundException, FunctionalException;
 
     /**Créer un commentaire.
      * @param commentaire L'identifiant d'un commentaire ciblé.

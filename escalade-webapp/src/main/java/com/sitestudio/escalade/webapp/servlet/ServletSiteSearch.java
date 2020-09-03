@@ -1,6 +1,8 @@
 package com.sitestudio.escalade.webapp.servlet;
 
+import com.sitestudio.escalade.model.bean.compte.Compte;
 import com.sitestudio.escalade.model.bean.site.Commentaire;
+import com.sitestudio.escalade.model.bean.site.Site;
 import com.sitestudio.escalade.model.exception.FunctionalException;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 import com.sitestudio.escalade.webapp.resource.CommentaireResource;
@@ -24,10 +26,12 @@ public class ServletSiteSearch extends HttpServlet {
 
         HttpSession httpSession = request.getSession();
 
+        Site site = (Site) httpSession.getAttribute("site");
+
         CommentaireResource commentaireResource = new CommentaireResource();
 
         try {
-            List<Commentaire> listCommentaires = commentaireResource.getCommentaire();
+            List<Commentaire> listCommentaires = commentaireResource.getCommentaire(site);
             System.out.println("Les commentaires sont : " + listCommentaires);
             httpSession.setAttribute("listCommentaires",listCommentaires);
         } catch (NotFoundException | FunctionalException e) {
@@ -42,6 +46,12 @@ public class ServletSiteSearch extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
+        HttpSession httpSession = request.getSession();
+
+        Compte compte = (Compte) httpSession.getAttribute("compte");
+
+        Site site = (Site) httpSession.getAttribute("site");
+
         Commentaire commentaire = new Commentaire();
         CommentaireResource commentaireResource = new CommentaireResource();
 
@@ -49,16 +59,23 @@ public class ServletSiteSearch extends HttpServlet {
 
         LocalDateTime dateTime = LocalDateTime.now();
 
+        commentaire.setCompte(compte.getId());
+        commentaire.setSite(site.getId());
         commentaire.setCommentaire(commentaireUser);
         commentaire.setDate(dateTime);
 
         try {
             commentaireResource.createCommentaire(commentaire);
+            List<Commentaire> listCommentaires = commentaireResource.getCommentaire(site);
+            System.out.println("Les commentaires sont : " + listCommentaires);
+            httpSession.setAttribute("listCommentaires",listCommentaires);
         } catch (NotFoundException e) {
             e.printStackTrace();
         } catch (FunctionalException e) {
             e.printStackTrace();
         }
+
+        httpSession.setAttribute("compte",compte);
 
         this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/siteSearch.jsp").forward(request,response);
 

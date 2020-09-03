@@ -2,6 +2,7 @@ package com.sitestudio.escalade.consumer.contract.dao;
 
 import com.sitestudio.escalade.model.bean.compte.Compte;
 import com.sitestudio.escalade.model.bean.site.Commentaire;
+import com.sitestudio.escalade.model.bean.site.Site;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public interface CommentaireDao {
      * @return T */
     Commentaire read (Integer id) throws NotFoundException;
 
-    List<Commentaire> readAll() throws NotFoundException;
+    List<Commentaire> readAll(Site site) throws NotFoundException;
     List<Commentaire> readAll(int id);
 
     /**

@@ -1,7 +1,11 @@
 package com.sitestudio.escalade.webapp.servlet;
 
+import com.sitestudio.escalade.model.bean.compte.Compte;
+import com.sitestudio.escalade.model.bean.site.Commentaire;
 import com.sitestudio.escalade.model.bean.site.Site;
+import com.sitestudio.escalade.model.exception.FunctionalException;
 import com.sitestudio.escalade.model.exception.NotFoundException;
+import com.sitestudio.escalade.webapp.resource.CommentaireResource;
 import com.sitestudio.escalade.webapp.resource.SiteResource;
 
 import javax.servlet.ServletException;
@@ -31,34 +35,41 @@ public class ServletSite extends HttpServlet {
         } catch (NotFoundException e) {
             System.out.println("ERREUR : " + e);
         }
-
             this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/site.jsp").forward(request,response);
-
     }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
         HttpSession httpSession = request.getSession();
 
+        Compte compte = (Compte) httpSession.getAttribute("compte");
+
         Site site = new Site();
         SiteResource siteResource = new SiteResource();
+
+        CommentaireResource commentaireResource = new CommentaireResource();
 
         String siteId = request.getParameter("site");
 
         try {
             site = siteResource.getSite(Integer.parseInt(siteId));
-        } catch (NotFoundException e) {
+            List<Commentaire> listCommentaires = commentaireResource.getCommentaire(site);
+            System.out.println("Les commentaires sont : " + listCommentaires);
+            httpSession.setAttribute("listCommentaires",listCommentaires);
+        } catch (NotFoundException | FunctionalException e) {
             System.out.println("ERREUR : " + e);
         }
 
+        httpSession.setAttribute("compte",compte);
+        httpSession.setAttribute("site",site);
         httpSession.setAttribute("siteTitle",site.getNom());
         System.out.println("test 1 " + site.getNom());
         httpSession.setAttribute("siteDescription",site.getDescription());
         System.out.println("test 2 " + site.getDescription());
 
             this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/siteSearch.jsp").forward(request,response);
-
     }
 
 }

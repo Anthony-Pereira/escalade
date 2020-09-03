@@ -10,9 +10,9 @@ public class Commentaire {
     private Integer id;
     private String commentaire;
     private LocalDateTime date;
-    private EnumTypeObjet typeObjet;
-    private Integer idTypeObjet;
-    private Compte utilisateur;
+    private Integer compte;
+    private Integer site;
+
 
     public Commentaire(){}
 
@@ -20,13 +20,12 @@ public class Commentaire {
         this.id = id;
     }
 
-    public Commentaire(Integer id, String commentaire, LocalDateTime date, EnumTypeObjet typeObjet, Integer idTypeObjet, Compte utilisateur) {
+    public Commentaire(Integer id, String commentaire, LocalDateTime date, Integer compte, Integer site) {
         this.id = id;
         this.commentaire = commentaire;
         this.date = date;
-        this.typeObjet = typeObjet;
-        this.idTypeObjet = idTypeObjet;
-        this.utilisateur = utilisateur;
+        this.site = site;
+        this.compte = compte;
     }
 
     public Integer getId() {
@@ -53,39 +52,30 @@ public class Commentaire {
         this.date = date;
     }
 
-    public EnumTypeObjet getTypeObjet() {
-        return typeObjet;
+    public Integer getCompte() {
+        return compte;
     }
 
-    public void setTypeObjet(EnumTypeObjet typeObjet) {
-        this.typeObjet = typeObjet;
+    public void setCompte(Integer compte) {
+        this.compte = compte;
     }
 
-    public Integer getIdTypeObjet() {
-        return idTypeObjet;
+    public Integer getSite() {
+        return site;
     }
 
-    public void setIdTypeObjet(Integer idTypeObjet) {
-        this.idTypeObjet = idTypeObjet;
-    }
-
-    public Compte getUtilisateur() {
-        return utilisateur;
-    }
-
-    public void setUtilisateur(Compte utilisateur) {
-        this.utilisateur = utilisateur;
+    public void setSite(Integer site) {
+        this.site = site;
     }
 
     @Override
     public String toString() {
         return "Commentaire{" +
-                "id=" + id +
-                ", commentaire='" + commentaire + '\'' +
-                ", date=" + date +
-                ", typeObjet=" + typeObjet +
-                ", idTypeObjet=" + idTypeObjet +
-                ", utilisateur=" + utilisateur +
+                "id = " + id +
+                ", commentaire = '" + commentaire + '\'' +
+                ", date = " + date +
+                ", compte = " + compte +
+                ", site = " + site +
                 '}';
     }
 }

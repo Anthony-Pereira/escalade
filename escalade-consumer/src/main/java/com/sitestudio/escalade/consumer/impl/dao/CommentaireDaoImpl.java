@@ -3,6 +3,7 @@ package com.sitestudio.escalade.consumer.impl.dao;
 import com.sitestudio.escalade.consumer.contract.dao.CommentaireDao;
 import com.sitestudio.escalade.consumer.impl.rowmapper.CommentaireRM;
 import com.sitestudio.escalade.model.bean.site.Commentaire;
+import com.sitestudio.escalade.model.bean.site.Site;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -40,9 +41,9 @@ public class CommentaireDaoImpl extends AbstractDao implements CommentaireDao {
     }
 
     @Override
-    public List<Commentaire> readAll() throws NotFoundException {
+    public List<Commentaire> readAll(Site site) throws NotFoundException {
 
-        String sql = "SELECT * FROM commentaire";
+        String sql = "SELECT * FROM commentaire WHERE site_id = '" + site.getId() + "'";
 
         JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
 
@@ -65,9 +66,9 @@ public class CommentaireDaoImpl extends AbstractDao implements CommentaireDao {
     public Boolean create(Commentaire commentaire) {
 
         String sql = "INSERT INTO commentaire" +
-                "(commentaire,date)" +
+                "(commentaire,date,compte_id,site_id)" +
                 "VALUES" +
-                "(:commentaire,:date)";
+                "(:commentaire,:date,:compte_id,:site_id)";
 
         NamedParameterJdbcTemplate jdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
 
@@ -109,8 +110,11 @@ public class CommentaireDaoImpl extends AbstractDao implements CommentaireDao {
     private MapSqlParameterSource getMapSqlParameterSource(Commentaire commentaire) {
         MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
 
+        mapSqlParameterSource.addValue("commentaire_id",commentaire.getId(),Types.INTEGER);
         mapSqlParameterSource.addValue("commentaire", commentaire.getCommentaire(), Types.VARCHAR);
         mapSqlParameterSource.addValue("date", commentaire.getDate(), Types.TIMESTAMP);
+        mapSqlParameterSource.addValue("compte_id", commentaire.getCompte(),Types.INTEGER);
+        mapSqlParameterSource.addValue("site_id",commentaire.getSite(),Types.INTEGER);
 
         return mapSqlParameterSource;
     }

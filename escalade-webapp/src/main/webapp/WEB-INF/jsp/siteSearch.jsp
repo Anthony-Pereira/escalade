@@ -51,7 +51,7 @@
 						<tbody>
 						<c:forEach items="${listCommentaires}" var="commentaire">
 							<tr>
-								<td><c:out value="${commentaire.utilisateur}"/></td>
+								<td><c:out value="${compte.pseudo}"/></td>
 								<td><c:out value="${commentaire.commentaire}"/></td>
 								<td><c:out value="${commentaire.date}"/></td>
 							</tr>
