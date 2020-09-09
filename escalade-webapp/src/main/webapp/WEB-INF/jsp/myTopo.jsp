@@ -19,27 +19,42 @@
 
 <%@ include file="../../static/fragment/header.jsp"%>
 
-<div class="col-md-6 mb-5 mx-0 px-0">
-    <label for="departement">Département</label>
-    <select name="departement" class="form-control" id="departement">
-        <c:forEach var="d" items="departement">
-            <option><c:out value="${d}"/></option>
-        </c:forEach>
-    </select>
-    <label for="region">Région</label>
-    <select name="region" class="form-control" id="region">
-        <c:forEach var="r" items="region">
-            <option><c:out value="${r}"/></option>
-        </c:forEach>
-    </select>
-    <label for="pays">Pays</label>
-    <select name="pays" class="form-control" id="pays">
-        <c:forEach var="p" items="pays">
-            <option><c:out value="${p}"/></option>
-        </c:forEach>
-    </select>
-    <div class="col-md-6 d-flex justify-content-center">
-        <button class="btn btn-dark mt-5" type="submit">Enregistrer</button>
+<div class ="container">
+
+    <div class=" jumbotron">
+        <form action="myTopo" method="post">
+            <h1 class="text-center mb-5">Topo</h1>
+            <br/>
+            <div class="mb-5">
+                <div>
+                    <label for="nom">Nom</label> <input type="text" size="50"
+                                                        name="nom" class="form-control" id="nom"
+                                                        aria-describedby="nom" required>
+                    <span class="text-info"></span>
+                </div>
+                <br/>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea class="form-control" name="description" id="description" required></textarea>
+                </div>
+                <div>
+                    <label for="lieu">Lieu</label> <input type="text" size="50"
+                                                        name="lieu" class="form-control" id="lieu"
+                                                        aria-describedby="lieu" required>
+                    <span class="text-info"></span>
+                </div>
+                <br/>
+                <div>
+                    <label for="parution">Date de parution</label> <input type="number" size="50"
+                                                        name="parution" class="form-control" id="parution"
+                                                        aria-describedby="parution" required>
+                    <span class="text-info"></span>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-dark" required>Envoyer</button>
+            </div>
+        </form>
     </div>
 </div>
 

@@ -40,6 +40,9 @@ public class ManagerFactoryImpl implements ManagerFactory {
     private VoieManager voieManager;
 
     @Inject
+    private TopoManager topoManager;
+
+    @Inject
     private CommentaireManager commentaireManager;
 
     @Inject
@@ -126,6 +129,16 @@ public class ManagerFactoryImpl implements ManagerFactory {
     @Override
     public void setVoieManager(VoieManager voieManager) {
         this.voieManager = voieManager;
+    }
+
+    @Override
+    public TopoManager getTopoManager() {
+        return topoManager;
+    }
+
+    @Override
+    public void setTopoManager(TopoManager topoManager) {
+        this.topoManager = topoManager;
     }
 
     @Override

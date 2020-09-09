@@ -1,7 +1,6 @@
 package com.sitestudio.escalade.consumer.contract;
 
 import com.sitestudio.escalade.consumer.contract.dao.*;
-import com.sitestudio.escalade.model.bean.referentiel.Cotation;
 
 public interface DaoFactory {
 
@@ -36,6 +35,10 @@ public interface DaoFactory {
     VoieDao getVoieDao();
 
     void setVoieDao(VoieDao voieDao);
+
+    TopoDao getTopoDao();
+
+    void setTopoDao(TopoDao topoDao);
 
     CommentaireDao getCommentaireDao();
 

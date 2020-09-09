@@ -1,7 +1,6 @@
 package com.sitestudio.escalade.business.contract;
 
 import com.sitestudio.escalade.business.contract.manager.*;
-import com.sitestudio.escalade.model.bean.referentiel.Cotation;
 
 public interface ManagerFactory {
 
@@ -36,6 +35,10 @@ public interface ManagerFactory {
     VoieManager getVoieManager();
 
     void setVoieManager(VoieManager voieManager);
+
+    TopoManager getTopoManager();
+
+    void setTopoManager(TopoManager topoManager);
 
     CommentaireManager getCommentaireManager();
 
