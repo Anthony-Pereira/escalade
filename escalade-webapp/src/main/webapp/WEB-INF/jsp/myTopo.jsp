@@ -56,6 +56,41 @@
             </div>
         </form>
     </div>
+    <div>
+        <table class="table">
+            <caption class="text-center text-dark mb-3" id="caption">Mes topos.
+            </caption>
+            <thead class="thead-light">
+            <tr>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Lieu</th>
+                <th>Parution</th>
+                <th>Réservation</th>
+                <th>Emprunteur</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="${listTopos}" var="topo">
+                <tr>
+                    <td><c:out value="${topo.nom}"/></td>
+                    <td><c:out value="${topo.description}"/></td>
+                    <td><c:out value="${topo.lieu}"/></td>
+                    <td><c:out value="${topo.parution}"/></td>
+                    <td><c:out value="${topo.reservation}"/></td>
+                    <td><c:out value="${topo.emprunteur}"/></td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+        <ul class="nav nav-pills">
+            <!-- <li class="nav-item"
+					th:class="${currentPage==status.index}?'active':''"
+					th:each="page,status:${pageNumber}"><a class="nav-link"
+					th:href="@{/siteForm(page=${status.index})}"
+					th:text="${status.index}"></a></li> -->
+        </ul>
+    </div>
 </div>
 
 <%@ include file="../../static/fragment/footer.jsp"%>
