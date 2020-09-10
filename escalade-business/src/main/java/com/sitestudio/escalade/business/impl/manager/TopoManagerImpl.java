@@ -1,6 +1,7 @@
 package com.sitestudio.escalade.business.impl.manager;
 
 import com.sitestudio.escalade.business.contract.manager.TopoManager;
+import com.sitestudio.escalade.model.bean.compte.Compte;
 import com.sitestudio.escalade.model.bean.site.Site;
 import com.sitestudio.escalade.model.bean.topo.Topo;
 import com.sitestudio.escalade.model.exception.NotFoundException;
@@ -20,6 +21,11 @@ public class TopoManagerImpl extends AbstractManager implements TopoManager {
     @Override
     public List<Topo> getTopo() throws NotFoundException {
         return getDaoFactory().getTopoDao().readAll();
+    }
+
+    @Override
+    public List<Topo> getTopo(Compte compte) throws NotFoundException {
+        return getDaoFactory().getTopoDao().readAll(compte);
     }
 
     @Override

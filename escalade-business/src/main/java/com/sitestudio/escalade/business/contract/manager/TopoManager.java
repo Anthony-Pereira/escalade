@@ -1,5 +1,6 @@
 package com.sitestudio.escalade.business.contract.manager;
 
+import com.sitestudio.escalade.model.bean.compte.Compte;
 import com.sitestudio.escalade.model.bean.topo.Topo;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 
@@ -21,6 +22,14 @@ public interface TopoManager {
      * @throws NotFoundException
      */
     List<Topo> getTopo() throws NotFoundException;
+
+    /**
+     * Retourne le topo.
+     * @param compte L'identifiant d'un topo ciblé.
+     * @return Un objet topo.
+     * @throws NotFoundException
+     */
+    List<Topo> getTopo(Compte compte) throws NotFoundException;
 
     /**
      * Créer un topo.

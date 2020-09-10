@@ -1,5 +1,6 @@
 package com.sitestudio.escalade.webapp.resource;
 
+import com.sitestudio.escalade.model.bean.compte.Compte;
 import com.sitestudio.escalade.model.bean.topo.Topo;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 
@@ -16,6 +17,10 @@ public class TopoResource extends AbstractResource {
 
     public List<Topo> getTopo() throws NotFoundException {
         return getManagerFactory().getTopoManager().getTopo();
+    }
+
+    public List<Topo> getTopo(Compte compte) throws NotFoundException {
+        return getManagerFactory().getTopoManager().getTopo(compte);
     }
 
     public Boolean createTopo(Topo topo) throws NotFoundException {

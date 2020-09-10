@@ -27,7 +27,7 @@ public class TopoRM implements RowMapper {
         topo.setReservation(Boolean.parseBoolean("reservation"));
 
         topo.setCompte(compteDao.read(rs.getString("compte_id")));
-        topo.setEmprunteur(compteDao.read(rs.getString("compte_id")));
+        topo.setEmprunteur(compteDao.read(rs.getString("emprunteur_id")));
 
         return topo;
     }

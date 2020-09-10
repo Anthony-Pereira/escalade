@@ -1,5 +1,6 @@
 package com.sitestudio.escalade.consumer.contract.dao;
 
+import com.sitestudio.escalade.model.bean.compte.Compte;
 import com.sitestudio.escalade.model.bean.topo.Topo;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 
@@ -27,9 +28,9 @@ public interface TopoDao {
 
     /**
      * Méthode de recherche des informations
-     * @param id
+     * @param compte
      * @return T */
-    List<Topo> readAll(int id);
+    List<Topo> readAll(Compte compte) throws NotFoundException;
 
     /**
      * Méthode de création

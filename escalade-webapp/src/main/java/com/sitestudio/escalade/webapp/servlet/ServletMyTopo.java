@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(name = "ServletMyTopo")
 public class ServletMyTopo extends HttpServlet {
@@ -21,7 +22,18 @@ public class ServletMyTopo extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         HttpSession httpSession = request.getSession();
-        httpSession.getAttribute("compte");
+
+        TopoResource topoResource = new TopoResource();
+
+        Compte compte = (Compte) httpSession.getAttribute("compte");
+
+        try {
+            List<Topo> listTopos = topoResource.getTopo(compte);
+            System.out.println("La liste de topo est : " + listTopos);
+            httpSession.setAttribute("listTopos",listTopos);
+        } catch (NotFoundException e) {
+            e.printStackTrace();
+        }
 
         if (httpSession.getAttribute("compte") != null) {
             this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/myTopo.jsp").forward(request,response);
@@ -36,6 +48,8 @@ public class ServletMyTopo extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         HttpSession httpSession = request.getSession();
+
+        httpSession.setAttribute("confirmation",true);
 
         Compte compte = (Compte) httpSession.getAttribute("compte");
 
@@ -56,12 +70,18 @@ public class ServletMyTopo extends HttpServlet {
 
         try {
             topoResource.createTopo(topo);
+            List<Topo> listTopos = topoResource.getTopo(compte);
+            System.out.println("La liste de topo est : " + listTopos);
+            httpSession.setAttribute("listTopos",listTopos);
         } catch (NotFoundException e) {
             e.printStackTrace();
         }
 
-        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/myTopo.jsp").forward(request,response);
-
+        if (httpSession.getAttribute("compte") != null) {
+            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/myTopo.jsp").forward(request,response);
+        } else {
+            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/signIn.jsp").forward(request,response);
+        }
     }
 
 }

@@ -2,6 +2,7 @@ package com.sitestudio.escalade.consumer.impl.dao;
 
 import com.sitestudio.escalade.consumer.contract.dao.TopoDao;
 import com.sitestudio.escalade.consumer.impl.rowmapper.TopoRM;
+import com.sitestudio.escalade.model.bean.compte.Compte;
 import com.sitestudio.escalade.model.bean.topo.Topo;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -56,8 +57,19 @@ public class TopoDaoImpl extends AbstractDao implements TopoDao {
     }
 
     @Override
-    public List<Topo> readAll(int id) {
-        return null;
+    public List<Topo> readAll(Compte compte) throws NotFoundException {
+
+        String sql = "SELECT * FROM topo WHERE compte_id =" + compte.getId();
+
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
+
+        List<Topo> listTopo = jdbcTemplate.query(sql,topoRM);
+
+        if (listTopo.size() == 0){
+            throw new NotFoundException("Aucun topo trouvé");
+        } else {
+            return listTopo;
+        }
     }
 
     @Override

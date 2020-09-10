@@ -58,7 +58,7 @@
     </div>
     <div>
         <table class="table">
-            <caption class="text-center text-dark mb-3" id="caption">Mes topos.
+            <caption class="text-center text-dark mb-3" id="caption">Ma liste de topo
             </caption>
             <thead class="thead-light">
             <tr>
@@ -77,7 +77,10 @@
                     <td><c:out value="${topo.description}"/></td>
                     <td><c:out value="${topo.lieu}"/></td>
                     <td><c:out value="${topo.parution}"/></td>
-                    <td><c:out value="${topo.reservation}"/></td>
+                    <c:choose>
+                        <c:when test="${topo.reservation == false}"><td>Non</td></c:when>
+                        <c:when test="${topo.reservation == true}"><td>Oui</td></c:when>
+                    </c:choose>
                     <td><c:out value="${topo.emprunteur}"/></td>
                 </tr>
             </c:forEach>
