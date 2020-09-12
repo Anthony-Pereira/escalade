@@ -49,8 +49,6 @@ public class ServletMyTopo extends HttpServlet {
 
         HttpSession httpSession = request.getSession();
 
-        httpSession.setAttribute("confirmation",true);
-
         Compte compte = (Compte) httpSession.getAttribute("compte");
 
         Topo topo = new Topo();

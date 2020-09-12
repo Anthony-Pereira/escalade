@@ -32,8 +32,8 @@
                 <th>Description</th>
                 <th>Lieu</th>
                 <th>Parution</th>
-                <th>Réservation</th>
                 <th>Prêteur</th>
+                <th>Statut</th>
             </tr>
             </thead>
             <tbody>
@@ -43,11 +43,16 @@
                     <td><c:out value="${topo.description}"/></td>
                     <td><c:out value="${topo.lieu}"/></td>
                     <td><c:out value="${topo.parution}"/></td>
-                    <c:choose>
-                        <c:when test="${topo.reservation == false}"><td>Non</td></c:when>
-                        <c:when test="${topo.reservation == true}"><td>Oui</td></c:when>
-                    </c:choose>
                     <td><c:out value="${topo.compte.pseudo}"/></td>
+                    <c:choose>
+                        <c:when test="${topo.reservation == false}"><td class="bg-light text-center">disponible</td></c:when>
+                        <c:when test="${topo.reservation == true}"><td class="bg-light text-center">indisponible</td></c:when>
+                    </c:choose>
+                    <c:if test="${topo.reservation == false}">
+                        <td>
+                            <button type="submit" class="btn btn-outline-secondary my-1">Réserver</button>
+                        </td>
+                    </c:if>
                 </tr>
             </c:forEach>
             </tbody>

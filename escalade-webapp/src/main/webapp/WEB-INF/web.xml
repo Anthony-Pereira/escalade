@@ -220,6 +220,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>ServletTopoList</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletTopoList</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletTopoList</servlet-name>
+        <url-pattern>/topoList</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>ServletTopoUsers</servlet-name>
         <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletTopoUsers</servlet-class>
     </servlet>
