@@ -30,7 +30,7 @@
 					<div class="card-body">
 						<h5 class="card-title">Topo</h5>
 						<p class="card-text">Ajouter et voir vos topos</p>
-						<a href="myTopo" class="btn btn-primary">allez
+						<a href="topoIndex" class="btn btn-primary">allez
 							vers</a>
 					</div>
 				</div>

@@ -40,9 +40,22 @@ public class CompteDaoImpl extends AbstractDao implements CompteDao {
     }
 
     @Override
-    public Compte read(String code) {
+    public Compte read(Integer id) throws NotFoundException {
 
-        return null;
+        String sql = "SELECT * FROM compte WHERE compte_id='" + id + "'";
+        // String sql = String.format("SELECT * FROM compte WHERE email='%s' AND  mot_de_passe='%s'", compte.getEmail(), compte.getMotDePasse());
+
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
+
+        List<Compte> listCompte = jdbcTemplate.query(sql, compteRM);
+
+        Compte utilisateur;
+
+        if (listCompte.size() == 0) {
+            throw new NotFoundException("Le compte n'existe pas.");
+        } else { utilisateur = listCompte.get(0);}
+
+        return utilisateur;
     }
 
     @Override

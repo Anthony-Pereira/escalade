@@ -21,7 +21,7 @@ public interface CompteDao {
      * @return T */
     Compte read (Compte compte) throws NotFoundException;
 
-    Compte read(String code);
+    Compte read(Integer id) throws NotFoundException;
     List<Compte> readAll();
     List<Compte> readAll(int id);
 

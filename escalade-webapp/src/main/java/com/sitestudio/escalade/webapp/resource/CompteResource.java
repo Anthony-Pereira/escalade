@@ -13,6 +13,10 @@ public class CompteResource extends AbstractResource {
         return getManagerFactory().getCompteManager().getCompte(compte);
     }
 
+    public Compte getCompte(Integer id) throws NotFoundException {
+        return getManagerFactory().getCompteManager().getCompte(id);
+    }
+
     public Boolean createCompte (Compte compte) throws NotFoundException {
         return getManagerFactory().getCompteManager().createCompte(compte);
     }

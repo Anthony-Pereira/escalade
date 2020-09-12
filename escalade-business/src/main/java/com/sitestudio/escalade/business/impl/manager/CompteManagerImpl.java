@@ -21,6 +21,11 @@ public class CompteManagerImpl extends AbstractManager implements CompteManager 
     }
 
     @Override
+    public Compte getCompte(Integer id) throws NotFoundException {
+        return getDaoFactory().getCompteDao().read(id);
+    }
+
+    @Override
     public Boolean createCompte(Compte compte) throws NotFoundException {
         return getDaoFactory().getCompteDao().create(compte);
     }

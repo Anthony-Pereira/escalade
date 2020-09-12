@@ -2,6 +2,7 @@ package com.sitestudio.escalade.consumer.impl.rowmapper;
 
 import com.sitestudio.escalade.consumer.impl.dao.CompteDaoImpl;
 import com.sitestudio.escalade.model.bean.topo.Topo;
+import com.sitestudio.escalade.model.exception.NotFoundException;
 import org.springframework.jdbc.core.RowMapper;
 
 import javax.inject.Inject;
@@ -26,8 +27,17 @@ public class TopoRM implements RowMapper {
         topo.setParution(rs.getInt("parution"));
         topo.setReservation(Boolean.parseBoolean("reservation"));
 
-        topo.setCompte(compteDao.read(rs.getString("compte_id")));
-        topo.setEmprunteur(compteDao.read(rs.getString("emprunteur_id")));
+        try {
+            topo.setCompte(compteDao.read(rs.getInt("compte_id")));
+        } catch (NotFoundException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            topo.setEmprunteur(compteDao.read(rs.getInt("emprunteur_id")));
+        } catch (NotFoundException e) {
+            e.printStackTrace();
+        }
 
         return topo;
     }

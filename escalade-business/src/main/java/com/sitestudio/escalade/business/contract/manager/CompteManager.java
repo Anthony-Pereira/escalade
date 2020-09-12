@@ -13,6 +13,13 @@ public interface CompteManager {
      */
     Compte getCompte (Compte compte) throws NotFoundException;
 
+    /**Retourne l'objet Utilisateur ciblé.
+     * @param id L'identifiant de l'utilisateur ciblé.
+     * @return Un objet Utilisateur.
+     * @throws NotFoundException
+     */
+    Compte getCompte (Integer id) throws NotFoundException;
+
     /**Créer un compte utilisateur.
      * @param compte L'identifiant de l'utilisateur ciblé.
      * @return boolean.
