@@ -1,6 +1,7 @@
 package com.sitestudio.escalade.webapp.servlet;
 
 import com.sitestudio.escalade.model.bean.compte.Compte;
+import com.sitestudio.escalade.model.bean.referentiel.EnumRole;
 import com.sitestudio.escalade.model.exception.FunctionalException;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 import com.sitestudio.escalade.webapp.resource.CompteResource;
@@ -42,6 +43,7 @@ public class ServletSignUp extends HttpServlet {
 
         CompteResource compteResource = new CompteResource();
         Compte compte = new Compte();
+
         Boolean emailDoesNotExist = false;
 
         String nom = request.getParameter("nom");
@@ -55,6 +57,7 @@ public class ServletSignUp extends HttpServlet {
         compte.setPrenom(prenom);
         compte.setEmail(email);
         compte.setMotDePasse(motDePasse);
+        compte.setRole(EnumRole.UTILISATEUR);
 
         if (confirmeEmail.equals(email) && confirmeMotDePasse.equals(motDePasse)) {
 
