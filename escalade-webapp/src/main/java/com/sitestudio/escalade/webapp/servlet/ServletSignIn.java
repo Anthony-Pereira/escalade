@@ -49,7 +49,7 @@ public class ServletSignIn extends HttpServlet {
 
         try {
             compte = compteResource.getCompte(compte);
-            if (compte != null) {
+            if (compte.getAdresse() != null) {
                 adresse = adresseResource.getAdresse(compte.getAdresse().getId());
             }
 

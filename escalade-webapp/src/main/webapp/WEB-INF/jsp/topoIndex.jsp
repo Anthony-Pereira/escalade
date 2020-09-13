@@ -22,10 +22,10 @@
 <div class ="container">
 
     <div class=" jumbotron">
-        <h1 class="d-flex justify-content-center">Mes Topos</h1>
+        <h1 class="d-flex justify-content-center">Topo</h1>
         <ul class="row m-3 list-unstyled d-flex justify-content-center">
-            <li class="m-3 h3"><a class="text-decoration-none" href="myTopo">Ajouter</a></li>
-            <li class="m-3 h3"><a class="text-decoration-none" href="topoUsers">Consulter</a></li>
+            <li class="m-3 h3"><a class="text-decoration-none" href="myTopo">mes topos</a></li>
+            <li class="m-3 h3"><a class="text-decoration-none" href="topoUsers">autres utilisateurs</a></li>
         </ul>
 
     </div>

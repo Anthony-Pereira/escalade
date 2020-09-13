@@ -23,7 +23,7 @@
 
     <div class=" jumbotron">
         <form action="myTopo" method="post">
-            <h1 class="text-center mb-5">Topo</h1>
+            <h1 class="text-center mb-5">Ajouter un topo</h1>
             <br/>
             <div class="mb-5">
                 <div>
@@ -68,6 +68,7 @@
                 <th>Parution</th>
                 <th>Emprunteur</th>
                 <th>Statut</th>
+                <th>Reservation</th>
             </tr>
             </thead>
             <tbody>
@@ -81,7 +82,7 @@
                         <c:when test="${topo.reservation == true}">
                             <td class="bg-light"><c:out value="${topo.emprunteur}"/></td>
                             <td class="bg-light">en attente</td>
-                            <td>
+                            <td class="bg-light">
                                 <form method="post" action="topoList">
                                     <div>
                                         <ul class="list-group list-group-horizontal">
