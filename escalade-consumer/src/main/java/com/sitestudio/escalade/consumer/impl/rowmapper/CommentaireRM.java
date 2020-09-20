@@ -1,14 +1,21 @@
 package com.sitestudio.escalade.consumer.impl.rowmapper;
 
+import com.sitestudio.escalade.consumer.impl.dao.CommentaireDaoImpl;
+import com.sitestudio.escalade.consumer.impl.dao.CompteDaoImpl;
 import com.sitestudio.escalade.model.bean.site.Commentaire;
+import com.sitestudio.escalade.model.exception.NotFoundException;
 import org.springframework.jdbc.core.RowMapper;
 
+import javax.inject.Inject;
 import javax.inject.Named;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @Named
 public class CommentaireRM implements RowMapper<Commentaire> {
+
+    @Inject
+    CompteDaoImpl compteDao;
 
     @Override
     public Commentaire mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -17,6 +24,12 @@ public class CommentaireRM implements RowMapper<Commentaire> {
 
         commentaire.setCommentaire(rs.getString("commentaire"));
         commentaire.setDate(rs.getTimestamp("date").toLocalDateTime());
+
+        try {
+            commentaire.setCompte(compteDao.read(rs.getInt("compte_id")));
+        } catch (NotFoundException e) {
+            e.printStackTrace();
+        }
 
         return commentaire;
     }

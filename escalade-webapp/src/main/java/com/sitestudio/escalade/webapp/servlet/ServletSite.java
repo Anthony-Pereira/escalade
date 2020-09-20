@@ -44,8 +44,6 @@ public class ServletSite extends HttpServlet {
 
         HttpSession httpSession = request.getSession();
 
-        Compte compte = (Compte) httpSession.getAttribute("compte");
-
         Site site = new Site();
         SiteResource siteResource = new SiteResource();
 
@@ -62,12 +60,14 @@ public class ServletSite extends HttpServlet {
             System.out.println("ERREUR : " + e);
         }
 
-        httpSession.setAttribute("compte",compte);
         httpSession.setAttribute("site",site);
         httpSession.setAttribute("siteTitle",site.getNom());
-        System.out.println("test 1 " + site.getNom());
         httpSession.setAttribute("siteDescription",site.getDescription());
-        System.out.println("test 2 " + site.getDescription());
+        httpSession.setAttribute("siteOfficielLesAmisDeLescalade",site.getOfficielLesAmisDeLescalade());
+        
+        System.out.println("siteTitle " + site.getNom());
+        System.out.println("siteDescription " + site.getDescription());
+        System.out.println("siteOfficielLesAmisDeLescalade " + site.getOfficielLesAmisDeLescalade());
 
             this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/siteSearch.jsp").forward(request,response);
     }

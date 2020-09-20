@@ -3,9 +3,7 @@ package com.sitestudio.escalade.webapp.servlet;
 import com.sitestudio.escalade.model.bean.compte.Adresse;
 import com.sitestudio.escalade.model.bean.compte.Compte;
 import com.sitestudio.escalade.model.exception.NotFoundException;
-import com.sitestudio.escalade.webapp.resource.AdresseResource;
 import com.sitestudio.escalade.webapp.resource.CompteResource;
-import com.sitestudio.escalade.webapp.resource.DepartementResource;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -54,6 +52,7 @@ public class ServletEditProfileAccount extends HttpServlet {
         compte.setPrenom(prenom);
         compte.setNom(nom);
         compte.setNumTelephone(numTelephone);
+        compte.setRole(compte.getRole());
 
         try {
             compteResource.updateCompte(compte);

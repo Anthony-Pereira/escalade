@@ -11,17 +11,19 @@ public class Site {
     private String description;
     private List<UrlPhoto> url;
     private Adresse adresse;
+    private Boolean officielLesAmisDeLescalade;
 
     public Site(){}
 
     public Site(Integer id) {this.id = id;}
 
-    public Site(Integer id, String nom, String description, List<UrlPhoto> url, Adresse adresse) {
+    public Site(Integer id, String nom, String description, List<UrlPhoto> url, Adresse adresse, Boolean officielLesAmisDeLescalade) {
         this.id = id;
         this.nom = nom;
         this.description = description;
         this.url = url;
         this.adresse = adresse;
+        this.officielLesAmisDeLescalade = officielLesAmisDeLescalade;
     }
 
     public Integer getId() {
@@ -64,6 +66,14 @@ public class Site {
         this.adresse = adresse;
     }
 
+    public Boolean getOfficielLesAmisDeLescalade() {
+        return officielLesAmisDeLescalade;
+    }
+
+    public void setOfficielLesAmisDeLescalade(Boolean officielLesAmisDeLescalade) {
+        this.officielLesAmisDeLescalade = officielLesAmisDeLescalade;
+    }
+
     @Override
     public String toString() {
         return "Site{" +
@@ -72,6 +82,7 @@ public class Site {
                 ", description='" + description + '\'' +
                 ", url=" + url +
                 ", adresse=" + adresse +
+                ", officielLesAmisDeLescalade=" + officielLesAmisDeLescalade +
                 '}';
     }
 }

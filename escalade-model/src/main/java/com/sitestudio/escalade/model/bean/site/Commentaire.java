@@ -10,7 +10,7 @@ public class Commentaire {
     private Integer id;
     private String commentaire;
     private LocalDateTime date;
-    private Integer compte;
+    private Compte compte;
     private Integer site;
 
 
@@ -20,7 +20,7 @@ public class Commentaire {
         this.id = id;
     }
 
-    public Commentaire(Integer id, String commentaire, LocalDateTime date, Integer compte, Integer site) {
+    public Commentaire(Integer id, String commentaire, LocalDateTime date, Compte compte, Integer site) {
         this.id = id;
         this.commentaire = commentaire;
         this.date = date;
@@ -52,11 +52,11 @@ public class Commentaire {
         this.date = date;
     }
 
-    public Integer getCompte() {
+    public Compte getCompte() {
         return compte;
     }
 
-    public void setCompte(Integer compte) {
+    public void setCompte(Compte compte) {
         this.compte = compte;
     }
 

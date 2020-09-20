@@ -55,6 +55,7 @@ public class ServletSignUp extends HttpServlet {
 
         compte.setNom(nom);
         compte.setPrenom(prenom);
+        compte.setPseudo(prenom);
         compte.setEmail(email);
         compte.setMotDePasse(motDePasse);
         compte.setRole(EnumRole.UTILISATEUR);

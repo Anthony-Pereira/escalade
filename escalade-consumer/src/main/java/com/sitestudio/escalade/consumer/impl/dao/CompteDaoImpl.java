@@ -74,9 +74,9 @@ public class CompteDaoImpl extends AbstractDao implements CompteDao {
     public Boolean create(Compte compte) {
 
         String sql = "INSERT INTO compte " +
-                "(nom,prenom,email,mot_de_passe,role_role_code)" +
+                "(nom,prenom,pseudo,email,mot_de_passe,role_role_code)" +
                 "VALUES" +
-                "(:nom,:prenom,:email,:mot_de_passe,:role_role_code)";
+                "(:nom,:prenom,:pseudo,:email,:mot_de_passe,:role_role_code)";
 
         MapSqlParameterSource mapSqlParameterSource = getMapSqlParameterSource(compte);
 
@@ -91,8 +91,8 @@ public class CompteDaoImpl extends AbstractDao implements CompteDao {
     public Boolean update(Compte compte) {
 
         String sql = "UPDATE compte SET nom=:nom,prenom=:prenom,pseudo=:pseudo," +
-                "email=:email,mot_de_passe=:mot_de_passe,num_telephone=:num_telephone,adresse_id=:adresse_id" +
-                " WHERE compte_id=" + compte.getId();
+                "email=:email,mot_de_passe=:mot_de_passe,num_telephone=:num_telephone,adresse_id=:adresse_id,role_role_code=:role_role_code," +
+                "WHERE compte_id=" + compte.getId();
 
         MapSqlParameterSource mapSqlParameterSource = getMapSqlParameterSource(compte);
 
@@ -152,6 +152,7 @@ public class CompteDaoImpl extends AbstractDao implements CompteDao {
         mapSqlParameterSource.addValue("compte_id",compte.getId(),Types.INTEGER);
         mapSqlParameterSource.addValue("nom", compte.getNom(), Types.VARCHAR);
         mapSqlParameterSource.addValue("prenom", compte.getPrenom(), Types.VARCHAR);
+        mapSqlParameterSource.addValue("pseudo", compte.getPseudo(), Types.VARCHAR);
         mapSqlParameterSource.addValue("email", compte.getEmail(), Types.VARCHAR);
         mapSqlParameterSource.addValue("mot_de_passe", compte.getMotDePasse(), Types.VARCHAR);
         mapSqlParameterSource.addValue("role_role_code",compte.getRole().getCode(),Types.INTEGER);

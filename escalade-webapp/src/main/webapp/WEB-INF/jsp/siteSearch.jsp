@@ -23,6 +23,10 @@
 		<div class="jumbotron bg-transparent">
 			<h1 class="text-center"><c:out value="${sessionScope.siteTitle}"/></h1>
 			<br/>
+			<c:if test="${sessionScope.siteOfficielLesAmisDeLescalade == true}">
+				<h3 class="text-center">Officiel Les amis de l’escalade</h3>
+			</c:if>
+			<br/>
 			<p><c:out value="${sessionScope.siteDescription}"/></p>
 		</div>
 		<c:if test="${!empty compte}">
@@ -51,9 +55,22 @@
 						<tbody>
 						<c:forEach items="${listCommentaires}" var="commentaire">
 							<tr>
-								<td><c:out value="${compte.pseudo}"/></td>
+								<td><c:out value="${commentaire.compte.pseudo}"/></td>
 								<td><c:out value="${commentaire.commentaire}"/></td>
 								<td><c:out value="${commentaire.date}"/></td>
+
+								<c:if test="${commentaire.compte.role == 1 || commentaire.compte.role == 2}">
+									<td>
+										<form action="commentary" method="get">
+											<div>
+												<button type="submit"
+														class="btn btn-secondary" name="commentary" value="0">Modifier</button>
+												<button type="submit"
+														class="btn btn-secondary" name="commentary" value="1">Supprimer</button>
+											</div>
+										</form>
+									</td>
+								</c:if>
 							</tr>
 						</c:forEach>
 						</tbody>

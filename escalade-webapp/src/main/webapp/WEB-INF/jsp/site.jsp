@@ -52,6 +52,7 @@
                     <th>Département</th>
                     <th>Region</th>
                     <th>Pays</th>
+                    <th>Officiel les amis de l’escalade</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -61,6 +62,10 @@
                             <td><c:out value="${site.adresse.departement.id}"/></td>
                             <td><c:out value="${site.adresse.departement.region.nom}"/></td>
                             <td><c:out value="${site.adresse.departement.region.pays.nom}"/></td>
+                            <c:choose>
+                                <c:when test="${site.officielLesAmisDeLescalade == true}"><td>Oui</td></c:when>
+                                <c:when test="${site.officielLesAmisDeLescalade == false}"><td>Non</td></c:when>
+                            </c:choose>
                         </tr>
                     </c:forEach>
                 </tbody>

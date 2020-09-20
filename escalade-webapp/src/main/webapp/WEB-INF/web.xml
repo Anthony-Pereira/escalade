@@ -31,6 +31,15 @@
     </resource-ref>
 
     <servlet>
+        <servlet-name>ServletCommentary</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletCommentary</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletCommentary</servlet-name>
+        <url-pattern>/commentary</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>ServletDeleteAccount</servlet-name>
         <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletDeleteAccount</servlet-class>
     </servlet>

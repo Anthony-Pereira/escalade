@@ -59,7 +59,7 @@ public class ServletSiteSearch extends HttpServlet {
 
         LocalDateTime dateTime = LocalDateTime.now();
 
-        commentaire.setCompte(compte.getId());
+        commentaire.setCompte(compte);
         commentaire.setSite(site.getId());
         commentaire.setCommentaire(commentaireUser);
         commentaire.setDate(dateTime);
