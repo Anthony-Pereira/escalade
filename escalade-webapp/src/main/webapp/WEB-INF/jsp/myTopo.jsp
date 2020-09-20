@@ -83,11 +83,11 @@
                             <td class="bg-light"><c:out value="${topo.emprunteur}"/></td>
                             <td class="bg-light">en attente</td>
                             <td class="bg-light">
-                                <form method="post" action="topoList">
+                                <form method="get" action="topoList">
                                     <div>
                                         <ul class="list-group list-group-horizontal">
-                                            <li class="list-inline-item"><button type="submit" class="btn btn-outline-secondary" value="0" name="confirmation">accepter</button></li>
-                                            <li class="list-inline-item"><button type="submit" class="btn btn-outline-secondary" value="1" name="confirmation">refuser</button></li>
+                                            <li class="list-inline-item"><button type="submit" class="btn btn-outline-secondary" value="${topo.id}" name="confirmation">accepter</button></li>
+                                            <li class="list-inline-item"><button type="submit" class="btn btn-outline-secondary" value="0" name="confirmation">refuser</button></li>
                                         </ul>
                                     </div>
                                 </form>

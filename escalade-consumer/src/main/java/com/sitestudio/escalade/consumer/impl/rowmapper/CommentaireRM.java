@@ -1,6 +1,5 @@
 package com.sitestudio.escalade.consumer.impl.rowmapper;
 
-import com.sitestudio.escalade.consumer.impl.dao.CommentaireDaoImpl;
 import com.sitestudio.escalade.consumer.impl.dao.CompteDaoImpl;
 import com.sitestudio.escalade.model.bean.site.Commentaire;
 import com.sitestudio.escalade.model.exception.NotFoundException;
