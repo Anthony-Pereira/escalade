@@ -60,7 +60,7 @@
                         <select class="custom-select custom-select-lg">
                             <option selected>Voies</option>
                             <c:forEach items="${listVoies}" var="voie">
-                                <option value="${voie.voie_id}">
+                                <option value="${voie.id}">
                                     <c:out value="${voie.nom}"/>
                                 </option>
                             </c:forEach>

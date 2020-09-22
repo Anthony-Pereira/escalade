@@ -24,9 +24,6 @@ public class VoieRM implements RowMapper<Voie> {
         voie.setNumero(rs.getInt("numero"));
         voie.setNom(rs.getString("nom"));
         voie.setDescription(rs.getString("description"));
-
-        //voie.setUrl(); resultSet Url Photo
-
         voie.setLongueur(rs.getInt("longueur"));
         voie.setDifficulte(rs.getString("difficulte"));
 
