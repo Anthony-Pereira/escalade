@@ -25,7 +25,7 @@ public class TopoRM implements RowMapper {
         topo.setDescription(rs.getString("description"));
         topo.setLieu(rs.getString("lieu"));
         topo.setParution(rs.getInt("parution"));
-        topo.setReservation(rs.getBoolean("reservation"));
+        topo.setReservation(rs.getInt("reservation"));
 
         try {
             topo.setCompte(compteDao.read(rs.getInt("compte_id")));

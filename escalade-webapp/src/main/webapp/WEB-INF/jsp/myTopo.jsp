@@ -79,36 +79,32 @@
                     <td><c:out value="${topo.lieu}"/></td>
                     <td class="text-center"><c:out value="${topo.parution}"/></td>
                     <c:choose>
-                        <c:when test="${topo.reservation == true}">
-                            <td class="bg-light"><c:out value="${topo.emprunteur}"/></td>
+                        <c:when test="${topo.reservation == 2}">
+                            <td class="bg-light"><c:out value="${topo.emprunteur.pseudo}"/></td>
                             <td class="bg-light">en attente</td>
                             <td class="bg-light">
-                                <form method="get" action="topoList">
+                                <form method="post" action="topoList">
                                     <div>
                                         <ul class="list-group list-group-horizontal">
-                                            <li class="list-inline-item"><button type="submit" class="btn btn-outline-secondary" value="${topo.id}" name="confirmation">accepter</button></li>
-                                            <li class="list-inline-item"><button type="submit" class="btn btn-outline-secondary" value="0" name="confirmation">refuser</button></li>
+                                            <li class="list-inline-item"><button type="submit" class="btn btn-outline-secondary" value="${topo.id}" name="confirmation">confirmer</button></li>
                                         </ul>
                                     </div>
                                 </form>
                             </td>
                         </c:when>
-                        <c:when test="${topo.reservation == false}">
-                            <td class="bg-light"></td>
-                            <td class="bg-light">disponible</td>
+                        <c:when test="${topo.reservation == 0}">
+                            <td class="bg-light">aucun</td>
+                            <td class="bg-light">non réservé</td>
+                        </c:when>
+                        <c:when test="${topo.reservation == 1}">
+                            <td class="bg-light"><c:out value="${topo.emprunteur.pseudo}"/></td>
+                            <td class="bg-light">réservé</td>
                         </c:when>
                     </c:choose>
                 </tr>
             </c:forEach>
             </tbody>
         </table>
-        <ul class="nav nav-pills">
-            <!-- <li class="nav-item"
-					th:class="${currentPage==status.index}?'active':''"
-					th:each="page,status:${pageNumber}"><a class="nav-link"
-					th:href="@{/siteForm(page=${status.index})}"
-					th:text="${status.index}"></a></li> -->
-        </ul>
     </div>
 </div>
 

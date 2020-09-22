@@ -21,6 +21,32 @@ public class ServletTopoList extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
+        TopoResource topoResource = new TopoResource();
+
+        HttpSession httpSession = request.getSession();
+
+        Compte compte = (Compte) httpSession.getAttribute("compte");
+
+        try {
+            List<Topo> listTopos = topoResource.getTopo(compte);
+            System.out.println("La liste de topo est : " + listTopos);
+            httpSession.setAttribute("listTopos",listTopos);
+        } catch (NotFoundException e) {
+            e.printStackTrace();
+        }
+
+        if (httpSession.getAttribute("compte") != null) {
+            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/myTopo.jsp").forward(request,response);
+        } else {
+            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/signIn.jsp").forward(request,response);
+        }
+
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+
         Topo topo = new Topo();
         TopoResource topoResource = new TopoResource();
 
@@ -41,8 +67,15 @@ public class ServletTopoList extends HttpServlet {
         topo.setDescription(topo.getDescription());
         topo.setLieu(topo.getLieu());
         topo.setParution(topo.getParution());
-
+        topo.setEmprunteur(topo.getEmprunteur());
         topo.setCompte(compte);
+        topo.setReservation(1);
+
+        try {
+            topoResource.updateTopo(topo);
+        } catch (NotFoundException e) {
+            e.printStackTrace();
+        }
 
         try {
             List<Topo> listTopos = topoResource.getTopo(compte);
@@ -51,32 +84,6 @@ public class ServletTopoList extends HttpServlet {
         } catch (NotFoundException e) {
             e.printStackTrace();
         }
-
-        if (Integer.parseInt(confirmation) != 0){
-            topo.setReservation(false);
-        } else {
-            topo.setReservation(true);
-        }
-
-        try {
-            topoResource.updateTopo(topo);
-        } catch (NotFoundException e) {
-            e.printStackTrace();
-        }
-
-        if (httpSession.getAttribute("compte") != null) {
-            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/myTopo.jsp").forward(request,response);
-        } else {
-            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/signIn.jsp").forward(request,response);
-        }
-
-    }
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        response.setCharacterEncoding("UTF-8");
-
-        HttpSession httpSession = request.getSession();
 
         if (httpSession.getAttribute("compte") != null) {
             this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/myTopo.jsp").forward(request,response);

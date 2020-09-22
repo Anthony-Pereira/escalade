@@ -9,7 +9,7 @@ public class Topo {
     private String description;
     private String lieu;
     private Integer parution;
-    private Boolean reservation;
+    private Integer reservation;
     private Compte compte;
     private Compte emprunteur;
 
@@ -17,7 +17,7 @@ public class Topo {
 
     public Topo(Integer id){this.id=id;}
 
-    public Topo(Integer id, String nom, String description,String lieu, Integer parution,Boolean reservation, Compte compte, Compte emprunteur) {
+    public Topo(Integer id, String nom, String description,String lieu, Integer parution,Integer reservation, Compte compte, Compte emprunteur) {
         this.id = id;
         this.nom = nom;
         this.description = description;
@@ -67,11 +67,11 @@ public class Topo {
         this.parution = parution;
     }
 
-    public Boolean getReservation() {
+    public Integer getReservation() {
         return reservation;
     }
 
-    public void setReservation(Boolean reservation) {
+    public void setReservation(Integer reservation) {
         this.reservation = reservation;
     }
 

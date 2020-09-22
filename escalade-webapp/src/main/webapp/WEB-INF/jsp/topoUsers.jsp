@@ -45,24 +45,25 @@
                     <td><c:out value="${topo.parution}"/></td>
                     <td><c:out value="${topo.compte.pseudo}"/></td>
                     <c:choose>
-                        <c:when test="${topo.reservation == false}"><td class="bg-light text-center">disponible</td></c:when>
-                        <c:when test="${topo.reservation == true}"><td class="bg-light text-center">indisponible</td></c:when>
+                        <c:when test="${topo.reservation == 0}"><td class="bg-light text-center">disponible</td></c:when>
+                        <c:when test="${topo.reservation == 1}"><td class="bg-light text-center">indisponible</td></c:when>
+                        <c:when test="${topo.reservation == 2}"><td class="bg-light text-center">en attente</td></c:when>
                     </c:choose>
-                    <c:if test="${topo.reservation == false}">
-                        <td>
-                            <button type="submit" class="btn btn-outline-secondary my-1">Réserver</button>
-                        </td>
-                    </c:if>
+                    <c:choose>
+                        <c:when test="${topo.reservation == 0}">
+                            <form method="post" action="topoUsers">
+                                <td>
+                                    <button type="submit" value="${topo.id}" name="reservation" class="btn btn-outline-secondary my-1">Réserver</button>
+                                </td>
+                            </form>
+                        </c:when>
+                        <c:when test="${sessionScope.topo.reservation == 1} || ${topo.reservation == 2}"></c:when>
+                    </c:choose>
                 </tr>
             </c:forEach>
             </tbody>
         </table>
         <ul class="nav nav-pills">
-            <!-- <li class="nav-item"
-					th:class="${currentPage==status.index}?'active':''"
-					th:each="page,status:${pageNumber}"><a class="nav-link"
-					th:href="@{/siteForm(page=${status.index})}"
-					th:text="${status.index}"></a></li> -->
         </ul>
     </div>
 </div>

@@ -87,7 +87,7 @@ public class TopoDaoImpl extends AbstractDao implements TopoDao {
         mapSqlParameterSource.addValue("description",topo.getDescription(), Types.VARCHAR);
         mapSqlParameterSource.addValue("lieu",topo.getLieu(), Types.VARCHAR);
         mapSqlParameterSource.addValue("parution",topo.getParution(), Types.INTEGER);
-        mapSqlParameterSource.addValue("reservation",topo.getReservation(), Types.BOOLEAN);
+        mapSqlParameterSource.addValue("reservation",topo.getReservation(), Types.INTEGER);
         mapSqlParameterSource.addValue("compte_id",topo.getCompte().getId(),Types.INTEGER);
         mapSqlParameterSource.addValue("emprunteur_id",topo.getEmprunteur(), Types.INTEGER);
 
@@ -101,7 +101,7 @@ public class TopoDaoImpl extends AbstractDao implements TopoDao {
     @Override
     public Boolean update(Topo topo) {
 
-        String sql = "UPDATE topo SET nom=:nom,description=:description,lieu=:lieu,parution=:parution,reservation=:reservation WHERE topo_id =" + topo.getId();
+        String sql = "UPDATE topo SET nom=:nom,description=:description,lieu=:lieu,parution=:parution,reservation=:reservation,emprunteur_id=:emprunteur_id WHERE topo_id =" + topo.getId();
 
         MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
 
@@ -111,8 +111,8 @@ public class TopoDaoImpl extends AbstractDao implements TopoDao {
         mapSqlParameterSource.addValue("description", topo.getDescription(), Types.VARCHAR);
         mapSqlParameterSource.addValue("lieu", topo.getLieu(), Types.VARCHAR);
         mapSqlParameterSource.addValue("parution", topo.getParution(), Types.INTEGER);
-        mapSqlParameterSource.addValue("reservation",topo.getReservation(),Types.BOOLEAN);
-        mapSqlParameterSource.addValue("emprunteur_id",topo.getEmprunteur(),Types.INTEGER);
+        mapSqlParameterSource.addValue("reservation",topo.getReservation(),Types.INTEGER);
+        mapSqlParameterSource.addValue("emprunteur_id",topo.getEmprunteur().getId(),Types.INTEGER);
 
         NamedParameterJdbcTemplate jdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
 
