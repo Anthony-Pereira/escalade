@@ -36,6 +36,22 @@ public class DepartementDaoImpl extends AbstractDao implements DepartementDao {
     }
 
     @Override
+    public List <Departement> read() throws NotFoundException {
+
+        String sql = "SELECT * FROM departement";
+
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
+
+        List<Departement> listDepartement = jdbcTemplate.query(sql,departementRM);
+
+        if (listDepartement.size() == 0) {
+            throw new NotFoundException("Le département n'existe pas");
+        } else {
+            return listDepartement;
+        }
+    }
+
+    @Override
     public Boolean create(Departement departement) {
         return null;
     }

@@ -4,6 +4,8 @@ import com.sitestudio.escalade.model.bean.compte.Adresse;
 import com.sitestudio.escalade.model.bean.referentiel.Departement;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 
+import java.util.List;
+
 /**
  * Les méthodes CRUD nécessaires pour manipuler le bean "Departement" / La table "departement"
  * @author A.Pereira
@@ -19,6 +21,12 @@ public interface DepartementDao {
      * @return
      */
     Departement read(Integer id) throws NotFoundException;
+
+    /**
+     * Méthode de recherche des informations
+     * @return
+     */
+    List <Departement> read() throws NotFoundException;
 
     /**
      * Méthode de création

@@ -1,14 +1,14 @@
 package com.sitestudio.escalade.webapp.servlet;
 
+import com.sitestudio.escalade.model.bean.compte.Adresse;
 import com.sitestudio.escalade.model.bean.referentiel.Cotation;
+import com.sitestudio.escalade.model.bean.referentiel.Departement;
 import com.sitestudio.escalade.model.bean.site.Secteur;
 import com.sitestudio.escalade.model.bean.site.Site;
 import com.sitestudio.escalade.model.bean.site.Voie;
+import com.sitestudio.escalade.model.exception.FunctionalException;
 import com.sitestudio.escalade.model.exception.NotFoundException;
-import com.sitestudio.escalade.webapp.resource.CotationResource;
-import com.sitestudio.escalade.webapp.resource.SecteurResource;
-import com.sitestudio.escalade.webapp.resource.SiteResource;
-import com.sitestudio.escalade.webapp.resource.VoieResource;
+import com.sitestudio.escalade.webapp.resource.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,24 +28,20 @@ public class ServletMoreCriteria extends HttpServlet {
 
         HttpSession httpSession = request.getSession();
 
-        SiteResource siteResource = new SiteResource();
+        DepartementResource departementResource = new DepartementResource();
         CotationResource cotationResource = new CotationResource();
-        SecteurResource secteurResource = new SecteurResource();
-        VoieResource voieResource = new VoieResource();
+
 
         try {
-            List<Site> listSites = siteResource.getSite();
+            List<Departement> listDepartements = departementResource.getDepartement();
             List<Cotation> listCotations = cotationResource.getCotation();
-            List<Secteur> listSecteurs = secteurResource.getSecteur();
-            List<Voie> listVoies = voieResource.getVoie();
-            System.out.println("Les sites sont : " + listSites);
+
+            System.out.println("Les departements sont : " + listDepartements);
             System.out.println("Les cotations sont : " + listCotations);
-            System.out.println("Les secteurs sont : " + listSecteurs);
-            System.out.println("Les voies sont : " + listVoies);
-            httpSession.setAttribute("listSites",listSites);
+
+            httpSession.setAttribute("listDepartements",listDepartements);
             httpSession.setAttribute("listCotations",listCotations);
-            httpSession.setAttribute("listSecteurs",listSecteurs);
-            httpSession.setAttribute("listVoies",listVoies);
+
         } catch (NotFoundException e) {
             e.printStackTrace();
         }
@@ -57,6 +53,27 @@ public class ServletMoreCriteria extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
+
+        Departement departement = new Departement();
+        Cotation cotation = new Cotation();
+
+        SiteResource siteResource = new SiteResource();
+
+        HttpSession httpSession = request.getSession();
+
+        String departementId = request.getParameter("departement");
+        String cotationId = request.getParameter("cotation");
+
+        departement.setId(Integer.parseInt(departementId));
+        cotation.setId(Integer.parseInt(cotationId));
+
+        try {
+        List<Site> listSiteByCriteria = siteResource.getSite(departement,cotation);
+            System.out.println("le resultat de la recherche par critère est : " + listSiteByCriteria);
+            httpSession.setAttribute("listSiteByCriteria",listSiteByCriteria);
+        } catch (NotFoundException e) {
+            e.printStackTrace();
+        }
 
         this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/moreCriteria.jsp").forward(request,response);
 

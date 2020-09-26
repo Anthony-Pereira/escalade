@@ -155,7 +155,7 @@ public class CompteDaoImpl extends AbstractDao implements CompteDao {
         mapSqlParameterSource.addValue("pseudo", compte.getPseudo(), Types.VARCHAR);
         mapSqlParameterSource.addValue("email", compte.getEmail(), Types.VARCHAR);
         mapSqlParameterSource.addValue("mot_de_passe", compte.getMotDePasse(), Types.VARCHAR);
-        mapSqlParameterSource.addValue("role_role_code",compte.getRole().getCode(),Types.INTEGER);
+        mapSqlParameterSource.addValue("role_role_code",compte.getRole().getId(),Types.INTEGER);
 
         return mapSqlParameterSource;
 

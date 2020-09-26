@@ -5,22 +5,26 @@ public enum EnumRole {
     MEMBRE(2, "Membre", "Membre de l'association."),
     UTILISATEUR(3, "Utilisateur", "Utilisateur du site ayant un compte.");
 
-    private int code;
+    private int id;
     private String designation;
     private String description;
 
-    EnumRole(Integer code, String designation, String description) {
-        this.code = code;
+    EnumRole(Integer id) {
+        this.id = id;
+    }
+
+    EnumRole(Integer id, String designation, String description) {
+        this.id = id;
         this.designation = designation;
         this.description = description;
     }
 
-    public Integer getCode() {
-        return code;
+    public Integer getId() {
+        return id;
     }
 
-    public void setCode(Integer code) {
-        this.code = code;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getDesignation() {
@@ -42,7 +46,7 @@ public enum EnumRole {
     @Override
     public String toString() {
         return "EnumRole{" +
-                "code=" + code +
+                "code=" + id +
                 ", designation='" + designation + '\'' +
                 ", description='" + description + '\'' +
                 '}';

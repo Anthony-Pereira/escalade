@@ -51,6 +51,9 @@ public class ManagerFactoryImpl implements ManagerFactory {
     @Inject
     private CotationManager cotationManager;
 
+    @Inject
+    private RoleManager roleManager;
+
     @Override
     public CompteManager getCompteManager() {
         return compteManager;
@@ -169,5 +172,15 @@ public class ManagerFactoryImpl implements ManagerFactory {
     @Override
     public void setCotationManager(CotationManager cotationManager) {
         this.cotationManager = cotationManager;
+    }
+
+    @Override
+    public RoleManager getRoleManager() {
+        return roleManager;
+    }
+
+    @Override
+    public void setRoleManager(RoleManager roleManager) {
+        this.roleManager = roleManager;
     }
 }

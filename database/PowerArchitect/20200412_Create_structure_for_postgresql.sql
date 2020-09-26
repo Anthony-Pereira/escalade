@@ -257,7 +257,7 @@ ALTER TABLE public.commentaire_voie ADD CONSTRAINT commentaire_commentaire_voie_
 
 ALTER TABLE public.compte ADD CONSTRAINT role_compte_fk
     FOREIGN KEY (role_role_code)
-        REFERENCES public.role (role_code)
+        REFERENCES public.role (id)
         ON DELETE NO ACTION
         ON UPDATE NO ACTION
         NOT DEFERRABLE;

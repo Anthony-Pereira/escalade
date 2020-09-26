@@ -2,7 +2,11 @@ package com.sitestudio.escalade.consumer.impl.dao;
 
 import com.sitestudio.escalade.consumer.contract.dao.SiteDao;
 import com.sitestudio.escalade.consumer.impl.rowmapper.SiteRM;
+import com.sitestudio.escalade.model.bean.referentiel.Cotation;
+import com.sitestudio.escalade.model.bean.referentiel.Departement;
+import com.sitestudio.escalade.model.bean.site.Secteur;
 import com.sitestudio.escalade.model.bean.site.Site;
+import com.sitestudio.escalade.model.bean.site.Voie;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -50,6 +54,26 @@ public class SiteDaoImpl extends AbstractDao implements SiteDao {
 
         if (listSite.size() == 0){
             throw new NotFoundException("Aucun site de trouvé");
+        } else {
+            return listSite;
+        }
+    }
+
+    @Override
+    public List<Site> readAll(Departement departement, Cotation cotation) throws NotFoundException {
+
+        String sql = "SELECT * FROM departement,cotation WHERE departement_id =" + departement + " AND id =" + cotation + " " +
+                                        "INNER JOIN adresse ON departement.departement_id = adresse.adresse_id " +
+                                        "INNER JOIN site ON adresse.adresse_id = site_id " +
+                                        "INNER JOIN secteur ON site.site_id = secteur.secteur_id " +
+                                        "INNER JOIN voie ON ecteur.secteur_id = voie.voie_id";
+
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
+
+        List<Site> listSite = jdbcTemplate.query(sql,siteRM);
+
+        if (listSite.size() == 0){
+            throw new NotFoundException("Aucun site trouvé");
         } else {
             return listSite;
         }

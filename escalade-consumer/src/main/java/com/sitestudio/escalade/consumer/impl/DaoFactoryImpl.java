@@ -3,9 +3,6 @@ package com.sitestudio.escalade.consumer.impl;
 import com.sitestudio.escalade.consumer.contract.DaoFactory;
 import com.sitestudio.escalade.consumer.contract.dao.*;
 import com.sitestudio.escalade.consumer.impl.dao.AbstractDao;
-import com.sitestudio.escalade.model.bean.referentiel.Cotation;
-import com.sitestudio.escalade.model.bean.site.Site;
-import com.sitestudio.escalade.model.bean.site.Voie;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -48,6 +45,8 @@ public class DaoFactoryImpl extends AbstractDao implements DaoFactory {
 
     @Inject
     CotationDao cotationDao;
+
+    RoleDao roleDao;
 
     @Override
     public CompteDao getCompteDao() {
@@ -168,4 +167,10 @@ public class DaoFactoryImpl extends AbstractDao implements DaoFactory {
     public void setCotationDao(CotationDao cotationDao) {
         this.cotationDao = cotationDao;
     }
+
+    @Override
+    public RoleDao getRoleDao() { return roleDao; }
+
+    @Override
+    public void setRoleDao(RoleDao roleDao) { this.roleDao = roleDao; }
 }

@@ -6,6 +6,7 @@ import com.sitestudio.escalade.model.bean.referentiel.Departement;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 
 import javax.inject.Named;
+import java.util.List;
 
 /**
  * Implémentation de l'interface manager "DepartementManager".
@@ -17,7 +18,12 @@ public class DepartementManagerImpl extends AbstractManager implements Departeme
 
     @Override
     public Departement getDepartement(Integer id) throws NotFoundException {
-        return getDaoFactory().getDepartementDao().read(id) ;
+        return getDaoFactory().getDepartementDao().read(id);
+    }
+
+    @Override
+    public List <Departement> getDepartement() throws NotFoundException {
+        return getDaoFactory().getDepartementDao().read();
     }
 
     @Override

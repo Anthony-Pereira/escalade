@@ -695,7 +695,7 @@ ALTER TABLE ONLY public.adresse
 --
 
 ALTER TABLE ONLY public.role
-    ADD CONSTRAINT code PRIMARY KEY (role_code);
+    ADD CONSTRAINT code PRIMARY KEY (id);
 
 
 --
@@ -911,7 +911,7 @@ ALTER TABLE ONLY public.departement
 --
 
 ALTER TABLE ONLY public.compte
-    ADD CONSTRAINT role_compte_fk FOREIGN KEY (role_role_code) REFERENCES public.role(role_code);
+    ADD CONSTRAINT role_compte_fk FOREIGN KEY (role_role_code) REFERENCES public.role(id);
 
 
 --

@@ -51,4 +51,9 @@ public interface DaoFactory {
     CotationDao getCotationDao();
 
     void setCotationDao(CotationDao cotationDao);
+
+    RoleDao getRoleDao();
+
+    void setRoleDao(RoleDao roleDao);
+
 }

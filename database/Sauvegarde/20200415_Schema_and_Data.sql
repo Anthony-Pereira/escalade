@@ -1106,9 +1106,9 @@ SELECT pg_catalog.setval('public.reservation_id_seq', 1, false);
 -- Data for Name: role; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.role (role_code, designation, description) VALUES (1, 'Administrateur', 'Administrateur du site web');
-INSERT INTO public.role (role_code, designation, description) VALUES (2, 'Membre', 'Membre de l''association');
-INSERT INTO public.role (role_code, designation, description) VALUES (3, 'Utilisateur', 'Utilisateur avec compte');
+INSERT INTO public.role (id, designation, description) VALUES (1, 'Administrateur', 'Administrateur du site web');
+INSERT INTO public.role (id, designation, description) VALUES (2, 'Membre', 'Membre de l''association');
+INSERT INTO public.role (id, designation, description) VALUES (3, 'Utilisateur', 'Utilisateur avec compte');
 
 
 --
@@ -1207,7 +1207,7 @@ ALTER TABLE ONLY public.adresse
 --
 
 ALTER TABLE ONLY public.role
-    ADD CONSTRAINT code PRIMARY KEY (role_code);
+    ADD CONSTRAINT code PRIMARY KEY (id);
 
 
 --
@@ -1399,7 +1399,7 @@ ALTER TABLE ONLY public.departement
 --
 
 ALTER TABLE ONLY public.compte
-    ADD CONSTRAINT role_compte_fk FOREIGN KEY (role_role_code) REFERENCES public.role(role_code);
+    ADD CONSTRAINT role_compte_fk FOREIGN KEY (role_role_code) REFERENCES public.role(id);
 
 
 --

@@ -51,4 +51,8 @@ public interface ManagerFactory {
     CotationManager getCotationManager();
 
     void setCotationManager(CotationManager cotationManager);
+
+    RoleManager getRoleManager();
+
+    void setRoleManager(RoleManager roleManager);
 }

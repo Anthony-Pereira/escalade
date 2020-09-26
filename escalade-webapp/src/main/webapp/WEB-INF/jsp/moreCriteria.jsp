@@ -23,15 +23,15 @@
     <div class="jumbotron">
         <h1 class="col-sm-12 d-flex justify-content-center">Sites</h1>
         <br/>
-        <form action="siteSearch.jsp" method="post">
+        <form action="siteSearch" method="post">
             <div class="row">
                 <div class="col-md-12 d-flex justify-content-center mb-3">
                     <div class="col-sm-3">
                         <select class="custom-select custom-select-lg">
-                            <option selected>Sites</option>
-                            <c:forEach items="${listSites}" var="site">
-                                <option value="${site.id}">
-                                    <c:out value="${site.nom}"/>
+                            <option selected>Departements</option>
+                            <c:forEach items="${listDepartements}" var="departement">
+                                <option value="${departement.id}" name="departement">
+                                    <c:out value="${departement.nom}"/>
                                 </option>
                             </c:forEach>
                         </select>
@@ -40,28 +40,8 @@
                         <select class="custom-select custom-select-lg">
                             <option selected>Cotations</option>
                             <c:forEach items="${listCotations}" var="cotation">
-                                <option value="${cotation.id}">
+                                <option value="${cotation.id}" name="cotation">
                                     <c:out value="${cotation.difficulte}"/>
-                                </option>
-                            </c:forEach>
-                        </select>
-                    </div>
-                    <div class="col-sm-3">
-                        <select class="custom-select custom-select-lg">
-                            <option selected>Secteurs</option>
-                            <c:forEach items="${listSecteurs}" var="secteur">
-                                <option value="${secteur.id}">
-                                    <c:out value="${secteur.nom}"/>
-                                </option>
-                            </c:forEach>
-                        </select>
-                    </div>
-                    <div class="col-sm-3">
-                        <select class="custom-select custom-select-lg">
-                            <option selected>Voies</option>
-                            <c:forEach items="${listVoies}" var="voie">
-                                <option value="${voie.id}">
-                                    <c:out value="${voie.nom}"/>
                                 </option>
                             </c:forEach>
                         </select>
@@ -72,6 +52,9 @@
                 <button type="submit" class="btn btn-primary my-1">Envoyer</button>
             </div>
         </form>
+
+        <p>Le resultat de la recher par critère est : <c:out value="${listSiteByCriteria}"/></p>
+
     </div>
 
 </div>

@@ -1,7 +1,10 @@
 package com.sitestudio.escalade.business.contract.manager;
 
+import com.sitestudio.escalade.model.bean.referentiel.Cotation;
+import com.sitestudio.escalade.model.bean.referentiel.Departement;
 import com.sitestudio.escalade.model.bean.site.Secteur;
 import com.sitestudio.escalade.model.bean.site.Site;
+import com.sitestudio.escalade.model.bean.site.Voie;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 
 import java.util.List;
@@ -22,6 +25,14 @@ public interface SiteManager {
      * @throws NotFoundException
      */
     List<Site> getSite() throws NotFoundException;
+
+    /**
+     * Retourne le site.
+     * @param departement,cotation
+     * @return Un objet site.
+     * @throws NotFoundException
+     */
+    List<Site> getSite(Departement departement, Cotation cotation) throws NotFoundException;
 
     /**
      * Créer un site.

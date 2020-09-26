@@ -480,9 +480,9 @@ INSERT INTO public.departement (departement_id, numero, nom, region_id) VALUES (
 -- Data for Name: role; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.role (role_code, designation, description) VALUES (1, 'Administrateur', 'Administrateur du site web');
-INSERT INTO public.role (role_code, designation, description) VALUES (2, 'Membre', 'Membre de l''association');
-INSERT INTO public.role (role_code, designation, description) VALUES (3, 'Utilisateur', 'Utilisateur avec compte');
+INSERT INTO public.role (id, designation, description) VALUES (1, 'Administrateur', 'Administrateur du site web');
+INSERT INTO public.role (id, designation, description) VALUES (2, 'Membre', 'Membre de l''association');
+INSERT INTO public.role (id, designation, description) VALUES (3, 'Utilisateur', 'Utilisateur avec compte');
 
 
 --

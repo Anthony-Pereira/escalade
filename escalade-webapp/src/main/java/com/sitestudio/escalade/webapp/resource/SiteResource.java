@@ -1,6 +1,10 @@
 package com.sitestudio.escalade.webapp.resource;
 
+import com.sitestudio.escalade.model.bean.referentiel.Cotation;
+import com.sitestudio.escalade.model.bean.referentiel.Departement;
+import com.sitestudio.escalade.model.bean.site.Secteur;
 import com.sitestudio.escalade.model.bean.site.Site;
+import com.sitestudio.escalade.model.bean.site.Voie;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 
 import java.util.List;
@@ -16,6 +20,10 @@ public class SiteResource extends AbstractResource {
 
     public List<Site> getSite() throws NotFoundException {
         return getManagerFactory().getSiteManager().getSite();
+    }
+
+    public List<Site> getSite(Departement departement, Cotation cotation) throws NotFoundException {
+        return getManagerFactory().getSiteManager().getSite(departement,cotation);
     }
 
     public Boolean createSite(Site site) throws NotFoundException {
