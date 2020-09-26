@@ -70,13 +70,6 @@
                     </c:forEach>
                 </tbody>
             </table>
-            <ul class="nav nav-pills">
-                <!-- <li class="nav-item"
-					th:class="${currentPage==status.index}?'active':''"
-					th:each="page,status:${pageNumber}"><a class="nav-link"
-					th:href="@{/siteForm(page=${status.index})}"
-					th:text="${status.index}"></a></li> -->
-            </ul>
     </div>
 
 </div>

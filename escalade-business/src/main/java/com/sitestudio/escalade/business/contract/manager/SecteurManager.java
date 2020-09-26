@@ -2,6 +2,7 @@ package com.sitestudio.escalade.business.contract.manager;
 
 import com.sitestudio.escalade.model.bean.referentiel.Region;
 import com.sitestudio.escalade.model.bean.site.Secteur;
+import com.sitestudio.escalade.model.bean.site.Site;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 
 import java.util.List;
@@ -22,6 +23,14 @@ public interface SecteurManager {
      * @throws NotFoundException
      */
     List<Secteur> getSecteur() throws NotFoundException;
+
+    /**
+     * Retourne le secteur.
+     * @param site
+     * @return Un objet site.
+     * @throws NotFoundException
+     */
+    List<Secteur> getSecteur(Site site) throws NotFoundException;
 
     /**
      * Créer un secteur.

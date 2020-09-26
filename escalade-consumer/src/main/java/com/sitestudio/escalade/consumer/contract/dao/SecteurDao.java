@@ -2,6 +2,7 @@ package com.sitestudio.escalade.consumer.contract.dao;
 
 import com.sitestudio.escalade.model.bean.compte.Compte;
 import com.sitestudio.escalade.model.bean.site.Secteur;
+import com.sitestudio.escalade.model.bean.site.Site;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 
 import java.util.List;
@@ -28,9 +29,9 @@ public interface SecteurDao {
 
     /**
      * Méthode de recherche des informations
-     * @param id
+     * @param site
      * @return T */
-    List<Secteur> readAll(int id);
+    List<Secteur> readAll(Site site) throws NotFoundException;
 
     /**
      * Méthode de création

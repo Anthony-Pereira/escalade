@@ -3,6 +3,7 @@ package com.sitestudio.escalade.business.impl.manager;
 import com.sitestudio.escalade.business.contract.manager.SecteurManager;
 import com.sitestudio.escalade.consumer.impl.dao.AbstractDao;
 import com.sitestudio.escalade.model.bean.site.Secteur;
+import com.sitestudio.escalade.model.bean.site.Site;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 
 import javax.inject.Named;
@@ -24,6 +25,11 @@ public class SecteurManagerImpl extends AbstractManager implements SecteurManage
     @Override
     public List<Secteur> getSecteur() throws NotFoundException {
         return getDaoFactory().getSecteurDao().readAll();
+    }
+
+    @Override
+    public List<Secteur> getSecteur(Site site) throws NotFoundException {
+        return getDaoFactory().getSecteurDao().readAll(site);
     }
 
     @Override

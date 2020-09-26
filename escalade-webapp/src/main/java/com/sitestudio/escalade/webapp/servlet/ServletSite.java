@@ -2,11 +2,15 @@ package com.sitestudio.escalade.webapp.servlet;
 
 import com.sitestudio.escalade.model.bean.compte.Compte;
 import com.sitestudio.escalade.model.bean.site.Commentaire;
+import com.sitestudio.escalade.model.bean.site.Secteur;
 import com.sitestudio.escalade.model.bean.site.Site;
+import com.sitestudio.escalade.model.bean.site.Voie;
 import com.sitestudio.escalade.model.exception.FunctionalException;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 import com.sitestudio.escalade.webapp.resource.CommentaireResource;
+import com.sitestudio.escalade.webapp.resource.SecteurResource;
 import com.sitestudio.escalade.webapp.resource.SiteResource;
+import com.sitestudio.escalade.webapp.resource.VoieResource;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -48,14 +52,26 @@ public class ServletSite extends HttpServlet {
         SiteResource siteResource = new SiteResource();
 
         CommentaireResource commentaireResource = new CommentaireResource();
+        SecteurResource secteurResource = new SecteurResource();
+        VoieResource voieResource = new VoieResource();
 
         String siteId = request.getParameter("site");
 
         try {
             site = siteResource.getSite(Integer.parseInt(siteId));
+            List<Secteur> listSecteurs = secteurResource.getSecteur(site);
+            List<Voie> listVoies = voieResource.getVoie();
             List<Commentaire> listCommentaires = commentaireResource.getCommentaire(site);
+
+            System.out.println("Le site est : " + site);
+            System.out.println("Les secteurs sont : " + listSecteurs);
+            System.out.println("Les voies sont : " + listVoies);
             System.out.println("Les commentaires sont : " + listCommentaires);
+
             httpSession.setAttribute("listCommentaires",listCommentaires);
+            httpSession.setAttribute("listSecteurs",listSecteurs);
+            httpSession.setAttribute("listVoies",listVoies);
+
         } catch (NotFoundException | FunctionalException e) {
             System.out.println("ERREUR : " + e);
         }
