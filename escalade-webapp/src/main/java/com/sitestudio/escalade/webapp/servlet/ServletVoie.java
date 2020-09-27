@@ -40,7 +40,7 @@ public class ServletVoie extends HttpServlet {
             secteur = secteurResource.getSecteur(Integer.parseInt(secteurId));
             List<Voie> listVoies = voieResource.getVoie(secteur);
             httpSession.setAttribute("secteur",secteur);
-            httpSession.setAttribute("listVoies",listVoies);
+            request.setAttribute("listVoies",listVoies);
         } catch (NotFoundException e) {
             e.printStackTrace();
         }

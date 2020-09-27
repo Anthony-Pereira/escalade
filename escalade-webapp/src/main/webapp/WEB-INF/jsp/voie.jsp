@@ -24,30 +24,40 @@
         <h1 class="text-center"><c:out value="${secteur.nom}"/></h1>
         <p><c:out value="${secteur.description}"/></p>
     </div>
-    <div>
-        <table class="table">
-            <thead class="thead-light">
-            <tr>
-                <th>Numéro</th>
-                <th>Nom</th>
-                <th>Description</th>
-                <th>Longueur</th>
-                <th>Difficulté</th>
-            </tr>
-            </thead>
-            <tbody>
-            <c:forEach items="${listVoies}" var="voie">
-                <tr>
-                    <td><c:out value="${voie.numero}"/></td>
-                    <td><c:out value="${voie.nom}"/></td>
-                    <td><c:out value="${voie.description}"/></td>
-                    <td><c:out value="${voie.longueur}"/></td>
-                    <td><c:out value="${voie.difficulte}"/></td>
-                </tr>
-            </c:forEach>
-            </tbody>
-        </table>
-    </div>
+    <c:choose>
+        <c:when test="${listVoies != null}">
+            <div>
+                <table class="table">
+                    <thead class="thead-light">
+                    <tr>
+                        <th>Numéro</th>
+                        <th>Nom</th>
+                        <th>Description</th>
+                        <th>Longueur</th>
+                        <th>Difficulté</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${listVoies}" var="voie">
+                        <tr>
+                            <td><c:out value="${voie.numero}"/></td>
+                            <td><c:out value="${voie.nom}"/></td>
+                            <td><c:out value="${voie.description}"/></td>
+                            <td><c:out value="${voie.longueur}"/></td>
+                            <td><c:out value="${voie.difficulte}"/></td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+            </div>
+        </c:when>
+        <c:when test="${listVoies == null}">
+            <div class="text-center h3">
+                <p>Aucune résultat</p>
+                <br/>
+            </div>
+        </c:when>
+    </c:choose>
 </div>
 
 <%@ include file="../../static/fragment/footer.jsp" %>
