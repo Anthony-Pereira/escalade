@@ -53,24 +53,20 @@ public class ServletSite extends HttpServlet {
 
         CommentaireResource commentaireResource = new CommentaireResource();
         SecteurResource secteurResource = new SecteurResource();
-        VoieResource voieResource = new VoieResource();
 
         String siteId = request.getParameter("site");
 
         try {
             site = siteResource.getSite(Integer.parseInt(siteId));
             List<Secteur> listSecteurs = secteurResource.getSecteur(site);
-            List<Voie> listVoies = voieResource.getVoie();
             List<Commentaire> listCommentaires = commentaireResource.getCommentaire(site);
 
             System.out.println("Le site est : " + site);
             System.out.println("Les secteurs sont : " + listSecteurs);
-            System.out.println("Les voies sont : " + listVoies);
             System.out.println("Les commentaires sont : " + listCommentaires);
 
             httpSession.setAttribute("listCommentaires",listCommentaires);
             httpSession.setAttribute("listSecteurs",listSecteurs);
-            httpSession.setAttribute("listVoies",listVoies);
 
         } catch (NotFoundException | FunctionalException e) {
             System.out.println("ERREUR : " + e);

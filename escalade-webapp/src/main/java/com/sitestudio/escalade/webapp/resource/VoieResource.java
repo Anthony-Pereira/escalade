@@ -1,5 +1,6 @@
 package com.sitestudio.escalade.webapp.resource;
 
+import com.sitestudio.escalade.model.bean.site.Secteur;
 import com.sitestudio.escalade.model.bean.site.Voie;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 
@@ -13,6 +14,10 @@ public class VoieResource extends AbstractResource {
 
     public List<Voie> getVoie() throws NotFoundException {
         return  getManagerFactory().getVoieManager().getVoie();
+    }
+
+    public List<Voie> getVoie(Secteur secteur) throws NotFoundException {
+        return  getManagerFactory().getVoieManager().getVoie(secteur);
     }
 
     public Boolean createVoie(Voie voie) throws NotFoundException {

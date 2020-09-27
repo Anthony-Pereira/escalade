@@ -2,6 +2,7 @@ package com.sitestudio.escalade.business.impl.manager;
 
 import com.sitestudio.escalade.business.contract.manager.VoieManager;
 import com.sitestudio.escalade.consumer.impl.dao.AbstractDao;
+import com.sitestudio.escalade.model.bean.site.Secteur;
 import com.sitestudio.escalade.model.bean.site.Voie;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 
@@ -24,6 +25,11 @@ public class VoieManagerImpl extends AbstractManager implements VoieManager {
     @Override
     public List<Voie> getVoie() throws NotFoundException {
         return getDaoFactory().getVoieDao().readAll();
+    }
+
+    @Override
+    public List<Voie> getVoie(Secteur secteur) throws NotFoundException {
+        return getDaoFactory().getVoieDao().readAll(secteur);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.sitestudio.escalade.business.contract.manager;
 
+import com.sitestudio.escalade.model.bean.site.Secteur;
 import com.sitestudio.escalade.model.bean.site.Voie;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 
@@ -21,6 +22,14 @@ public interface VoieManager {
      * @throws NotFoundException
      */
     List<Voie> getVoie() throws NotFoundException;
+
+    /**
+     * Retourne la voie.
+     * @param secteur
+     * @return Un objet voie.
+     * @throws NotFoundException
+     */
+    List<Voie> getVoie(Secteur secteur) throws NotFoundException;
 
     /**
      * Créer une voie.

@@ -1,5 +1,6 @@
 package com.sitestudio.escalade.consumer.contract.dao;
 
+import com.sitestudio.escalade.model.bean.site.Secteur;
 import com.sitestudio.escalade.model.bean.site.UrlPhoto;
 import com.sitestudio.escalade.model.bean.site.Voie;
 import com.sitestudio.escalade.model.exception.NotFoundException;
@@ -25,6 +26,11 @@ public interface VoieDao {
      * Méthode de recherche des informations
      * @return T */
     List<Voie> readAll() throws NotFoundException;
+
+    /**
+     * Méthode de recherche des informations
+     * @return T */
+    List<Voie> readAll(Secteur secteur) throws NotFoundException;
 
     List<Voie> readAll(int id);
 

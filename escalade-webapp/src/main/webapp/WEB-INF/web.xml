@@ -246,4 +246,13 @@
         <url-pattern>/topoUsers</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ServletVoie</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletVoie</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletVoie</servlet-name>
+        <url-pattern>/voie</url-pattern>
+    </servlet-mapping>
+
 </web-app>

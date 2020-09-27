@@ -57,6 +57,23 @@ public class VoieDaoImpl extends AbstractDao implements VoieDao {
     }
 
     @Override
+    public List<Voie> readAll(Secteur secteur) throws NotFoundException {
+
+        String sql = "SELECT * FROM voie WHERE secteur_id=" + secteur.getId();
+
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
+
+        List<Voie> listVoie = jdbcTemplate.query(sql,voieRM);
+
+        if (listVoie.size() == 0){
+            throw new NotFoundException("Aucune voie trouvé");
+        } else {
+            return listVoie;
+        }
+
+    }
+
+    @Override
     public List<Voie> readAll(int id) {
         return null;
     }
