@@ -82,8 +82,8 @@ public class VoieDaoImpl extends AbstractDao implements VoieDao {
     public Boolean create(Voie voie) {
 
         String sql = "INSERT INTO voie " +
-                "(numero,nom,description,secteur_id,longueur,difficulte) " +
-                "VALUES (:numero,:nom,:description,:secteur_id,:longueur,:difficulte)";
+                "(numero,nom,description,longueur,difficulte,secteur_id,site_id) " +
+                "VALUES (:numero,:nom,:description,:longueur,:difficulte,:secteur_id,:site_id)";
 
         MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
 
@@ -91,9 +91,11 @@ public class VoieDaoImpl extends AbstractDao implements VoieDao {
         mapSqlParameterSource.addValue("numero",voie.getNumero(), Types.INTEGER);
         mapSqlParameterSource.addValue("nom",voie.getNom(), Types.VARCHAR);
         mapSqlParameterSource.addValue("description",voie.getDescription(), Types.VARCHAR);
-        mapSqlParameterSource.addValue("secteur_id",voie.getSecteur().getId(), Types.INTEGER);
         mapSqlParameterSource.addValue("longueur",voie.getLongueur(), Types.VARCHAR);
         mapSqlParameterSource.addValue("difficulte",voie.difficulte, Types.VARCHAR);
+        mapSqlParameterSource.addValue("secteur_id",voie.getSecteur().getId(), Types.INTEGER);
+        mapSqlParameterSource.addValue("site_id",voie.getSite().getId(), Types.INTEGER);
+
 
         NamedParameterJdbcTemplate jdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
 

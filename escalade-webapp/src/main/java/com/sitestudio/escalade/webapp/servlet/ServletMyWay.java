@@ -2,10 +2,12 @@ package com.sitestudio.escalade.webapp.servlet;
 
 import com.sitestudio.escalade.model.bean.referentiel.Cotation;
 import com.sitestudio.escalade.model.bean.site.Secteur;
+import com.sitestudio.escalade.model.bean.site.Site;
 import com.sitestudio.escalade.model.bean.site.Voie;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 import com.sitestudio.escalade.webapp.resource.CotationResource;
 import com.sitestudio.escalade.webapp.resource.SecteurResource;
+import com.sitestudio.escalade.webapp.resource.SiteResource;
 import com.sitestudio.escalade.webapp.resource.VoieResource;
 
 import javax.servlet.ServletException;
@@ -54,6 +56,9 @@ public class ServletMyWay extends HttpServlet {
 
         HttpSession httpSession = request.getSession();
 
+        Site site = new Site();
+        SiteResource siteResource = new SiteResource();
+
         Secteur secteur = new Secteur();
         SecteurResource secteurResource = new SecteurResource();
 
@@ -76,12 +81,17 @@ public class ServletMyWay extends HttpServlet {
             e.printStackTrace();
         }
 
+        site = secteur.getSite();
+
+        System.out.println("le site de la voie est : " + site);
+
         voie.setNumero(Integer.parseInt(numero));
         voie.setNom(nom);
         voie.setDescription(description);
         voie.setLongueur(Integer.parseInt(longueur));
         voie.setDifficulte(difficulte);
         voie.setSecteur(secteur);
+        voie.setSite(site);
 
         try {
             voieResource.createVoie(voie);
