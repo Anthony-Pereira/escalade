@@ -21,9 +21,12 @@ public class ServletTopoList extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
+        Topo topo = new Topo();
         TopoResource topoResource = new TopoResource();
 
         HttpSession httpSession = request.getSession();
+
+        String topoDisponible = request.getParameter("topoDisponible");
 
         Compte compte = (Compte) httpSession.getAttribute("compte");
 
@@ -33,6 +36,22 @@ public class ServletTopoList extends HttpServlet {
             httpSession.setAttribute("listTopos",listTopos);
         } catch (NotFoundException e) {
             e.printStackTrace();
+        }
+
+        if (topoDisponible != null){
+            try {
+            topo = topoResource.getTopo(Integer.parseInt(topoDisponible));
+            } catch (NotFoundException e) {
+                e.printStackTrace();
+            }
+
+            topo.setReservation(0);
+
+            try {
+                topoResource.updateTopo(topo);
+            } catch (NotFoundException e) {
+                e.printStackTrace();
+            }
         }
 
         if (httpSession.getAttribute("compte") != null) {
