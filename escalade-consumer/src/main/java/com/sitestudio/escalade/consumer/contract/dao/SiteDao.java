@@ -1,5 +1,6 @@
 package com.sitestudio.escalade.consumer.contract.dao;
 
+import com.sitestudio.escalade.model.bean.compte.Adresse;
 import com.sitestudio.escalade.model.bean.referentiel.Cotation;
 import com.sitestudio.escalade.model.bean.referentiel.Departement;
 import com.sitestudio.escalade.model.bean.site.Secteur;
@@ -32,7 +33,7 @@ public interface SiteDao {
     /**
      * Méthode de recherche des informations
      * @return T */
-    List<Site> readAll(Departement departement, Cotation cotation) throws NotFoundException;
+    List<Object> readAll(Integer departement, Voie voie) throws NotFoundException;
 
     /**
      * Méthode de recherche des informations

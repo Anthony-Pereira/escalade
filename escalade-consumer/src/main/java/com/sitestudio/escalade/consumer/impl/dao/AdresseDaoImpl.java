@@ -25,7 +25,7 @@ public class AdresseDaoImpl extends AbstractDao implements AdresseDao {
     @Override
     public Adresse read(Integer id) throws NotFoundException {
 
-        String sql = "SELECT * FROM adresse WHERE adresse_id =" + id;
+        String sql = "SELECT * FROM adresse WHERE adresse_id ='" + id + "'";
 
         JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
 

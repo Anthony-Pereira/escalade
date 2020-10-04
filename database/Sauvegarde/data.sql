@@ -491,7 +491,7 @@ INSERT INTO public.role (id, designation, description) VALUES (3, 'Utilisateur',
 -- Data for Name: compte; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.compte (compte_id, email, pseudo, mot_de_passe, nom, prenom, num_telephone, adresse_id, role_role_code) VALUES (37, 'john@gmail.com', 'Jod', 'az', 'pleur', 'la fleur', '0654585652', NULL, NULL);
+INSERT INTO public.compte (compte_id, email, pseudo, mot_de_passe, nom, prenom, num_telephone, adresse_id, role_role_id) VALUES (37, 'john@gmail.com', 'Jod', 'az', 'pleur', 'la fleur', '0654585652', NULL, NULL);
 
 
 --

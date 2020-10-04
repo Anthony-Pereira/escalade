@@ -78,7 +78,7 @@
                     <td><c:out value="${commentaire.commentaire}"/></td>
                     <td><c:out value="${commentaire.date}"/></td>
 
-                    <c:if test="${commentaire.compte.role == 1 || commentaire.compte.role == 2}">
+                    <c:if test="${compte.role == 1 || compte.role == 2}">
                         <td>
                             <form action="commentary" method="get">
                                 <div>

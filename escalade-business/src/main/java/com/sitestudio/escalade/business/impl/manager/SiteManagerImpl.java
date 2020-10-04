@@ -1,6 +1,7 @@
 package com.sitestudio.escalade.business.impl.manager;
 
 import com.sitestudio.escalade.business.contract.manager.SiteManager;
+import com.sitestudio.escalade.model.bean.compte.Adresse;
 import com.sitestudio.escalade.model.bean.referentiel.Cotation;
 import com.sitestudio.escalade.model.bean.referentiel.Departement;
 import com.sitestudio.escalade.model.bean.site.Secteur;
@@ -30,8 +31,8 @@ public class SiteManagerImpl extends AbstractManager implements SiteManager {
     }
 
     @Override
-    public List<Site> getSite(Departement departement, Cotation cotation) throws NotFoundException {
-        return getDaoFactory().getSiteDao().readAll(departement,cotation);
+    public List<Object> getSite(Integer departement, Voie voie) throws NotFoundException {
+        return getDaoFactory().getSiteDao().readAll(departement,voie);
     }
 
     @Override

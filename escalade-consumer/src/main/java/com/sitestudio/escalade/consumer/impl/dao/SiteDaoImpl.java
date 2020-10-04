@@ -1,7 +1,9 @@
 package com.sitestudio.escalade.consumer.impl.dao;
 
 import com.sitestudio.escalade.consumer.contract.dao.SiteDao;
+import com.sitestudio.escalade.consumer.impl.rowmapper.MoreCriteriaRM;
 import com.sitestudio.escalade.consumer.impl.rowmapper.SiteRM;
+import com.sitestudio.escalade.model.bean.compte.Adresse;
 import com.sitestudio.escalade.model.bean.referentiel.Cotation;
 import com.sitestudio.escalade.model.bean.referentiel.Departement;
 import com.sitestudio.escalade.model.bean.site.Secteur;
@@ -22,6 +24,9 @@ public class SiteDaoImpl extends AbstractDao implements SiteDao {
 
     @Inject
     SiteRM siteRM;
+
+    @Inject
+    MoreCriteriaRM moreCriteriaRM;
 
     @Override
     public Site read(Integer id) throws NotFoundException {
@@ -60,22 +65,20 @@ public class SiteDaoImpl extends AbstractDao implements SiteDao {
     }
 
     @Override
-    public List<Site> readAll(Departement departement, Cotation cotation) throws NotFoundException {
+    public List<Object> readAll(Integer departement, Voie voie) throws NotFoundException {
 
-        String sql = "SELECT * FROM departement,cotation WHERE departement_id =" + departement + " AND id =" + cotation + " " +
-                                        "INNER JOIN adresse ON departement.departement_id = adresse.adresse_id " +
-                                        "INNER JOIN site ON adresse.adresse_id = site_id " +
-                                        "INNER JOIN secteur ON site.site_id = secteur.secteur_id " +
-                                        "INNER JOIN voie ON ecteur.secteur_id = voie.voie_id";
+        String sql = "SELECT * FROM adresse INNER JOIN voie ON adresse.departement_id =" + departement + " AND voie.difficulte='" + voie.getDifficulte() + "'";
 
         JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
 
-        List<Site> listSite = jdbcTemplate.query(sql,siteRM);
+        List<Object> listObject = jdbcTemplate.query(sql,moreCriteriaRM);
 
-        if (listSite.size() == 0){
+        System.out.println("listObject de plus de critere est = à : "+ listObject);
+
+        if (listObject.size() == 0){
             throw new NotFoundException("Aucun site trouvé");
         } else {
-            return listSite;
+            return listObject;
         }
     }
 

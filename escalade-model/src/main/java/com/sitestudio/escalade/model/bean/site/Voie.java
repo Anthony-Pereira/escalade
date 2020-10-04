@@ -8,9 +8,11 @@ public class Voie {
     private Integer numero;
     private String nom;
     private String description;
+    private Site site;
     private Secteur secteur;
     private List<UrlPhoto> url;
     private Integer longueur;
+
     /**
      * Les difficultés vont de 3a à 3c, 4a à 4c, ..., 9a à 9c
      * cf :L'URL du billet de blog dans le README.md.
@@ -60,16 +62,24 @@ public class Voie {
         return description;
     }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Site getSite() {
+        return site;
+    }
+
+    public void setSite(Site site) {
+        this.site = site;
+    }
+
     public Secteur getSecteur() {
         return secteur;
     }
 
     public void setSecteur(Secteur secteur) {
         this.secteur = secteur;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public List<UrlPhoto> getUrl() {
@@ -103,6 +113,7 @@ public class Voie {
                 ", numero=" + numero +
                 ", nom='" + nom + '\'' +
                 ", description='" + description + '\'' +
+                ", site ='" + site + '\'' +
                 ", secteur=" + secteur +
                 ", url=" + url +
                 ", longueur=" + longueur +

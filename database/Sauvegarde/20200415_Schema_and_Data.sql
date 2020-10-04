@@ -1399,7 +1399,7 @@ ALTER TABLE ONLY public.departement
 --
 
 ALTER TABLE ONLY public.compte
-    ADD CONSTRAINT role_compte_fk FOREIGN KEY (role_role_code) REFERENCES public.role(id);
+    ADD CONSTRAINT role_compte_fk FOREIGN KEY (role_role_id) REFERENCES public.role(id);
 
 
 --

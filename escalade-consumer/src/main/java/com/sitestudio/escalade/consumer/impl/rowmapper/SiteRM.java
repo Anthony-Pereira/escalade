@@ -26,7 +26,8 @@ public class SiteRM implements RowMapper<Site> {
         site.setOfficielLesAmisDeLescalade(rs.getBoolean("officielLesAmisDeLescalade"));
 
         try {
-            site.setAdresse(adresseDao.read(rs.getInt("adresse_id")));
+            Integer var = rs.getInt("adresse_id");
+            site.setAdresse(adresseDao.read(var));
         } catch (NotFoundException e) {
             e.printStackTrace();
         }

@@ -23,24 +23,24 @@
     <div class="jumbotron">
         <h1 class="col-sm-12 d-flex justify-content-center">Sites</h1>
         <br/>
-        <form action="siteSearch" method="post">
+        <form action="moreCriteria" method="post">
             <div class="row">
                 <div class="col-md-12 d-flex justify-content-center mb-3">
                     <div class="col-sm-3">
-                        <select class="custom-select custom-select-lg">
+                        <select class="custom-select custom-select-lg" name="departement" id="departement">
                             <option selected>Departements</option>
                             <c:forEach items="${listDepartements}" var="departement">
-                                <option value="${departement.id}" name="departement">
+                                <option value="${departement.id}">
                                     <c:out value="${departement.nom}"/>
                                 </option>
                             </c:forEach>
                         </select>
                     </div>
                     <div class="col-sm-3">
-                        <select class="custom-select custom-select-lg">
+                        <select class="custom-select custom-select-lg" name="cotation" id="cotation">
                             <option selected>Cotations</option>
                             <c:forEach items="${listCotations}" var="cotation">
-                                <option value="${cotation.id}" name="cotation">
+                                <option value="${cotation.id}">
                                     <c:out value="${cotation.difficulte}"/>
                                 </option>
                             </c:forEach>
@@ -53,7 +53,7 @@
             </div>
         </form>
 
-        <p>Le resultat de la recher par critère est : <c:out value="${listSiteByCriteria}"/></p>
+        <p>Le resultat de la recher par critère est : </p><c:out value="${listSiteByCriteria}"/>
 
     </div>
 

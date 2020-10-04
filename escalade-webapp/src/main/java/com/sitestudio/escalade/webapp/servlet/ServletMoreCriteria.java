@@ -54,21 +54,19 @@ public class ServletMoreCriteria extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
-        Departement departement = new Departement();
-        Cotation cotation = new Cotation();
+        Voie voie = new Voie();
 
         SiteResource siteResource = new SiteResource();
 
         HttpSession httpSession = request.getSession();
 
-        String departementId = request.getParameter("departement");
-        String cotationId = request.getParameter("cotation");
+        String departement = request.getParameter("departement");
+        String difficulte = request.getParameter("cotation");
 
-        departement.setId(Integer.parseInt(departementId));
-        cotation.setId(Integer.parseInt(cotationId));
+        voie.setDifficulte(difficulte);
 
         try {
-        List<Site> listSiteByCriteria = siteResource.getSite(departement,cotation);
+        List<Object> listSiteByCriteria = siteResource.getSite(Integer.parseInt(departement), voie);
             System.out.println("le resultat de la recherche par critère est : " + listSiteByCriteria);
             httpSession.setAttribute("listSiteByCriteria",listSiteByCriteria);
         } catch (NotFoundException e) {
