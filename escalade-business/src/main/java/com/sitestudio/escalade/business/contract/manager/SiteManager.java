@@ -33,7 +33,7 @@ public interface SiteManager {
      * @return Un objet site.
      * @throws NotFoundException
      */
-    List<Object> getSite(Integer departement, Voie voie) throws NotFoundException;
+    List<Site> getSite(Integer departement, Voie voie) throws NotFoundException;
 
     /**
      * Créer un site.

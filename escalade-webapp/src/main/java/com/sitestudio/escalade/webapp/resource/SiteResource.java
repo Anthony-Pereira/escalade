@@ -23,7 +23,7 @@ public class SiteResource extends AbstractResource {
         return getManagerFactory().getSiteManager().getSite();
     }
 
-    public List<Object> getSite(Integer departement, Voie voie) throws NotFoundException {
+    public List<Site> getSite(Integer departement, Voie voie) throws NotFoundException {
         return getManagerFactory().getSiteManager().getSite(departement,voie);
     }
 

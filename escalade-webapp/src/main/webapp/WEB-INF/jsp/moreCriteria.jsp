@@ -56,10 +56,30 @@
         <c:if test="${!empty departement || !empty difficulte}">
             <c:choose>
                 <c:when test="${listSiteByCriteria != null}">
-                    <p class="text-center h3">Le résultat de la recherche est : </p><c:out value="${listSiteByCriteria}"/>
+                    <c:forEach items="${listSiteByCriteria}" var="criteria">
+                        <div>
+                            <table class="table">
+                                <caption class="text-center text-dark mb-3" id="caption">Résultat de la recherche : </caption>
+                                <thead class="thead-light">
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <c:forEach items="${listSiteByCriteria}" var="criteria">
+                                    <tr>
+                                        <td><c:out value="${criteria.nom}"/></td>
+                                        <td><c:out value="${criteria.description}"/></td>
+                                    </tr>
+                                </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
+                    </c:forEach>
                 </c:when>
                 <c:when test="${listSiteByCriteria == null}">
-                    <p class="text-center h3">Aucun résultat trouvé</p>
+                    <p class="text-center h4">Aucun résultat trouvé</p>
                 </c:when>
             </c:choose>
         </c:if>

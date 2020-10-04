@@ -31,7 +31,7 @@ public class SiteManagerImpl extends AbstractManager implements SiteManager {
     }
 
     @Override
-    public List<Object> getSite(Integer departement, Voie voie) throws NotFoundException {
+    public List<Site> getSite(Integer departement, Voie voie) throws NotFoundException {
         return getDaoFactory().getSiteDao().readAll(departement,voie);
     }
 

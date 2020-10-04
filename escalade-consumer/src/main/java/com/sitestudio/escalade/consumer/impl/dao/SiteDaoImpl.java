@@ -65,20 +65,21 @@ public class SiteDaoImpl extends AbstractDao implements SiteDao {
     }
 
     @Override
-    public List<Object> readAll(Integer departement, Voie voie) throws NotFoundException {
+    public List<Site> readAll(Integer departement, Voie voie) throws NotFoundException {
 
-        String sql = "SELECT * FROM adresse INNER JOIN voie ON adresse.departement_id =" + departement + " AND voie.difficulte='" + voie.getDifficulte() + "'";
+        String sql = "SELECT site.site_id,site.nom,site.description" +
+                    " FROM site INNER JOIN adresse ON site.adresse_id = adresse.adresse_id " +
+                    " INNER JOIN voie ON site.site_id = voie.site_id " +
+                    " WHERE adresse.departement_id =" + departement + " AND voie.difficulte='" + voie.getDifficulte() + "'";
 
         JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
 
-        List<Object> listObject = jdbcTemplate.query(sql,moreCriteriaRM);
+        List<Site> listSite = jdbcTemplate.query(sql,moreCriteriaRM);
 
-        System.out.println("listObject de plus de critere est = à : "+ listObject);
-
-        if (listObject.size() == 0){
+        if (listSite.size() == 0){
             throw new NotFoundException("Aucun site trouvé");
         } else {
-            return listObject;
+            return listSite;
         }
     }
 

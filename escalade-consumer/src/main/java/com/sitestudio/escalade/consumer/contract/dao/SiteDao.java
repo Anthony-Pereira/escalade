@@ -33,7 +33,7 @@ public interface SiteDao {
     /**
      * Méthode de recherche des informations
      * @return T */
-    List<Object> readAll(Integer departement, Voie voie) throws NotFoundException;
+    List<Site> readAll(Integer departement, Voie voie) throws NotFoundException;
 
     /**
      * Méthode de recherche des informations

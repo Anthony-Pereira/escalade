@@ -67,7 +67,7 @@ public class ServletMoreCriteria extends HttpServlet {
         voie.setDifficulte(difficulte);
 
         try {
-        List<Object> listSiteByCriteria = siteResource.getSite(Integer.parseInt(departement), voie);
+        List<Site> listSiteByCriteria = siteResource.getSite(Integer.parseInt(departement), voie);
             System.out.println("le resultat de la recherche par critère est : " + listSiteByCriteria);
             request.setAttribute("listSiteByCriteria",listSiteByCriteria);
         } catch (NotFoundException e) {
