@@ -52,9 +52,17 @@
                 <button type="submit" class="btn btn-primary my-1">Envoyer</button>
             </div>
         </form>
-
-        <p>Le resultat de la recher par critère est : </p><c:out value="${listSiteByCriteria}"/>
-
+        <br/>
+        <c:if test="${!empty departement || !empty difficulte}">
+            <c:choose>
+                <c:when test="${listSiteByCriteria != null}">
+                    <p class="text-center h3">Le résultat de la recherche est : </p><c:out value="${listSiteByCriteria}"/>
+                </c:when>
+                <c:when test="${listSiteByCriteria == null}">
+                    <p class="text-center h3">Aucun résultat trouvé</p>
+                </c:when>
+            </c:choose>
+        </c:if>
     </div>
 
 </div>

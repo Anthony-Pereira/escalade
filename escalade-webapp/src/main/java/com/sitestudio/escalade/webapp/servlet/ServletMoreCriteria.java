@@ -58,17 +58,18 @@ public class ServletMoreCriteria extends HttpServlet {
 
         SiteResource siteResource = new SiteResource();
 
-        HttpSession httpSession = request.getSession();
-
         String departement = request.getParameter("departement");
         String difficulte = request.getParameter("cotation");
+
+        request.setAttribute("departement",departement);
+        request.setAttribute("difficulte",difficulte);
 
         voie.setDifficulte(difficulte);
 
         try {
         List<Object> listSiteByCriteria = siteResource.getSite(Integer.parseInt(departement), voie);
             System.out.println("le resultat de la recherche par critère est : " + listSiteByCriteria);
-            httpSession.setAttribute("listSiteByCriteria",listSiteByCriteria);
+            request.setAttribute("listSiteByCriteria",listSiteByCriteria);
         } catch (NotFoundException e) {
             e.printStackTrace();
         }
