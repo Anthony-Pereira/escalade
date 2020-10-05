@@ -1,12 +1,9 @@
 package com.sitestudio.escalade.webapp.servlet;
 
-import com.sitestudio.escalade.model.bean.compte.Adresse;
 import com.sitestudio.escalade.model.bean.referentiel.Cotation;
 import com.sitestudio.escalade.model.bean.referentiel.Departement;
-import com.sitestudio.escalade.model.bean.site.Secteur;
 import com.sitestudio.escalade.model.bean.site.Site;
 import com.sitestudio.escalade.model.bean.site.Voie;
-import com.sitestudio.escalade.model.exception.FunctionalException;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 import com.sitestudio.escalade.webapp.resource.*;
 

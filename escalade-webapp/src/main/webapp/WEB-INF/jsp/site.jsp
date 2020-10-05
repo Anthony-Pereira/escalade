@@ -23,7 +23,7 @@
     <div class="jumbotron">
         <h1 class="col-sm-12 d-flex justify-content-center">Sites</h1>
         <br/>
-        <form class="form-inline" action="site" method="post">
+        <form class="form-inline" action="siteSearch" method="get">
             <div class="col-sm-12 d-flex justify-content-center">
                 <select name="site" id="site" class="custom-select custom-select-lg">
                     <option selected >Sélectionner</option>
