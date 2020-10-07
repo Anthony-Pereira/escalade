@@ -63,7 +63,7 @@ public class ServletMyTopo extends HttpServlet {
         topo.setDescription(description);
         topo.setLieu(lieu);
         topo.setParution(Integer.parseInt(parution));
-        topo.setReservation(0);
+        topo.setReservation(1);
         topo.setCompte(compte);
 
         try {

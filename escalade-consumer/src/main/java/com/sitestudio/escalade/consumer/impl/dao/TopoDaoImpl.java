@@ -76,9 +76,9 @@ public class TopoDaoImpl extends AbstractDao implements TopoDao {
     public Boolean create(Topo topo) {
 
         String sql = "INSERT INTO topo " +
-                "(nom,description,lieu,parution,reservation,compte_id,emprunteur_id)" +
+                "(nom,description,lieu,parution,reservation,compte_id)" +
                 "VALUES" +
-                "(:nom,:description,:lieu,:parution,:reservation,:compte_id,:emprunteur_id)";
+                "(:nom,:description,:lieu,:parution,:reservation,:compte_id)";
 
         MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
 
@@ -89,7 +89,6 @@ public class TopoDaoImpl extends AbstractDao implements TopoDao {
         mapSqlParameterSource.addValue("parution",topo.getParution(), Types.INTEGER);
         mapSqlParameterSource.addValue("reservation",topo.getReservation(), Types.INTEGER);
         mapSqlParameterSource.addValue("compte_id",topo.getCompte().getId(),Types.INTEGER);
-        mapSqlParameterSource.addValue("emprunteur_id",topo.getEmprunteur(), Types.INTEGER);
 
         NamedParameterJdbcTemplate jdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
 
@@ -101,12 +100,13 @@ public class TopoDaoImpl extends AbstractDao implements TopoDao {
     @Override
     public Boolean update(Topo topo) {
 
-        String sql = "UPDATE topo SET nom=:nom,description=:description,lieu=:lieu,parution=:parution,reservation=:reservation,emprunteur_id=:emprunteur_id WHERE topo_id =" + topo.getId();
+        String sql = "UPDATE topo SET compte_id=:compte_id,nom=:nom,description=:description,lieu=:lieu,parution=:parution,reservation=:reservation,emprunteur_id=:emprunteur_id " +
+                     "WHERE topo_id =" + topo.getId();
 
         MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
 
         mapSqlParameterSource.addValue("topo_id",topo.getId(),Types.INTEGER);
-        mapSqlParameterSource.addValue("compte_id",topo.getCompte().getId());
+        mapSqlParameterSource.addValue("compte_id",topo.getCompte().getId(),Types.INTEGER);
         mapSqlParameterSource.addValue("nom", topo.getNom(),Types.VARCHAR);
         mapSqlParameterSource.addValue("description", topo.getDescription(), Types.VARCHAR);
         mapSqlParameterSource.addValue("lieu", topo.getLieu(), Types.VARCHAR);

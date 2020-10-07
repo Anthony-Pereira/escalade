@@ -95,6 +95,15 @@
                         <c:when test="${topo.reservation == 0}">
                             <td class="bg-light">aucun</td>
                             <td class="bg-light">non réservé</td>
+                            <td class="bg-light">
+                                <form method="get" action="topoList">
+                                    <div>
+                                        <ul class="list-group list-group-horizontal">
+                                            <li class="list-inline-item"><button type="submit" class="btn btn-outline-secondary" value="${topo.id}" name="topoIndisponible">Indisponible</button></li>
+                                        </ul>
+                                    </div>
+                                </form>
+                            </td>
                         </c:when>
                         <c:when test="${topo.reservation == 1}">
                             <td class="bg-light"><c:out value="${topo.emprunteur.pseudo}"/></td>

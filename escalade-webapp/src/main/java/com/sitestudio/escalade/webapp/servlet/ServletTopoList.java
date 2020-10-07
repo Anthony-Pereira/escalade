@@ -27,6 +27,7 @@ public class ServletTopoList extends HttpServlet {
         HttpSession httpSession = request.getSession();
 
         String topoDisponible = request.getParameter("topoDisponible");
+        String topoIndisponible = request.getParameter("topoIndisponible");
 
         Compte compte = (Compte) httpSession.getAttribute("compte");
 
@@ -47,11 +48,21 @@ public class ServletTopoList extends HttpServlet {
 
             topo.setReservation(0);
 
+        } else if (topoIndisponible != null){
             try {
-                topoResource.updateTopo(topo);
+                topo = topoResource.getTopo(Integer.parseInt(topoIndisponible));
             } catch (NotFoundException e) {
                 e.printStackTrace();
             }
+
+            topo.setReservation(1);
+
+        }
+
+        try {
+            topoResource.updateTopo(topo);
+        } catch (NotFoundException e) {
+            e.printStackTrace();
         }
 
         if (httpSession.getAttribute("compte") != null) {
