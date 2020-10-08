@@ -96,7 +96,7 @@
                             <td class="bg-light">aucun</td>
                             <td class="bg-light">non réservé</td>
                             <td class="bg-light">
-                                <form method="get" action="topoList">
+                                <form method="post" action="topoList">
                                     <div>
                                         <ul class="list-group list-group-horizontal">
                                             <li class="list-inline-item"><button type="submit" class="btn btn-outline-secondary" value="${topo.id}" name="topoIndisponible">Indisponible</button></li>
@@ -109,7 +109,7 @@
                             <td class="bg-light"><c:out value="${topo.emprunteur.pseudo}"/></td>
                             <td class="bg-light">réservé</td>
                             <td class="bg-light">
-                                <form method="get" action="topoList">
+                                <form method="post" action="topoList">
                                     <div>
                                         <ul class="list-group list-group-horizontal">
                                             <li class="list-inline-item"><button type="submit" class="btn btn-outline-secondary" value="${topo.id}" name="topoDisponible">disponible</button></li>
