@@ -106,8 +106,16 @@
                             </td>
                         </c:when>
                         <c:when test="${topo.reservation == 1}">
-                            <td class="bg-light"><c:out value="${topo.emprunteur.pseudo}"/></td>
-                            <td class="bg-light">réservé</td>
+                            <c:choose>
+                                <c:when test="${topo.compte.id != topo.emprunteur.id}">
+                                    <td class="bg-light"><c:out value="${topo.emprunteur.pseudo}"/></td>
+                                    <td class="bg-light">réservé</td>
+                                </c:when>
+                                <c:when test="${topo.compte.id == topo.emprunteur.id}">
+                                    <td class="bg-light">aucun</td>
+                                    <td class="bg-light">n/a</td>
+                                </c:when>
+                            </c:choose>
                             <td class="bg-light">
                                 <form method="post" action="topoList">
                                     <div>
