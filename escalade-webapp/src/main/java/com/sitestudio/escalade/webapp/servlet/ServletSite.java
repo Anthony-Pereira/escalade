@@ -58,8 +58,6 @@ public class ServletSite extends HttpServlet {
 
                 httpSession.setAttribute("compte", compte);
                 httpSession.setAttribute("listSites", listSites);
-                httpSession.setAttribute("listCommentaires", listCommentaires);
-                httpSession.setAttribute("listSecteurs", listSecteurs);
 
             } else {
 
@@ -74,6 +72,16 @@ public class ServletSite extends HttpServlet {
                 httpSession.setAttribute("listSecteurs", listSecteurs);
                 httpSession.setAttribute("listCommentaires", listCommentaires);
 
+                httpSession.setAttribute("site",site);
+                httpSession.setAttribute("siteTitle",site.getNom());
+                httpSession.setAttribute("siteDescription",site.getDescription());
+                httpSession.setAttribute("siteOfficielLesAmisDeLescalade",site.getOfficielLesAmisDeLescalade());
+
+                System.out.println("Le compte : " + compte);
+                System.out.println("siteTitle " + site.getNom());
+                System.out.println("siteDescription " + site.getDescription());
+                System.out.println("siteOfficielLesAmisDeLescalade " + site.getOfficielLesAmisDeLescalade());
+
             }
 
         } catch (NotFoundException | FunctionalException e) {
@@ -81,16 +89,6 @@ public class ServletSite extends HttpServlet {
         }
 
         httpSession.setAttribute("compte",compte);
-
-        httpSession.setAttribute("site",site);
-        httpSession.setAttribute("siteTitle",site.getNom());
-        httpSession.setAttribute("siteDescription",site.getDescription());
-        httpSession.setAttribute("siteOfficielLesAmisDeLescalade",site.getOfficielLesAmisDeLescalade());
-
-        System.out.println("Le compte : " + compte);
-        System.out.println("siteTitle " + site.getNom());
-        System.out.println("siteDescription " + site.getDescription());
-        System.out.println("siteOfficielLesAmisDeLescalade " + site.getOfficielLesAmisDeLescalade());
 
         this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/site.jsp").forward(request,response);
 

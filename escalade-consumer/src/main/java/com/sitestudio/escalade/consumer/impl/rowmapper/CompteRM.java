@@ -39,11 +39,16 @@ public class CompteRM implements RowMapper<Compte> {
             e.printStackTrace();
         }
 
-        try {
-            compte.setRole(roleDao.read(rs.getInt("role_role_id")));
-        } catch (NotFoundException e) {
-            e.printStackTrace();
-        }
+        /* --- TROUVE LA SOLUTION CONCERNANT LA RECUPERATION DE VALEUR DANS UN OBJET ENUM ---
+
+        Regler aussi ce httpSession qui stocke la variable longtemps preféré un request.setAttribute
+
+            try {
+                compte.setRole(roleDao.read(rs.getInt("role_role_id")));
+            } catch (NotFoundException e) {
+                e.printStackTrace();
+            }
+         */
 
         return compte;
     }

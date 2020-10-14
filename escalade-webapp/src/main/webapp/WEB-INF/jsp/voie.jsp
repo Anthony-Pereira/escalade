@@ -53,7 +53,7 @@
         </c:when>
         <c:when test="${listVoies == null}">
             <div class="text-center h3">
-                <p>Aucune résultat</p>
+                <p>Aucune voie n'a été trouvé pour ce secteur</p>
                 <br/>
             </div>
         </c:when>
