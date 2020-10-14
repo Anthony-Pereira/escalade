@@ -1,7 +1,9 @@
 package com.sitestudio.escalade.consumer.impl.rowmapper;
 
 import com.sitestudio.escalade.consumer.impl.dao.AdresseDaoImpl;
+import com.sitestudio.escalade.consumer.impl.dao.RoleDaoImpl;
 import com.sitestudio.escalade.model.bean.compte.Compte;
+import com.sitestudio.escalade.model.bean.referentiel.EnumRole;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -15,6 +17,9 @@ public class CompteRM implements RowMapper<Compte> {
 
     @Inject
     AdresseDaoImpl adresseDao;
+
+    @Inject
+    RoleDaoImpl roleDao;
 
     @Override
     public Compte mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -30,6 +35,12 @@ public class CompteRM implements RowMapper<Compte> {
 
         try {
             compte.setAdresse(adresseDao.read(rs.getInt("adresse_id")));
+        } catch (NotFoundException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            compte.setRole(roleDao.read(rs.getInt("role_role_id")));
         } catch (NotFoundException e) {
             e.printStackTrace();
         }

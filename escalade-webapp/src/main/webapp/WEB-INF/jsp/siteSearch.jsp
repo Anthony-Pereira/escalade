@@ -45,21 +45,34 @@
             </form>
         </div>
     <br/>
-    <c:if test="${!empty compte}">
-        <div class="form-group">
-            <h3>Commentaire</h3>
-            <br/>
-            <form method="post" action="siteSearch">
+        <c:if test="${!empty compte}">
+            <div class="form-group">
+                <h3>Commentaire</h3>
+                <br/>
+                <form method="post" action="siteSearch">
                 <textarea class="form-control" name="commentaire" id="commentaire" rows="10" cols="100"
                           required></textarea>
+                    <br/>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary tx-tfm">Envoyer</button>
+                    </div>
+                </form>
                 <br/>
-                <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-primary tx-tfm">Envoyer</button>
-                </div>
-            </form>
-            <br/>
-        </div>
-    </c:if>
+            </div>
+        </c:if>
+        <c:if test="${!empty commentaire}">
+            <div class="form-group">
+                <h3>Modifier commentaire de <c:out value="${commentaire.compte.pseudo}"/></h3>
+                <br/>
+                <form method="post" action="siteSearch">
+                    <textarea class="form-control" name="commentaireModified" id="commentaireModified" rows="10" cols="100" required><c:out value="${commentaire.commentaire}"/></textarea>
+                    <br/>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary tx-tfm">Envoyer</button>
+                    </div>
+                </form>
+            </div>
+        </c:if>
     <div>
         <table class="table">
             <caption class="text-center text-dark mb-3" id="caption">Retrouvez ici les commentaires des utilisateurs
@@ -79,18 +92,12 @@
                     <td><c:out value="${commentaire.date}"/></td>
 
                     <c:if test="${compte.role == 1 || compte.role == 2}">
-                        <td>
-                            <form action="commentary" method="get">
-                                <div>
-                                    <button type="submit"
-                                            class="btn btn-secondary" name="commentary" value="0">Modifier
-                                    </button>
-                                    <button type="submit"
-                                            class="btn btn-secondary" name="commentary" value="1">Supprimer
-                                    </button>
-                                </div>
-                            </form>
-                        </td>
+                        <form method="post" action="siteSearch">
+                            <td>
+                                <button type="submit" value="${commentaire.id}" name="modifier" id="modifier" class="btn btn-outline-secondary my-1">modifier</button>
+                                <button type="submit" value="${commentaire.id}" name="supprimer" id="supprimer" class="btn btn-outline-secondary my-1">supprimer</button>
+                            </td>
+                        </form>
                     </c:if>
                 </tr>
             </c:forEach>

@@ -5,7 +5,7 @@ public enum EnumRole {
     MEMBRE(2, "Membre", "Membre de l'association."),
     UTILISATEUR(3, "Utilisateur", "Utilisateur du site ayant un compte.");
 
-    private int id;
+    private Integer id;
     private String designation;
     private String description;
 

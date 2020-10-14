@@ -18,6 +18,10 @@ public class RoleRM implements RowMapper<EnumRole> {
         EnumRole.valueOf(rs.getString("designation"));
         EnumRole.valueOf(rs.getString("description"));
 
+        enumRole.setId(rs.getInt("id"));
+        enumRole.setDesignation(rs.getString("designation"));
+        enumRole.setDescription(rs.getString("description"));
+
         return enumRole;
     }
 }
