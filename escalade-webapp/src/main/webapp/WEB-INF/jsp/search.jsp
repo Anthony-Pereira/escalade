@@ -26,7 +26,7 @@
         <form class="form-inline" action="site" method="get">
             <div class="col-sm-12 d-flex justify-content-center">
                 <select name="site" id="site" class="custom-select custom-select-lg">
-                    <option selected >Sélectionner</option>
+                    <option selected value="all">Sélectionner</option>
                     <c:forEach items="${listSites}" var="site">
                         <option value="${site.id}">
                             <c:out value="${site.nom}"/>

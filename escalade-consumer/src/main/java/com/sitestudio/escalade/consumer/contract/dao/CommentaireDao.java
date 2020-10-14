@@ -22,7 +22,21 @@ public interface CommentaireDao {
      * @return T */
     Commentaire read (Integer id) throws NotFoundException;
 
+    /**
+     * Méthode de recherche des informations
+     * @return T */
+    List<Commentaire> readAll() throws NotFoundException;
+
+    /**
+     * Méthode de recherche des informations
+     * @param site
+     * @return T */
     List<Commentaire> readAll(Site site) throws NotFoundException;
+
+    /**
+     * Méthode de recherche des informations
+     * @param id
+     * @return T */
     List<Commentaire> readAll(int id);
 
     /**

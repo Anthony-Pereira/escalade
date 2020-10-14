@@ -22,7 +22,12 @@ public class CommentaireManagerImpl extends AbstractManager implements Commentai
         return getDaoFactory().getCommentaireDao().read(id);
     }
 
-@Override
+    @Override
+    public List<Commentaire> getCommentaire() throws NotFoundException, FunctionalException {
+        return getDaoFactory().getCommentaireDao().readAll();
+    }
+
+    @Override
     public List<Commentaire> getCommentaire(Site site) throws NotFoundException, FunctionalException {
         return getDaoFactory().getCommentaireDao().readAll(site);
     }

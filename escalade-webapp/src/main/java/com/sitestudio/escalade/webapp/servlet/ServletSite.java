@@ -45,18 +45,36 @@ public class ServletSite extends HttpServlet {
             if (compte != null) {
                 compte = compteResource.getCompte(compte.getId());
             }
-            site = siteResource.getSite(Integer.parseInt(siteId));
-            List<Secteur> listSecteurs = secteurResource.getSecteur(site);
-            List<Commentaire> listCommentaires = commentaireResource.getCommentaire(site);
 
-            System.out.println("Le compte : " + compte);
-            System.out.println("Le site est : " + site);
-            System.out.println("Les secteurs sont : " + listSecteurs);
-            System.out.println("Les commentaires sont : " + listCommentaires);
+            if (siteId.equals("all")) {
 
-            httpSession.setAttribute("compte",compte);
-            httpSession.setAttribute("listCommentaires",listCommentaires);
-            httpSession.setAttribute("listSecteurs",listSecteurs);
+                List<Site> listSites = siteResource.getSite();
+                List<Secteur> listSecteurs = secteurResource.getSecteur();
+                List<Commentaire> listCommentaires = commentaireResource.getCommentaire();
+
+                System.out.println("Les sites sont : " + listSites);
+                System.out.println("Les secteurs sont : " + listSecteurs);
+                System.out.println("Les commentaires sont : " + listCommentaires);
+
+                httpSession.setAttribute("compte", compte);
+                httpSession.setAttribute("listSites", listSites);
+                httpSession.setAttribute("listCommentaires", listCommentaires);
+                httpSession.setAttribute("listSecteurs", listSecteurs);
+
+            } else {
+
+                site = siteResource.getSite(Integer.parseInt(siteId));
+                List<Secteur> listSecteurs = secteurResource.getSecteur(site);
+                List<Commentaire> listCommentaires = commentaireResource.getCommentaire(site);
+
+                System.out.println("Le site est : " + site);
+                System.out.println("Les secteurs du site sont : " + listSecteurs);
+                System.out.println("Les commentaires du site sont : " + listCommentaires);
+
+                httpSession.setAttribute("listSecteurs", listSecteurs);
+                httpSession.setAttribute("listCommentaires", listCommentaires);
+
+            }
 
         } catch (NotFoundException | FunctionalException e) {
             System.out.println("ERREUR : " + e);
@@ -69,6 +87,7 @@ public class ServletSite extends HttpServlet {
         httpSession.setAttribute("siteDescription",site.getDescription());
         httpSession.setAttribute("siteOfficielLesAmisDeLescalade",site.getOfficielLesAmisDeLescalade());
 
+        System.out.println("Le compte : " + compte);
         System.out.println("siteTitle " + site.getNom());
         System.out.println("siteDescription " + site.getDescription());
         System.out.println("siteOfficielLesAmisDeLescalade " + site.getOfficielLesAmisDeLescalade());

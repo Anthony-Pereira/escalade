@@ -20,6 +20,13 @@ public interface CommentaireManager {
      * Retourne l'objet Commentaire ciblé.
      * @return Un objet Commentaire.
      * @throws NotFoundException,FunctionalException */
+    List<Commentaire> getCommentaire() throws NotFoundException, FunctionalException;
+
+    /**
+     * Retourne l'objet Commentaire ciblé.
+     * @param  site un paramètre site.
+     * @return Un objet Commentaire.
+     * @throws NotFoundException,FunctionalException */
     List<Commentaire> getCommentaire(Site site) throws NotFoundException, FunctionalException;
 
     /**Créer un commentaire.
