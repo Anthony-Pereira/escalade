@@ -60,7 +60,7 @@ public class ServletCommentary extends HttpServlet {
             e.printStackTrace();
         }
 
-        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/site.jsp").forward(request,response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/search.jsp").forward(request,response);
 
     }
 

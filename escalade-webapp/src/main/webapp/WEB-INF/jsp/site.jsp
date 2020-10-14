@@ -17,67 +17,98 @@
 
 <body>
 
-<%@ include file="../../static/fragment/header.jsp"%>
+<%@ include file="../../static/fragment/header.jsp" %>
 
-<div>
-    <div class="jumbotron">
-        <h1 class="col-sm-12 d-flex justify-content-center">Sites</h1>
+<div class="container">
+    <div class="jumbotron bg-transparent">
+        <h1 class="text-center"><c:out value="${sessionScope.siteTitle}"/></h1>
         <br/>
-        <form class="form-inline" action="siteSearch" method="get">
-            <div class="col-sm-12 d-flex justify-content-center">
-                <select name="site" id="site" class="custom-select custom-select-lg">
-                    <option selected >Sélectionner</option>
-                    <c:forEach items="${listSites}" var="site">
-                        <option value="${site.id}">
-                            <c:out value="${site.nom}"/>
-                        </option>
-                    </c:forEach>
-                </select>
-            </div>
-            <div class="col-sm-12 d-flex justify-content-center">
-                <a href="moreCriteria">plus de critères</a>
-            </div>
-            <div class="col-sm-12 d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary my-1">Rechercher</button>
-            </div>
-        </form>
+        <c:if test="${sessionScope.siteOfficielLesAmisDeLescalade == true}">
+            <h3 class="text-center">Officiel Les amis de l’escalade</h3>
+        </c:if>
+        <br/>
+        <p><c:out value="${sessionScope.siteDescription}"/></p>
     </div>
+        <div>
+            <form action="voie" method="get">
+                <label for="secteur" class="h4">Liste des secteurs du site :</label>
+                    <select name="secteur" id="secteur" class="custom-select">
+                        <c:forEach items="${listSecteurs}" var="secteur">
+                        <option value="${secteur.id}">
+                            <c:out value="${secteur.nom}"/> - <c:out value="${secteur.description}"/>
+                        </option>
+                        </c:forEach>
+                    </select>
+                    <div class="col-sm-12 d-flex justify-content-center mt-3">
+                        <button type="submit" class="btn btn-primary my-1">Rechercher</button>
+                    </div>
+            </form>
+        </div>
+    <br/>
+        <c:if test="${!empty compte}">
+            <div class="form-group">
+                <h3>Commentaire</h3>
+                <br/>
+                <form method="post" action="siteSearch">
+                <textarea class="form-control" name="commentaire" id="commentaire" rows="10" cols="100"
+                          required></textarea>
+                    <br/>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary tx-tfm">Envoyer</button>
+                    </div>
+                </form>
+                <br/>
+            </div>
+        </c:if>
+        <c:if test="${!empty commentaire}">
+            <div class="form-group">
+                <h3>Modifier commentaire de <c:out value="${commentaire.compte.pseudo}"/></h3>
+                <br/>
+                <form method="post" action="siteSearch">
+                    <textarea class="form-control" name="commentaireModified" id="commentaireModified" rows="10" cols="100" required><c:out value="${commentaire.commentaire}"/></textarea>
+                    <br/>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary tx-tfm">Envoyer</button>
+                    </div>
+                </form>
+            </div>
+        </c:if>
     <div>
         <table class="table">
-                <caption class="text-center text-dark mb-3" id="caption">Retrouvez ici notre sélection des sites d'escalade en France.
-                </caption>
-                <thead class="thead-light">
+            <caption class="text-center text-dark mb-3" id="caption">Retrouvez ici les commentaires des utilisateurs
+            </caption>
+            <thead class="thead-light">
+            <tr>
+                <th>Utilisateur</th>
+                <th>Commentaire</th>
+                <th>Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="${listCommentaires}" var="commentaire">
                 <tr>
-                    <th>Nom</th>
-                    <th>Département</th>
-                    <th>Region</th>
-                    <th>Pays</th>
-                    <th>Officiel les amis de l’escalade</th>
-                </tr>
-                </thead>
-                <tbody>
-                    <c:forEach items="${listSites}" var="site">
-                        <tr>
-                            <td><c:out value="${site.nom}"/></td>
-                            <td><c:out value="${site.adresse.departement.id}"/></td>
-                            <td><c:out value="${site.adresse.departement.region.nom}"/></td>
-                            <td><c:out value="${site.adresse.departement.region.pays.nom}"/></td>
-                            <c:choose>
-                                <c:when test="${site.officielLesAmisDeLescalade == true}"><td>Oui</td></c:when>
-                                <c:when test="${site.officielLesAmisDeLescalade == false}"><td>Non</td></c:when>
-                            </c:choose>
-                        </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
-    </div>
+                    <td><c:out value="${commentaire.compte.pseudo}"/></td>
+                    <td><c:out value="${commentaire.commentaire}"/></td>
+                    <td><c:out value="${commentaire.date}"/></td>
 
+                    <c:if test="${compte.role == 1 || compte.role == 2}">
+                        <form method="post" action="site">
+                            <td>
+                                <button type="submit" value="${commentaire.id}" name="modifier" id="modifier" class="btn btn-outline-secondary my-1">modifier</button>
+                                <button type="submit" value="${commentaire.id}" name="supprimer" id="supprimer" class="btn btn-outline-secondary my-1">supprimer</button>
+                            </td>
+                        </form>
+                    </c:if>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </div>
 </div>
 
+<%@ include file="../../static/fragment/footer.jsp" %>
 
-<%@ include file="../../static/fragment/footer.jsp"%>
-
-<%@ include file="../../static/fragment/bootstrap.jsp"%>
+<%@ include file="../../static/fragment/bootstrap.jsp" %>
 
 </body>
 </html>

@@ -193,12 +193,12 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>ServletSite</servlet-name>
-        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletSite</servlet-class>
+        <servlet-name>ServletSearch</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletSearch</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ServletSite</servlet-name>
-        <url-pattern>/site</url-pattern>
+        <servlet-name>ServletSearch</servlet-name>
+        <url-pattern>/search</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -211,12 +211,12 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>ServletSiteSearch</servlet-name>
-        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletSiteSearch</servlet-class>
+        <servlet-name>ServletSite</servlet-name>
+        <servlet-class>com.sitestudio.escalade.webapp.servlet.ServletSite</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ServletSiteSearch</servlet-name>
-        <url-pattern>/siteSearch</url-pattern>
+        <servlet-name>ServletSite</servlet-name>
+        <url-pattern>/site</url-pattern>
     </servlet-mapping>
 
     <servlet>
