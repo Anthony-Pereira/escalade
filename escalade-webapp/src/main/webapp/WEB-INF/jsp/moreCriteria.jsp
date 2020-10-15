@@ -21,14 +21,13 @@
 
 <div>
     <div class="jumbotron">
-        <h1 class="col-sm-12 d-flex justify-content-center">Sites</h1>
-        <br/>
+        <h1 class="col-sm-12 d-flex justify-content-center mb-5">Sites</h1>
         <form action="moreCriteria" method="post">
             <div class="row">
                 <div class="col-md-12 d-flex justify-content-center mb-3">
                     <div class="col-sm-3">
+                        <h4>Département :</h4>
                         <select class="custom-select custom-select-lg" name="departement" id="departement">
-                            <option selected disabled>Departements</option>
                             <c:forEach items="${listDepartements}" var="departement">
                                 <option value="${departement.id}">
                                     <c:out value="${departement.nom}"/>
@@ -37,8 +36,8 @@
                         </select>
                     </div>
                     <div class="col-sm-3">
+                        <h4>Cotation :</h4>
                         <select class="custom-select custom-select-lg" name="cotation" id="cotation">
-                            <option selected disabled>Cotations</option>
                             <c:forEach items="${listCotations}" var="cotation">
                                 <option value="${cotation.id}">
                                     <c:out value="${cotation.difficulte}"/>

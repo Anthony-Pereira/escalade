@@ -44,7 +44,7 @@
     </div>
     <div>
         <table class="table">
-                <caption class="text-center text-dark mb-3" id="caption">Retrouvez ici notre sélection des sites d'escalade en France.
+                <caption class="text-center text-dark mb-3" id="caption">Retrouvez ici notre sélection des sites d'escalade en France
                 </caption>
                 <thead class="thead-light">
                 <tr>
