@@ -23,13 +23,13 @@
     <c:choose>
         <c:when test="${!empty site}">
             <div class="jumbotron bg-transparent">
-                <h1 class="text-center"><c:out value="${sessionScope.siteTitle}"/></h1>
+                <h1 class="text-center"><c:out value="${site.nom}"/></h1>
                 <br/>
-                <c:if test="${sessionScope.siteOfficielLesAmisDeLescalade == true}">
+                <c:if test="${site.officielLesAmisDeLescalade == true}">
                     <h3 class="text-center">Officiel Les amis de l’escalade</h3>
                 </c:if>
                 <br/>
-                <p><c:out value="${sessionScope.siteDescription}"/></p>
+                <p><c:out value="${site.description}"/></p>
             </div>
             <div>
                 <form action="voie" method="get">

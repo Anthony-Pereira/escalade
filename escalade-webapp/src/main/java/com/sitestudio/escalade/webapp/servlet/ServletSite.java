@@ -57,7 +57,7 @@ public class ServletSite extends HttpServlet {
                 System.out.println("Les commentaires sont : " + listCommentaires);
 
                 httpSession.setAttribute("compte", compte);
-                httpSession.setAttribute("listSites", listSites);
+                request.setAttribute("listSites", listSites);
 
             } else {
 
@@ -72,16 +72,10 @@ public class ServletSite extends HttpServlet {
                 httpSession.setAttribute("listSecteurs", listSecteurs);
                 httpSession.setAttribute("listCommentaires", listCommentaires);
 
-                httpSession.setAttribute("site",site);
-                httpSession.setAttribute("siteTitle",site.getNom());
-                httpSession.setAttribute("siteDescription",site.getDescription());
-                httpSession.setAttribute("siteOfficielLesAmisDeLescalade",site.getOfficielLesAmisDeLescalade());
+                request.setAttribute("site",site);
 
                 System.out.println("Le compte : " + compte);
-                System.out.println("siteTitle " + site.getNom());
-                System.out.println("siteDescription " + site.getDescription());
-                System.out.println("siteOfficielLesAmisDeLescalade " + site.getOfficielLesAmisDeLescalade());
-
+                System.out.println("Le site : " + site);
             }
 
         } catch (NotFoundException | FunctionalException e) {
