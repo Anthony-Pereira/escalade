@@ -29,7 +29,7 @@
                 <div class="col-sm-12 d-flex justify-content-center">
                     <label for="secteur">Choisissez un secteur : </label>
                     <select class="custom-select custom-select-lg" name="secteur" id="secteur">
-                        <option selected>Sélectionner</option>
+                        <option selected disabled>Sélectionner</option>
                         <c:forEach items="${listSecteurs}" var="secteur">
                             <option value="${secteur.id}">
                                     <c:out value="${secteur.nom}"/>
