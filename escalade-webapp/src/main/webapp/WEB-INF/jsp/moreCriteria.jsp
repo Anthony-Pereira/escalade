@@ -28,7 +28,7 @@
                 <div class="col-md-12 d-flex justify-content-center mb-3">
                     <div class="col-sm-3">
                         <select class="custom-select custom-select-lg" name="departement" id="departement">
-                            <option selected>Departements</option>
+                            <option selected disabled>Departements</option>
                             <c:forEach items="${listDepartements}" var="departement">
                                 <option value="${departement.id}">
                                     <c:out value="${departement.nom}"/>
@@ -38,7 +38,7 @@
                     </div>
                     <div class="col-sm-3">
                         <select class="custom-select custom-select-lg" name="cotation" id="cotation">
-                            <option selected>Cotations</option>
+                            <option selected disabled>Cotations</option>
                             <c:forEach items="${listCotations}" var="cotation">
                                 <option value="${cotation.id}">
                                     <c:out value="${cotation.difficulte}"/>

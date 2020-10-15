@@ -48,14 +48,6 @@
 
             </p>
         </div>
-        <div>
-            <h4>Information sur le compte</h4>
-            <br/>
-            <ul class="list-unstyled"   >
-                <li>Date d'inscription : </li>
-                <li>Dernière connexion : </li>
-            </ul>
-        </div>
     </div>
 </div>
 

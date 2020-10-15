@@ -26,15 +26,10 @@
         <form action="editProfileAccount" method="post">
 
             <div class ="row m-3">
-                <div class="col-md-4 mb-5">
+                <div class="col-md-4 mb-5 m-0 p-0">
                     <div class="col-sm-12">
-                        <label for="avatar">Photo avatar</label> <input type="file" size="50"
-                                                                        name="avatar" class="form-control  col-sm-2" id="avatar"
-                                                                        aria-describedby="photo">
-                        <span class="text-info"></span>
-                    </div>
-                    <div class="col-sm-12">
-                        <label for="pseudo">Pseudo</label> <input type="text" size="50" value="<c:out value="${compte.pseudo}"/>"
+                        <br/>
+                        <label for="pseudo" class="h4">Pseudo</label> <input type="text" size="50" value="<c:out value="${compte.pseudo}"/>"
                                                                   name="pseudo" class="form-control  col-sm-4" id="pseudo"
                                                                   aria-describedby="pseudo" placeholder="nouveau pseudo">
                         <span class="text-info"></span>
@@ -42,6 +37,7 @@
                 </div>
 
                 <div class="col-md-4 bg-light">
+                    <br/>
                     <h4 class="my-2 mr-2 pt-2">À propos de moi</h4>
                         <div>
                             <label for="prenom">Prénom</label> <input type="text" size="50" value="<c:out value="${compte.prenom}"/>"

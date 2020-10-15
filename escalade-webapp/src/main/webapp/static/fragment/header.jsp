@@ -14,19 +14,6 @@
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarHeader">
-					<div class="form-inline ml-2 mr-4">
-						<form action="siteSearch.jsp" method="get">
-							<div class="row">
-								<label for="keyWord"></label> <input type="search"
-																	 name="keyWord" id="keyword" class="form-control m-1"
-																	 placeholder="Rechercher" size=30 required>
-								<button class="btn btn-secondary m-1" type="submit">
-									<img alt="rechercher" src="static/img/magnifying_glass.png">
-								</button>
-							</div>
-
-						</form>
-					</div>
 					<div>
 						<ul class="navbar-nav mr-auto">
 							<li class="nav-item"><a class="nav-link" href="search">Sites</a></li>

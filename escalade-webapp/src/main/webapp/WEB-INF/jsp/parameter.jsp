@@ -59,7 +59,7 @@
                                                                             aria-describedby="motDePasse" placeholder="Entrez votre nouveau mot de passe" required/>
                 <span class="text-danger"></span>
 
-                <label for="rewriteMotDePasse">Réécrire nouveau mot de passe</label> <input type="password"
+                <label for="rewriteMotDePasse">Réécrire le nouveau mot de passe</label> <input type="password"
                                                                                             name="rewriteMotDePasse" class="form-control col-sm-6 mb-2" id="rewriteMotDePasse"
                                                                                             aria-describedby="rewriteMotDePasse" placeholder="Entrez votre nouveau mot de passe" required/>
                 <span class="text-danger"></span>
