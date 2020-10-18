@@ -13,15 +13,21 @@ public class RoleRM implements RowMapper<EnumRole> {
     @Override
     public EnumRole mapRow(ResultSet rs, int rowNum) throws SQLException {
 
-        EnumRole enumRole = EnumRole.valueOf(String.valueOf(rs.getInt("id")));
-
-        EnumRole.valueOf(rs.getString("designation"));
-        EnumRole.valueOf(rs.getString("description"));
-
-        enumRole.setId(rs.getInt("id"));
-        enumRole.setDesignation(rs.getString("designation"));
-        enumRole.setDescription(rs.getString("description"));
-
+        Integer roleId = new Integer(rs.getInt("id"));
+        
+        EnumRole enumRole;
+        
+        switch (roleId){
+            case 1 : enumRole = EnumRole.ADMINISTRATEUR;
+                break;
+            case 2 : enumRole = EnumRole.MEMBRE;
+                break;
+            case 3 :enumRole = EnumRole.UTILISATEUR;
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + roleId);
+        }
+        
         return enumRole;
     }
 }

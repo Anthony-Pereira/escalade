@@ -38,7 +38,7 @@
 					<img class="card-img-top" src="static/img/site.jpg" alt="Site">
 					<div class="card-body">
 						<h5 class="card-title">Site</h5>
-						<p class="card-text">Ajouter vos sites,secteurs et voies</p>
+						<p class="card-text">Ajouter vos sites, secteurs et voies</p>
 						<a href="siteIndex" class="btn btn-primary">allez
 							vers</a>
 					</div>

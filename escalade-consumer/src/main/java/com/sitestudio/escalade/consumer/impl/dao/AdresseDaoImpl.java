@@ -31,15 +31,15 @@ public class AdresseDaoImpl extends AbstractDao implements AdresseDao {
 
         List<Adresse> listAdresse = jdbcTemplate.query(sql,adresseRM);
 
-        Adresse utilisateur;
+        Adresse adresse;
 
         if (listAdresse.size() == 0) {
             throw new NotFoundException("L'adresse n'existe pas");
         } else {
-             utilisateur = listAdresse.get(0);
+             adresse = listAdresse.get(0);
         }
 
-        return utilisateur;
+        return adresse;
     }
 
     @Override

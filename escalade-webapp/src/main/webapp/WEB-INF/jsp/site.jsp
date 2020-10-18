@@ -93,7 +93,7 @@
                             <td><c:out value="${commentaire.commentaire}"/></td>
                             <td><c:out value="${commentaire.date}"/></td>
 
-                            <c:if test="${compte.role == 1 || compte.role == 2}">
+                            <c:if test="${compte.role.id == 1 || compte.role.id == 2}">
                                 <form method="post" action="site">
                                     <td>
                                         <button type="submit" value="${commentaire.id}" name="modifier" id="modifier" class="btn btn-outline-secondary my-1">modifier</button>
