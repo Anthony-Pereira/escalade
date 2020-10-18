@@ -90,7 +90,7 @@ public class CompteDaoImpl extends AbstractDao implements CompteDao {
     public Boolean update(Compte compte) {
 
         String sql = "UPDATE compte SET nom=:nom,prenom=:prenom,pseudo=:pseudo," +
-                "email=:email,mot_de_passe=:mot_de_passe,num_telephone=:num_telephone,adresse_id=:adresse_id,role_role_id=:role_role_code," +
+                "email=:email,mot_de_passe=:mot_de_passe,num_telephone=:num_telephone,adresse_id=:adresse_id,role_role_id=:role_role_code " +
                 "WHERE compte_id=" + compte.getId();
 
         MapSqlParameterSource mapSqlParameterSource = getMapSqlParameterSource(compte);

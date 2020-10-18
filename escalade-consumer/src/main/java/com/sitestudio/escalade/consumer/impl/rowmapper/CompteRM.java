@@ -39,8 +39,6 @@ public class CompteRM implements RowMapper<Compte> {
             e.printStackTrace();
         }
 
-        /* --- TROUVE LA SOLUTION CONCERNANT LA RECUPERATION DE VALEUR DANS UN OBJET ENUM --- */
-
         try {
             compte.setRole(roleDao.read(rs.getInt("role_role_id")));
         } catch (NotFoundException e) {

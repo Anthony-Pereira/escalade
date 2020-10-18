@@ -52,6 +52,7 @@ public class ServletEditProfileAccount extends HttpServlet {
         compte.setPrenom(prenom);
         compte.setNom(nom);
         compte.setNumTelephone(numTelephone);
+        compte.setAdresse(adresse);
         compte.setRole(compte.getRole());
 
         try {

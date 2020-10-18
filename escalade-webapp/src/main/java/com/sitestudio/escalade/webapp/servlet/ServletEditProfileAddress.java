@@ -53,7 +53,7 @@ public class ServletEditProfileAddress extends HttpServlet {
         try {
             newAdresse.setDepartement(departementResource.getDepartement(Integer.parseInt(codePostal.substring(0,2))));
 
-            if (compte.getAdresse() != null) {
+            if (compte.getAdresse().getId() != null) {
 
                 Integer addressId = adresse.getId();
                 adresse.setId(addressId);
