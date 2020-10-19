@@ -25,7 +25,9 @@ public class RoleRM implements RowMapper<EnumRole> {
             case 3 :enumRole = EnumRole.UTILISATEUR;
                 break;
             default:
-                throw new IllegalStateException("Unexpected value: " + roleId);
+                enumRole = EnumRole.UTILISATEUR;
+
+                /* RAJOUTEZ SYSTEME DE LOG */
         }
         
         return enumRole;

@@ -41,48 +41,73 @@ public class ServletSite extends HttpServlet {
 
         String siteId = request.getParameter("site");
 
-        try {
             if (compte != null) {
-                compte = compteResource.getCompte(compte.getId());
+                try {
+                    compte = compteResource.getCompte(compte.getId());
+                    httpSession.setAttribute("compte",compte);
+                    System.out.println("Le compte : " + compte);
+                } catch (NotFoundException e) {
+                    System.out.println("Le compte est introuvable. Erreur : " + e);
+
+                }
             }
 
             if (siteId.equals("all")) {
 
-                List<Site> listSites = siteResource.getSite();
-                List<Secteur> listSecteurs = secteurResource.getSecteur();
-                List<Commentaire> listCommentaires = commentaireResource.getCommentaire();
-
-                System.out.println("Les sites sont : " + listSites);
-                System.out.println("Les secteurs sont : " + listSecteurs);
-                System.out.println("Les commentaires sont : " + listCommentaires);
-
-                httpSession.setAttribute("compte", compte);
-                request.setAttribute("listSites", listSites);
+                try {
+                    List<Site> listSites = siteResource.getSite();
+                    request.setAttribute("listSites", listSites);
+                    System.out.println("La liste de site est : " + listSites);
+                } catch (NotFoundException e) {
+                    System.out.println("La liste de site est introuvable. Erreur : " + e);
+                }
+                try {
+                    List<Secteur> listSecteurs = secteurResource.getSecteur();
+                    request.setAttribute("listSecteurs", listSecteurs);
+                    System.out.println("La liste des secteurs du site est : " + listSecteurs);
+                } catch (NotFoundException e) {
+                    System.out.println("La liste des secteurs du site est introuvable. Erreur : " + e);
+                }
+                try {
+                    List<Commentaire> listCommentaires = commentaireResource.getCommentaire();
+                    request.setAttribute("listCommentaires", listCommentaires);
+                    System.out.println("La liste des commentaires du site est : " + listCommentaires);
+                } catch (NotFoundException e) {
+                    System.out.println("La liste des commentaires du site est. Erreur : " + e);
+                } catch (FunctionalException e) {
+                    System.out.println("La liste des commentaires du site est. Erreur fonctionnelle : " + e);
+                }
 
             } else {
 
-                site = siteResource.getSite(Integer.parseInt(siteId));
-                List<Secteur> listSecteurs = secteurResource.getSecteur(site);
-                List<Commentaire> listCommentaires = commentaireResource.getCommentaire(site);
+                try {
+                    site = siteResource.getSite(Integer.parseInt(siteId));
+                    request.setAttribute("site",site);
+                    System.out.println("Le site est : " + site);
+                } catch (NotFoundException e) {
+                    System.out.println("Le site est introuvable. Erreur : " + e);
+                }
 
-                System.out.println("Le site est : " + site);
-                System.out.println("Les secteurs du site sont : " + listSecteurs);
-                System.out.println("Les commentaires du site sont : " + listCommentaires);
+                try {
+                    List<Secteur> listSecteurs = secteurResource.getSecteur(site);
+                    httpSession.setAttribute("listSecteurs", listSecteurs);
+                    System.out.println("La liste des secteurs du site est : " + listSecteurs);
+                } catch (NotFoundException e) {
+                    System.out.println("La liste des secteurs du site est introuvable. Erreur : " + e);
+                }
 
-                httpSession.setAttribute("listSecteurs", listSecteurs);
-                httpSession.setAttribute("listCommentaires", listCommentaires);
+                try {
+                    List<Commentaire> listCommentaires = commentaireResource.getCommentaire(site);
+                    httpSession.setAttribute("listCommentaires", listCommentaires);
+                    System.out.println("La liste des commentaires du site est : " + listCommentaires);
+                } catch (NotFoundException e) {
+                    System.out.println("La liste des commentaires du site est introuvable. Erreur : " + e);
+                } catch (FunctionalException e) {
+                    System.out.println("La liste des commentaires du site est introuvable. Erreur fonctionnelle : " + e);
 
-                request.setAttribute("site",site);
+                }
 
-                System.out.println("Le compte : " + compte);
-                System.out.println("Le site : " + site);
             }
-
-        } catch (NotFoundException | FunctionalException e) {
-            System.out.println("ERREUR : " + e);
-        }
-
-        httpSession.setAttribute("compte",compte);
 
         this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/site.jsp").forward(request,response);
 

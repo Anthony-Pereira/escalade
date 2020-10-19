@@ -68,7 +68,7 @@
                                 <tbody>
                                 <c:forEach items="${listSiteByCriteria}" var="criteria">
                                     <tr>
-                                        <form action="siteSearch"method="get" >
+                                        <form action="site"method="get" >
                                             <td><button type="submit" name="site" value="${criteria.id}" ><c:out value="${criteria.nom}"/></button></td>
                                             <td><c:out value="${criteria.description}"/></td>
                                         </form>

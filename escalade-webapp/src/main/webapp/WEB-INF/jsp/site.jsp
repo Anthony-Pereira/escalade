@@ -51,9 +51,8 @@
                 <div class="form-group">
                     <h3>Commentaire</h3>
                     <br/>
-                    <form method="post" action="siteSearch">
-                <textarea class="form-control" name="commentaire" id="commentaire" rows="10" cols="100"
-                          required></textarea>
+                    <form method="post" action="site">
+                        <textarea class="form-control" name="commentaire" id="commentaire" rows="10" cols="100" required></textarea>
                         <br/>
                         <div class="d-flex justify-content-center">
                             <button type="submit" class="btn btn-primary tx-tfm">Envoyer</button>
@@ -66,7 +65,7 @@
                 <div class="form-group">
                     <h3>Modifier commentaire de <c:out value="${commentaire.compte.pseudo}"/></h3>
                     <br/>
-                    <form method="post" action="siteSearch">
+                    <form method="post" action="site">
                         <textarea class="form-control" name="commentaireModified" id="commentaireModified" rows="10" cols="100" required><c:out value="${commentaire.commentaire}"/></textarea>
                         <br/>
                         <div class="d-flex justify-content-center">
