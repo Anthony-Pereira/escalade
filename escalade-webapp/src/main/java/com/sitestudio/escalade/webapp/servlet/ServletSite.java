@@ -121,15 +121,28 @@ public class ServletSite extends HttpServlet {
 
         Compte compte = (Compte) httpSession.getAttribute("compte");
 
-        Site site = (Site) httpSession.getAttribute("site");
+        String siteId = request.getParameter("site");
 
         Commentaire commentaire = new Commentaire();
         CommentaireResource commentaireResource = new CommentaireResource();
+
+        SiteResource siteResource = new SiteResource();
+
+        Site site = new Site();
+
+        site.setId(Integer.parseInt(siteId));
 
         String commentaireUser = request.getParameter("commentaire");
         String modifier = request.getParameter("modifier");
         String supprimer = request.getParameter("supprimer");
         String commentaireModified = request.getParameter("commentaireModified");
+
+        try {
+            site = siteResource.getSite(site.getId());
+            httpSession.setAttribute("site",site);
+        } catch (NotFoundException e) {
+            System.out.println("Le site est introuvable. Erreur : " + e);;
+        }
 
         if (commentaireUser != null){
 

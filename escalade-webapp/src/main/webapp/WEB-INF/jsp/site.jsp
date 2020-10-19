@@ -55,7 +55,7 @@
                         <textarea class="form-control" name="commentaire" id="commentaire" rows="10" cols="100" required></textarea>
                         <br/>
                         <div class="d-flex justify-content-center">
-                            <button type="submit" class="btn btn-primary tx-tfm">Envoyer</button>
+                            <button type="submit" class="btn btn-primary tx-tfm" name="site" value="${site.id}">Envoyer</button>
                         </div>
                     </form>
                     <br/>
