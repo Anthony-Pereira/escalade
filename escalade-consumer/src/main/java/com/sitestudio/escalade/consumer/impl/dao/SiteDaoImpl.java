@@ -3,10 +3,6 @@ package com.sitestudio.escalade.consumer.impl.dao;
 import com.sitestudio.escalade.consumer.contract.dao.SiteDao;
 import com.sitestudio.escalade.consumer.impl.rowmapper.MoreCriteriaRM;
 import com.sitestudio.escalade.consumer.impl.rowmapper.SiteRM;
-import com.sitestudio.escalade.model.bean.compte.Adresse;
-import com.sitestudio.escalade.model.bean.referentiel.Cotation;
-import com.sitestudio.escalade.model.bean.referentiel.Departement;
-import com.sitestudio.escalade.model.bean.site.Secteur;
 import com.sitestudio.escalade.model.bean.site.Site;
 import com.sitestudio.escalade.model.bean.site.Voie;
 import com.sitestudio.escalade.model.exception.NotFoundException;
@@ -92,15 +88,15 @@ public class SiteDaoImpl extends AbstractDao implements SiteDao {
     public Boolean create(Site site) {
 
         String sql = "INSERT INTO site " +
-                "(nom,description,adresse_id) " +
-                "VALUES (:nom,:description,:adresse_id)";
+                "(nom,description,officielescalade,adresse_id) " +
+                "VALUES (:nom,:description,:officielEscalade,:adresse_id)";
 
         MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
 
         mapSqlParameterSource.addValue("site_id",site.getId(), Types.INTEGER);
         mapSqlParameterSource.addValue("nom",site.getNom(), Types.VARCHAR);
         mapSqlParameterSource.addValue("description",site.getDescription(), Types.VARCHAR);
-        mapSqlParameterSource.addValue("officielLesAmisDeLescalade",site.getOfficielLesAmisDeLescalade(),Types.BOOLEAN);
+        mapSqlParameterSource.addValue("officielEscalade",site.getOfficielEscalade(),Types.BOOLEAN);
         mapSqlParameterSource.addValue("adresse_id",site.getAdresse().getId(), Types.INTEGER);
 
         NamedParameterJdbcTemplate jdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());

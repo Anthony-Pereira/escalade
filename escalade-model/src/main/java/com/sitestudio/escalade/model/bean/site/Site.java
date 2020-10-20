@@ -11,19 +11,18 @@ public class Site {
     private String description;
     private List<UrlPhoto> url;
     private Adresse adresse;
-    private Boolean officielLesAmisDeLescalade;
+    private Boolean officielEscalade;
 
     public Site(){}
 
     public Site(Integer id) {this.id = id;}
 
-    public Site(Integer id, String nom, String description, List<UrlPhoto> url, Adresse adresse, Boolean officielLesAmisDeLescalade) {
+    public Site(Integer id, String nom, String description, Adresse adresse, Boolean officielEscalade) {
         this.id = id;
         this.nom = nom;
         this.description = description;
-        this.url = url;
         this.adresse = adresse;
-        this.officielLesAmisDeLescalade = officielLesAmisDeLescalade;
+        this.officielEscalade = officielEscalade;
     }
 
     public Integer getId() {
@@ -50,14 +49,6 @@ public class Site {
         this.description = description;
     }
 
-    public List<UrlPhoto> getUrl() {
-        return url;
-    }
-
-    public void setUrl(List<UrlPhoto> url) {
-        this.url = url;
-    }
-
     public Adresse getAdresse() {
         return adresse;
     }
@@ -66,12 +57,12 @@ public class Site {
         this.adresse = adresse;
     }
 
-    public Boolean getOfficielLesAmisDeLescalade() {
-        return officielLesAmisDeLescalade;
+    public Boolean getOfficielEscalade() {
+        return officielEscalade;
     }
 
-    public void setOfficielLesAmisDeLescalade(Boolean officielLesAmisDeLescalade) {
-        this.officielLesAmisDeLescalade = officielLesAmisDeLescalade;
+    public void setOfficielEscalade(Boolean officielEscalade) {
+        this.officielEscalade = officielEscalade;
     }
 
     @Override
@@ -82,7 +73,7 @@ public class Site {
                 ", description='" + description + '\'' +
                 ", url=" + url +
                 ", adresse=" + adresse +
-                ", officielLesAmisDeLescalade=" + officielLesAmisDeLescalade +
+                ", officielEscalade=" + officielEscalade +
                 '}';
     }
 }

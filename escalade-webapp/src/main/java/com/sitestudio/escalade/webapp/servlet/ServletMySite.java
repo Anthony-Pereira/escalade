@@ -63,6 +63,7 @@ public class ServletMySite extends HttpServlet {
 
         site.setNom(nom);
         site.setDescription(description);
+        site.setOfficielEscalade(false);
 
         try {
             adresse.setDepartement(departementResource.getDepartement(Integer.parseInt(codePostal.substring(0,2))));

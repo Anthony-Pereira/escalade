@@ -130,7 +130,7 @@ public class CommentaireDaoImpl extends AbstractDao implements CommentaireDao {
         mapSqlParameterSource.addValue("commentaire", commentaire.getCommentaire(), Types.VARCHAR);
         mapSqlParameterSource.addValue("date", commentaire.getDate(), Types.TIMESTAMP);
         mapSqlParameterSource.addValue("compte_id", commentaire.getCompte().getId(),Types.INTEGER);
-        mapSqlParameterSource.addValue("site_id",commentaire.getSite(),Types.INTEGER);
+        mapSqlParameterSource.addValue("site_id",commentaire.getSite().getId(),Types.INTEGER);
 
         return mapSqlParameterSource;
     }

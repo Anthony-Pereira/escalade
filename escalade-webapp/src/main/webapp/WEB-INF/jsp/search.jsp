@@ -63,8 +63,8 @@
                             <td><c:out value="${site.adresse.departement.region.nom}"/></td>
                             <td><c:out value="${site.adresse.departement.region.pays.nom}"/></td>
                             <c:choose>
-                                <c:when test="${site.officielLesAmisDeLescalade == true}"><td>Oui</td></c:when>
-                                <c:when test="${site.officielLesAmisDeLescalade == false}"><td>Non</td></c:when>
+                                <c:when test="${site.officielEscalade == true}"><td>Oui</td></c:when>
+                                <c:when test="${site.officielEscalade == false}"><td>Non</td></c:when>
                             </c:choose>
                         </tr>
                     </c:forEach>

@@ -23,7 +23,7 @@ public class SiteRM implements RowMapper<Site> {
 
         site.setNom(rs.getString("nom"));
         site.setDescription(rs.getString("description"));
-        site.setOfficielLesAmisDeLescalade(rs.getBoolean("officielLesAmisDeLescalade"));
+        site.setOfficielEscalade(rs.getBoolean("officielEscalade"));
 
         try {
             Integer var = rs.getInt("adresse_id");

@@ -130,12 +130,14 @@ public class ServletSite extends HttpServlet {
 
         Site site = new Site();
 
-        site.setId(Integer.parseInt(siteId));
-
         String commentaireUser = request.getParameter("commentaire");
         String modifier = request.getParameter("modifier");
         String supprimer = request.getParameter("supprimer");
         String commentaireModified = request.getParameter("commentaireModified");
+
+        if (siteId != null){
+            site.setId(Integer.parseInt(siteId));
+        }
 
         try {
             site = siteResource.getSite(site.getId());
@@ -149,7 +151,7 @@ public class ServletSite extends HttpServlet {
             LocalDateTime dateTime = LocalDateTime.now();
 
             commentaire.setCompte(compte);
-            commentaire.setSite(site.getId());
+            commentaire.setSite(site);
             commentaire.setCommentaire(commentaireUser);
             commentaire.setDate(dateTime);
 
@@ -186,7 +188,7 @@ public class ServletSite extends HttpServlet {
         } else if (supprimer != null){
 
             try {
-            commentaire = commentaireResource.getCommentaire(Integer.parseInt(supprimer));
+                commentaire = commentaireResource.getCommentaire(Integer.parseInt(supprimer));
             } catch (NotFoundException | FunctionalException e) {
                 System.out.println("Le commentaire est introuvable : Erreur : " + e);
             }

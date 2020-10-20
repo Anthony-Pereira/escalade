@@ -25,7 +25,7 @@
             <div class="jumbotron bg-transparent">
                 <h1 class="text-center"><c:out value="${site.nom}"/></h1>
                 <br/>
-                <c:if test="${site.officielLesAmisDeLescalade == true}">
+                <c:if test="${site.officielEscalade == true}">
                     <h3 class="text-center">Officiel Les amis de l’escalade</h3>
                 </c:if>
                 <br/>
@@ -121,8 +121,8 @@
                                 <td>${site.nom}</td>
                                 <td>${site.adresse.numero}, rue ${site.adresse.rue} ${site.adresse.codePostal} ${site.adresse.ville}</td>
                                 <c:choose>
-                                    <c:when test="${site.officielLesAmisDeLescalade == true}"><td>Oui</td></c:when>
-                                    <c:when test="${site.officielLesAmisDeLescalade == false}"><td>Non</td></c:when>
+                                    <c:when test="${site.officielEscalade == true}"><td>Oui</td></c:when>
+                                    <c:when test="${site.officielEscalade == false}"><td>Non</td></c:when>
                                 </c:choose>
                             </tr>
                         </c:forEach>

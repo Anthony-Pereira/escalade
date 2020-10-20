@@ -11,7 +11,7 @@ public class Commentaire {
     private String commentaire;
     private LocalDateTime date;
     private Compte compte;
-    private Integer site;
+    private Site site;
 
 
     public Commentaire(){}
@@ -20,7 +20,7 @@ public class Commentaire {
         this.id = id;
     }
 
-    public Commentaire(Integer id, String commentaire, LocalDateTime date, Compte compte, Integer site) {
+    public Commentaire(Integer id, String commentaire, LocalDateTime date, Compte compte, Site site) {
         this.id = id;
         this.commentaire = commentaire;
         this.date = date;
@@ -60,11 +60,11 @@ public class Commentaire {
         this.compte = compte;
     }
 
-    public Integer getSite() {
+    public Site getSite() {
         return site;
     }
 
-    public void setSite(Integer site) {
+    public void setSite(Site site) {
         this.site = site;
     }
 
