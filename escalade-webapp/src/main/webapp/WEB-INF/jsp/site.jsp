@@ -66,10 +66,12 @@
                     <c:when test="${!empty editerCommentaire}">
                         <div class="form-group">
                             <h3>Menu modification de commentaire</h3>
-                            <h4>Utilisateur <c:out value="${editerCommentaire.compte.pseudo}"/></h4>
+                            <br/>
+                            <h4>Membre : <c:out value="${editerCommentaire.compte.pseudo}"/></h4>
                             <br/>
                             <form method="post" action="site">
-                                <textarea class="form-control" name="commentaireAEditer" rows="10" cols="100" required><c:out value="${editerCommentaire.commentaire}"/></textarea>
+                                <h6>Dernier message modifié : <c:out value="${editerCommentaire.commentaire}"/></h6>
+                                <textarea class="form-control" name="commentaireAEditer" rows="10" cols="100" required></textarea>
                                 <br/>
                                 <div class="d-flex justify-content-center">
                                     <button type="submit" class="btn btn-primary tx-tfm" name="modifierCommentaire" value="${editerCommentaire.id}">Envoyer</button>
