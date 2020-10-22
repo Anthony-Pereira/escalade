@@ -121,8 +121,6 @@ public class ServletSite extends HttpServlet {
 
         Compte compte = (Compte) httpSession.getAttribute("compte");
 
-        String siteId = request.getParameter("site");
-
         Commentaire commentaire = new Commentaire();
         CommentaireResource commentaireResource = new CommentaireResource();
 
@@ -130,29 +128,31 @@ public class ServletSite extends HttpServlet {
 
         Site site = new Site();
 
-        String commentaireUser = request.getParameter("commentaire");
-        String modifier = request.getParameter("modifier");
-        String supprimer = request.getParameter("supprimer");
-        String commentaireModified = request.getParameter("commentaireModified");
+        String nouveauCommentaire = request.getParameter("nouveauCommentaire");
 
-        if (siteId != null){
+        String modifierCommentaire = request.getParameter("modifierCommentaire");
+        String commentaireAEditer = request.getParameter("commentaireAEditer");
+
+        String supprimerCommentaire = request.getParameter("supprimerCommentaire");
+
+        if (nouveauCommentaire != null) {
+
+            String siteId = request.getParameter("site");
+
             site.setId(Integer.parseInt(siteId));
-        }
 
-        try {
-            site = siteResource.getSite(site.getId());
-            httpSession.setAttribute("site",site);
-        } catch (NotFoundException e) {
-            System.out.println("Le site est introuvable. Erreur : " + e);;
-        }
-
-        if (commentaireUser != null){
+            try {
+                site = siteResource.getSite(site.getId());
+                httpSession.setAttribute("site", site);
+            } catch (NotFoundException e) {
+                System.out.println("Le site est introuvable. Erreur : " + e);
+            }
 
             LocalDateTime dateTime = LocalDateTime.now();
 
             commentaire.setCompte(compte);
             commentaire.setSite(site);
-            commentaire.setCommentaire(commentaireUser);
+            commentaire.setCommentaire(nouveauCommentaire);
             commentaire.setDate(dateTime);
 
             try {
@@ -161,34 +161,44 @@ public class ServletSite extends HttpServlet {
                 System.out.println("Le commentaire n'a pas été créer. Erreur : " + e);
             }
 
-            httpSession.setAttribute("compte",compte);
+        } else if (modifierCommentaire != null){
 
-        } else if (modifier != null || commentaireModified != null){
+            if (commentaireAEditer != null){
 
-            try {
-                commentaire = commentaireResource.getCommentaire(Integer.parseInt(modifier));
-            } catch (NotFoundException | FunctionalException e) {
-                System.out.println("Le commentaire est introuvable : Erreur : " + e);
-            }
+                commentaire.setId(Integer.parseInt(modifierCommentaire));
 
-                if (modifier != null){
-                    httpSession.setAttribute("editComment",commentaire);
-                    httpSession.setAttribute("commentaire",commentaire);
-                } else {
-                    commentaire.setCommentaire(commentaireModified);
-
-                    try {
-                        commentaireResource.updateCommentaire(commentaire);
-                    } catch (NotFoundException e) {
-                        System.out.println("Le commentaire a bien été modifié. Message : " + e);
-                    }
-
+                try {
+                    commentaire = commentaireResource.getCommentaire(commentaire.getId());
+                } catch (NotFoundException e) {
+                    e.printStackTrace();
+                } catch (FunctionalException e) {
+                    e.printStackTrace();
                 }
 
-        } else if (supprimer != null){
+                commentaire.setCommentaire(commentaireAEditer);
+
+                try {
+                    commentaireResource.updateCommentaire(commentaire);
+                } catch (NotFoundException e) {
+                    e.printStackTrace();
+                }
+
+            } else {
+
+                commentaire.setId(Integer.parseInt(modifierCommentaire));
+
+                try {
+                    Commentaire editerCommentaire = commentaireResource.getCommentaire(commentaire.getId());
+                    httpSession.setAttribute("editerCommentaire", editerCommentaire);
+                } catch (NotFoundException | FunctionalException e) {
+                    System.out.println("Le commentaire n'a pas été modifier. Erreur : " + e);
+                }
+            }
+
+        } else if (supprimerCommentaire != null){
 
             try {
-                commentaire = commentaireResource.getCommentaire(Integer.parseInt(supprimer));
+                commentaire = commentaireResource.getCommentaire(Integer.parseInt(supprimerCommentaire));
             } catch (NotFoundException | FunctionalException e) {
                 System.out.println("Le commentaire est introuvable : Erreur : " + e);
             }
@@ -202,7 +212,10 @@ public class ServletSite extends HttpServlet {
         }
 
         try {
-            List<Commentaire> listCommentaires = commentaireResource.getCommentaire(site);
+
+            commentaire = (Commentaire) httpSession.getAttribute("editerCommentaire");
+
+            List<Commentaire> listCommentaires = commentaireResource.getCommentaire(commentaire.getSite());
 
             System.out.println("Les commentaires sont : " + listCommentaires);
             httpSession.setAttribute("listCommentaires",listCommentaires);

@@ -41,6 +41,26 @@ public class CommentaireDaoImpl extends AbstractDao implements CommentaireDao {
     }
 
     @Override
+    public Commentaire read(Commentaire commentaire) throws NotFoundException {
+
+        String sql = "SELECT * FROM commentaire WHERE commentaire_id ='" + commentaire.getId() + "'";
+
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
+
+        List<Commentaire> listCommentaire = jdbcTemplate.query(sql,commentaireRM);
+
+        Commentaire commentaireSite;
+
+        if (listCommentaire.size() == 0){
+            throw new NotFoundException("Le commentaire n'existe pas");
+        } else {
+            commentaireSite = listCommentaire.get(0);
+        }
+
+        return commentaireSite;
+    }
+
+    @Override
     public List<Commentaire> readAll() throws NotFoundException {
 
         String sql = "SELECT * FROM commentaire";

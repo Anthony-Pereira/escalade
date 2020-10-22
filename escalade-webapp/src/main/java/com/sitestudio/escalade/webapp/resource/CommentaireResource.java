@@ -17,6 +17,10 @@ public class CommentaireResource extends AbstractResource {
         return getManagerFactory().getCommentaireManager().getCommentaire(id);
     }
 
+    public Commentaire getCommentaire (Commentaire commentaire) throws NotFoundException, FunctionalException {
+        return getManagerFactory().getCommentaireManager().getCommentaire(commentaire);
+    }
+
 
     public List<Commentaire> getCommentaire () throws NotFoundException, FunctionalException {
         return getManagerFactory().getCommentaireManager().getCommentaire();

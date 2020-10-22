@@ -24,6 +24,12 @@ public interface CommentaireDao {
 
     /**
      * Méthode de recherche des informations
+     * @param commentaire
+     * @return T */
+    Commentaire read (Commentaire commentaire) throws NotFoundException;
+
+    /**
+     * Méthode de recherche des informations
      * @return T */
     List<Commentaire> readAll() throws NotFoundException;
 

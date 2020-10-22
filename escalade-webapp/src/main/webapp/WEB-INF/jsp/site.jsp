@@ -48,31 +48,37 @@
             </div>
             <br/>
             <c:if test="${!empty compte}">
-                <div class="form-group">
-                    <h3>Commentaire</h3>
-                    <br/>
-                    <form method="post" action="site">
-                        <textarea class="form-control" name="commentaire" id="commentaire" rows="10" cols="100" required></textarea>
-                        <br/>
-                        <div class="d-flex justify-content-center">
-                            <button type="submit" class="btn btn-primary tx-tfm" name="site" value="${site.id}">Envoyer</button>
+                <c:choose>
+                    <c:when test="${empty editerCommentaire}">
+                        <div class="form-group">
+                            <h3>Commentaire</h3>
+                            <br/>
+                            <form method="post" action="site">
+                                <textarea class="form-control" name="nouveauCommentaire" rows="10" cols="100" required></textarea>
+                                <br/>
+                                <div class="d-flex justify-content-center">
+                                    <button type="submit" class="btn btn-primary tx-tfm" name="site" value="${site.id}">Envoyer</button>
+                                </div>
+                            </form>
+                            <br/>
+                        </div>   
+                    </c:when>
+                    <c:when test="${!empty editerCommentaire}">
+                        <div class="form-group">
+                            <h3>Menu modification de commentaire</h3>
+                            <h4>Utilisateur <c:out value="${editerCommentaire.compte.pseudo}"/></h4>
+                            <br/>
+                            <form method="post" action="site">
+                                <textarea class="form-control" name="commentaireAEditer" rows="10" cols="100" required><c:out value="${editerCommentaire.commentaire}"/></textarea>
+                                <br/>
+                                <div class="d-flex justify-content-center">
+                                    <button type="submit" class="btn btn-primary tx-tfm" name="modifierCommentaire" value="${editerCommentaire.id}">Envoyer</button>
+                                </div>
+                            </form>
+                            <br/>
                         </div>
-                    </form>
-                    <br/>
-                </div>
-            </c:if>
-            <c:if test="${!empty commentaire}">
-                <div class="form-group">
-                    <h3>Modifier commentaire de <c:out value="${commentaire.compte.pseudo}"/></h3>
-                    <br/>
-                    <form method="post" action="site">
-                        <textarea class="form-control" name="commentaireModified" id="commentaireModified" rows="10" cols="100" required><c:out value="${commentaire.commentaire}"/></textarea>
-                        <br/>
-                        <div class="d-flex justify-content-center">
-                            <button type="submit" class="btn btn-primary tx-tfm">Envoyer</button>
-                        </div>
-                    </form>
-                </div>
+                    </c:when>
+                </c:choose>
             </c:if>
             <div>
                 <table class="table">
@@ -95,8 +101,8 @@
                             <c:if test="${compte.role.id == 1 || compte.role.id == 2}">
                                 <form method="post" action="site">
                                     <td>
-                                        <button type="submit" value="${commentaire.id}" name="modifier" id="modifier" class="btn btn-outline-secondary my-1">modifier</button>
-                                        <button type="submit" value="${commentaire.id}" name="supprimer" id="supprimer" class="btn btn-outline-secondary my-1">supprimer</button>
+                                        <button type="submit" value="${commentaire.id}" name="modifierCommentaire" id="modifierCommentaire" class="btn btn-outline-secondary my-1">modifier</button>
+                                        <button type="submit" value="${commentaire.id}" name="supprimerCommentaire" id="supprimerCommentaire" class="btn btn-outline-secondary my-1">supprimer</button>
                                     </td>
                                 </form>
                             </c:if>
