@@ -65,12 +65,8 @@
                     </c:when>
                     <c:when test="${!empty editerCommentaire}">
                         <div class="form-group">
-                            <h3>Menu modification de commentaire</h3>
-                            <br/>
-                            <h4>Membre : <c:out value="${editerCommentaire.compte.pseudo}"/></h4>
-                            <br/>
                             <form method="post" action="site">
-                                <h6>Dernier message modifié : <c:out value="${editerCommentaire.commentaire}"/></h6>
+                                <h5>Dernier message modifié : <c:out value="${editerCommentaire.commentaire}"/></h5>
                                 <textarea class="form-control" name="commentaireAEditer" rows="10" cols="100" required></textarea>
                                 <br/>
                                 <div class="d-flex justify-content-center">

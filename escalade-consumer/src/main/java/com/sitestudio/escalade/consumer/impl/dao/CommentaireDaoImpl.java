@@ -23,7 +23,7 @@ public class CommentaireDaoImpl extends AbstractDao implements CommentaireDao {
     @Override
     public Commentaire read(Integer id) throws NotFoundException {
 
-        String sql = "SELECT * FROM commentaire WHERE commentaire_id ='" + id + "'";
+        String sql = "SELECT * FROM commentaire WHERE commentaire_id =" + id;
 
         JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
 
@@ -79,7 +79,7 @@ public class CommentaireDaoImpl extends AbstractDao implements CommentaireDao {
     @Override
     public List<Commentaire> readAll(Site site) throws NotFoundException {
 
-        String sql = "SELECT * FROM commentaire WHERE site_id = '" + site.getId() + "'";
+        String sql = "SELECT * FROM commentaire WHERE site_id =" + site.getId();
 
         JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
 

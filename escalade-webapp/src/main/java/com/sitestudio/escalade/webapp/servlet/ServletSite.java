@@ -155,6 +155,8 @@ public class ServletSite extends HttpServlet {
             commentaire.setCommentaire(nouveauCommentaire);
             commentaire.setDate(dateTime);
 
+            httpSession.setAttribute("commentaire",commentaire);
+
             try {
                 commentaireResource.createCommentaire(commentaire);
             } catch (NotFoundException | FunctionalException e) {
@@ -183,6 +185,9 @@ public class ServletSite extends HttpServlet {
                     e.printStackTrace();
                 }
 
+                httpSession.setAttribute("site",commentaire.getSite());
+                System.out.println("Le site est : " + site);
+
             } else {
 
                 commentaire.setId(Integer.parseInt(modifierCommentaire));
@@ -199,6 +204,16 @@ public class ServletSite extends HttpServlet {
 
             try {
                 commentaire = commentaireResource.getCommentaire(Integer.parseInt(supprimerCommentaire));
+
+                Commentaire commentaire1;
+
+                commentaire1 = commentaire;
+
+                httpSession.setAttribute("commentaire",commentaire1);
+
+                httpSession.setAttribute("site",commentaire1.getSite());
+                System.out.println("Le site est : " + commentaire1.getSite());
+
             } catch (NotFoundException | FunctionalException e) {
                 System.out.println("Le commentaire est introuvable : Erreur : " + e);
             }
@@ -211,36 +226,16 @@ public class ServletSite extends HttpServlet {
 
         }
 
+                Commentaire commentaire1 = (Commentaire) httpSession.getAttribute("commentaire");
+
         try {
-
-            if (httpSession.getAttribute("site") != null){
-
-                site = (Site) httpSession.getAttribute("site");
-
-                List<Commentaire> listCommentaires = commentaireResource.getCommentaire(site);
-
-                httpSession.setAttribute("listCommentaires",listCommentaires);
-                System.out.println("Les commentaires sont : " + listCommentaires);
-
-                httpSession.setAttribute("site",site);
-                System.out.println("Le site est : " + site);
-
-            } else {
-
-                commentaire = (Commentaire) httpSession.getAttribute("editerCommentaire");
-
-                List<Commentaire> listCommentaires = commentaireResource.getCommentaire(commentaire.getSite());
-
-                httpSession.setAttribute("listCommentaires",listCommentaires);
-                System.out.println("Les commentaires sont : " + listCommentaires);
-
-                httpSession.setAttribute("site",commentaire.getSite());
-                System.out.println("Le site est : " + commentaire.getSite());
-
-            }
-
-        } catch (NotFoundException | FunctionalException e) {
-            System.out.println("Les commentaires n'existent. Erreur : " + e);
+            List<Commentaire> listCommentaires = commentaireResource.getCommentaire(commentaire1.getSite());
+            httpSession.setAttribute("listCommentaires",listCommentaires);
+            System.out.println("Les commentaires sont : " + listCommentaires);
+        } catch (NotFoundException e) {
+            e.printStackTrace();
+        } catch (FunctionalException e) {
+            e.printStackTrace();
         }
 
         this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/site.jsp").forward(request,response);
