@@ -67,6 +67,7 @@
                 <th>Lieu</th>
                 <th>Parution</th>
                 <th>Emprunteur</th>
+                <th>Email</th>
                 <th>Statut</th>
                 <th>Reservation</th>
             </tr>
@@ -82,6 +83,7 @@
                         <c:when test="${topo.reservation == 2}">
                             <td class="bg-light"><c:out value="${topo.emprunteur.pseudo}"/></td>
                             <td class="bg-light">en attente</td>
+                            <td class="bg-light">en attente</td>
                             <td class="bg-light">
                                 <form method="post" action="topoList">
                                     <div>
@@ -95,6 +97,7 @@
                         <c:when test="${topo.reservation == 0}">
                             <td class="bg-light">aucun</td>
                             <td class="bg-light">non réservé</td>
+                            <td class="bg-light">aucune</td>
                             <td class="bg-light">
                                 <form method="post" action="topoList">
                                     <div>
@@ -109,10 +112,12 @@
                             <c:choose>
                                 <c:when test="${topo.compte.id != topo.emprunteur.id}">
                                     <td class="bg-light"><c:out value="${topo.emprunteur.pseudo}"/></td>
+                                    <td class="bg-light"><c:out value="${topo.emprunteur.email}"/></td>
                                     <td class="bg-light">réservé</td>
                                 </c:when>
                                 <c:when test="${topo.compte.id == topo.emprunteur.id}">
                                     <td class="bg-light">aucun</td>
+                                    <td class="bg-light">n/a</td>
                                     <td class="bg-light">n/a</td>
                                 </c:when>
                             </c:choose>

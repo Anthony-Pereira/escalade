@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>a19dacae-517e-4460-a705-2fb9b7aca26f.TABLE:escalade.public.adresse</OriginalElement>
+  <nodes>
+    <node x="78.20454545454547" y="491.0">a19dacae-517e-4460-a705-2fb9b7aca26f.TABLE:escalade.public.adresse</node>
+    <node x="88.70454545454547" y="0.0">a19dacae-517e-4460-a705-2fb9b7aca26f.TABLE:escalade.public.pays</node>
+    <node x="252.25" y="706.0">a19dacae-517e-4460-a705-2fb9b7aca26f.TABLE:escalade.public.compte</node>
+    <node x="51.0" y="998.0">a19dacae-517e-4460-a705-2fb9b7aca26f.TABLE:escalade.public.secteur</node>
+    <node x="78.20454545454547" y="320.0">a19dacae-517e-4460-a705-2fb9b7aca26f.TABLE:escalade.public.departement</node>
+    <node x="17.704545454545467" y="1180.0">a19dacae-517e-4460-a705-2fb9b7aca26f.TABLE:escalade.public.voie</node>
+    <node x="37.95454545454547" y="750.0">a19dacae-517e-4460-a705-2fb9b7aca26f.TABLE:escalade.public.site</node>
+    <node x="304.25" y="524.0">a19dacae-517e-4460-a705-2fb9b7aca26f.TABLE:escalade.public.role</node>
+    <node x="488.25" y="0.0">a19dacae-517e-4460-a705-2fb9b7aca26f.TABLE:escalade.public.topo</node>
+    <node x="80.20454545454547" y="171.0">a19dacae-517e-4460-a705-2fb9b7aca26f.TABLE:escalade.public.region</node>
+    <node x="689.25" y="0.0">a19dacae-517e-4460-a705-2fb9b7aca26f.TABLE:escalade.public.cotation</node>
+    <node x="211.0" y="987.0">a19dacae-517e-4460-a705-2fb9b7aca26f.TABLE:escalade.public.commentaire</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="a19dacae-517e-4460-a705-2fb9b7aca26f.TABLE:escalade.public.region" target="a19dacae-517e-4460-a705-2fb9b7aca26f.TABLE:escalade.public.pays">
+      <point x="0.0" y="-49.5" />
+      <point x="0.0" y="60.5" />
+    </edge>
+    <edge source="a19dacae-517e-4460-a705-2fb9b7aca26f.TABLE:escalade.public.compte" target="a19dacae-517e-4460-a705-2fb9b7aca26f.TABLE:escalade.public.adresse">
+      <point x="-40.5" y="-115.5" />
+      <point x="292.75" y="681.0" />
+      <point x="204.95454545454547" y="681.0" />
+      <point x="42.25" y="82.5" />
+    </edge>
+    <edge source="a19dacae-517e-4460-a705-2fb9b7aca26f.TABLE:escalade.public.voie" target="a19dacae-517e-4460-a705-2fb9b7aca26f.TABLE:escalade.public.site">
+      <point x="-34.25" y="-104.5" />
+      <point x="51.95454545454547" y="1155.0" />
+      <point x="40.5" y="1155.0" />
+      <point x="40.5" y="962.0" />
+      <point x="65.45454545454547" y="962.0" />
+      <point x="-55.0" y="71.5" />
+    </edge>
+    <edge source="a19dacae-517e-4460-a705-2fb9b7aca26f.TABLE:escalade.public.secteur" target="a19dacae-517e-4460-a705-2fb9b7aca26f.TABLE:escalade.public.site">
+      <point x="0.0" y="-60.5" />
+      <point x="0.0" y="71.5" />
+    </edge>
+    <edge source="a19dacae-517e-4460-a705-2fb9b7aca26f.TABLE:escalade.public.departement" target="a19dacae-517e-4460-a705-2fb9b7aca26f.TABLE:escalade.public.region">
+      <point x="0.0" y="-60.5" />
+      <point x="0.0" y="49.5" />
+    </edge>
+    <edge source="a19dacae-517e-4460-a705-2fb9b7aca26f.TABLE:escalade.public.site" target="a19dacae-517e-4460-a705-2fb9b7aca26f.TABLE:escalade.public.adresse">
+      <point x="0.0" y="-71.5" />
+      <point x="-42.25" y="82.5" />
+    </edge>
+    <edge source="a19dacae-517e-4460-a705-2fb9b7aca26f.TABLE:escalade.public.adresse" target="a19dacae-517e-4460-a705-2fb9b7aca26f.TABLE:escalade.public.departement">
+      <point x="0.0" y="-82.5" />
+      <point x="0.0" y="60.5" />
+    </edge>
+    <edge source="a19dacae-517e-4460-a705-2fb9b7aca26f.TABLE:escalade.public.compte" target="a19dacae-517e-4460-a705-2fb9b7aca26f.TABLE:escalade.public.role">
+      <point x="40.5" y="-115.5" />
+      <point x="0.0" y="49.5" />
+    </edge>
+    <edge source="a19dacae-517e-4460-a705-2fb9b7aca26f.TABLE:escalade.public.commentaire" target="a19dacae-517e-4460-a705-2fb9b7aca26f.TABLE:escalade.public.compte">
+      <point x="40.75" y="-71.5" />
+      <point x="0.0" y="115.5" />
+    </edge>
+    <edge source="a19dacae-517e-4460-a705-2fb9b7aca26f.TABLE:escalade.public.commentaire" target="a19dacae-517e-4460-a705-2fb9b7aca26f.TABLE:escalade.public.site">
+      <point x="-40.75" y="-71.5" />
+      <point x="251.75" y="962.0" />
+      <point x="175.45454545454547" y="962.0" />
+      <point x="55.0" y="71.5" />
+    </edge>
+    <edge source="a19dacae-517e-4460-a705-2fb9b7aca26f.TABLE:escalade.public.voie" target="a19dacae-517e-4460-a705-2fb9b7aca26f.TABLE:escalade.public.secteur">
+      <point x="34.25" y="-104.5" />
+      <point x="0.0" y="60.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.6911284599006386" x="838.0462642920827" y="594.3412405011297" />
+  <SelectedNodes>
+    <node>a19dacae-517e-4460-a705-2fb9b7aca26f.TABLE:escalade.public.adresse</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+
