@@ -45,7 +45,7 @@
                 </div>
                 <br/>
                 <div>
-                    <label for="parution">Date de parution</label> <input type="number" size="50"
+                    <label for="parution">Date de parution</label> <input type="text" size="50"
                                                         name="parution" class="form-control" id="parution"
                                                         aria-describedby="parution" required>
                     <span class="text-info"></span>

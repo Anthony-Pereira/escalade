@@ -65,6 +65,7 @@ public class ServletMyTopo extends HttpServlet {
         topo.setParution(Integer.parseInt(parution));
         topo.setReservation(1);
         topo.setCompte(compte);
+        topo.setEmprunteur(compte);
 
         try {
             topoResource.createTopo(topo);

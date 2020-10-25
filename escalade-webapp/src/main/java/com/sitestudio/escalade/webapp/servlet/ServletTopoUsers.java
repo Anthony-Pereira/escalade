@@ -49,7 +49,10 @@ public class ServletTopoUsers extends HttpServlet {
         TopoResource topoResource = new TopoResource();
 
         HttpSession httpSession = request.getSession();
+
         httpSession.getAttribute("listAllTopos");
+        Compte compte = (Compte) httpSession.getAttribute("compte");
+
 
         String reservation = request.getParameter("reservation");
 
@@ -65,7 +68,7 @@ public class ServletTopoUsers extends HttpServlet {
             topo.setLieu(topo.getLieu());
             topo.setParution(topo.getParution());
             topo.setCompte(topo.getCompte());
-            topo.setEmprunteur(topo.getCompte());
+            topo.setEmprunteur(compte);
             topo.setReservation(2);
 
             try {

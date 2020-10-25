@@ -76,9 +76,9 @@ public class TopoDaoImpl extends AbstractDao implements TopoDao {
     public Boolean create(Topo topo) {
 
         String sql = "INSERT INTO topo " +
-                "(nom,description,lieu,parution,reservation,compte_id)" +
+                "(nom,description,lieu,parution,reservation,compte_id,emprunteur_id)" +
                 "VALUES" +
-                "(:nom,:description,:lieu,:parution,:reservation,:compte_id)";
+                "(:nom,:description,:lieu,:parution,:reservation,:compte_id,:emprunteur_id)";
 
         MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
 
@@ -89,6 +89,7 @@ public class TopoDaoImpl extends AbstractDao implements TopoDao {
         mapSqlParameterSource.addValue("parution",topo.getParution(), Types.INTEGER);
         mapSqlParameterSource.addValue("reservation",topo.getReservation(), Types.INTEGER);
         mapSqlParameterSource.addValue("compte_id",topo.getCompte().getId(),Types.INTEGER);
+        mapSqlParameterSource.addValue("emprunteur_id",topo.getEmprunteur().getId(),Types.INTEGER);
 
         NamedParameterJdbcTemplate jdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
 
