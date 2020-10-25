@@ -195,6 +195,7 @@ public class ServletSite extends HttpServlet {
                 try {
                     Commentaire editerCommentaire = commentaireResource.getCommentaire(commentaire.getId());
                     httpSession.setAttribute("editerCommentaire", editerCommentaire);
+                    httpSession.setAttribute("commentaire", editerCommentaire);
                 } catch (NotFoundException | FunctionalException e) {
                     System.out.println("Le commentaire n'a pas été modifier. Erreur : " + e);
                 }
