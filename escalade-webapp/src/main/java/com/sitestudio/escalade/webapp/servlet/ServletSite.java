@@ -30,6 +30,8 @@ public class ServletSite extends HttpServlet {
 
         HttpSession httpSession = request.getSession();
 
+        httpSession.setAttribute("editerCommentaire",null);
+
         Compte compte = (Compte) httpSession.getAttribute("compte");
 
         Site site = new Site();
