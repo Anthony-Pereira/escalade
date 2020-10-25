@@ -165,6 +165,22 @@ public class ServletSite extends HttpServlet {
 
         } else if (modifierCommentaire != null){
 
+            try {
+                commentaire = commentaireResource.getCommentaire(Integer.parseInt(modifierCommentaire));
+
+                Commentaire commentaire1;
+
+                commentaire1 = commentaire;
+
+                httpSession.setAttribute("commentaire",commentaire1);
+
+                httpSession.setAttribute("site",commentaire1.getSite());
+                System.out.println("Le site est : " + commentaire1.getSite());
+
+            } catch (NotFoundException | FunctionalException e) {
+                System.out.println("Le commentaire est introuvable : Erreur : " + e);
+            }
+
             if (commentaireAEditer != null){
 
                 commentaire.setId(Integer.parseInt(modifierCommentaire));
