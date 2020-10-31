@@ -78,12 +78,16 @@
 					<c:choose>
 						<c:when test="${!empty confirmationError}">
 							<p class="text-danger font-weight-bold">Un problème est survenu</p>
-							<p>Le couple email ou mot de passe est incorrect.</p>
+							<p class="text-danger">Le couple email ou mot de passe est incorrect.</p>
 						</c:when>
 						<c:when test="${!empty emailExist}">
 							<p class="text-danger font-weight-bold">Un problème est survenu</p>
-                            <p>L'adresse e-mail est déjà utilisée</p>
-                            <p>Vous avez indiqué que vous êtes un nouveau utilisateur, mais un compte existe déjà avec l'adresse email <c:out value="${compte.email}"/></p>
+                            <p class="text-danger">L'adresse e-mail est déjà utilisée</p>
+                            <p class="text-danger">Vous avez indiqué que vous êtes un nouveau utilisateur, mais un compte existe déjà avec l'adresse email <c:out value="${compte.email}"/></p>
+						</c:when>
+						<c:when test="${!empty isInvalidPassword}">
+							<p class="text-danger font-weight-bold">Un problème est survenu</p>
+                            <p class="text-danger">Utilisez 8 ou plus de caractères, avec un mélange de lettres majuscules, minuscules et de nombres</p>
 						</c:when>
 					</c:choose>
 				</div>

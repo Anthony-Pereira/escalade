@@ -69,6 +69,7 @@
                     <c:when test="${!empty passwordMessageFalse}"><p class="text-danger">Les mots ne passe ne correspondent pas</p></c:when>
                     <c:otherwise><p></p></c:otherwise>
                 </c:choose>
+                <c:if test="${!empty validPassword}"><p class="text-danger">Utilisez 8 ou plus de caractères, avec un mélange de lettres majuscules, minuscules et de nombres</p></c:if>
 
                 <button type="submit"
                         class="btn btn-secondary mt-4">Modifier le mot de passe</button>
@@ -79,7 +80,7 @@
             <form action="deleteAccount" method="post" >
                 <div>
                     <h4>Supprimer votre compte</h4>
-
+                    <br/>
                     <p>Une fois que vous supprimez un compte, il n’y a pas de retour en arrière. S’il vous plaît, soyez-en certain.</p>
 
                     <label for="delete">Veuillez taper <c:out value="${compte.email}"/> pour confirmer.</label> <input type="email"

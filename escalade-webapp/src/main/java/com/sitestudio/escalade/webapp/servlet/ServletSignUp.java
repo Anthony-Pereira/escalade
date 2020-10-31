@@ -47,6 +47,7 @@ public class ServletSignUp extends HttpServlet {
         Compte compte = new Compte();
 
         Boolean emailDoesNotExist = false;
+        Boolean isValidPassword;
 
         String nom = request.getParameter("nom");
         String prenom = request.getParameter("prenom");
@@ -54,6 +55,17 @@ public class ServletSignUp extends HttpServlet {
         String motDePasse = request.getParameter("motDePasse");
         String confirmeEmail = request.getParameter("confirmeEmail");
         String confirmeMotDePasse = request.getParameter("confirmeMotDePasse");
+
+        String regEx = "^[a-zA-Z0-9]{8,}$";
+
+        do {
+            isValidPassword = motDePasse.matches(regEx);
+
+            if (!isValidPassword) {
+                request.setAttribute("isInvalidPassword", true);
+                this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/signUp.jsp").forward(request, response);
+            }
+        } while (!isValidPassword);
 
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
