@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 @WebServlet(name = "ServletSignUp")
 public class ServletSignUp extends HttpServlet {
@@ -53,11 +55,27 @@ public class ServletSignUp extends HttpServlet {
         String confirmeEmail = request.getParameter("confirmeEmail");
         String confirmeMotDePasse = request.getParameter("confirmeMotDePasse");
 
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
+            messageDigest.update(motDePasse.getBytes());
+            byte byteData[] = messageDigest.digest();
+
+            //convertir le tableau de bits en une format hexadécimal
+            StringBuffer sb = new StringBuffer();
+            for (int i = 0; i < byteData.length; i++) {
+                sb.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
+            }
+
+            compte.setMotDePasse(sb.toString());
+
+        } catch (NoSuchAlgorithmException e) {
+            System.out.println("Erreur : " + e);
+        }
+
         compte.setNom(nom);
         compte.setPrenom(prenom);
         compte.setPseudo(prenom);
         compte.setEmail(email);
-        compte.setMotDePasse(motDePasse);
         compte.setRole(EnumRole.UTILISATEUR);
 
         if (confirmeEmail.equals(email) && confirmeMotDePasse.equals(motDePasse)) {
