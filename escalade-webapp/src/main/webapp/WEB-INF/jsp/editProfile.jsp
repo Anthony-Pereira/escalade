@@ -93,6 +93,12 @@
                                                                 aria-describedby="ville" required>
                         <span class="text-info"></span>
                     </div>
+                    <br/>
+                    <c:choose>
+                        <c:when test="${modificationValid == true}"><p class="text-success">Les modifications ont bien été pris en compte.</p></c:when>
+                        <c:when test="${modificationValid == false}"><p class="text-danger">Une erreur s'est produite,
+                            les modifications n'ont pas été pris en compte.<br/>Veuillez réessayer.</p></c:when>
+                    </c:choose>
                     <div class="d-flex justify-content-center m-3">
                         <button type="submit" class="btn btn-dark">Envoyer</button>
                     </div>

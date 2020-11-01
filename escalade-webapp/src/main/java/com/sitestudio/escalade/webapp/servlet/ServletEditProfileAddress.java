@@ -50,40 +50,54 @@ public class ServletEditProfileAddress extends HttpServlet {
         String codePostal = request.getParameter("codePostal");
         String ville = request.getParameter("ville");
 
-        try {
-            newAdresse.setDepartement(departementResource.getDepartement(Integer.parseInt(codePostal.substring(0,2))));
+        String regExNumero = "^([1-9])|[1-9][0-9]$";
+        String regExCodePostal = "^((0[1-9])|([1-8][0-9])|(9[0-8]))[0-9]{3}$";
 
-            if (compte.getAdresse().getId() != null) {
+        Boolean isValidNumber = numero.matches(regExNumero);
 
-                Integer addressId = adresse.getId();
-                adresse.setId(addressId);
-                adresse.setNumero(numero);
-                adresse.setRue(rue);
-                adresse.setCodePostal(codePostal);
-                adresse.setVille(ville);
+        Boolean isValidZip = codePostal.matches(regExCodePostal);
 
-                adresseResource.updateAdresse(adresse);
+        if (isValidNumber && isValidZip){
+            try {
+                newAdresse.setDepartement(departementResource.getDepartement(Integer.parseInt(codePostal.substring(0,2))));
 
-            } else {
+                if (compte.getAdresse().getId() != null) {
 
-                newAdresse.setNumero(numero);
-                newAdresse.setRue(rue);
-                newAdresse.setCodePostal(codePostal);
-                newAdresse.setVille(ville);
+                    Integer addressId = adresse.getId();
+                    adresse.setId(addressId);
+                    adresse.setNumero(numero);
+                    adresse.setRue(rue);
+                    adresse.setCodePostal(codePostal);
+                    adresse.setVille(ville);
 
-                adresseResource.createAdresse(newAdresse);
+                    adresseResource.updateAdresse(adresse);
 
-                adresse = newAdresse;
+                } else {
 
-                compte.setAdresse(adresse);
+                    newAdresse.setNumero(numero);
+                    newAdresse.setRue(rue);
+                    newAdresse.setCodePostal(codePostal);
+                    newAdresse.setVille(ville);
 
-                compteResource.updateCompte(compte);
+                    adresseResource.createAdresse(newAdresse);
 
+                    adresse = newAdresse;
+
+                    compte.setAdresse(adresse);
+
+                    compteResource.updateCompte(compte);
+
+                }
+
+                httpSession.setAttribute("modificationValid",true);
+
+            } catch (NotFoundException | FunctionalException e) {
+                System.out.println("ERROR: " + e);
             }
-        } catch (NotFoundException | FunctionalException e) {
-            System.out.println("ERROR: " + e);
+        } else {
+            httpSession.setAttribute("modificationValid",false);
         }
-        
+
         httpSession.setAttribute("compte",compte);
         httpSession.setAttribute("adresse",adresse);
 

@@ -22,6 +22,7 @@
 <div class="container">
     <div class="jumbotron bg-transparent">
         <h1 class="text-center"><c:out value="${secteur.nom}"/></h1>
+        <br/>
         <p><c:out value="${secteur.description}"/></p>
     </div>
     <c:choose>
