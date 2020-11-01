@@ -38,6 +38,12 @@ public interface CompteDao {
     Boolean update (Compte compte);
 
     /**
+     * Méthode de modification
+     * @param compte
+     * @return boolean */
+    Boolean updateEmailAndPassword (Compte compte);
+
+    /**
      * Méthode de suppression
      * @param compte
      * @return boolean */

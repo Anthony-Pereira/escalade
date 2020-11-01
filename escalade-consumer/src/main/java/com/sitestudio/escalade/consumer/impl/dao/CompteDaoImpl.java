@@ -107,6 +107,23 @@ public class CompteDaoImpl extends AbstractDao implements CompteDao {
     }
 
     @Override
+    public Boolean updateEmailAndPassword(Compte compte) {
+
+        String sql = "UPDATE compte SET email=:email,mot_de_passe=:mot_de_passe WHERE compte_id=" + compte.getId();
+
+        MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
+
+        mapSqlParameterSource.addValue("email", compte.getEmail(), Types.VARCHAR);
+        mapSqlParameterSource.addValue("mot_de_passe", compte.getMotDePasse(), Types.VARCHAR);
+
+        NamedParameterJdbcTemplate jdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
+
+        Integer nbUpdate = jdbcTemplate.update(sql,mapSqlParameterSource);
+
+        return nbUpdate > 0;
+    }
+
+    @Override
     public Boolean delete(Compte compte) {
 
         String sql = "DELETE FROM compte WHERE compte_id=" + compte.getId() + " AND email='" + compte.getEmail() + "'";
@@ -124,7 +141,7 @@ public class CompteDaoImpl extends AbstractDao implements CompteDao {
     }
 
     @Override
-    public Boolean checkEmail(Compte compte) throws FunctionalException {
+    public Boolean checkEmail(Compte compte) {
 
         String sql = "SELECT * FROM compte WHERE email ='" + compte.getEmail() + "'";
 
@@ -132,16 +149,15 @@ public class CompteDaoImpl extends AbstractDao implements CompteDao {
 
         List<Compte> listCompte = jdbcTemplate.query(sql,compteRM);
 
-        Boolean emailDoesNotExist;
+        Boolean emailExist;
 
         if (listCompte.size() != 0) {
-            emailDoesNotExist = false;
-            throw new FunctionalException("L'adresse e-mail est déjà utilisée");
+            emailExist = true;
         } else {
-            emailDoesNotExist = true;
+            emailExist = false;
         }
 
-        return emailDoesNotExist;
+        return emailExist;
     }
 
     private MapSqlParameterSource getMapSqlParameterSource(Compte compte) {

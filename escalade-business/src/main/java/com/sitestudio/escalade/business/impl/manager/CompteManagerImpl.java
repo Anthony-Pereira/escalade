@@ -36,6 +36,11 @@ public class CompteManagerImpl extends AbstractManager implements CompteManager 
     }
 
     @Override
+    public Boolean updateEmailAndPassword(Compte compte) throws NotFoundException {
+        return getDaoFactory().getCompteDao().updateEmailAndPassword(compte);
+    }
+
+    @Override
     public Boolean deleteCompte(Compte compte) throws NotFoundException {
         return getDaoFactory().getCompteDao().delete(compte);
     }

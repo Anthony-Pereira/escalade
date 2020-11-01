@@ -36,18 +36,17 @@ public class ServletPasswordParameter extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
-        Compte compte;
         CompteResource compteResource = new CompteResource();
 
         Boolean isValidPassword;
 
         HttpSession httpSession = request.getSession();
-        compte = (Compte) httpSession.getAttribute("compte");
+        Compte compte = (Compte) httpSession.getAttribute("compte");
 
         String motDePasse = request.getParameter("motDePasse");
         String rewriteMotDePasse = request.getParameter("rewriteMotDePasse");
 
-        Integer id = compte.getId();
+        //Integer id = compte.getId();
 
         String regEx = "^[a-zA-Z0-9]{8,}$";
 
@@ -66,10 +65,10 @@ public class ServletPasswordParameter extends HttpServlet {
                     }
 
                     compte.setMotDePasse(sb.toString());
-                    compte.setId(id);
+                    //compte.setId(id);
 
                     try {
-                        compteResource.updateCompte(compte);
+                        compteResource.updateEmailAndPassword(compte);
                         request.setAttribute("passwordMessageTrue",true);
                     } catch (NotFoundException e) {
                         System.out.println(e.getMessage());

@@ -47,7 +47,7 @@
 
 						<c:if test="${!empty connectionMessage}">
 							<p class="text-danger font-weight-bold">Un problème est survenu</p>
-							<p>Le couple email/mot de passe est incorrect.</p>
+							<p class="text-danger">Le couple email/mot de passe est incorrect.</p>
 						</c:if>
 
 						<button type="submit" class=" btn btn-block btn btn-secondary tx-tfm">Connexion</button>

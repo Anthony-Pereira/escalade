@@ -25,6 +25,10 @@ public class CompteResource extends AbstractResource {
         return getManagerFactory().getCompteManager().updateCompte(compte);
     }
 
+    public Boolean updateEmailAndPassword(Compte compte) throws NotFoundException {
+        return getManagerFactory().getCompteManager().updateEmailAndPassword(compte);
+    }
+
     public Boolean deleteCompte (Compte compte) throws NotFoundException {
         return getManagerFactory().getCompteManager().deleteCompte(compte);
     }

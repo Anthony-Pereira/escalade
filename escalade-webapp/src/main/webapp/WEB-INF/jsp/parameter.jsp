@@ -40,6 +40,17 @@
                                                                 name="email" class="form-control col-sm-6" id="email"
                                                                 aria-describedby="email" placeholder="Entrez votre nouvelle email" required>
                                                                 <span class="text-danger"></span>
+                <br/>
+                <c:choose>
+                    <c:when test="${validEmail == false}"><p class="text-danger">Votre adresse email doit comprendre entre 6 et 30 caractères
+                        <br/>exemple: john.doe@mon-email.fr.</p></c:when>
+                    <c:when test="${validEmail == true}"><p class="text-success">L'émail a bien été modifié</p></c:when>
+                </c:choose>
+
+                <c:if test="${!empty emailExist}">
+                    <p class="text-danger">L'adresse e-mail est déjà utilisée</p>
+                    <p class="text-danger">Vous avez indiqué que vous êtes un nouveau utilisateur, mais un compte existe déjà avec l'adresse email <c:out value="${compte.email}"/>.</p>
+                </c:if>
 
                 <div class="mt-4">
                     <button type="submit"
@@ -47,7 +58,7 @@
                 </div>
             </form>
         </div>
-
+        <br/>
         <div class="mb-3">
 
             <h4>Changer votre mot de passe</h4>
@@ -65,11 +76,12 @@
                 <span class="text-danger"></span>
 
                 <c:choose>
-                    <c:when test="${!empty passwordMessageTrue}"><p class="text-success">La modification à bien été pris en compte</p></c:when>
-                    <c:when test="${!empty passwordMessageFalse}"><p class="text-danger">Les mots ne passe ne correspondent pas</p></c:when>
+                    <c:when test="${!empty passwordMessageTrue}"><p class="text-success">La modification à bien été pris en compte.</p></c:when>
+                    <c:when test="${!empty passwordMessageFalse}"><p class="text-danger">Les mots ne passe ne correspondent pas.</p></c:when>
                     <c:otherwise><p></p></c:otherwise>
                 </c:choose>
-                <c:if test="${!empty validPassword}"><p class="text-danger">Utilisez 8 ou plus de caractères, avec un mélange de lettres majuscules, minuscules et de nombres</p></c:if>
+                <c:if test="${!empty validPassword}"><p class="text-danger">Utilisez 8 ou plus de caractères,
+                    avec un mélange de lettres majuscules, minuscules et de nombres pour votre mot de passe.</p></c:if>
 
                 <button type="submit"
                         class="btn btn-secondary mt-4">Modifier le mot de passe</button>
@@ -91,7 +103,7 @@
 
                 <c:choose>
                     <c:when test="${!empty deleteEmailTrue}"></c:when>
-                    <c:when test="${!empty deleteEmailFalse}"><p class="text-danger">Les mot de passe ne correspondent pas</p></c:when>
+                    <c:when test="${!empty deleteEmailFalse}"><p class="text-danger">Les mot de passe ne correspondent pas.</p></c:when>
                 </c:choose>
 
                 <div class="mt-4">

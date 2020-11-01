@@ -34,6 +34,13 @@ public interface CompteManager {
      */
     Boolean updateCompte(Compte compte) throws NotFoundException;
 
+    /**Modifier un compte utilisateur.
+     * @param compte L'identifiant de l'utilisateur ciblé.
+     * @return boolean.
+     * @throws NotFoundException
+     */
+    Boolean updateEmailAndPassword(Compte compte) throws NotFoundException;
+
     /**Supprimer un compte utilisateur.
      * @param compte L'identifiant de l'utilisateur ciblé.
      * @return boolean.
