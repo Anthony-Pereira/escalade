@@ -4,6 +4,7 @@ import com.sitestudio.escalade.model.bean.compte.Adresse;
 import com.sitestudio.escalade.model.bean.compte.Compte;
 import com.sitestudio.escalade.model.exception.NotFoundException;
 import com.sitestudio.escalade.webapp.resource.CompteResource;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -46,20 +47,33 @@ public class ServletEditProfileAccount extends HttpServlet {
         String nom = request.getParameter("nom");
         String numTelephone = request.getParameter("numTelephone");
 
-        Integer id = compte.getId();
-        compte.setId(id);
-        compte.setPseudo(pseudo);
-        compte.setPrenom(prenom);
-        compte.setNom(nom);
-        compte.setNumTelephone(numTelephone);
-        compte.setAdresse(adresse);
-        compte.setRole(compte.getRole());
+        String regExPhone = "^(?:(?:\\+|00)33[\\s.-]{0,3}(?:\\(0\\)[\\s.-]{0,3})?|0)[1-9](?:(?:[\\s.-]?\\d{2}){4}|\\d{2}(?:[\\s.-]?\\d{3}){2})$";
 
-        try {
-            compteResource.updateCompte(compte);
-        } catch (NotFoundException e) {
-            System.out.println("ERROR: " + e);
+        if (numTelephone !=""){
+            Boolean isValidPhoneNumber = numTelephone.matches(regExPhone);
+            if (isValidPhoneNumber){
+                compte.setNumTelephone(numTelephone);
+                request.setAttribute("isValidPhoneNumber",true);
+            } else {
+                request.setAttribute("isValidPhoneNumber",false);
+            }
+        } else {
+            compte.setNumTelephone(numTelephone);
         }
+
+            Integer id = compte.getId();
+            compte.setId(id);
+            compte.setPseudo(pseudo);
+            compte.setPrenom(prenom);
+            compte.setNom(nom);
+            compte.setAdresse(adresse);
+            compte.setRole(compte.getRole());
+
+            try {
+                compteResource.updateCompte(compte);
+            } catch (NotFoundException e) {
+                System.out.println("ERROR: " + e);
+            }
 
         if (httpSession.getAttribute("compte") != null) {
             this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/editProfile.jsp").forward(request,response);

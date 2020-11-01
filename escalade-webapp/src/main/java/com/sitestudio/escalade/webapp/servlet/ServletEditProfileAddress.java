@@ -89,13 +89,13 @@ public class ServletEditProfileAddress extends HttpServlet {
 
                 }
 
-                httpSession.setAttribute("modificationValid",true);
+                httpSession.setAttribute("modificationAddressValid",true);
 
             } catch (NotFoundException | FunctionalException e) {
                 System.out.println("ERROR: " + e);
             }
         } else {
-            httpSession.setAttribute("modificationValid",false);
+            httpSession.setAttribute("modificationAddressValid",false);
         }
 
         httpSession.setAttribute("compte",compte);

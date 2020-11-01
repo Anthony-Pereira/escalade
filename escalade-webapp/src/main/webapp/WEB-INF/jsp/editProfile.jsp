@@ -57,6 +57,11 @@
                                                                                          aria-describedby="numTelephone">
                             <span class="text-info"></span>
                         </div>
+                        <c:choose>
+                            <c:when test="${isValidPhoneNumber == true}"><p class="text-success">Le numéro de téléphone a bien été modifié</p></c:when>
+                            <c:when test="${isValidPhoneNumber == false}"><p class="text-danger">Le numéro de téléphone a mal été saisie. Veuillez réessayer.</p></c:when>
+                            <c:otherwise></c:otherwise>
+                        </c:choose>
                         <div class="d-flex justify-content-center m-3">
                             <button type="submit" class="btn btn-dark">Envoyer</button>
                         </div>
@@ -95,8 +100,8 @@
                     </div>
                     <br/>
                     <c:choose>
-                        <c:when test="${modificationValid == true}"><p class="text-success">Les modifications ont bien été pris en compte.</p></c:when>
-                        <c:when test="${modificationValid == false}"><p class="text-danger">Une erreur s'est produite,
+                        <c:when test="${modificationAddressValid == true}"><p class="text-success">Les modifications ont bien été pris en compte.</p></c:when>
+                        <c:when test="${modificationAddressValid == false}"><p class="text-danger">Une erreur s'est produite,
                             les modifications n'ont pas été pris en compte.<br/>Veuillez réessayer.</p></c:when>
                     </c:choose>
                     <div class="d-flex justify-content-center m-3">
