@@ -81,22 +81,36 @@ public class ServletMyWay extends HttpServlet {
             e.printStackTrace();
         }
 
-        site = secteur.getSite();
+        String regexNumber = "^[0-9]*$";
+        String regexlength = "^[0-9]*$";
 
-        System.out.println("le site de la voie est : " + site);
+        Boolean isValidNumber = numero.matches(regexNumber);
+        Boolean isValidLength = longueur.matches(regexlength);
 
-        voie.setNumero(Integer.parseInt(numero));
-        voie.setNom(nom);
-        voie.setDescription(description);
-        voie.setLongueur(Integer.parseInt(longueur));
-        voie.setDifficulte(difficulte);
-        voie.setSecteur(secteur);
-        voie.setSite(site);
+        if (isValidNumber && isValidLength){
 
-        try {
-            voieResource.createVoie(voie);
-        } catch (NotFoundException e) {
-            System.out.println("Erreur : " + e);
+            site = secteur.getSite();
+
+            System.out.println("le site de la voie est : " + site);
+
+            voie.setNumero(Integer.parseInt(numero));
+            voie.setNom(nom);
+            voie.setDescription(description);
+            voie.setLongueur(Integer.parseInt(longueur));
+            voie.setDifficulte(difficulte);
+            voie.setSecteur(secteur);
+            voie.setSite(site);
+
+            try {
+                voieResource.createVoie(voie);
+            } catch (NotFoundException e) {
+                System.out.println("Erreur : " + e);
+            }
+
+            request.setAttribute("modificationValid", true);
+
+        } else {
+            request.setAttribute("modificationValid", false);
         }
 
         if (httpSession.getAttribute("compte") != null) {

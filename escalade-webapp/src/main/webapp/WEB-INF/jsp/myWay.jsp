@@ -32,7 +32,7 @@
                         <option selected disabled>Sélectionner</option>
                         <c:forEach items="${listSecteurs}" var="secteur">
                             <option value="${secteur.id}">
-                                    <c:out value="${secteur.nom}"/>
+                                    <c:out value="${secteur.nom}"/> - <c:out value="${secteur.site.nom}"/>
                             </option>
                         </c:forEach>
                     </select>
@@ -76,6 +76,10 @@
                     </select>
                 </div>
             </div>
+            <c:choose>
+                <c:when test="${modificationValid == true}"><p class="text-success">Les modifications ont bien été pris en compte.</p></c:when>
+                <c:when test="${modificationValid == false}"><p class="text-danger">les modifications ont mal été saisie. Veuillez réessayer.</p></c:when>
+            </c:choose>
             <div class="d-flex justify-content-center mt-5">
                 <button type="submit" class="btn btn-dark" required>Envoyer</button>
             </div>
