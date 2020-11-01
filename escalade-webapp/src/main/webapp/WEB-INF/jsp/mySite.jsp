@@ -59,7 +59,7 @@
                 </div>
             </div>
             <br/>
-            <div class="mb-5">
+            <div>
                 <div>
                     <label for="nom">Nom</label> <input type="text" size="50"
                                                             name="nom" class="form-control" id="nom"
@@ -72,6 +72,10 @@
                     <textarea class="form-control" name="description" id="description" required></textarea>
                 </div>
             </div>
+            <c:choose>
+                <c:when test="${modificationSiteValid == true}"><p class="text-success">Les modifications ont bien été pris en compte.</p></c:when>
+                <c:when test="${modificationSiteValid == false}"><p class="text-danger">les modifications ont mal été saisie. Veuillez réessayer.</p></c:when>
+            </c:choose>
             <div class="d-flex justify-content-center">
                 <button type="submit" class="btn btn-dark" required>Envoyer</button>
             </div>

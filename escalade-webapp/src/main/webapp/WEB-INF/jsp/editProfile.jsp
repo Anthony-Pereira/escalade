@@ -101,8 +101,7 @@
                     <br/>
                     <c:choose>
                         <c:when test="${modificationAddressValid == true}"><p class="text-success">Les modifications ont bien été pris en compte.</p></c:when>
-                        <c:when test="${modificationAddressValid == false}"><p class="text-danger">Une erreur s'est produite,
-                            les modifications n'ont pas été pris en compte.<br/>Veuillez réessayer.</p></c:when>
+                        <c:when test="${modificationAddressValid == false}"><p class="text-danger">les modifications ont mal été saisie. Veuillez réessayer.</p></c:when>
                     </c:choose>
                     <div class="d-flex justify-content-center m-3">
                         <button type="submit" class="btn btn-dark">Envoyer</button>

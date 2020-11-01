@@ -56,26 +56,41 @@ public class ServletMySite extends HttpServlet {
         String nom = request.getParameter("nom");
         String description = request.getParameter("description");
 
-        adresse.setNumero(numero);
-        adresse.setRue(rue);
-        adresse.setCodePostal(codePostal);
-        adresse.setVille(ville);
+        String regExNumero = "^([1-9])|[1-9][0-9]$";
+        String regExCodePostal = "^((0[1-9])|([1-8][0-9])|(9[0-8]))[0-9]{3}$";
 
-        site.setNom(nom);
-        site.setDescription(description);
-        site.setOfficielEscalade(false);
+        Boolean isValidNumber = numero.matches(regExNumero);
 
-        try {
-            adresse.setDepartement(departementResource.getDepartement(Integer.parseInt(codePostal.substring(0,2))));
+        Boolean isValidZip = codePostal.matches(regExCodePostal);
 
-            adresseResource.createAdresse(adresse);
+        if (isValidNumber && isValidZip) {
 
-            site.setAdresse(adresse);
+            adresse.setNumero(numero);
+            adresse.setRue(rue);
+            adresse.setCodePostal(codePostal);
+            adresse.setVille(ville);
 
-            siteResource.createSite(site);
+            site.setNom(nom);
+            site.setDescription(description);
+            site.setOfficielEscalade(false);
 
-        } catch (NotFoundException | FunctionalException e) {
-            System.out.println("Error " + e);
+            try {
+                adresse.setDepartement(departementResource.getDepartement(Integer.parseInt(codePostal.substring(0, 2))));
+
+                adresseResource.createAdresse(adresse);
+
+                site.setAdresse(adresse);
+
+                siteResource.createSite(site);
+
+            } catch (NotFoundException | FunctionalException e) {
+                System.out.println("Error " + e);
+            }
+
+            request.setAttribute("modificationSiteValid",true);
+
+        } else {
+            request.setAttribute("modificationSiteValid",false);
         }
 
         if (httpSession.getAttribute("compte") != null) {
