@@ -8,7 +8,7 @@
 [Régions de France]()
 [Département Français]()
 
-## Re Installer la base de données du projet à partir des scripts SQL
+## Installer la base de données du projet à partir des scripts SQL
 
 Nom : PostgreSQL
 Version : 9.6.13
@@ -57,3 +57,12 @@ Ouvrir pg Admin 4 dans un navigateur
     - Type of objects > `Only data`
     - Queries > `Use column inserts`
     - Queries > `Use insert commands`
+
+## Configuration sur le serveur Tomcat
+
+Nom : Apache Tomcat
+Version : 9.0.35
+Url : http://localhost:8080/escalade/
+Artifact : escalade-webapp:war exploded
+Application context : /escalade
+JRE : 1.8 - project SDK
